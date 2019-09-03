@@ -3,7 +3,9 @@ NIST-CTS Market Agent
 
 Background
 ----------
-See the project [README](../../EnergyMashupLab/NIST-CTS-Agents/README.md)
+See the project [README](README.md)
+
+WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
 
 Technical Description Market Agent
@@ -11,8 +13,9 @@ Technical Description Market Agent
 
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view; see  the project
-[README](../../EnergyMashupLab/NIST-CTS-Agents/README.md) for an overview
+respective repositories' README files for a closer view; see  the project See the project [README](README.md) for an overview
+
+WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
 -   **Market Agent** (MA) which interacts with the markets and with Transactive
     Energy Agents using the CTS
