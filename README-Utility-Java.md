@@ -28,6 +28,8 @@ WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
     --  Input from live feeds and historical wholesale market data may be used as well.
     
     -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
+    
+A summary of where the utility code is used is in the project README: ![Architecture Drawing](Architecture.png)
 
 Standards Used
 --------------
