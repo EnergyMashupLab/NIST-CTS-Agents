@@ -1,47 +1,131 @@
-# NIST-CTS
+NIST-CTS
+========
 
-The NIST-CTS Project is an implementation of the Common Transactive Services and a Market Agent and a Transactive Energy Agent. The goal is to provide the following. See the respective repositories' README files for a closer view.
-* Common Transactive Services infrastructure
-* The Market Modular Interface
-* One or more pluggable markets
-* A Transactive Energy Agent to integrate with consumers and producers of energy and interact with the market(s) through a Market Agent (MA)
+Background
+----------
 
-The project uses Utilities including
-* Energy Interoperation to and from Java
-* Logging and input for live and simulation data
-* Ledgers
+We invite participation in an open source project to develop Actors for
+edge-based self-optimization of power distribution systems.
 
-The project is based on standards including 
-* the TEMIX profile of [OASIS Energy Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/). Energy Interoperation is the profile base of [OOpenADR 2] standardized as [IEC 62746-10-1] (https://webstore.iec.ch/publication/26267)
-* Informative UML models for Energy Interoperation/CTS payloads
-* Adapter methods for integrating with Independent System Operator and other wholesale energy markets are based on [IEC 62746-10-3:2018] (https://webstore.iec.ch/publication/59771) 
-## Project Structure
-The project has four repositories in addition to this top-level one:
-* Markets including
-  * The Market Modular Interface
-  * Market Position Management
-  * An example functioning market
-  * (Optional and future) links to wholesale markets
-* Market Agent (MA) which interacts with the markets and with Transactive Energy Agents using the CTS
-* Transactive Energy Agent (TEA) which interacts with the MA and provides integration capabilities for device and facility management
-* Utilies
-  * ei2j--Energy Interoperation to and from Java
-  * Logging and input for live and simulation meter and other data
-  * Ledgers
+Transactive Resource Management (TRM) enables Actors representing systems that
+use or supply a resource—any commodity whose value is defined by time and
+delivery location— to coordinate behaviors without the need for central control.
+TRM-based systems engage Actors in markets to manage supply and demand of a
+resource over time. Markets enable emergent behavior—new behavior related to
+actors and relationships as actors meet their internal needs.
 
-## Built With
-Agile methods; this is the initial project architecture README
+TRM systems are highly resilient, as Actors can join or leave the system without
+additional integration. TRM applications include managing power distribution,
+smart power grids, smart water, bandwidth sharing, placement of web and social
+media ads, and wastewater management.
 
-## Authors
+When the resource is electric power, TRM is called Transactive Energy (TE).
+Transactive Energy is already used to manage the bulk power grid. TE is
+considered essential to developing new resilient power grids, to transform
+legacy power grids, and to build resource-constrained grids.
 
-* **William Cox** - *Architecture* - [Cox Software Architects LLC](http://coxsoftwarearchitects.com/)
+Actor-based architectures enable hyper-scalable applications that are easy to
+design, build, and maintain. Actor Interactions are limited to defined messages,
+so they support diversity of participants and technologies. Market transaction
+messages create self-optimizing systems of suppliers, consumers, and
+distribution.
 
-See also the list of [contributors]TBD who participated in this project.
+This project will develop Transactive Energy Agents (TEA) interacting through
+Markets. We will define interfaces between an energy system and the Actor (TEA)
+that represents it. TEA’s will interact with a Market Agent/Actor that
+encapsulates market behavior. While the project uses a Bilateral Market model,
+the Market Agent will incorporate a Market Modular Interface to support other
+market models such as a Double Auction.
 
-## License
+Results
+-------
 
-This project is licensed under the Apache 2.0 License [LICENSE.md](LICENSE.md) file for details
+We expect that this project will make it easier for communities, facility
+owners, and device makers to apply TE. NIST looks to use these agents in
+simulations to model TE for regulators and legislators. A complete
+implementation of the Common Transactive Services will be highly visible and
+widely used.
 
-## Acknowledgments
+Standards Used
+--------------
 
+The project will uses standards including
 
+-   The TEMIX profile of [OASIS Energy
+    Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
+    Energy Interoperation is the profile base of [OpenADR 2] standardized as
+    [IEC 62746-10-1] (<https://webstore.iec.ch/publication/26267>)
+
+-   Informative UML models for Energy Interoperation/CTS payloads as shown in
+    the EI Standard
+
+-   ISO 17800 Facility Smart Grid Information Model
+    (<https://www.iso.org/standard/71547.html> )
+
+-   Adapter methods for integrating with Independent System Operator Wholesale
+    Markets and other energy markets are based on [IEC 62746-10-3:2018]
+    (<https://webstore.iec.ch/publication/59771>)
+
+Technical Description
+---------------------
+
+The NIST-CTS Project is a standards-based implementation of the Common
+Transactive Services and a Market Agent and a Transactive Energy Agent. See the
+respective repositories' README files for a closer view.
+
+The project has four repositories in addition to this top-level repository:
+
+-   **Markets** including
+
+    -   The Market Modular Interface
+
+    -   Market Position Management
+
+    -   A bilateral market
+
+    -   (Optional and future) links to wholesale markets
+
+    -   (future) Additional plug-in markets and documentation
+
+-   **Market Agent** (MA) which interacts with the markets and with Transactive
+    Energy Agents using the CTS
+
+-   **Transactive Energy Agent** (TEA) which interacts with the MA and provides
+    integration capabilities for device and facility management
+
+-   **Utilities**
+
+    -   Common Transactive Services (CTS) implementation
+
+    -   ei2j--Energy Interoperation to and from Java
+
+    -   Logging and input for live and simulation meter and other data
+
+    -   Ledgers
+    
+See the Architecture Drawing below. ![Architecture Drawing](Architecture.png)
+
+Built With
+----------
+
+Agile programming and architecture are used.
+
+The project will use Github, Maven, and Java 8.
+
+Authors
+-------
+
+-   **William Cox** - *Architecture* - [Cox Software Architects
+    LLC](http://coxsoftwarearchitects.com/)
+
+-   **Toby Considine –** *Architecture* – [TC9 Inc](http://www.tc9.com/)
+
+See also the list of [contributors] who participated in this project.
+
+License
+-------
+
+This project is licensed under the Apache 2.0 License.
+
+Acknowledgments
+---------------
