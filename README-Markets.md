@@ -21,7 +21,7 @@ WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
     -   The Market Modular Interface (**MMI**), a logical service provider interface for market implementations
 
-    -   Market Position Management (**MPM**), to keep track of positions, i.e., committed purchases and sales
+    -   Market Position Management (**MPM**) is in the current design in the Market Agent, to keep track of positions, i.e., committed purchases and sales
 
     -   A bilateral market
 
