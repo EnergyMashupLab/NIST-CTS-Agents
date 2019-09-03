@@ -20,7 +20,28 @@ WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 -   **Market Agent** (MA) which interacts with the markets and with Transactive
     Energy Agents using the CTS
 
+See the Architecture Drawing for the Market Agent: ![Market Agent Architecture Drawing](MarketAgent-Architecture.png)
 
+Standards Used
+--------------
+
+The project will uses standards including
+
+-   The TEMIX profile of [OASIS Energy
+    Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
+    Energy Interoperation is the profile base of [OpenADR 2] standardized as
+    [IEC 62746-10-1] (<https://webstore.iec.ch/publication/26267>)
+
+-   Informative UML models for Energy Interoperation/CTS payloads as shown in
+    the EI Standard
+
+-   ISO 17800 Facility Smart Grid Information Model
+    (<https://www.iso.org/standard/71547.html> )
+
+-   Adapter methods for integrating with Independent System Operator Wholesale
+    Markets and other energy markets are based on [IEC 62746-10-3:2018]
+    (<https://webstore.iec.ch/publication/59771>)
+    
 Built With
 ----------
 
