@@ -24,6 +24,28 @@ The terminmology **User Agent** is consistent with X.500 series and mail systems
 a "user agent". In effect the TEA will act as a "skin" to present energy buy and sell requests from the System Controller
 to present to and receive from the Market Agent (MA) which encapsulates markets.
 
+See the Architecture Drawing for the TEUA: ![TEUA Architecture Drawing](TEUA-Architecture.png)
+
+Standards Used
+--------------
+
+The project will uses standards including
+
+-   The TEMIX profile of [OASIS Energy
+    Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
+    Energy Interoperation is the profile base of [OpenADR 2] standardized as
+    [IEC 62746-10-1] (<https://webstore.iec.ch/publication/26267>)
+
+-   Informative UML models for Energy Interoperation/CTS payloads as shown in
+    the EI Standard
+
+-   ISO 17800 Facility Smart Grid Information Model
+    (<https://www.iso.org/standard/71547.html> )
+
+-   Adapter methods for integrating with Independent System Operator Wholesale
+    Markets and other energy markets are based on [IEC 62746-10-3:2018]
+    (<https://webstore.iec.ch/publication/59771>)
+    
 Built With
 ----------
 
