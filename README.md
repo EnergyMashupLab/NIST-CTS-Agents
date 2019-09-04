@@ -93,8 +93,8 @@ The project has four repositories in addition to this top-level repository:
     -   Uses ei2j capabilities for CTS connections
     
     -   (Optional and future) links to wholesale markets
-
--   **Transactive Energy Agent** (TEA) which interacts with the MA and provides
+    
+-   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
     integration capabilities for device and facility management
     
     -   Uses ei2j capabilities for CTS connections
