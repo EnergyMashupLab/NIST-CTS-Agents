@@ -78,20 +78,28 @@ The project has four repositories in addition to this top-level repository:
 -   **Markets** including
 
     -   The Market Modular Interface
-
-    -   Market Position Management
-
+    
     -   A bilateral market
-
-    -   (Optional and future) links to wholesale markets
-
+    
     -   (future) Additional plug-in markets and documentation
 
 -   **Market Agent** (MA) which interacts with the markets and with Transactive
-    Energy Agents using the CTS
+    Energy Agents using the CTS including
+    
+    -   The Market Modular Interface
+    
+    -   Market Position Management
+    
+    -   Uses ei2j capabilities for CTS connections
+    
+    -   (Optional and future) links to wholesale markets
 
 -   **Transactive Energy Agent** (TEA) which interacts with the MA and provides
     integration capabilities for device and facility management
+    
+    -   Uses ei2j capabilities for CTS connections
+    
+    -   Integrates with Supervisory Controller (SC)
 
 -   **Utilities**
 
