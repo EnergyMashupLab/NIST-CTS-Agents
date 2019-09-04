@@ -17,8 +17,12 @@ respective repositories' README files for a closer view; see  the project See th
 
 WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
--   **Transactive Energy Agent** (TEA) which interacts with the MA and provides
+-   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
     integration capabilities for device and facility management
+    
+    -   Uses ei2j capabilities for CTS connections
+    
+    -   Integrates with Supervisory Controller (SC)
 
 The terminmology **User Agent** is consistent with X.500 series and mail systems where the user is represented by
 a "user agent". In effect the TEA will act as a "skin" to present energy buy and sell requests from the System Controller
