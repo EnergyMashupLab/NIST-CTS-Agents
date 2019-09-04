@@ -18,7 +18,15 @@ respective repositories' README files for a closer view; see  the project See th
 WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
 -   **Market Agent** (MA) which interacts with the markets and with Transactive
-    Energy Agents using the CTS
+    Energy Agents using the CTS including
+    
+    -   The Market Modular Interface
+    
+    -   Market Position Management
+    
+    -   Uses ei2j capabilities for CTS connections
+    
+    -   (Optional and future) links to wholesale markets
 
 See the Architecture Drawing for the Market Agent: ![Market Agent Architecture Drawing](MarketAgent-Architecture.png)
 
