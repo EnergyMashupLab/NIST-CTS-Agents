@@ -105,7 +105,7 @@ The project has four repositories in addition to this top-level repository:
 
     -   Common Transactive Services (CTS) implementation
 
-    -   ei2j--Energy Interoperation to and from Java
+    -   ei2j--Energy Interoperation to and from Java, includes CTS implementation
 
     -   Logging and input for live and simulation meter and other data
 
