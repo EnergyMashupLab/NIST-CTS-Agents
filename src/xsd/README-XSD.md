@@ -1,5 +1,5 @@
-NIST-CTS Common Transactive Services Schemas
-============================================
+NIST-CTS Common Transactive Services XML Schemas
+================================================
 
 Background
 ----------
@@ -11,12 +11,17 @@ Technical Description Transactive Services XML Schemas
 
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view; see the project
+respective repositories' README files for a closer view; see the project [README](../../README.md) for an overview.
 
 -   **CTS Schemas** These schemas are used to implement the Common Transactive
-    Services CTS links in the architecture.
+    Services CTS links in the [Architecture Drawing](../../Architecture.png) shown below. Schemas for the Common Transactive Services are a minimalist expression of OASIS Energy Interoperation, OASIS EMIX, and OASIS WS-Calendar PIM and Streams for use in inter-actor communication.
 
-A summary of where the utility code is used is in the project README: ![Architecture Drawing](../../Architecture.png)
+Changes include
+-   Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+-   Removed references to VENs, VTNs to leave Common Transactive Services only
+
+Copyright notices are in the schema files.
+![Architecture Drawing](../../Architecture.png)
 
 Standards Used
 --------------
