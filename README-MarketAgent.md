@@ -33,7 +33,7 @@ See the Architecture Drawing for the Market Agent: ![Market Agent Architecture D
 Standards Used
 --------------
 
-The project will uses standards including
+The project uses standards including
 
 -   The TEMIX profile of [OASIS Energy
     Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
