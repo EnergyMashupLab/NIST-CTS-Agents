@@ -20,10 +20,14 @@ respective repositories' README files for a closer view; see  the project See th
     
     -   Uses ei2j capabilities for CTS connections
     
+    -   Maintains the Ledger, which is the record of cleared (not pending) transactions (see note)
+    
     -   (Optional and future) links to wholesale markets
 
+A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared.
+
 Note: 
-The Market Position Manager is a function that tracks completed (cleared) transactions to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the MA as transactions are created and cleared.
+The Market Position Manager is a function that tracks completed (cleared) transactions in a ledger to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the MA as transactions are created and cleared.
 
 The TEUA consumes information on existing market positions to the SC which can use the information to determine the difference between committed position and projected needs, thus transacting only for what is needed to align currcommitted position with projected needs, tendering to buy or sell as appropriate.
 
