@@ -1,4 +1,4 @@
-NIST-CTS Market Agent
+NIST-CTS Transactive Energy (User) Agent
 ========
 
 Background
@@ -8,7 +8,7 @@ See the project [README](README.md)
 WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
 
-Technical Description Market Agent
+Technical Description Transactive Energy (User) Agent (TEA)
 ---------------------
 
 The NIST-CTS Project is a standards-based implementation of the Common
@@ -17,18 +17,18 @@ respective repositories' README files for a closer view; see  the project See th
 
 WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
--   **Market Agent** (MA) which interacts with the markets and with Transactive
-    Energy Agents using the CTS including
-    
-    -   The Market Modular Interface
-    
-    -   Market Position Management
+-   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
+    integration capabilities for device and facility management
     
     -   Uses ei2j capabilities for CTS connections
     
-    -   (Optional and future) links to wholesale markets
+    -   Integrates with Supervisory Controller (SC)
 
-See the Architecture Drawing for the Market Agent: ![Market Agent Architecture Drawing](MarketAgent-Architecture.png)
+The terminmology **User Agent** is consistent with X.500 series and mail systems where the user is represented by
+a "user agent". In effect the TEA will act as a "skin" to present energy buy and sell requests from the System Controller
+to present to and receive from the Market Agent (MA) which encapsulates markets.
+
+See the Architecture Drawing for the TEUA: ![TEUA Architecture Drawing](TEUA-Architecture.png)
 
 Standards Used
 --------------
