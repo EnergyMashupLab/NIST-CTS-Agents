@@ -16,7 +16,7 @@ respective repositories' README files for a closer view; see the project
 -   **CTS Schemas** These schemas are used to implement the Common Transactive
     Services CTS links in the architecture.
 
-A summary of where CTS is used is in the project Architecture Drawing.
+A summary of where the utility code is used is in the project README: ![Architecture Drawing](../../Architecture.png)
 
 Standards Used
 --------------
