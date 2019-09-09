@@ -1,31 +1,27 @@
-NIST-CTS Utility Classes in Java
-========
+NIST-CTS Common Transactive Services XML Schemas
+================================================
 
 Background
 ----------
+
 See the project [README](../../README.md)
 
-Technical Description Java Utilities Component
----------------------
+Technical Description Transactive Services XML Schemas
+------------------------------------------------------
 
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view; see  the project See the project [README](../../README.md) for an overview
+respective repositories' README files for a closer view; see the project [README](../../README.md) for an overview.
 
--   **Utilities**
+-   **CTS Schemas** These schemas are used to implement the Common Transactive
+    Services CTS links in the [Architecture Drawing](../../Architecture.png) shown below. Schemas for the Common Transactive Services are a minimalist expression of OASIS Energy Interoperation, OASIS EMIX, and OASIS WS-Calendar PIM and Streams for use in inter-actor communication.
 
-    -   Common Transactive Services (CTS) implementation, using the TEMIX profile of [OASIS Energy
-    Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
+Changes include
+-   Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+-   Removed references to VENs, VTNs to leave Common Transactive Services only
 
-    -   ei2j--Energy Interoperation to and from Java. ei2j allows the Supervisory Controller (see architecture diagram in the project [README](../../README.md). The Java representation will be drawn from an informative UML model developed in parallel with OASIS Energy Interoperaton.
-
-    -   Logging and input for live and simulation meter and other data. 
-    --  Since one target environment is a simulation, the input data such as energy amounts used or demanded will be drawn from multi-facility meter data traces. The system also needs to run with live data from instrumented faciliteis.
-    --  Input from live feeds and historical wholesale market data may be used as well.
-    
-    -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
-    
-A summary of where the utility code is used is in the project README: ![Architecture Drawing](../../Architecture.png)
+Copyright notices are in the schema files.
+![Architecture Drawing](../../Architecture.png)
 
 Standards Used
 --------------
@@ -46,6 +42,10 @@ The project uses standards including
 -   Adapter methods for integrating with Independent System Operator Wholesale
     Markets and other energy markets are based on [IEC 62746-10-3:2018]
     (<https://webstore.iec.ch/publication/59771>)
+
+These schemas are based on the Energy Interoperation, EMIX, and WS-Calendar
+schemas and WS-Calendar Platform-Independent Model (PIM). See the individual xsd
+files for details.
 
 Built With
 ----------
