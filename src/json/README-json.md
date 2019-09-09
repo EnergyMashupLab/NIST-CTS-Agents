@@ -1,6 +1,14 @@
 NIST-CTS Common Transactive Services JSON Schemas
 =================================================
 
+Copyright Notice
+----------------
+These JSON schemas are
+
+Copyright 2019 TC9 Inc and Cox Software Architects LLC
+
+Copyright 2014 2015 OASIS Open
+
 Background
 ----------
 See the project [README](../../README.md)
@@ -25,13 +33,7 @@ Changes include - Profiled to use Minimal PIM Conformant WS-Calendar,
 WS-Calendar Streams, Strip GML - Removed references to VENs, VTNs to leave
 Common Transactive Services only
 
-These JSON schemas are
-
-Copyright 2019 TC9 Inc and Cox Software Architects LLC
-
-Copyright 2014 2015 OASIS Open
-
-A summary of where the utility code is used is in the [project README Architecture Drawing](../../Architecture.png): ![Architecture Drawing](../../Architecture.png)
+A summary of where the JSON schemas for the CTS are used is in the [project README Architecture Drawing](../../Architecture.png): ![Architecture Drawing](../../Architecture.png)
 
 Standards Used
 --------------
