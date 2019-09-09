@@ -16,11 +16,18 @@ respective repositories' README files for a closer view; see  the project See th
     
     -   The Market Modular Interface
     
-    -   Market Position Management
+    -   Market Position Management (see note)
     
     -   Uses ei2j capabilities for CTS connections
     
     -   (Optional and future) links to wholesale markets
+
+Note: 
+The Market Position Manager is a function that tracks completed (cleared) transactions to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the MA as transactions are created and cleared.
+
+The TEUA consumes information on existing market positions to the SC which can use the information to determine the difference between committed position and projected needs, thus transacting only for what is needed to align currcommitted position with projected needs, tendering to buy or sell as appropriate.
+
+All transactions and clearing flow through the MA, which through the MPM function will update the Market Position for use by the TEUA.
 
 See the Architecture Drawing for the Market Agent: ![Market Agent Architecture Drawing](MarketAgent-Architecture.png)
 
