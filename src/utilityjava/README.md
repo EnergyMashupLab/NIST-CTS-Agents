@@ -22,8 +22,8 @@ respective repositories' README files for a closer view; see  the project See th
     -   Logging and input for live and simulation meter and other data. 
     --  Since one target environment is a simulation, the input data such as energy amounts used or demanded will be drawn from multi-facility meter data traces. The system also needs to run with live data from instrumented faciliteis.
     --  Input from live feeds and historical wholesale market data may be used as well.
-    
-    -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
+   
+    -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures. See the project [README](../../README.md) for terminology clarifying Positions, Ledgers, and Traces.
     
 A summary of where the utility code is used is in the project README: ![Architecture Drawing](../../Architecture.png)
 
