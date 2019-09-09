@@ -53,7 +53,7 @@ Built With
 
 Agile programming and architecture are used.
 
-The project will use Github, Maven, and Java 8.
+The project uses Github, Maven, and Java 8.
 
 Authors
 -------
