@@ -5,7 +5,7 @@ Background
 ----------
 See the project [README](../../README.md)
 
-Technical Description Transactive Energy (User) Agent (TEA)
+Technical Description Transactive Energy (User) Agent (TEUA)
 ---------------------
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
@@ -17,12 +17,23 @@ respective repositories' README files for a closer view; see  the project See th
     -   Uses ei2j capabilities for CTS connections
     
     -   Integrates with Supervisory Controller (SC)
+    
+    -   Provides information on committed market positions to the SC (see note below)
 
-The terminmology **User Agent** is consistent with X.500 series and mail systems where the user is represented by
-a "user agent". In effect the TEA will act as a "skin" to present energy buy and sell requests from the System Controller
+The terminology **User Agent** is consistent with X.500 series and mail systems where the user is represented by
+a "user agent". In effect the TEA acts as a "skin" to present energy buy and sell requests from the System Controller
 to present to and receive from the Market Agent (MA) which encapsulates markets.
 
 See the Architecture Drawing for the TEUA: ![TEUA Architecture Drawing](TEUA-Architecture.png)
+
+Note: 
+A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared.
+
+The Market Position Manager is a function that tracks completed (cleared) transactions in a ledger to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the MA as transactions are created and cleared.
+
+The TEUA consumes information on existing market positions to the SC which can use the information to determine the difference between committed position and projected needs, thus transacting only for what is needed to align currcommitted position with projected needs, tendering to buy or sell as appropriate.
+
+All transactions and clearing flow through the MA, which through the MPM function will update the Market Position for use by the TEUA.
 
 Standards Used
 --------------
