@@ -36,7 +36,7 @@ See the Architecture Drawing for Markets: ![Markets Architecture Drawing](Market
 Standards Used
 --------------
 
-The project will uses standards including
+The project uses standards including
 
 -   The TEMIX profile of [OASIS Energy
     Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
