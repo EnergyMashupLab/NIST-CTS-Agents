@@ -9,9 +9,7 @@ Technical Description Transactive Energy (User) Agent (TEA)
 ---------------------
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view; see  the project See the project [README](README.md) for an overview
-
-WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
+respective repositories' README files for a closer view; see  the project See the project [README](../../README.md) for an overview
 
 -   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
     integration capabilities for device and facility management
