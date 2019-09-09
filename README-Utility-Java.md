@@ -7,7 +7,7 @@ See the project [README](README.md)
 WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
 
 
-Technical Description Markets Component
+Technical Description Java Utilities Component
 ---------------------
 
 The NIST-CTS Project is a standards-based implementation of the Common
@@ -34,7 +34,7 @@ A summary of where the utility code is used is in the project README: ![Architec
 Standards Used
 --------------
 
-The project will uses standards including
+The project uses standards including
 
 -   The TEMIX profile of [OASIS Energy
     Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
