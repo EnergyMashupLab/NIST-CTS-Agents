@@ -18,9 +18,9 @@ respective repositories' README files for a closer view; see  the project See th
     
     -   Market Position Management (see note)
     
-    -   Uses ei2j capabilities for CTS connections
+    -   Maintains the Ledger, the record of cleared (not pending) transactions (see note)
     
-    -   Maintains the Ledger, which is the record of cleared (not pending) transactions (see note)
+    -   Uses ei2j capabilities for CTS connections
     
     -   (Optional and future) links to wholesale markets
 
