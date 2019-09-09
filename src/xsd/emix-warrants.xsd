@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Schemas for the Common Transactive Services
+		 
+	Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+	Removed references to VENs, VTNs to leave Common Transactive Services only 
+	as part of the NIST Open Source Software using CTS Project
+		 
+	Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects 
+		 
+	Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+-->
+<!-- emix-warrants.xsd 
+Schema agency:     NIST EMIX for CTS
+Schema version:    0.1
+Schema date:       5 September 2019
+
+Set includes:
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Contracts, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
+-->
+<!-- 1.0 EMIX: Energy Market Information Exchange for CTS-->
+<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="emix.xsd"/>
+	<!-- 8.8 EMIX Warrants-->
+	<xs:element name="warrants" type="emix:ArrayOfWarrants">
+		<xs:annotation>
+			<xs:documentation>Warrants are "a written assurances that some product or service will be provided or will meet certain specifications." Sellers may use EMIX Warrants to provide information about the source of the energy or about its environmental characteristics. Buyers can use warrants to indicate what they wish to purchase. EMIX does not define specific warrants, although it does define base types for extension by those who wish to develop the various types of warrants.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="baseWarrant" type="emix:BaseWarrantType">
+		<xs:annotation>
+			<xs:documentation>Abstract extension object for Emix Warrants</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ArrayOfWarrants">
+		<xs:annotation>
+			<xs:documentation>Collection of Emix Warrants</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:baseWarrant" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseWarrantType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Type of Abstract extension object for Emix Warrants</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:element name="supportForPrice" type="emix:SupportForPriceType" abstract="true" substitutionGroup="emix:baseWarrant"/>
+	<xs:element name="qualityWarrant" type="emix:QualityWarrantType" abstract="true" substitutionGroup="emix:baseWarrant"/>
+	<xs:element name="environmentalWarrant" type="emix:EnvironmentalWarrantType" abstract="true" substitutionGroup="emix:baseWarrant"/>
+	<xs:element name="sourceWarrant" type="emix:SourceWarrantType" abstract="true" substitutionGroup="emix:baseWarrant"/>
+	<!-- 8.8.1 Core EMIX Warrants-->
+	<xs:complexType name="SupportForPriceType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Support for Price conveys information that supports the prices on the outside of the envelope. It was originally conceived that there might be an array of products with associated prices. An example is the wholesale purchase of a product, along with transport products to establish a base cost to support a contracted retail price. Without further defintion, support for price is not restricted in this way as of v1.0, and Parties that wish to exchange price support should extend this type to meet their needs.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseWarrantType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QualityWarrantType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>A Quality Warrant asserts or requires that the product be of a certain quality or better. A quality warrant includes an array of Quality Measures. The Quality Measure type is extensible to support the definition of additional quality measures. Numerous quality measures are defined as part of the POWER schema of EMIX; parties wishing to specify EMIX extensions for other commodities and resources will want to define their Quality Measures. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseWarrantType">
+				<xs:sequence>
+					<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EnvironmentalWarrantType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>An Environmental Warrant is used to assert what environmental effects of the product. These may include emission of a chemical, or use of a scarce resource. No environmental warrants are defined in the EMIX 1.0 Schema. Parties wishing to exchange Environmental warrants should extend this type to create the environmental assertions that they require.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseWarrantType">
+				<xs:sequence>
+					<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SourceWarrantType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>A Source Warrant consists of assertions about the sources (often meaning the technologies) of the commodity included in this product. Source often has specific regulated meaning in different jurisdictions, so no definition of Source is included in this specification. Parties that require source information should extend this type to create the source assertions that they require.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseWarrantType">
+				<xs:sequence>
+					<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
