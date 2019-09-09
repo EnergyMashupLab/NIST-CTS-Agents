@@ -88,7 +88,9 @@ The project has four repositories in addition to this top-level repository:
     
     -   The Market Modular Interface
     
-    -   Market Position Management
+    -   Market Position Management (see note)
+    
+    -   Maintains the Ledger, the record of cleared (not pending) transactions (see note)
     
     -   Uses ei2j capabilities for CTS connections
     
@@ -100,6 +102,8 @@ The project has four repositories in addition to this top-level repository:
     -   Uses ei2j capabilities for CTS connections
     
     -   Integrates with Supervisory Controller (SC)
+    
+    -   Provides information on committed market positions to the SC (see note below)
 
 -   **Utilities**
 
@@ -107,9 +111,9 @@ The project has four repositories in addition to this top-level repository:
 
     -   ei2j--Energy Interoperation to and from Java, includes CTS implementation
 
-    -   Logging and input for live and simulation meter and other data
-
-    -   Ledgers
+    -   Logging (traces) and input for live and simulation meter and other data
+    
+    -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
     
 Note: 
 A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared.
