@@ -3,25 +3,21 @@ NIST-CTS Utility Classes in Java
 
 Background
 ----------
-See the project [README](README.md)
-WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
-
+See the project [README](../../README.md)
 
 Technical Description Java Utilities Component
 ---------------------
 
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view; see  the project See the project [README](README.md) for an overview
-
-WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
+respective repositories' README files for a closer view; see  the project See the project [README](../../README.md) for an overview
 
 -   **Utilities**
 
     -   Common Transactive Services (CTS) implementation, using the TEMIX profile of [OASIS Energy
     Interoperation](https://docs.oasis-open.org/energyinterop/ei/v1.0/os/).
 
-    -   ei2j--Energy Interoperation to and from Java. ei2j allows the Supervisory Controller (see architecture diagram in the project [README](README.md). The Java representation will be drawn from an informative UML model developed in parallel with OASIS Energy Interoperaton.
+    -   ei2j--Energy Interoperation to and from Java. ei2j allows the Supervisory Controller (see architecture diagram in the project [README](../../README.md). The Java representation will be drawn from an informative UML model developed in parallel with OASIS Energy Interoperaton.
 
     -   Logging and input for live and simulation meter and other data. 
     --  Since one target environment is a simulation, the input data such as energy amounts used or demanded will be drawn from multi-facility meter data traces. The system also needs to run with live data from instrumented faciliteis.
@@ -29,7 +25,7 @@ WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
     
     -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
     
-A summary of where the utility code is used is in the project README: ![Architecture Drawing](Architecture.png)
+A summary of where the utility code is used is in the project README: ![Architecture Drawing](../../Architecture.png)
 
 Standards Used
 --------------
