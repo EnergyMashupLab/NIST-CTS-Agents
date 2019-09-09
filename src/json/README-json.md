@@ -31,8 +31,6 @@ Copyright 2019 TC9 Inc and Cox Software Architects LLC
 
 Copyright 2014 2015 OASIS Open
 
-[Architecture Drawing](../../Architecture.png)
-
 A summary of where the utility code is used is in the [project README Architecture Drawing](../../Architecture.png): ![Architecture Drawing](../../Architecture.png)
 
 Standards Used
