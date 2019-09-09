@@ -40,7 +40,8 @@ encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
 market models such as a Double Auction.
 
-To see a description of the components that make up this project, look src.
+To see a description of the components that make up this project, look under the 
+link to src, above.
 
 Results
 -------
