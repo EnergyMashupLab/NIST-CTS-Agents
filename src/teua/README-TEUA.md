@@ -3,14 +3,10 @@ NIST-CTS Transactive Energy (User) Agent
 
 Background
 ----------
-See the project [README](README.md)
-
-WILL CHANGE WHEN MOVED TO SEPARATE REPOSITORY ../MarketAgent
-
+See the project [README](../../README.md)
 
 Technical Description Transactive Energy (User) Agent (TEA)
 ---------------------
-
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
 respective repositories' README files for a closer view; see  the project See the project [README](README.md) for an overview
