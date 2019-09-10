@@ -1,11 +1,14 @@
 NIST-CTS
 ========
 
+We invite participation in an open source project to develop Actors for
+edge-based self-optimization of power distribution systems. This project is named
+NIST-CTS because it is an implimentation of an agent based transactive energy 
+market using the Common Transactive Services defined during the NIST Transactive 
+Energy Challenge. 
+
 Background
 ----------
-
-We invite participation in an open source project to develop Actors for
-edge-based self-optimization of power distribution systems.
 
 Transactive Resource Management (TRM) enables Actors representing systems that
 use or supply a resource—any commodity whose value is defined by time and
@@ -36,6 +39,9 @@ that represents it. TEA’s will interact with a Market Agent/Actor that
 encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
 market models such as a Double Auction.
+
+To see a description of the components that make up this project, look under the 
+link to src, above.
 
 Results
 -------
