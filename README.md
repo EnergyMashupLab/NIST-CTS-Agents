@@ -33,12 +33,14 @@ so they support diversity of participants and technologies. Market transaction
 messages create self-optimizing systems of suppliers, consumers, and
 distribution.
 
-This project will develop Transactive Energy Agents (TEA) interacting through
-Markets. We will define interfaces between an energy system and the Actor (TEA)
-that represents it. TEA’s will interact with a Market Agent/Actor that
+This project will develop Transactive Energy User Agents (TEUA) interacting through
+Markets. We will define interfaces between an energy system and the Actor (TEUA)
+that represents it. TEUAs will interact with a Market Agent/Actor that
 encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
-market models such as a Double Auction.
+market models.
+
+With respect to markets, bilateral is an umbrella category; Double Auction and Order Book are two of the subcategories within bilateral markets.
 
 To see a description of the components that make up this project, look under the 
 link to src, above.
