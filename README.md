@@ -40,7 +40,7 @@ encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
 market models.
 
-With respect to markets, bilateral is an umbrella category; Double Auction and Order Book are two of the subcategories within bilateral markets.
+With respect to markets, Bilateral Market is an umbrella category; Double Auction and Order Book are two of the subcategories within bilateral markets.
 
 To see a description of the components that make up this project, look under the 
 link to src, above.
