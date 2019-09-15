@@ -24,7 +24,14 @@ respective repositories' README files for a closer view; see  the project See th
 
     -   (future) Additional plug-in markets and integration documentation
 
-At least one market will be integrated by means of the MMI.
+This project will develop Transactive Energy User Agents (TEUA) interacting through
+Markets. We will define interfaces between an energy system and the Actor (TEUA)
+that represents it. TEUAs will interact with a Market Agent/Actor that
+encapsulates market behavior. While the project uses a Bilateral Market model,
+the Market Agent will incorporate a Market Modular Interface to support other
+market models.
+
+With respect to markets, bilateral is an umbrella category; Double Auction and Order Book are two of the subcategories within bilateral markets.
 
 See the Architecture Drawing for Markets: ![Markets Architecture Drawing](Markets-Architecture.png)
 
