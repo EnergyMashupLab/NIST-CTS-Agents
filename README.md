@@ -35,7 +35,7 @@ distribution.
 
 This project will develop Transactive Energy User Agents (TEUA) interacting through
 Markets. We will define interfaces between an energy system and the Actor (TEUA)
-that represents it. TEUAs will interact with a Market Agent/Actor that
+that represents it. TEUAs will interact with a Market Agent/Actor (MA) that
 encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
 market models.
