@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com) by Toby Considine (TC9) -->
 <!--
-	Schemas for the Common Transactive Services
-		 
-	Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
-	Removed references to VENs, VTNs to leave Common Transactive Services only 
-	as part of the NIST Open Source Software using CTS Project
-		 
-	Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects 
-		 
-	Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
-	Copyright (c) OASIS Open 2012.  All Rights Reserved.
-	Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Imported to GitHub for Project purposes.
 -->
 <!-- ====================================================================== -->
 <!-- ===== SI Scale Code List  Schema Module                     ===== -->
@@ -20,7 +13,7 @@
 Schema agency:    OASIS EMIX TC
 Schema version:    1.0
 Schema date:       17 November 2011
-Purpose:                Enumerates scale factors for Units based on the International System of Units (SI) (originally Le Système International d'Unités)
+Purpose:          Enumerates scale factors for Units based on the International System of Units (SI) (originally Le Système International d'Unités)
 
 It would be well if there were a common non-emix genericode Si Scale schema to refer to for this, but the editor is aware of none.
 -->

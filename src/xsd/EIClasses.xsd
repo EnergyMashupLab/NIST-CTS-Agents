@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+-->
+<!-- EIClasses.xsd 
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.2
+Schema date:       27 September 2019
+
+Set includes:
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Warrants, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" targetNamespace="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" elementFormDefault="qualified">
+	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" schemaLocation="ws-calendar-min-v1.0.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" schemaLocation="ws-calendar-streams-v1.0.xsd"/>
+	<xs:element name="eiMarketContext" type="ei:EiMarketContextType"/>
+	<xs:complexType name="EiMarketContextType">
+		<xs:sequence>
+			<xs:element ref="emix:marketContext" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:marketName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name associated with the Market Context</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="emix:envelopeContents" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="emix:standardTerms" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ei:simpleLevelContext" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ei:createdDateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute ref="ei:schemaVersion" use="optional"/>
+	</xs:complexType>
+	<xs:element name="eiMarketExpectations" type="ei:EiMarketExpectationsType"/>
+	<xs:complexType name="EiMarketExpectationsType">
+		<xs:annotation>
+			<xs:documentation>Market Expectations inform the VEN what the expectations and rules are for a given Market Context</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:eiMarketRuleSet" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="xcal:granularity" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Temporal granularity of market, i.e., a 5 minute market operates in 5 minute chunks, with a fixed offset from the beginning of the business schedule</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="emix:nonStandardTermsHandling" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Non-Standard terms handling defines what Parties should do with any Term not listed in the Market Rule Sets.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="eiMarketRuleSet" type="ei:EiMarketRuleSetType"/>
+	<xs:complexType name="EiMarketRuleSetType">
+		<xs:annotation>
+			<xs:documentation>A collection of Requirements (Constraints) and how they are processed within this market</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:standardTermsSet" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:ruleSetPurpose" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ruleSetPurpose" type="ei:RuleSetPurposeType"/>
+	<xs:simpleType name="RuleSetPurposeType">
+		<xs:annotation>
+			<xs:documentation>Defines the purpose of a market rule set.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="minimum">
+				<xs:annotation>
+					<xs:documentation>The Market does not accept this Term with a parameter set to a lesser value than this</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="maximum">
+				<xs:annotation>
+					<xs:documentation>The Market does not accept this Term with a parameter set to a greater value than this</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="force">
+				<xs:annotation>
+					<xs:documentation>Regardless of what the market participant requests, force the Term to the value here.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="mustUnderstand">
+				<xs:annotation>
+					<xs:documentation>Participants in this market must understand this constraint.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ignore">
+				<xs:annotation>
+					<xs:documentation>This Constraint will be ignored in all its forms.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="simpleLevelContext" type="ei:SimpleLevelContextType"/>
+	<xs:complexType name="SimpleLevelContextType">
+		<xs:annotation>
+			<xs:documentation>Simple Levels are a set of simple indicators about scarcity and value, in which an ordered set of values indicate energy scarcity is above normal, normal, or below normal. Presumably, at higher levels, the VEN will use less.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="levelNormalValue" type="xs:unsignedInt" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The "normal" level indicating normal energy avaiability. Levels below normal indicate surplus, levels above normal indicate increasing scarcity. If levelUpperLimit is 7, the levels are 1-7, and the levelNormalValue might be 3.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="levelUpperLimit" type="xs:unsignedInt" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The upper level for this context. If levelUpperLimit is 5, the levels are 1-5, where 5 indicates the greatest scarcity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="eiDelivery" type="ei:EiDeliveryType"/>
+	<xs:complexType name="EiDeliveryType">
+		<xs:annotation>
+			<xs:documentation>eiDelivery is a minimal report that assume that all esential parameters (type, etc) come form an existing market context or transaction.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:DeliveryType">
+				<xs:sequence>
+					<xs:element ref="ei:eiDeliveryID" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="ei:createdDateTime" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+				<xs:attribute ref="ei:schemaVersion" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 5.4 Registration Info Type  -->
+	<xs:element name="eiRegistration" type="ei:EiRegistrationType"/>
+	<xs:complexType name="EiRegistrationType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Registration varies from Market to Market so cannot be defined here. Perties wishing to exchange Registration should extend this abstract type to meet their particular needs.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:registreePartyID" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ei:registrarPartyID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:eiRegistrationInfo" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="eiRegistrationInfo" type="ei:EiRegistrationInfoType"/>
+	<xs:complexType name="EiRegistrationInfoType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>RegistrationInfo is an an abstract class to which additional market-relevant registration information might be added. This specification does not define registration. Markets that use registration should extend this abstract class for use in Registration payloads.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="eiTender" type="ei:EiTenderType"/>
+	<xs:complexType name="EiTenderType">
+		<xs:annotation>
+			<xs:documentation>Tender is an offer to buy or sell. A Tender can be for one EmixBase derived type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:tenderID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="eiQuote" type="ei:EiQuoteType"/>
+	<xs:complexType name="EiQuoteType">
+		<xs:annotation>
+			<xs:documentation>An Indication of the price of a possible Tender such as the transacted price of a previous Tender or a published forecast of a price of a possible Tender. A Quote can be for one EmixBase derived type.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:quoteID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="eiTransaction" type="ei:EiTransactionType"/>
+	<xs:complexType name="EiTransactionType">
+		<xs:annotation>
+			<xs:documentation>A Transaction is a specific agreement to accept a specific Tender.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:transactionID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:tenderID" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="emix:emixBase" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 8. Reponses  -->
+	<!-- 8.1 EiResponse  -->
+	<xs:element name="eiResponse" type="ei:EiResponseType"/>
+	<xs:complexType name="EiResponseType">
+		<xs:sequence>
+			<xs:element ref="ei:responseCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:responseDescription" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ei:refID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Identifier of the Message/Request that is is a response to</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ei:responseTermsViolated" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ei:createdDateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 8.2 Responses: Eliminated in CTS because used only for DR Targets. -->
+	<!-- 8.7 Response Code -->
+	<xs:element name="responseCode" type="ei:ResponseCodeType"/>
+	<xs:simpleType name="ResponseCodeType">
+		<xs:annotation>
+			<xs:documentation>Similar to HTTP 1.1 Error Pattern, 1st digit sufficient for most error processing
+      - 1xx: Informational - Request received, continuing process
+      - 2xx: Success - The action was successfully received, understood, and accepted
+      - 3xx: Pending - Further action must be taken in order to complete the request
+      - 4xx: Requester Error - The request contains bad syntax or cannot be fulfilled
+      - 5xx: Responder Error - The responder failed to fulfill an apparently valid request
+      xx is used for defining more fine grained errors
+	</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9][0-9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8.7 Response Reason -->
+	<xs:element name="responseDescription" type="ei:ResponseDescriptionType"/>
+	<xs:simpleType name="ResponseDescriptionType">
+		<xs:annotation>
+			<xs:documentation>Human Readable Response description. Should be standardized and language-specific.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<!-- 8.8 Response Terms -->
+	<xs:element name="responseTermsViolated" type="ei:ArrayofResponseTermsViolated"/>
+	<xs:complexType name="ArrayofResponseTermsViolated">
+		<xs:annotation>
+			<xs:documentation>Collection of Detailed response on Terms that cause rejection of Request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ei:responseTermViolated" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 8.9 Response Terms Violated -->
+	<xs:element name="responseTermViolated" type="ei:ResponseTermViolatedType"/>
+	<xs:complexType name="ResponseTermViolatedType">
+		<xs:sequence>
+			<xs:element ref="ei:responseDescription" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="emix:baseTerm" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 9 Basic Semantics -->
+	<!-- 9.1 Simple Semantic Elements -->
+	<xs:element name="createdDateTime" type="xcal:DateTimeType">
+		<xs:annotation>
+			<xs:documentation>Date and Time this artifact was created.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="modificationNumber" type="xs:unsignedInt">
+		<xs:annotation>
+			<xs:documentation>A modification number for [event]. Used to indicate if the [event] has been modified and is incremented each time the [event] is modified </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="modificationDateTime" type="xcal:DateTimeType">
+		<xs:annotation>
+			<xs:documentation>The date and time a modification takes effect.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="offline" type="xs:boolean"/>
+	<xs:element name="partyRole" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Role that Party is assuming for this interaction, e.g buyer or seller</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:attribute name="schemaVersion" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>The version of the schema representing this entity.</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:element name="marketName" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Optional Name for a Market Context, used perhaps in a user interface.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="availID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identifier for Avail in an interaction.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="eiDeliveryID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Reference ID for a Delivery</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="originalReferenceID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Indentifier for a  superceded Reference ID</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="quoteID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identifier for a Quote</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="registrationID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identifier for Registration transaction</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="reportSpecifierID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identifier for a particular Report Specification</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="tenderID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identifier for a market Tender</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="transactionID" substitutionGroup="ei:refID">
+		<xs:annotation>
+			<xs:documentation>Identification of Transaction</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="refID" substitutionGroup="ei:uid">
+		<xs:annotation>
+			<xs:documentation>Reference ID for a particular instance, transmittal, or artifact. Note: not the same as the native ID of the object being transmitted or shared.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="counterPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>The "other" party in any interaction</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="partyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier for any Party</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="publisherPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier for the party publishing a broadcast message</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="registreePartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier for Party attempting to Register</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="registrarPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Indentifier of Party acting as a Registrar</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="requestorPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier of Party making a Request</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="respondingPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier of Party making a Resonse (note: in CancelledPartyRegistration payload and I do not know defintion)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="subscriberPartyID" substitutionGroup="ei:actorID">
+		<xs:annotation>
+			<xs:documentation>Identifier of Party subscribing to a broadcast or service</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="actorID" abstract="true" substitutionGroup="ei:uid">
+		<xs:annotation>
+			<xs:documentation>Identifier of a Party.  May be ws-addressing endpoint descriptor.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="uid" type="ei:UidType" abstract="true"/>
+	<xs:simpleType name="UidType">
+		<xs:annotation>
+			<xs:documentation>Unique Identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="readingType" type="ei:ReadingTypeType"/>
+	<xs:simpleType name="ReadingTypeType">
+		<xs:annotation>
+			<xs:documentation>Type of Reading.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="ei:ReadingTypeEnumeratedType ei:EiExtensionTokenType"/>
+	</xs:simpleType>
+	<xs:simpleType name="ReadingTypeEnumeratedType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="Direct Read">
+				<xs:annotation>
+					<xs:documentation>Reading is read from a device that increases monotonically, and usage must be computed from pairs of start and stop readings.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Net">
+				<xs:annotation>
+					<xs:documentation>Meter or [resource] prepares its own calculation of total use over time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocated">
+				<xs:annotation>
+					<xs:documentation>Meter covers several [resources] and usage is inferred through some sort of pro rata computation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Estimated">
+				<xs:annotation>
+					<xs:documentation>Used when a reading is absent in a series in which most readings are present.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Summed">
+				<xs:annotation>
+					<xs:documentation>Several meters together provide the reading for this [resource]. This is specifically a different than aggregated, which refers to multiple [resources] in the same payload. See also Hybrid.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Derived">
+				<xs:annotation>
+					<xs:documentation>Usage is inferred through knowledge of run-time, normal operation, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mean">
+				<xs:annotation>
+					<xs:documentation>Reading is the mean value over the period indicated in Granularity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Peak">
+				<xs:annotation>
+					<xs:documentation>Reading is Peak (highest) value over the period indicated in granularity. For some measurements, it may make more sense as the lowest value. May not be consistent with aggregate readings. Only valid for flow-rate Item Bases, i.e., Power not Energy.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hybrid">
+				<xs:annotation>
+					<xs:documentation>If aggregated, refers to different reading types in the aggregate number.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contract">
+				<xs:annotation>
+					<xs:documentation>Indicates reading is pro forma, i.e., is reported at agreed upon rates</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Projected">
+				<xs:annotation>
+					<xs:documentation>Indicates reading is in the future, and has not yet been measured.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="optType" type="ei:OptTypeType"/>
+	<xs:simpleType name="OptTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="optIn"/>
+			<xs:enumeration value="optOut"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EiExtensionTokenType">
+		<xs:annotation>
+			<xs:documentation>Pattern used for extending string enumeration, where allowed</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="x-\S.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
