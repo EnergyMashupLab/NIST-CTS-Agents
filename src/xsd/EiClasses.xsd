@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!--
-	Schemas for the Common Transactive Services
-		 
-	Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
-	Removed references to VENs, VTNs to leave Common Transactive Services only 
-	as part of the NIST Open Source Software using CTS Project
-		 
-	Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects 
-		 
-	Based on OASIS Energy Interoperation Version 1.0 OASIS Standard 11 June 2014
-	Copyright (c) OASIS Open 2014. All Rights Reserved.
-	Source: http://docs.oasis-open.org/energyinterop/ei/v1.0/os/xsd/
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
 -->
 <!-- EIClasses.xsd 
-Schema agency:     NIST Common Transactive Services (CTS) profiled from OASIS Energy Interop (EI)
-Schema version:    0.1
-Schema date:       5 September 2019
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.2
+Schema date:       27 September 2019
 
 Set includes:
-    EIClasses, EIEnrollment, EIPayloads
-	Refactored to use NIST EMIX for CTS v0.1
-	
-	Refactored to use OASIS WS-Calendar Minimal PIM-Conformant Schema v1.0
-	Refactored to use OASIS WS-Calendar Streams Schema v1.0
-	Single Intervals expressed as Streams to improve consitency 
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Warrants, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" targetNamespace="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" elementFormDefault="qualified">
 	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
@@ -140,16 +140,6 @@ Set includes:
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="eiTarget" type="ei:EiTargetType"/>
-	<xs:complexType name="EiTargetType">
-		<xs:annotation>
-			<xs:documentation>A set of elements to that collectively name who is participating or should participate in an EI interactions</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="emix:emixInterface" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="ei:partyID" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
 	<!-- 5.4 Registration Info Type  -->
 	<xs:element name="eiRegistration" type="ei:EiRegistrationType"/>
 	<xs:complexType name="EiRegistrationType" abstract="true">
@@ -216,16 +206,7 @@ Set includes:
 			<xs:element ref="ei:createdDateTime" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- 8.2 Responses  -->
-	<xs:element name="responses" type="ei:ArrayofResponses"/>
-	<xs:complexType name="ArrayofResponses">
-		<xs:annotation>
-			<xs:documentation>Collection of Responses. When a service operation regards multiple referenceable items, each referenced item MAY have its own response. Always accompanied by an overall Response Type.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="response" type="ei:EiResponseType" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
+	<!-- 8.2 Responses: Eliminated in CTS because used only for DR Targets. -->
 	<!-- 8.7 Response Code -->
 	<xs:element name="responseCode" type="ei:ResponseCodeType"/>
 	<xs:simpleType name="ResponseCodeType">
