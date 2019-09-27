@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!--
-	Schemas for the Common Transactive Services
-		 
-	Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
-	Removed references to VENs, VTNs to leave Common Transactive Services only 
-	as part of the NIST Open Source Software using CTS Project
-		 
-	Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects 
-		 
-	Based on OASIS Energy Interoperation Version 1.0 OASIS Standard 11 June 2014
-	Copyright (c) OASIS Open 2014. All Rights Reserved.
-	Source: http://docs.oasis-open.org/energyinterop/ei/v1.0/os/xsd/
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
 -->
 <!-- EIPayloads.xsd 
-Schema agency:     NIST Common Transactive Services (CTS) profiled from OASIS Energy Interop (EI)
-Schema version:    0.1
-Schema date:       5 September 2019
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.2
+Schema date:       27 September 2019
 
 Set includes:
-    EIClasses, EIEnrollment, EIPayloads
-	Refactored to use NIST EMIX for CTS v0.1
-	
-	Refactored to use OASIS WS-Calendar Minimal PIM-Conformant Schema v1.0
-	Refactored to use OASIS WS-Calendar Streams Schema v1.0
-	Single Intervals expressed as Streams to improve consitency 
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Warrants, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pyld="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.01" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:enrl="http://docs.oasis-open.org/ns/energyinterop/201110/enroll/cts.01" targetNamespace="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.01">
 	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
@@ -46,7 +46,6 @@ Set includes:
 	<xs:complexType name="EiCreatedQuoteType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:subscriberPartyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:publisherPartyID" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:quoteID" minOccurs="0" maxOccurs="unbounded">
@@ -72,7 +71,6 @@ Set includes:
 	<xs:complexType name="EiCanceledQuoteType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:subscriberPartyID" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:publisherPartyID" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -99,8 +97,19 @@ Set includes:
 	<xs:complexType name="EiReplyQuoteType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:eiQuote" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		<!-- 6.0 Registration Payloads -->
+	<xs:element name="eiCreatePartyRegistration" type="pyld:EiCreatePartyRegistrationType"/>
+	<xs:complexType name="EiCreatePartyRegistrationType">
+		<xs:annotation>
+			<xs:documentation>Used to create and send a Party Registration request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="pyld:requestID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="ei:registreePartyID" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ei:eiRegistrationInfo" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="eiCreatedPartyRegistration" type="pyld:EiCreatedPartyRegistrationType"/>
@@ -132,7 +141,6 @@ Set includes:
 		<xs:sequence>
 			<xs:element ref="ei:eiRegistration" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="eiCancelPartyRegistration" type="pyld:EiCancelPartyRegistrationType"/>
@@ -154,7 +162,6 @@ Set includes:
 			<xs:element ref="ei:registreePartyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:registrarPartyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:eiResponse" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="eiRequestEiMarketContext" type="pyld:EiRequestEiMarketContextType"/>
@@ -169,7 +176,6 @@ Set includes:
 	<xs:complexType name="EiReplyEiMarketContextType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="eiCreateTender" type="pyld:EiCreateTenderType"/>
@@ -188,7 +194,6 @@ Set includes:
 	<xs:complexType name="EiCreatedTenderType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:partyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:counterPartyID" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:tenderID" minOccurs="0" maxOccurs="unbounded"/>
@@ -217,7 +222,6 @@ Set includes:
 	<xs:complexType name="EiReplyTenderType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:eiTender" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -237,7 +241,6 @@ Set includes:
 	<xs:complexType name="EiCanceledTenderType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:partyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:counterPartyID" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -250,7 +253,6 @@ Set includes:
 		<xs:sequence>
 			<xs:element ref="pyld:requestID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:partyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:eiTarget" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:eiTender" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -272,7 +274,6 @@ Set includes:
 			<xs:element ref="ei:counterPartyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:partyID" minOccurs="1" maxOccurs="1"/>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:transactionID" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -299,68 +300,7 @@ Set includes:
 	<xs:complexType name="EiReplyTransactionType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:eiTransaction" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiCreateEnroll" type="pyld:EiCreateEnrollType"/>
-	<xs:complexType name="EiCreateEnrollType">
-		<xs:annotation>
-			<xs:documentation>Used to create and send a Enrollment.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="pyld:requestID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrolleePartyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:eiEnrollment" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiCreatedEnroll" type="pyld:EiCreatedEnrollType"/>
-	<xs:complexType name="EiCreatedEnrollType">
-		<xs:sequence>
-			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollmentResponses" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollAdminPartyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollmentID" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiRequestEnroll" type="pyld:EiRequestEnrollType"/>
-	<xs:complexType name="EiRequestEnrollType">
-		<xs:annotation>
-			<xs:documentation>Used to request outstanding Enrollment information.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="pyld:requestID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollAdminPartyID" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="enrl:enrolleePartyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:requestorPartyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollmentID" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="emix:marketContext" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiReplyEnroll" type="pyld:EiReplyEnrollType"/>
-	<xs:complexType name="EiReplyEnrollType">
-		<xs:sequence>
-			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollmentResponses" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="enrl:eiEnrollment" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiCancelEnroll" type="pyld:EiCancelEnrollType"/>
-	<xs:complexType name="EiCancelEnrollType">
-		<xs:annotation>
-			<xs:documentation>Used to cancel one or more Enrollments.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="pyld:requestID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrolleePartyID" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="enrl:enrollmentID" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="eiCanceledEnroll" type="pyld:EiCanceledEnrollType"/>
-	<xs:complexType name="EiCanceledEnrollType">
-		<xs:sequence>
-			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="eiCreateDelivery" type="pyld:EiCreateDeliveryType"/>
@@ -378,7 +318,6 @@ Set includes:
 	<xs:complexType name="EiCreatedDeliveryType">
 		<xs:sequence>
 			<xs:element ref="ei:eiResponse" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="ei:responses" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="ei:eiDelivery" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>

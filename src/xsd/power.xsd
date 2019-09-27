@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Schemas for the Common Transactive Services
-		 
-	Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
-	Removed references to VENs, VTNs to leave Common Transactive Services only 
-	as part of the NIST Open Source Software using CTS Project
-		 
-	Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects 
-		 
-	Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
-	Copyright (c) OASIS Open 2012.  All Rights Reserved.
-	Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
 -->
 <!-- power.xsd 
-Schema agency:     NIST EMIX for CTS
-Schema version:    0.1
-Schema date:       5 September 2019
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.2
+Schema date:       27 September 2019
 
 Set includes:
     EMIX, EMIX-Terms, EMIX-Warrants (emix)
