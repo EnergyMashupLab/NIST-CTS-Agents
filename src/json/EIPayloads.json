@@ -171,9 +171,6 @@
 		".ei:eiResponse": {
 			"$ref": "#/definitions/ei:EiResponseType"
 		},
-		".ei:eiTarget": {
-			"$ref": "#/definitions/ei:EiTargetType"
-		},
 		".ei:eiTender": {
 			"$ref": "#/definitions/ei:EiTenderType"
 		},
@@ -760,9 +757,6 @@
 		},
 		".ei:responseTermsViolated": {
 			"$ref": "#/definitions/ei:ArrayofResponseTermsViolated"
-		},
-		".ei:responses": {
-			"$ref": "#/definitions/ei:ArrayofResponses"
 		},
 		".ei:ruleSetPurpose": {
 			"additionalProperties": false,
@@ -1691,9 +1685,6 @@
 		".enrl:resource": {
 			"$ref": "#/definitions/enrl:ResourceType"
 		},
-		".pyld:eiCancelEnroll": {
-			"$ref": "#/definitions/pyld:EiCancelEnrollType"
-		},
 		".pyld:eiCancelPartyRegistration": {
 			"$ref": "#/definitions/pyld:EiCancelPartyRegistrationType"
 		},
@@ -1702,9 +1693,6 @@
 		},
 		".pyld:eiCancelTender": {
 			"$ref": "#/definitions/pyld:EiCancelTenderType"
-		},
-		".pyld:eiCanceledEnroll": {
-			"$ref": "#/definitions/pyld:EiCanceledEnrollType"
 		},
 		".pyld:eiCanceledPartyRegistration": {
 			"$ref": "#/definitions/pyld:EiCanceledPartyRegistrationType"
@@ -1718,8 +1706,8 @@
 		".pyld:eiCreateDelivery": {
 			"$ref": "#/definitions/pyld:EiCreateDeliveryType"
 		},
-		".pyld:eiCreateEnroll": {
-			"$ref": "#/definitions/pyld:EiCreateEnrollType"
+		".pyld:eiCreatePartyRegistration": {
+			"$ref": "#/definitions/pyld:EiCreatePartyRegistrationType"
 		},
 		".pyld:eiCreateQuote": {
 			"$ref": "#/definitions/pyld:EiCreateQuoteType"
@@ -1732,9 +1720,6 @@
 		},
 		".pyld:eiCreatedDelivery": {
 			"$ref": "#/definitions/pyld:EiCreatedDeliveryType"
-		},
-		".pyld:eiCreatedEnroll": {
-			"$ref": "#/definitions/pyld:EiCreatedEnrollType"
 		},
 		".pyld:eiCreatedPartyRegistration": {
 			"$ref": "#/definitions/pyld:EiCreatedPartyRegistrationType"
@@ -1754,9 +1739,6 @@
 		".pyld:eiReplyEiMarketContext": {
 			"$ref": "#/definitions/pyld:EiReplyEiMarketContextType"
 		},
-		".pyld:eiReplyEnroll": {
-			"$ref": "#/definitions/pyld:EiReplyEnrollType"
-		},
 		".pyld:eiReplyPartyRegistration": {
 			"$ref": "#/definitions/pyld:EiReplyPartyRegistrationType"
 		},
@@ -1771,9 +1753,6 @@
 		},
 		".pyld:eiRequestEiMarketContext": {
 			"$ref": "#/definitions/pyld:EiRequestEiMarketContextType"
-		},
-		".pyld:eiRequestEnroll": {
-			"$ref": "#/definitions/pyld:EiRequestEnrollType"
 		},
 		".pyld:eiRequestPartyRegistration": {
 			"$ref": "#/definitions/pyld:EiRequestPartyRegistrationType"
@@ -2380,33 +2359,6 @@
 			},
 			"type": "object"
 		},
-		"ei:ArrayofResponses": {
-			"additionalProperties": false,
-			"description": "Collection of Responses. When a service operation regards multiple referenceable items, each referenced item MAY have its own response. Always accompanied by an overall Response Type.",
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:response": {
-					"items": {
-						"$ref": "#/definitions/ei:EiResponseType"
-					},
-					"type": "array"
-				}
-			},
-			"type": "object"
-		},
 		"ei:EiDeliveryType": {
 			"additionalProperties": false,
 			"description": "eiDelivery is a minimal report that assume that all esential parameters (type, etc) come form an existing market context or transaction.",
@@ -2723,39 +2675,6 @@
 				"ei:refID",
 				"ei:responseCode"
 			],
-			"type": "object"
-		},
-		"ei:EiTargetType": {
-			"additionalProperties": false,
-			"description": "A set of elements to that collectively name who is participating or should participate in an EI interactions",
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:partyID": {
-					"items": {
-						"$ref": "#/definitions/.ei:partyID"
-					},
-					"type": "array"
-				},
-				"emix:emixInterface": {
-					"items": {
-						"$ref": "#/definitions/.emix:emixInterface"
-					},
-					"type": "array"
-				}
-			},
 			"type": "object"
 		},
 		"ei:EiTenderType": {
@@ -5008,45 +4927,6 @@
 			],
 			"type": "object"
 		},
-		"pyld:EiCancelEnrollType": {
-			"additionalProperties": false,
-			"description": "Used to cancel one or more Enrollments.",
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"enrl:enrolleePartyID": {
-					"$ref": "#/definitions/.enrl:enrolleePartyID"
-				},
-				"enrl:enrollmentID": {
-					"items": {
-						"$ref": "#/definitions/.enrl:enrollmentID"
-					},
-					"minItems": 1,
-					"type": "array"
-				},
-				"pyld:requestID": {
-					"$ref": "#/definitions/.pyld:requestID"
-				}
-			},
-			"required": [
-				"enrl:enrolleePartyID",
-				"enrl:enrollmentID",
-				"pyld:requestID"
-			],
-			"type": "object"
-		},
 		"pyld:EiCancelPartyRegistrationType": {
 			"additionalProperties": false,
 			"description": "Used to cancel one or more Party Registrations.",
@@ -5174,35 +5054,6 @@
 			],
 			"type": "object"
 		},
-		"pyld:EiCanceledEnrollType": {
-			"additionalProperties": false,
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:eiResponse": {
-					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
-				}
-			},
-			"required": [
-				"ei:eiResponse"
-			],
-			"type": "object"
-		},
 		"pyld:EiCanceledPartyRegistrationType": {
 			"additionalProperties": false,
 			"patternProperties": {
@@ -5234,12 +5085,6 @@
 				},
 				"ei:respondingPartyID": {
 					"$ref": "#/definitions/.ei:respondingPartyID"
-				},
-				"ei:responses": {
-					"items": {
-						"$ref": "#/definitions/.ei:responses"
-					},
-					"type": "array"
 				}
 			},
 			"required": [
@@ -5271,9 +5116,6 @@
 				},
 				"ei:publisherPartyID": {
 					"$ref": "#/definitions/.ei:publisherPartyID"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				},
 				"ei:subscriberPartyID": {
 					"$ref": "#/definitions/.ei:subscriberPartyID"
@@ -5309,9 +5151,6 @@
 				},
 				"ei:partyID": {
 					"$ref": "#/definitions/.ei:partyID"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
@@ -5359,9 +5198,9 @@
 			],
 			"type": "object"
 		},
-		"pyld:EiCreateEnrollType": {
+		"pyld:EiCreatePartyRegistrationType": {
 			"additionalProperties": false,
-			"description": "Used to create and send a Enrollment.",
+			"description": "Used to create and send a Party Registration request.",
 			"patternProperties": {
 				"^@xmlns(:\\w+)?$": {
 					"type": "string"
@@ -5377,19 +5216,18 @@
 				"#": {
 					"type": "string"
 				},
-				"enrl:eiEnrollment": {
-					"$ref": "#/definitions/.enrl:eiEnrollment"
+				"ei:eiRegistrationInfo": {
+					"$ref": "#/definitions/.ei:eiRegistrationInfo"
 				},
-				"enrl:enrolleePartyID": {
-					"$ref": "#/definitions/.enrl:enrolleePartyID"
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
 				},
 				"pyld:requestID": {
 					"$ref": "#/definitions/.pyld:requestID"
 				}
 			},
 			"required": [
-				"enrl:eiEnrollment",
-				"enrl:enrolleePartyID",
+				"ei:eiRegistrationInfo",
 				"pyld:requestID"
 			],
 			"type": "object"
@@ -5548,52 +5386,10 @@
 				},
 				"ei:eiResponse": {
 					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
 				"ei:eiResponse"
-			],
-			"type": "object"
-		},
-		"pyld:EiCreatedEnrollType": {
-			"additionalProperties": false,
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:eiResponse": {
-					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"enrl:enrollAdminPartyID": {
-					"$ref": "#/definitions/.enrl:enrollAdminPartyID"
-				},
-				"enrl:enrollmentID": {
-					"items": {
-						"$ref": "#/definitions/.enrl:enrollmentID"
-					},
-					"type": "array"
-				},
-				"enrl:enrollmentResponses": {
-					"$ref": "#/definitions/.enrl:enrollmentResponses"
-				}
-			},
-			"required": [
-				"ei:eiResponse",
-				"enrl:enrollAdminPartyID"
 			],
 			"type": "object"
 		},
@@ -5661,9 +5457,6 @@
 					},
 					"type": "array"
 				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
-				},
 				"ei:subscriberPartyID": {
 					"$ref": "#/definitions/.ei:subscriberPartyID"
 				}
@@ -5700,9 +5493,6 @@
 				"ei:partyID": {
 					"$ref": "#/definitions/.ei:partyID"
 				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
-				},
 				"ei:tenderID": {
 					"items": {
 						"$ref": "#/definitions/.ei:tenderID"
@@ -5712,8 +5502,7 @@
 			},
 			"required": [
 				"ei:eiResponse",
-				"ei:partyID",
-				"ei:responses"
+				"ei:partyID"
 			],
 			"type": "object"
 		},
@@ -5742,9 +5531,6 @@
 				},
 				"ei:partyID": {
 					"$ref": "#/definitions/.ei:partyID"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				},
 				"ei:transactionID": {
 					"items": {
@@ -5778,9 +5564,6 @@
 				"#": {
 					"type": "string"
 				},
-				"ei:eiTarget": {
-					"$ref": "#/definitions/.ei:eiTarget"
-				},
 				"ei:eiTender": {
 					"items": {
 						"$ref": "#/definitions/.ei:eiTender"
@@ -5796,7 +5579,6 @@
 				}
 			},
 			"required": [
-				"ei:eiTarget",
 				"ei:eiTender",
 				"ei:partyID",
 				"pyld:requestID"
@@ -5822,41 +5604,6 @@
 				},
 				"ei:eiResponse": {
 					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
-				}
-			},
-			"required": [
-				"ei:eiResponse"
-			],
-			"type": "object"
-		},
-		"pyld:EiReplyEnrollType": {
-			"additionalProperties": false,
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:eiResponse": {
-					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"enrl:eiEnrollment": {
-					"$ref": "#/definitions/.enrl:eiEnrollment"
-				},
-				"enrl:enrollmentResponses": {
-					"$ref": "#/definitions/.enrl:enrollmentResponses"
 				}
 			},
 			"required": [
@@ -5889,9 +5636,6 @@
 				},
 				"ei:eiResponse": {
 					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
@@ -5924,9 +5668,6 @@
 				},
 				"ei:eiResponse": {
 					"$ref": "#/definitions/.ei:eiResponse"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
@@ -5959,9 +5700,6 @@
 						"$ref": "#/definitions/.ei:eiTender"
 					},
 					"type": "array"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
@@ -5994,9 +5732,6 @@
 						"$ref": "#/definitions/.ei:eiTransaction"
 					},
 					"type": "array"
-				},
-				"ei:responses": {
-					"$ref": "#/definitions/.ei:responses"
 				}
 			},
 			"required": [
@@ -6037,59 +5772,6 @@
 			},
 			"required": [
 				"emix:marketContext",
-				"pyld:requestID"
-			],
-			"type": "object"
-		},
-		"pyld:EiRequestEnrollType": {
-			"additionalProperties": false,
-			"description": "Used to request outstanding Enrollment information.",
-			"patternProperties": {
-				"^@xmlns(:\\w+)?$": {
-					"type": "string"
-				},
-				"^@xsi:\\w+$": {
-					"type": "string"
-				},
-				"^\\?\\w+$": {
-					"type": "string"
-				}
-			},
-			"properties": {
-				"#": {
-					"type": "string"
-				},
-				"ei:requestorPartyID": {
-					"$ref": "#/definitions/.ei:requestorPartyID"
-				},
-				"emix:marketContext": {
-					"items": {
-						"$ref": "#/definitions/.emix:marketContext"
-					},
-					"type": "array"
-				},
-				"enrl:enrollAdminPartyID": {
-					"items": {
-						"$ref": "#/definitions/.enrl:enrollAdminPartyID"
-					},
-					"type": "array"
-				},
-				"enrl:enrolleePartyID": {
-					"$ref": "#/definitions/.enrl:enrolleePartyID"
-				},
-				"enrl:enrollmentID": {
-					"items": {
-						"$ref": "#/definitions/.enrl:enrollmentID"
-					},
-					"type": "array"
-				},
-				"pyld:requestID": {
-					"$ref": "#/definitions/.pyld:requestID"
-				}
-			},
-			"required": [
-				"ei:requestorPartyID",
-				"enrl:enrolleePartyID",
 				"pyld:requestID"
 			],
 			"type": "object"
@@ -6783,9 +6465,6 @@
 		"ei:eiResponse": {
 			"$ref": "#/definitions/.ei:eiResponse"
 		},
-		"ei:eiTarget": {
-			"$ref": "#/definitions/.ei:eiTarget"
-		},
 		"ei:eiTender": {
 			"$ref": "#/definitions/.ei:eiTender"
 		},
@@ -6857,9 +6536,6 @@
 		},
 		"ei:responseTermsViolated": {
 			"$ref": "#/definitions/.ei:responseTermsViolated"
-		},
-		"ei:responses": {
-			"$ref": "#/definitions/.ei:responses"
 		},
 		"ei:ruleSetPurpose": {
 			"$ref": "#/definitions/.ei:ruleSetPurpose"
@@ -7098,9 +6774,6 @@
 		"enrl:resource": {
 			"$ref": "#/definitions/.enrl:resource"
 		},
-		"pyld:eiCancelEnroll": {
-			"$ref": "#/definitions/.pyld:eiCancelEnroll"
-		},
 		"pyld:eiCancelPartyRegistration": {
 			"$ref": "#/definitions/.pyld:eiCancelPartyRegistration"
 		},
@@ -7109,9 +6782,6 @@
 		},
 		"pyld:eiCancelTender": {
 			"$ref": "#/definitions/.pyld:eiCancelTender"
-		},
-		"pyld:eiCanceledEnroll": {
-			"$ref": "#/definitions/.pyld:eiCanceledEnroll"
 		},
 		"pyld:eiCanceledPartyRegistration": {
 			"$ref": "#/definitions/.pyld:eiCanceledPartyRegistration"
@@ -7125,8 +6795,8 @@
 		"pyld:eiCreateDelivery": {
 			"$ref": "#/definitions/.pyld:eiCreateDelivery"
 		},
-		"pyld:eiCreateEnroll": {
-			"$ref": "#/definitions/.pyld:eiCreateEnroll"
+		"pyld:eiCreatePartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiCreatePartyRegistration"
 		},
 		"pyld:eiCreateQuote": {
 			"$ref": "#/definitions/.pyld:eiCreateQuote"
@@ -7139,9 +6809,6 @@
 		},
 		"pyld:eiCreatedDelivery": {
 			"$ref": "#/definitions/.pyld:eiCreatedDelivery"
-		},
-		"pyld:eiCreatedEnroll": {
-			"$ref": "#/definitions/.pyld:eiCreatedEnroll"
 		},
 		"pyld:eiCreatedPartyRegistration": {
 			"$ref": "#/definitions/.pyld:eiCreatedPartyRegistration"
@@ -7161,9 +6828,6 @@
 		"pyld:eiReplyEiMarketContext": {
 			"$ref": "#/definitions/.pyld:eiReplyEiMarketContext"
 		},
-		"pyld:eiReplyEnroll": {
-			"$ref": "#/definitions/.pyld:eiReplyEnroll"
-		},
 		"pyld:eiReplyPartyRegistration": {
 			"$ref": "#/definitions/.pyld:eiReplyPartyRegistration"
 		},
@@ -7178,9 +6842,6 @@
 		},
 		"pyld:eiRequestEiMarketContext": {
 			"$ref": "#/definitions/.pyld:eiRequestEiMarketContext"
-		},
-		"pyld:eiRequestEnroll": {
-			"$ref": "#/definitions/.pyld:eiRequestEnroll"
 		},
 		"pyld:eiRequestPartyRegistration": {
 			"$ref": "#/definitions/.pyld:eiRequestPartyRegistration"
