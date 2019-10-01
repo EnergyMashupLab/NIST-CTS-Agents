@@ -16,8 +16,8 @@
 -->
 <!-- power-quality.xsd 
 Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
-Schema version:    0.2
-Schema date:       27 September 2019
+Schema version:    0.3
+Schema date:       1 October 2019
 
 Set includes:
     EMIX, EMIX-Terms, EMIX-Warrants (emix)
@@ -25,9 +25,9 @@ Set includes:
     Resource (resource)
 	SIScale (siscale) 
 -->
-<xs:schema xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.01" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="power.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" schemaLocation="emix.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" schemaLocation="ws-calendar-streams-v1.0.xsd"/>
 	<!-- 6.0 Power Quality Warrant -->
 	<xs:element name="powerQualityWarrant" type="power:PowerQualityWarrantType" substitutionGroup="emix:qualityWarrant"/>

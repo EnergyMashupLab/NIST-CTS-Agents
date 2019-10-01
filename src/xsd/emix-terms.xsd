@@ -26,7 +26,7 @@ Set includes:
 	SIScale (siscale) 
 -->
 <!-- 8.9 EMIX: Terms & Requirements  for CTS-->
-<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="emix.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" schemaLocation="ws-calendar-min-v1.0.xsd"/>
 	<xs:element name="terms" type="emix:ArrayOfTerms">

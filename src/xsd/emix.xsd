@@ -6,7 +6,7 @@
 	 Removed references to VENs, VTNs to leave Common Transactive Services only 
      as part of the NIST Open Source Software using CTS Project
 	 
-	 9 September, 2019 for The Energy Mashup Lab
+	 2019 for The Energy Mashup Lab
 	 - Toby Considine, TC9, Inc
 	 - William T Cox, Cox Software Architects, 
 	 
@@ -18,8 +18,8 @@
 -->
 <!-- emix.xsd 
 Schema agency:     NIST EMIX for CTS
-Schema version:    0.1
-Schema date:       5 September 2019
+Schema version:    0.3
+Schema date:       1 October 2019
 
 Set includes:
     EMIX, EMIX-Terms, EMIX-Warrants (emix)
@@ -28,7 +28,7 @@ Set includes:
 	SIScale (siscale) 
 -->
 <!-- 1.0 EMIX: Energy Market Information Exchange for CTS-->
-<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="emix-terms.xsd"/>
 	<xs:include schemaLocation="emix-warrants.xsd"/>
 	<xs:import namespace="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" schemaLocation="clm5ISO42173A.xsd"/>

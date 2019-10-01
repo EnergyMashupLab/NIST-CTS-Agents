@@ -16,8 +16,8 @@
 -->
 <!-- power.xsd 
 Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
-Schema version:    0.2
-Schema date:       27 September 2019
+Schema version:    0.3
+Schema date:       1 October 2019
 
 Set includes:
     EMIX, EMIX-Terms, EMIX-Warrants (emix)
@@ -26,11 +26,11 @@ Set includes:
 	SIScale (siscale) 
 -->
 <!-- 1.0 EMIX: Energy Market Information Exchange for CTS-->
-<xs:schema xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.01" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="power-products.xsd"/>
 	<xs:include schemaLocation="power-quality.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/siscale" schemaLocation="siscale.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" schemaLocation="emix.xsd"/>
 	<!-- 1.0 Core EMIX Power objects-->
 	<xs:annotation>
 		<xs:appinfo source="http://schemas.opengis.net/gml/3.2.1/profiles/gmlsfProfile/2.0/gmlsfLevels.xsd">

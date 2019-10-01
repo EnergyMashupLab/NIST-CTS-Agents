@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- edited with XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com) by Toby Considine (TC9) -->
 <!--
 	 Schemas for the Common Transactive Services
 	 
@@ -16,8 +17,8 @@
 -->
 <!-- EIPayloads.xsd 
 Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
-Schema version:    0.2
-Schema date:       27 September 2019
+Schema version:    0.3
+Schema date:       1 October 2019
 
 Set includes:
     EMIX, EMIX-Terms, EMIX-Warrants (emix)
@@ -25,10 +26,9 @@ Set includes:
     Resource (resource)
 	SIScale (siscale) 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pyld="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.01" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:enrl="http://docs.oasis-open.org/ns/energyinterop/201110/enroll/cts.01" targetNamespace="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.01">
-	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.01" schemaLocation="emix.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/ns/energyinterop/201110/cts.01" schemaLocation="EIClasses.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/ns/energyinterop/201110/enroll/cts.01" schemaLocation="EiEnrollment.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pyld="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.03" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110/cts.03" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" targetNamespace="http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.03">
+	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ns/energyinterop/201110/cts.03" schemaLocation="EIClasses.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" schemaLocation="ws-calendar-streams-v1.0.xsd"/>
 	<xs:element name="eiCreateQuote" type="pyld:EiCreateQuoteType"/>
 	<xs:complexType name="EiCreateQuoteType">
@@ -100,7 +100,7 @@ Set includes:
 			<xs:element ref="ei:eiQuote" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-		<!-- 6.0 Registration Payloads -->
+	<!-- 6.0 Registration Payloads -->
 	<xs:element name="eiCreatePartyRegistration" type="pyld:EiCreatePartyRegistrationType"/>
 	<xs:complexType name="EiCreatePartyRegistrationType">
 		<xs:annotation>
