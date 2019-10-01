@@ -6701,10 +6701,10 @@
 			"default": "urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07"
 		},
 		"@xmlns:emix": {
-			"default": "http://docs.oasis-open.org/ns/emix/2011/06/cts.01"
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/cts.03"
 		},
 		"@xmlns:power": {
-			"default": "http://docs.oasis-open.org/ns/emix/2011/06/power/cts.01"
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03"
 		},
 		"@xmlns:scale": {
 			"default": "http://docs.oasis-open.org/ns/emix/2011/06/siscale"
