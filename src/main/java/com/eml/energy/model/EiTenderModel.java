@@ -1,3 +1,9 @@
+/**
+ * @author Karan Shah
+ * @version 1.0
+ * @created 10-Oct-2019
+ */
+
 package com.eml.energy.model;
 
 import javax.persistence.Entity;
