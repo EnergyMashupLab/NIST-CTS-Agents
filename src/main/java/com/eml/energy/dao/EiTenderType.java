@@ -32,8 +32,13 @@ public class EiTenderType { /*Service class used to process the reqquests */
 	}
 	
 	/*get a tender by id */
-	/*public EiTenderModel findOne(Long tenderID) {
+	public EiTenderModel findOne(Long tenderID) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		return tenderRepo.findOne(tenderID);
-	}*/
+	}
+	
+	/*Search all books */
+	public List<EiTenderModel> findAll(){
+		return tenderRepo.findAll();
+	}
 }

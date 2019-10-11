@@ -29,7 +29,7 @@ public class EiTenderModel {
 	private String emixBase;
 	
 	@NotNull
-	private long transactionID;			/*Primary Key */
+	private long transactionID;
 
 	/*Below are getter and setter methods to set and get the required information fron Entity Model */
 	public long getTenderID() {
