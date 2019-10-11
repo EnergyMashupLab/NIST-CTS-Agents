@@ -6,6 +6,10 @@
  */
 
 package com.eml.energy.controller.payloads;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 //package XSD-01.EiPayloads;
 
 /*import XSD-01.EIClasses.actorID;
@@ -13,6 +17,8 @@ import XSD-01.EIClasses.EiTenderType;
 import XSD-01.EIClasses.refID;
 */
 
+@RestController
+@RequestMapping("/createTender")
 //public class EiCreateTenderType {
 public class EiCreateTenderType {
 
