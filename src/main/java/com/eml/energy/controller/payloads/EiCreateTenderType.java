@@ -33,7 +33,7 @@ import XSD-01.EIClasses.refID;
 */
 
 @RestController
-@RequestMapping("/createTender")
+@RequestMapping("/tenders")
 //public class EiCreateTenderType {
 public class EiCreateTenderType {
 
@@ -66,7 +66,20 @@ public class EiCreateTenderType {
 		return ResponseEntity.ok().body(bks);
 	}
 	
-	/*get all Tenders*/
+	/*3) delete a tender by tenderid*/
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<EiTenderModel> deleteBook(@PathVariable(value = "id") Long tenderID) {
+		
+		EiTenderModel bks = tenderDao.findOne(tenderID);
+		if(bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+		tenderDao.delete(bks);
+		
+		return ResponseEntity.ok().build();		
+	}
+	
+	/*4) get all Tenders*/
 	@GetMapping("/allTenders")
 	public List<EiTenderModel> getAllTenders(){
 		return tenderDao.findAll();
