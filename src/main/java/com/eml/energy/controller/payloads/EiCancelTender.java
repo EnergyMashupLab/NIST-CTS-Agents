@@ -3,6 +3,8 @@ package com.eml.energy.controller.payloads;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.annotations.Where;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
@@ -34,7 +36,8 @@ import XSD-01.EIClasses.refID;
 @RequestMapping("/transaction")
 //public class EiCreateTenderType {
 public class EiCancelTender {
-
+	private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);
+	
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -50,7 +53,7 @@ public class EiCancelTender {
 	/*1) To cancel a tender*/
 	@PostMapping("/add")
 	public EiResponseModel cancelTender(@Valid @RequestBody EiResponseModel bks) {
-		
+		logger.info(bks.toString());
 		return res.save(bks);
 	}
 	
@@ -59,21 +62,17 @@ public class EiCancelTender {
 	@GetMapping("/search/{id}")
 	@Where (clause= "responsecode = 'canceled'")
 	public ResponseEntity <EiResponseModel>  getCancelledTender(@PathVariable(value="id") Long refID)
-	{
+	{	
+		logger.info("Search: "+refID);
 		EiResponseModel bks = res.findOne(refID);
+		
 		if(bks == null) {
+			logger.info("Reponse: null");
 			return ResponseEntity.notFound().build();
 		}
-		
-		
-		
-	return ResponseEntity.ok().body(bks);
-}
-	
-	
-	
-	
-
+		logger.info("Reponse: "+bks.toString());
+		return ResponseEntity.ok().body(bks);
+	}
 	
 
 	public void finalize() throws Throwable {

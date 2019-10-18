@@ -21,6 +21,8 @@ import javax.persistence.*;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.sun.xml.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
+
 @Entity
 @Table(name="EiResponse")
 @EntityListeners(AuditingEntityListener.class)
@@ -82,4 +84,11 @@ public class EiResponseModel  {
     public Date getTransactionDate() {
         return TransactionDate;
     }
+	
+	@Override
+	public String toString() {
+		return "RefId: "+ this.getRefID() +" ResponseCode: "+this.getResponseCode()+" ResponseDescription: "+this.getResponseDescription()+
+				" RespnseTermsViolated: "+getResponseTermsVoilated();
+		
+	}
 }
