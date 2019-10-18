@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+-->
+<!-- power-products.xsd 
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.3
+Schema date:       1 October 2019
+
+Set includes:
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Warrants, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
+-->
+<!-- 1.0 EMIX: Energy Market Information Exchange for CTS-->
+<xs:schema xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/power/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="power.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" schemaLocation="ws-calendar-min-v1.0.xsd"/>
+	<!-- 2.0 Power Products -->
+	<xs:element name="powerProductDescription" type="power:PowerProductDescriptionType" substitutionGroup="emix:productDescription"/>
+	<xs:complexType name="PowerProductDescriptionType" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Product Description for simple power transactions, also used as template for other Power Product Description Types. The product is constant power, which dictates the rate of delivery. After a specified duration, energy has been delivered, price per unit of energy.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:ProductDescriptionType">
+				<xs:sequence>
+					<xs:element ref="power:productType"/>
+					<xs:element ref="emix:emixInterface"/>
+					<xs:element ref="power:unitEnergyPrice" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="power:powerItem" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="power:charges" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.1 Ancillary Services -->
+	<xs:element name="ancillaryService" type="power:AncillaryServiceType"/>
+	<xs:complexType name="AncillaryServiceType">
+		<xs:annotation>
+			<xs:documentation>Power related Ancillary Service</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:EmixOptionType">
+				<xs:sequence>
+					<xs:element ref="power:ancillaryServiceName"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.1.1 Ancillary Services Names-->
+	<xs:element name="ancillaryServiceName" type="power:AncillaryServiceNameType"/>
+	<xs:simpleType name="AncillaryServiceNameType">
+		<xs:union memberTypes="emix:EmixExtensionType power:AncillaryServiceNameEnumeratedType"/>
+	</xs:simpleType>
+	<xs:simpleType name="AncillaryServiceNameEnumeratedType">
+		<xs:annotation>
+			<xs:documentation>Enumerated Ancillary Service Names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="operatingReserve"/>
+			<xs:enumeration value="regulationServiceUp"/>
+			<xs:enumeration value="regulationServiceDown"/>
+			<xs:enumeration value="regulationServiceUpDown"/>
+			<xs:enumeration value="synchronizedReserve"/>
+			<xs:enumeration value="nonSynchronizedReserve"/>
+			<xs:enumeration value="blackStartRecovery"/>
+			<xs:enumeration value="reactivePower"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ============================================================================================== -->
+	<!-- 2.2 General Contracts and Tariffs -->
+	<!-- 2.2.1 Full Requirements Power -->
+	<xs:element name="fullRequirementsPower" type="power:FullRequirementsPowerType" substitutionGroup="power:powerProductDescription"/>
+	<xs:complexType name="FullRequirementsPowerType">
+		<xs:annotation>
+			<xs:documentation>Product Description for Supplier to provide for full requirements of buyer. Simple price, will supply all used. Demand Charges Optional. Often used in retail residential rates.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:PowerProductDescriptionType">
+				<xs:sequence>
+					<xs:element ref="emix:priceBase" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="maximumPower" type="emix:QuantityType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="minimumPower" type="emix:QuantityType" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.2.2 Block Power Full Requirements -->
+	<xs:element name="blockPowerFullRequirements" type="power:BlockPowerFullRequirementsType" substitutionGroup="power:powerProductDescription"/>
+	<xs:complexType name="BlockPowerFullRequirementsType">
+		<xs:annotation>
+			<xs:documentation>Product Description for Supplier to provide for full requirements of buyer in "blocks". Price is constant within a block, but changes as each block is used during a period. Demand Charges MAY be included. Often used in retail residential rates.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:PowerProductDescriptionType">
+				<xs:sequence>
+					<xs:element name="maximumPower" type="emix:QuantityType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="minimumPower" type="emix:QuantityType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="priceTiers" type="power:ArrayOfBlockPowerPrices" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.3 Transport Service -->
+	<xs:element name="transportProductDescription" type="power:TransportProductDescriptionType" substitutionGroup="power:powerProductDescription"/>
+	<xs:complexType name="TransportProductDescriptionType">
+		<xs:annotation>
+			<xs:documentation>Product Description for charges and revenue related to Transport Services for a Power Product, i.e., the movement of Power through Transmission and Distribution. The Interface used matches a segment of the transport infrastructure, usually identified by an injection node and a delivery node.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:PowerProductDescriptionType">
+				<xs:sequence>
+					<xs:element ref="emix:price"/>
+					<xs:element name="transportCharges" type="power:ArrayOfTransportCharges"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.4 Transactive Power -->
+	<xs:element name="temixPower" type="power:TemixPowerType" substitutionGroup="emix:productDescription"/>
+	<xs:complexType name="TemixPowerType">
+		<xs:annotation>
+			<xs:documentation>Product Description for contract for supplier to deliver a specific sized block of power to buyer. Simple prices, commits a a fixed block. Derived directly from EMIX Product Description rather than Power Product Description because optionality is stripped out.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:ProductDescriptionType">
+				<xs:sequence>
+					<xs:element ref="emix:emixInterface"/>
+					<xs:element ref="emix:price" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="power:powerItem" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="power:energyItem" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="emix:quantity" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- Charge Defintions -->
+	<!-- 2.5 Charge Abstractions -->
+	<xs:element name="baseCharge" type="power:BaseChargeType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract extension object for Emix Power Product Charges</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="charges" type="power:ArrayOfCharges"/>
+	<xs:complexType name="ArrayOfCharges">
+		<xs:annotation>
+			<xs:documentation>Collection of Emix Power Product Charges</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="power:baseCharge" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseChargeType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Type of Abstract extension object for  Emix Power Product Charges</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- 2.6 General Charges -->
+	<!-- 2.6.1 Blocks for use in Block Power -->
+	<xs:element name="blockPowerPrice" type="power:BlockPowerPriceType" substitutionGroup="power:baseCharge"/>
+	<xs:complexType name="BlockPowerPriceType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="power:BaseChargeType">
+				<xs:sequence>
+					<xs:element ref="emix:priceBase"/>
+					<xs:element name="maximumEnergyQuantity" type="emix:QuantityType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfBlockPowerPrices">
+		<xs:annotation>
+			<xs:documentation>Collection of Emix Block Power Prices</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="power:blockPowerPrice" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- 2.6.2 Demand Charges -->
+	<xs:element name="demandCharge" type="power:DemandChargeType" substitutionGroup="power:baseCharge"/>
+	<xs:complexType name="DemandChargeType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="power:BaseChargeType">
+				<xs:sequence>
+					<xs:element name="consumptionUnits" type="power:PowerItemType">
+						<xs:annotation>
+							<xs:documentation>Units of product consumed upon which Demand Charges will be computed</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="consumptionCeiling" type="emix:QuantityType">
+						<xs:annotation>
+							<xs:documentation>Below this quantity, a Consumption Penalty is are not applied</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="overconsumptionPenalty" type="emix:PriceBaseType">
+						<xs:annotation>
+							<xs:documentation>Incremental charge applied if Consumption Ceiling is exceeded.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="measurementInterval" type="xcal:DurationType">
+						<xs:annotation>
+							<xs:documentation>Duration over which average peak demand is measured (e.g., 15 minutes, 30 minutes...) </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="collectionInterval" type="xcal:DurationType">
+						<xs:annotation>
+							<xs:documentation>Collection of Measurement Intervals. Consumption Penalty is based on single highest average peak demand taken from all the Measurement Intervals contained in the Collection Interval. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="penaltyPeriod" type="xcal:DurationType">
+						<xs:annotation>
+							<xs:documentation>Duration to which the Penalty applies, often a billing cycle.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="penaltyDuration" type="xcal:DurationType">
+						<xs:annotation>
+							<xs:documentation>Duration during which consecutive Consumption Penalties will continue to be applied after incurred, e.g., 1 year.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- Transport Charges and Losses Types -->
+	<!-- ============================================================================================== -->
+	<!-- 2.7 Transport Abstract Types -->
+	<xs:element name="baseTransportCharge" type="power:BaseTransportChargeType" abstract="true" substitutionGroup="power:baseCharge">
+		<xs:annotation>
+			<xs:documentation>Abstract extension object for Emix Power Product Charges</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ArrayOfTransportCharges">
+		<xs:annotation>
+			<xs:documentation>Collection of Emix Power Transport Product Charges</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="power:baseTransportCharge" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseTransportChargeType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Type of Abstract extension object for  Emix Transport Charges</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:BaseChargeType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- 2.8 Congestion and Loss Charges -->
+	<!-- 2.8.1 Congestion Revenue Rights Charge-->
+	<xs:element name="congestionRevenueRights" type="power:CongestionRevenueRightsType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="CongestionRevenueRightsType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Financial Hedge for Congestion, a forward contract for congestion revenues to potentially offset congestion charges. Also known as Financial Transmission Rights or Congestion Revenue Rights</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:transportInterface"/>
+					<xs:element ref="power:transportCongestionFee"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.8.2 Congestion Charge-->
+	<xs:element name="congestionCharge" type="power:CongestionChargeType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="CongestionChargeType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Congestion Charge is the cost of purchasing the right to transfer power over a given segment of the grid.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:transportInterface"/>
+					<xs:element ref="power:transportCongestionFee"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.8.3 Marginal Loss Charge -->
+	<xs:element name="marginalLossCharge" type="power:MarginalLossChargeType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="MarginalLossChargeType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:marginalLossFee"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.8.4 Marginal Loss -->
+	<xs:element name="marginalLoss" type="power:MarginalLossType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="MarginalLossType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:lossFactor"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.8.5 Conversion Loss -->
+	<xs:element name="conversionLoss" type="power:ConversionLossType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="ConversionLossType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:pnode"/>
+					<xs:element ref="power:lossFactor"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="transportAccessFee" type="power:TransportAccessFeeType" substitutionGroup="power:baseTransportCharge"/>
+	<xs:complexType name="TransportAccessFeeType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Transport Access Fee is a Fixed Charge (not dependent on congestion or quantity) to access a transport system.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="power:BaseTransportChargeType">
+				<xs:sequence>
+					<xs:element ref="power:transportInterface"/>
+					<xs:element ref="emix:price"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ============================================================================================== -->
+	<!-- 2.9 Elemental Charge and Loss Types -->
+	<!-- ============================================================================================== -->
+	<!-- 2.9.1 Loss Fee  -->
+	<xs:element name="marginalLossFee" type="power:MarginalLossFeeType"/>
+	<xs:simpleType name="MarginalLossFeeType">
+		<xs:annotation>
+			<xs:documentation>Marginal Loss Fee</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- 2.9.2 Transport Congestion Fee -->
+	<xs:element name="transportCongestionFee" type="power:TransportCongestionFeeType"/>
+	<xs:simpleType name="TransportCongestionFeeType">
+		<xs:annotation>
+			<xs:documentation>Financial Transmission Rights (FTR) regarding transmission capacity.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- 2.9.3 Loss Factor -->
+	<xs:element name="lossFactor" type="power:LossFactorType"/>
+	<xs:simpleType name="LossFactorType">
+		<xs:annotation>
+			<xs:documentation>Reduction in amount delivered as product travels. (lossFactor * purchase amount) = delivered amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float">
+			<xs:maxInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 2.9.6 Enumeration & Simple Types for Products -->
+	<xs:element name="productType" type="power:ProductTypeType"/>
+	<xs:simpleType name="ProductTypeType">
+		<xs:union memberTypes="power:ProductTypeEnumeratedType emix:EmixExtensionType power:PowerOptionTypeEnumeratedType"/>
+	</xs:simpleType>
+	<xs:simpleType name="ProductTypeEnumeratedType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="energy"/>
+			<xs:enumeration value="transport"/>
+			<xs:enumeration value="energyOption"/>
+			<xs:enumeration value="transportOption"/>
+			<xs:enumeration value="fullRequirementsPower"/>
+			<xs:enumeration value="fullRequirementsPowerBlockPricing"/>
+			<xs:enumeration value="fullRequirementsPowerWithDemandCharge"/>
+			<xs:enumeration value="fullRequirementsPowerWithMaximumAndMinimum"/>
+			<xs:enumeration value="hourlyDayAhead"/>
+			<xs:enumeration value="exAnteRealTimePrice"/>
+			<xs:enumeration value="timeOfUsePricing"/>
+			<xs:enumeration value="congestionRevenueRights"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

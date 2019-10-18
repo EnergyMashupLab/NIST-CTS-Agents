@@ -12,7 +12,11 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import java.sql.Date;
+
+import javax.persistence.*;
+
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -22,7 +26,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 
 
-public class EiResponseModel {
+public class EiResponseModel  {
 	
 	@Id
 	@NotNull
@@ -33,6 +37,11 @@ public class EiResponseModel {
 	private String responseDescription;
 	@NotBlank
 	private String responseTermsVoilated;
+	private Date TransactionDate;
+	
+	@JoinColumn(name ="FK_tenderID")
+	@ManyToOne
+	private  EiTenderModel tenderID;
 	
 	/*Getter and Setter method */
 	public long getRefID() {
@@ -59,4 +68,18 @@ public class EiResponseModel {
 	public void setResponseTermsVoilated(String responseTermsVoilated) {
 		this.responseTermsVoilated = responseTermsVoilated;
 	}
+	
+	//Foreign key 
+	public EiTenderModel getTenderID() {
+		return tenderID;
+	}
+	public void setTenderID(EiTenderModel tenderID) {
+		this.tenderID = tenderID;
+	}
+	//To save date
+	@Temporal(TemporalType.DATE)
+    @Column(name = "TransactionDate")
+    public Date getTransactionDate() {
+        return TransactionDate;
+    }
 }
