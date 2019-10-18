@@ -41,54 +41,57 @@ public class EiCreateTenderType {
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
 	 */
-		
+
 	@Autowired
 	EiTenderType tenderDao;
-	
+
 	/*
 	 * @RequestMapping("/") public String home(){ return "Hello World!"; }
 	 */
-	
-	/*1) To Save an tender*/
+	@RequestMapping("/")
+	public String home() {
+		return "Hello World!";
+	}
+
+	/* 1) To Save an tender */
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
 		return tenderDao.save(bks);
 	}
-	
 
-	/*2) Get created tender */
+	/* 2) Get created tender */
 	@GetMapping("/search/{id}")
-	public ResponseEntity<EiTenderModel> getCreatedTender(@PathVariable(value="id") Long tenderID){
+	public ResponseEntity<EiTenderModel> getCreatedTender(@PathVariable(value = "id") Long tenderID) {
 		EiTenderModel bks = tenderDao.findOne(tenderID);
-		if(bks == null) {
+		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().body(bks);
 	}
-	
-	/*3) delete a tender by tenderid*/
+
+	/* 3) delete a tender by tenderid */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EiTenderModel> deleteBook(@PathVariable(value = "id") Long tenderID) {
-		
+
 		EiTenderModel bks = tenderDao.findOne(tenderID);
-		if(bks == null) {
+		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
 		tenderDao.delete(bks);
-		
-		return ResponseEntity.ok().build();		
+
+		return ResponseEntity.ok().build();
 	}
-	
-	/*4) get all Tenders*/
+
+	/* 4) get all Tenders */
 	@GetMapping("/allTenders")
-	public List<EiTenderModel> getAllTenders(){
+	public List<EiTenderModel> getAllTenders() {
 		return tenderDao.findAll();
 	}
-	
 
-	/*Default methods */
+	/* Default methods */
 	int test;
-	public EiCreateTenderType(){
+
+	public EiCreateTenderType() {
 		this.test = 11;
 	}
 

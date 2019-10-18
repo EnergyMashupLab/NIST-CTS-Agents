@@ -6,9 +6,10 @@
 
 package com.eml.energy.repository;
 
-import com.eml.energy.model.EiTenderModel;
+import com.eml.energy.model.EiRequestTransactionModel;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EiTenderRepository extends JpaRepository<EiTenderModel, Long> {
+public interface EiRequestTransactionRepository extends JpaRepository<EiRequestTransactionModel, Long> {
 
 }
