@@ -141,6 +141,31 @@ Agile programming and architecture are used.
 
 The project uses Github, Maven, and Java 8.
 
+It also includes the following tools:
+
+**Backend Framework** - Spring Boot with Maven (2.2.0).  You can download it from https://start.spring.io/
+With the following dependencies.  
+- Project: Maven ProjectGradle Project
+- Language: Java
+- Spring Boot: 2.2.0
+- Project Metadata: 
+- Group: com.eml
+- Artifact: energy
+- Options
+- Name: energy
+            Description: EML CTC Project  
+            Package Name: com.eml.energy  
+            Packaging: Jar  
+            Java: 8  
+- Dependencies: Spring Web including RESTful, Spring Session  
+
+ **Front End**          - React JS (We will update you the version when we integrate React JS in our project  
+ **IDE**                - Spring tool 4 (or Eclipse the latest version)  
+ **Version control**    - GitHub  
+ **Database**           - MySQL (version 5.1 or later) You can download it from https://dev.mysql.com/downloads/installer/  
+
+**NOTE: If you are cloning the code from GitHub, you need only Spring Tool IDE, Apache Server and MySQL server.**  
+
 Authors
 -------
 
