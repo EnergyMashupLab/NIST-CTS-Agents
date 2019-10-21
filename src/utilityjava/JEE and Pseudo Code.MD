@@ -1,4 +1,4 @@
-Design Notes - JEE Containers and Loops
+Design Notes - JEE Containers and Actor Loops
 ========
 
 Background
@@ -13,7 +13,7 @@ We create one container for each actor
 - The Market Agent (MA)
 - The Market
 
-The containers' lifecycle is managed with the Spring framework. The actors communicate with HTTP GET and PUT operations. Within these containers certain EJBeans implement the equivalent of HttpServlet, and communicate with actors in other contains via HTTP GET PUT and POST.
+The containers' lifecycle is managed with the Spring framework. The actors are effectively HttpServlets, and communicate with HTTP GET and PUT operations. Within these containers certain EJBeans implement the equivalent of HttpServlet, and communicate with actors in other contains via HTTP GET PUT and POST.
 
 At a high level, the main loop for each actor awaits input, processes, and repeats, following a typic listener loop pattern.
 
