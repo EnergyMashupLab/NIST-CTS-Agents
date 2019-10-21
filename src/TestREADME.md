@@ -1,10 +1,12 @@
 NIST-CTS Test
 =============
+Note: src/test will be used by Spring Framework
+=============
 
 Background
 ----------
 
-See the project [README](../../README.md).
+See the project [README](../README.md).
 
 Technical Description Test Hierarchy
 ------------------------------------
