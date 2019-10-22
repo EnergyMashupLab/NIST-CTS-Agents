@@ -11,7 +11,7 @@ following dependencies:
 
 With the following dependencies.
 
-[][./SpringBootSetup20191015.png]
+![Spring Boot Setup][SpringBootSetup20191015.png]
 
 Front End 
 ----------
