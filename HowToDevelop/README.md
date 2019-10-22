@@ -35,6 +35,7 @@ MySQL (version 5.1 or later)
 
 Download from <https://dev.mysql.com/downloads/installer/>
 
-If you are cloning from GitHub, you need only Spring Tool IDE and MySQL server.
+**NOTE: If you are cloning the code from GitHub, you need only Spring Tool IDE, Apache Server and MySQL server.**  
+
 You can use online services or any cloud server in which you have MySQL already
 setup.
