@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+		
+	 Removed references to VENs, VTNs to leave Common Transactive Services only
+	 Removed Targets and related material tied to DR Evants
+	 as part of the NIST Open Source Software for Energy Markets using CTS Project
+	 Copyright 2019 Toby Considine, TC9, Inc and William T Cox, Cox Software Architects, LLC 
+	 
+	 Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0 Committee Specification 02 11 January 2012
+	 Copyright (c) OASIS Open 2012.  All Rights Reserved.
+	 
+	 Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+-->
+<!-- emix-terms.xsd 
+Schema agency:     Energy Mashup Lab, NIST CTS OSS Project
+Schema version:    0.2
+Schema date:       27 September 2019
+
+Set includes:
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Contracts, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
+-->
+<!-- 8.9 EMIX: Terms & Requirements  for CTS-->
+<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.03" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="emix.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" schemaLocation="ws-calendar-min-v1.0.xsd"/>
+	<xs:element name="terms" type="emix:ArrayOfTerms">
+		<xs:annotation>
+			<xs:documentation>Terms are extrinsic to the product delivery but effect how each party interacts with others. Terms may be tied to basic operational needs, or state schedules of availability, or suggest limits on bids and prices acceptable. It is possible for a given party to offers its service to the market with different Terms and thereby receive different values. Terms may originate with the buyer, the seller, or the market context</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- 8.9.1 Core EMIX Terms-->
+	<xs:element name="baseTerm" type="emix:BaseTermType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract extension object for Emix Terms</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ArrayOfTerms">
+		<xs:annotation>
+			<xs:documentation>Collection of Emix Terms</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:baseTerm" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseTermType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Type of Abstract extension object for Emix Terms</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<!-- 8.9.1.1 Minimum Response-->
+	<xs:element name="minimumResponseDuration" type="emix:MinimumResponseDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumResponseDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The shortest Duration for which a request will be accepted.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.2 Maximum Response-->
+	<xs:element name="maximumResponseDuration" type="emix:MaximumResponseDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MaximumResponseDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The longest Duration for which a request will be accepted.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.3 Minimum Recovery-->
+	<xs:element name="minimumRecoveryDuration" type="emix:MinimumRecoveryDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumRecoveryDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The minimum Duration after completion of a response before a new response can be begun.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.4 Minimum Duration between Invocations-->
+	<xs:element name="minimumDurationBetweenInvocations" type="emix:MinimumDurationBetweenInvocationsType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumDurationBetweenInvocationsType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The minimum Duration between successive responses that will be accepted.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.5 Minimum Notification Duration-->
+	<xs:element name="minimumNotificationDuration" type="emix:MinimumNotificationDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumNotificationDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The minimum Duration in advance of a proposed response that a notification will be accepted.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.6 Maximum Notification Duration-->
+	<xs:element name="maximumNotificationDuration" type="emix:MaximumNotificationDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MaximumNotificationDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The maximum Duration in advance of a proposed response that a notification will be accepted. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.7 Response Time-->
+	<xs:element name="responseTime" type="emix:ResponseTimeType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="ResponseTimeType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Duration required from receipt of a request to supplying the full requested level of response, i.e., notification time plus response time.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.8 Maximum Invocations per Duration-->
+	<xs:element name="maximumInvocationsPerDuration" type="emix:MaximumInvocationsPerDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MaximumInvocationsPerDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Maximum number of requests for response that will be accepted during a Duration.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element name="starts" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.9 Maximum Consecutive Durations -->
+	<xs:element name="maximumConsecutiveDurations" type="emix:MaximumConsecutiveDurationsType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MaximumConsecutiveDurationsType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Maximum consecutive Durations in which a notification will be accepted, e.g., it will not accept requests on more than 3 consecutive days.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element name="durations" type="xs:int"/>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.10 Maximum Run Duration -->
+	<xs:element name="maximumRunDuration" type="emix:MaximumRunDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MaximumRunDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Maximum acceptable Duration for a proposed response</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.1.11 Minimum Run Duration -->
+	<xs:element name="minimumRunDuration" type="emix:MinimumRunDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumRunDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Minimum acceptable Duration for a proposed response.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.2 Schedule Oriented Terms -->
+	<!-- 8.9.2.1 Availability Schedule -->
+	<xs:element name="availabilitySchedule" type="emix:AvailabilityScheduleType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="AvailabilityScheduleType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>A Schedule of time windows during which a response may be scheduled. A scheduled Duration must be entirely within a single instance of an availability window.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:vAvailability" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.2.2 Notification Schedule -->
+	<xs:element name="notificationSchedule" type="emix:NotificationScheduleType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="NotificationScheduleType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>A schedule of time windows during which requests can be made.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:vAvailability" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.2.3 Unavailability Schedule -->
+	<xs:element name="unavailabilitySchedule" type="emix:UnavailabilityScheduleType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="UnavailabilityScheduleType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>A schedule of time windows for which no request for response will be accepted. No part of a requested Duration must coincide with an unavailability window.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="xcal:vAvailability" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.3 Market Requirements -->
+	<!-- 8.9.3.1 Minimum Economic Requirement -->
+	<xs:element name="minimumEconomicRequirement" type="emix:MinimumEconomicRequirementType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumEconomicRequirementType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Minimum net remuneration for any single response.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="emix:price"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.3.2 Required Startup Remuneration -->
+	<xs:element name="requiredStartupRemuneration" type="emix:RequiredStartupRemunerationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="RequiredStartupRemunerationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Minimum remuneration required for initiating a response.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="emix:price" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.3.3 Minimum Starts per Duration -->
+	<xs:element name="minimumStartsPerDuration" type="emix:MinimumStartsPerDurationType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumStartsPerDurationType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The fewest requests that the resource will accept during any Duration.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element name="starts" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="xcal:duration" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.3.4 Minimum Remuneration Rate  -->
+	<xs:element name="minimumRemunerationRate" type="emix:MinimumRemunerationRateType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MinimumRemunerationRateType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Minimum remuneration acceptable per stated Duration of response, e.g., a minimum remuneration of $100 / hour.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="emix:price"/>
+					<xs:element ref="xcal:duration"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.3.5 Market Granularity  -->
+	<xs:element name="marketGranularity" type="emix:MarketGranularityType" substitutionGroup="emix:baseTerm"/>
+	<xs:complexType name="MarketGranularityType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Granularity defines the size of a market “bundle”. For example, a Market with a granularity of 10 MW, will only accept tenders, process transactions, and pay for delivery of Power in multiples of 10MW.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:BaseTermType">
+				<xs:sequence>
+					<xs:element ref="emix:quantity"/>
+					<xs:element ref="emix:itemBase"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.9.5 Market Context Defintion -->
+	<!-- 8.9.5.1 Standard Terms -->
+	<xs:element name="standardTerms" type="emix:StandardTermsType"/>
+	<xs:complexType name="StandardTermsType">
+		<xs:annotation>
+			<xs:documentation>Standard Terms express overarching terms for a market context</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:marketContext" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="emix:marketContextName" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="emix:standardTermsSet" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="emix:productDescription" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>If present in Standard Terms, then it specifies a single Product Description for all products in the market.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="xcal:granularity" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Temporal granularity of market, i.e., a 5 minute market operates in 5 minute chunks, with a fixed offset from the beginning of availability</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="xcal:timeZone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Time Zone for communications in this market. Applies to "floating" time, i.e., expressions of time that are not in UTC or do not have a Time Zone indicated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="emix:currency" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Currency for interactions. If present, becomes the default for all information models.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="emix:nonStandardTermsHandling" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 8.9.5.2 Standard Term Set -->
+	<xs:element name="standardTermsSet" type="emix:StandardTermsSetType"/>
+	<xs:complexType name="StandardTermsSetType">
+		<xs:annotation>
+			<xs:documentation>A collection of Standard Terms for this market</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:terms" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="xcal:vAvailability" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>If present, this defines the period(s) that this RuleSet applies to, i.e., weekdays 9:00-5:00.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="emix:nonStandardTermsHandling" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="emix:side" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Some terms may have different interpretation as to side. A Buyer term may indicate "meet or exceed" well a seller expressing the same term may indicate "no worse than".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 8.9.5.3 Non-Standard Terms Handling -->
+	<xs:element name="nonStandardTermsHandling" type="emix:NonStandardTermsHandlingType"/>
+	<xs:simpleType name="NonStandardTermsHandlingType">
+		<xs:annotation>
+			<xs:documentation>Defines how participants should handle terms not listed in the RuleSet</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="mustAccept">
+				<xs:annotation>
+					<xs:documentation>Participants must accept messages even if they contain rules not listed here that the party does not understand.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ignore">
+				<xs:annotation>
+					<xs:documentation>Participants must ignore any rule not listed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="mustUnderstand">
+				<xs:annotation>
+					<xs:documentation>Participants must reject any message containing a rule not listed here unless is it understoo.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="reject">
+				<xs:annotation>
+					<xs:documentation>Participants in this market will reject all message containing rules not itemized in market rules.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8.9.5.4 Market Context Name -->
+	<xs:element name="marketContextName" type="emix:MarketContextNameType"/>
+	<xs:simpleType name="MarketContextNameType">
+		<xs:annotation>
+			<xs:documentation>A descriptive name than can be applied to any market context through the associated Standard Terms.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

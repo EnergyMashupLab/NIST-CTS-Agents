@@ -1,0 +1,6139 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"definitions": {
+		".ei:actorID": {
+			"additionalProperties": false,
+			"description": "Identifier of a Party.  May be ws-addressing endpoint descriptor.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:availID": {
+			"additionalProperties": false,
+			"description": "Identifier for Avail in an interaction.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:counterPartyID": {
+			"additionalProperties": false,
+			"description": "The \"other\" party in any interaction",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:createdDateTime": {
+			"additionalProperties": false,
+			"description": "Date and Time this artifact was created.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:eiDelivery": {
+			"$ref": "#/definitions/ei:EiDeliveryType"
+		},
+		".ei:eiDeliveryID": {
+			"additionalProperties": false,
+			"description": "Reference ID for a Delivery",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:eiMarketContext": {
+			"$ref": "#/definitions/ei:EiMarketContextType"
+		},
+		".ei:eiMarketExpectations": {
+			"$ref": "#/definitions/ei:EiMarketExpectationsType"
+		},
+		".ei:eiMarketRuleSet": {
+			"$ref": "#/definitions/ei:EiMarketRuleSetType"
+		},
+		".ei:eiQuote": {
+			"$ref": "#/definitions/ei:EiQuoteType"
+		},
+		".ei:eiRegistration": {
+			"$ref": "#/definitions/ei:EiRegistrationType"
+		},
+		".ei:eiRegistrationInfo": {
+			"$ref": "#/definitions/ei:EiRegistrationInfoType"
+		},
+		".ei:eiResponse": {
+			"$ref": "#/definitions/ei:EiResponseType"
+		},
+		".ei:eiTender": {
+			"$ref": "#/definitions/ei:EiTenderType"
+		},
+		".ei:eiTransaction": {
+			"$ref": "#/definitions/ei:EiTransactionType"
+		},
+		".ei:marketName": {
+			"additionalProperties": false,
+			"description": "Optional Name for a Market Context, used perhaps in a user interface.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xs:string"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:modificationDateTime": {
+			"additionalProperties": false,
+			"description": "The date and time a modification takes effect.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:modificationNumber": {
+			"additionalProperties": false,
+			"description": "A modification number for [event]. Used to indicate if the [event] has been modified and is incremented each time the [event] is modified ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xs:unsignedInt"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:offline": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xs:boolean"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:optType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:OptTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:originalReferenceID": {
+			"additionalProperties": false,
+			"description": "Indentifier for a  superceded Reference ID",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:partyID": {
+			"additionalProperties": false,
+			"description": "Identifier for any Party",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:partyRole": {
+			"additionalProperties": false,
+			"description": "Role that Party is assuming for this interaction, e.g buyer or seller",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xs:string"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:publisherPartyID": {
+			"additionalProperties": false,
+			"description": "Identifier for the party publishing a broadcast message",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:quoteID": {
+			"additionalProperties": false,
+			"description": "Identifier for a Quote",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:readingType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:ReadingTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:refID": {
+			"additionalProperties": false,
+			"description": "Reference ID for a particular instance, transmittal, or artifact. Note: not the same as the native ID of the object being transmitted or shared.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:registrarPartyID": {
+			"additionalProperties": false,
+			"description": "Indentifier of Party acting as a Registrar",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:registrationID": {
+			"additionalProperties": false,
+			"description": "Identifier for Registration transaction",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:registreePartyID": {
+			"additionalProperties": false,
+			"description": "Identifier for Party attempting to Register",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:reportSpecifierID": {
+			"additionalProperties": false,
+			"description": "Identifier for a particular Report Specification",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:requestorPartyID": {
+			"additionalProperties": false,
+			"description": "Identifier of Party making a Request",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:respondingPartyID": {
+			"additionalProperties": false,
+			"description": "Identifier of Party making a Resonse (note: in CancelledPartyRegistration payload and I do not know defintion)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:responseCode": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:ResponseCodeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:responseDescription": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:ResponseDescriptionType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:responseTermViolated": {
+			"$ref": "#/definitions/ei:ResponseTermViolatedType"
+		},
+		".ei:responseTermsViolated": {
+			"$ref": "#/definitions/ei:ArrayofResponseTermsViolated"
+		},
+		".ei:ruleSetPurpose": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:RuleSetPurposeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:simpleLevelContext": {
+			"$ref": "#/definitions/ei:SimpleLevelContextType"
+		},
+		".ei:subscriberPartyID": {
+			"additionalProperties": false,
+			"description": "Identifier of Party subscribing to a broadcast or service",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:tenderID": {
+			"additionalProperties": false,
+			"description": "Identifier for a market Tender",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:transactionID": {
+			"additionalProperties": false,
+			"description": "Identification of Transaction",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".ei:uid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:autonomous": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:AutonomousType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:availabilitySchedule": {
+			"$ref": "#/definitions/emix:AvailabilityScheduleType"
+		},
+		".emix:baseTerm": {
+			"$ref": "#/definitions/emix:BaseTermType",
+			"description": "Abstract extension object for Emix Terms"
+		},
+		".emix:baseWarrant": {
+			"$ref": "#/definitions/emix:BaseWarrantType",
+			"description": "Abstract extension object for Emix Warrants"
+		},
+		".emix:currency": {
+			"additionalProperties": false,
+			"description": "Currency codes coming from UN CEFACT schemas",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/clm5ISO42173A:ISO3AlphaCurrencyCodeContentType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:delivery": {
+			"$ref": "#/definitions/emix:DeliveryType"
+		},
+		".emix:emixBase": {
+			"$ref": "#/definitions/emix:EmixBaseType"
+		},
+		".emix:emixGranularity": {
+			"$ref": "#/definitions/emix:EmixGranularityType"
+		},
+		".emix:emixInterface": {
+			"$ref": "#/definitions/emix:EmixInterfaceType"
+		},
+		".emix:emixOption": {
+			"$ref": "#/definitions/emix:EmixOptionType",
+			"description": "Option to buy an Emix Product"
+		},
+		".emix:envelopeContents": {
+			"$ref": "#/definitions/emix:EnvelopeContentsType"
+		},
+		".emix:environmentalWarrant": {
+			"$ref": "#/definitions/emix:EnvironmentalWarrantType"
+		},
+		".emix:expirationDate": {
+			"additionalProperties": false,
+			"description": "Expiration date for tenders and similar related information.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:integralOnly": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:IntegralOnlyType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:itemBase": {
+			"$ref": "#/definitions/emix:ItemBaseType"
+		},
+		".emix:marketContext": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:MarketContextType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:marketContextName": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:MarketContextNameType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:marketGranularity": {
+			"$ref": "#/definitions/emix:MarketGranularityType"
+		},
+		".emix:maximumConsecutiveDurations": {
+			"$ref": "#/definitions/emix:MaximumConsecutiveDurationsType"
+		},
+		".emix:maximumInvocationsPerDuration": {
+			"$ref": "#/definitions/emix:MaximumInvocationsPerDurationType"
+		},
+		".emix:maximumNotificationDuration": {
+			"$ref": "#/definitions/emix:MaximumNotificationDurationType"
+		},
+		".emix:maximumResponseDuration": {
+			"$ref": "#/definitions/emix:MaximumResponseDurationType"
+		},
+		".emix:maximumRunDuration": {
+			"$ref": "#/definitions/emix:MaximumRunDurationType"
+		},
+		".emix:measurement": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".emix:minimumDurationBetweenInvocations": {
+			"$ref": "#/definitions/emix:MinimumDurationBetweenInvocationsType"
+		},
+		".emix:minimumEconomicRequirement": {
+			"$ref": "#/definitions/emix:MinimumEconomicRequirementType"
+		},
+		".emix:minimumNotificationDuration": {
+			"$ref": "#/definitions/emix:MinimumNotificationDurationType"
+		},
+		".emix:minimumRecoveryDuration": {
+			"$ref": "#/definitions/emix:MinimumRecoveryDurationType"
+		},
+		".emix:minimumRemunerationRate": {
+			"$ref": "#/definitions/emix:MinimumRemunerationRateType"
+		},
+		".emix:minimumResponseDuration": {
+			"$ref": "#/definitions/emix:MinimumResponseDurationType"
+		},
+		".emix:minimumRunDuration": {
+			"$ref": "#/definitions/emix:MinimumRunDurationType"
+		},
+		".emix:minimumStartsPerDuration": {
+			"$ref": "#/definitions/emix:MinimumStartsPerDurationType"
+		},
+		".emix:nonStandardTermsHandling": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:NonStandardTermsHandlingType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:notificationSchedule": {
+			"$ref": "#/definitions/emix:NotificationScheduleType"
+		},
+		".emix:optionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:OptionTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:price": {
+			"$ref": "#/definitions/emix:PriceType"
+		},
+		".emix:priceBase": {
+			"$ref": "#/definitions/emix:PriceBaseType",
+			"description": "Abstract base for EMIX Prices"
+		},
+		".emix:priceMultiplier": {
+			"$ref": "#/definitions/emix:PriceMultiplierType"
+		},
+		".emix:priceRelative": {
+			"$ref": "#/definitions/emix:PriceRelativeType"
+		},
+		".emix:product": {
+			"$ref": "#/definitions/emix:ProductType",
+			"description": "Emix Product, .i.e., a Product Description applied to a schedule."
+		},
+		".emix:productDescription": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".emix:qualityWarrant": {
+			"$ref": "#/definitions/emix:QualityWarrantType"
+		},
+		".emix:quantity": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:QuantityType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:requiredStartupRemuneration": {
+			"$ref": "#/definitions/emix:RequiredStartupRemunerationType"
+		},
+		".emix:responseTime": {
+			"$ref": "#/definitions/emix:ResponseTimeType"
+		},
+		".emix:serviceArea": {
+			"$ref": "#/definitions/emix:ServiceAreaType"
+		},
+		".emix:side": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:SideType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:sourceWarrant": {
+			"$ref": "#/definitions/emix:SourceWarrantType"
+		},
+		".emix:standardTerms": {
+			"$ref": "#/definitions/emix:StandardTermsType"
+		},
+		".emix:standardTermsSet": {
+			"$ref": "#/definitions/emix:StandardTermsSetType"
+		},
+		".emix:supportForPrice": {
+			"$ref": "#/definitions/emix:SupportForPriceType"
+		},
+		".emix:terms": {
+			"$ref": "#/definitions/emix:ArrayOfTerms",
+			"description": "Terms are extrinsic to the product delivery but effect how each party interacts with others. Terms may be tied to basic operational needs, or state schedules of availability, or suggest limits on bids and prices acceptable. It is possible for a given party to offers its service to the market with different Terms and thereby receive different values. Terms may originate with the buyer, the seller, or the market context"
+		},
+		".emix:transactiveState": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:TransactiveStateType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:uid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:unavailabilitySchedule": {
+			"$ref": "#/definitions/emix:UnavailabilityScheduleType"
+		},
+		".emix:value": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:ValueType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:warrants": {
+			"$ref": "#/definitions/emix:ArrayOfWarrants",
+			"description": "Warrants are \"a written assurances that some product or service will be provided or will meet certain specifications.\" Sellers may use EMIX Warrants to provide information about the source of the energy or about its environmental characteristics. Buyers can use warrants to indicate what they wish to purchase. EMIX does not define specific warrants, although it does define base types for extension by those who wish to develop the various types of warrants."
+		},
+		".pyld:eiCancelPartyRegistration": {
+			"$ref": "#/definitions/pyld:EiCancelPartyRegistrationType"
+		},
+		".pyld:eiCancelQuote": {
+			"$ref": "#/definitions/pyld:EiCancelQuoteType"
+		},
+		".pyld:eiCancelTender": {
+			"$ref": "#/definitions/pyld:EiCancelTenderType"
+		},
+		".pyld:eiCanceledPartyRegistration": {
+			"$ref": "#/definitions/pyld:EiCanceledPartyRegistrationType"
+		},
+		".pyld:eiCanceledQuote": {
+			"$ref": "#/definitions/pyld:EiCanceledQuoteType"
+		},
+		".pyld:eiCanceledTender": {
+			"$ref": "#/definitions/pyld:EiCanceledTenderType"
+		},
+		".pyld:eiCreateDelivery": {
+			"$ref": "#/definitions/pyld:EiCreateDeliveryType"
+		},
+		".pyld:eiCreatePartyRegistration": {
+			"$ref": "#/definitions/pyld:EiCreatePartyRegistrationType"
+		},
+		".pyld:eiCreateQuote": {
+			"$ref": "#/definitions/pyld:EiCreateQuoteType"
+		},
+		".pyld:eiCreateTender": {
+			"$ref": "#/definitions/pyld:EiCreateTenderType"
+		},
+		".pyld:eiCreateTransaction": {
+			"$ref": "#/definitions/pyld:EiCreateTransactionType"
+		},
+		".pyld:eiCreatedDelivery": {
+			"$ref": "#/definitions/pyld:EiCreatedDeliveryType"
+		},
+		".pyld:eiCreatedPartyRegistration": {
+			"$ref": "#/definitions/pyld:EiCreatedPartyRegistrationType"
+		},
+		".pyld:eiCreatedQuote": {
+			"$ref": "#/definitions/pyld:EiCreatedQuoteType"
+		},
+		".pyld:eiCreatedTender": {
+			"$ref": "#/definitions/pyld:EiCreatedTenderType"
+		},
+		".pyld:eiCreatedTransaction": {
+			"$ref": "#/definitions/pyld:EiCreatedTransactionType"
+		},
+		".pyld:eiDistributeTender": {
+			"$ref": "#/definitions/pyld:EiDistributeTenderType"
+		},
+		".pyld:eiReplyEiMarketContext": {
+			"$ref": "#/definitions/pyld:EiReplyEiMarketContextType"
+		},
+		".pyld:eiReplyPartyRegistration": {
+			"$ref": "#/definitions/pyld:EiReplyPartyRegistrationType"
+		},
+		".pyld:eiReplyQuote": {
+			"$ref": "#/definitions/pyld:EiReplyQuoteType"
+		},
+		".pyld:eiReplyTender": {
+			"$ref": "#/definitions/pyld:EiReplyTenderType"
+		},
+		".pyld:eiReplyTransaction": {
+			"$ref": "#/definitions/pyld:EiReplyTransactionType"
+		},
+		".pyld:eiRequestEiMarketContext": {
+			"$ref": "#/definitions/pyld:EiRequestEiMarketContextType"
+		},
+		".pyld:eiRequestPartyRegistration": {
+			"$ref": "#/definitions/pyld:EiRequestPartyRegistrationType"
+		},
+		".pyld:eiRequestQuote": {
+			"$ref": "#/definitions/pyld:EiRequestQuoteType"
+		},
+		".pyld:eiRequestTender": {
+			"$ref": "#/definitions/pyld:EiRequestTenderType"
+		},
+		".pyld:eiRequestTransaction": {
+			"$ref": "#/definitions/pyld:EiRequestTransactionType"
+		},
+		".pyld:requestID": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/ei:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".strm:intervals": {
+			"$ref": "#/definitions/strm:ArrayofStreamIntervals"
+		},
+		".strm:streamInterval": {
+			"$ref": "#/definitions/strm:StreamIntervalType"
+		},
+		".strm:streamPayloadBase": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".strm:uid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/strm:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:availability": {
+			"$ref": "#/definitions/xcal:AvailabilityType"
+		},
+		".xcal:availabilityInterval": {
+			"$ref": "#/definitions/xcal:AvailabilityIntervalType"
+		},
+		".xcal:busyType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:BusyTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:comment": {
+			"additionalProperties": false,
+			"description": "Freeform comment annotating this artifact.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:CommentType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:date": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:dateTime": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:dtEnd": {
+			"$ref": "#/definitions/xcal:DateTimeDateType"
+		},
+		".xcal:dtStart": {
+			"$ref": "#/definitions/xcal:DateTimeDateType"
+		},
+		".xcal:duration": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:exDate": {
+			"$ref": "#/definitions/xcal:DateTimeDateType",
+			"description": "Exception or Excluded date in a series"
+		},
+		".xcal:granularity": {
+			"additionalProperties": false,
+			"description": "The uniform size or granularity of the a set of [intervals].",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:rDate": {
+			"$ref": "#/definitions/xcal:DateTimeDateType",
+			"description": "Recurrence Date. As well as generating recurrences by rule, one can name a set of recurrences. A Recurrence object may contain both RRules and RDates"
+		},
+		".xcal:recurRulePart": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:RecurRulePartType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:recurRuleValues": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:RecurRuleValuesType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:recurrence": {
+			"$ref": "#/definitions/xcal:RecurrenceType"
+		},
+		".xcal:recurrenceRule": {
+			"$ref": "#/definitions/xcal:RecurrenceRuleType"
+		},
+		".xcal:time": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:TimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:timeRange": {
+			"$ref": "#/definitions/xcal:TimeRangeType"
+		},
+		".xcal:timeZone": {
+			"additionalProperties": false,
+			"description": "A set of constrained strings that identify local time rules.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:InstanceUidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:vAvailability": {
+			"$ref": "#/definitions/xcal:VAvailabilityType"
+		},
+		"clm5ISO42173A:ISO3AlphaCurrencyCodeContentType": {
+			"enum": [
+				"AED",
+				"AFN",
+				"ALL",
+				"AMD",
+				"ANG",
+				"AOA",
+				"ARS",
+				"AUD",
+				"AWG",
+				"AZN",
+				"BAM",
+				"BBD",
+				"BDT",
+				"BGN",
+				"BHD",
+				"BIF",
+				"BMD",
+				"BND",
+				"BOB",
+				"BOV",
+				"BRL",
+				"BSD",
+				"BTN",
+				"BWP",
+				"BYR",
+				"BZD",
+				"CAD",
+				"CDF",
+				"CHE",
+				"CHF",
+				"CHW",
+				"CLF",
+				"CLP",
+				"CNY",
+				"COP",
+				"COU",
+				"CRC",
+				"CUC",
+				"CUP",
+				"CVE",
+				"CZK",
+				"DJF",
+				"DKK",
+				"DOP",
+				"DZD",
+				"EEK",
+				"EGP",
+				"ERN",
+				"ETB",
+				"EUR",
+				"FJD",
+				"FKP",
+				"GBP",
+				"GEL",
+				"GHS",
+				"GIP",
+				"GMD",
+				"GNF",
+				"GTQ",
+				"GWP",
+				"GYD",
+				"HKD",
+				"HNL",
+				"HRK",
+				"HTG",
+				"HUF",
+				"IDR",
+				"ILS",
+				"INR",
+				"IQD",
+				"IRR",
+				"ISK",
+				"JMD",
+				"JOD",
+				"JPY",
+				"KES",
+				"KGS",
+				"KHR",
+				"KMF",
+				"KPW",
+				"KRW",
+				"KWD",
+				"KYD",
+				"KZT",
+				"LAK",
+				"LBP",
+				"LKR",
+				"LRD",
+				"LSL",
+				"LTL",
+				"LVL",
+				"LYD",
+				"MAD",
+				"MDL",
+				"MGA",
+				"MKD",
+				"MMK",
+				"MNT",
+				"MOP",
+				"MRO",
+				"MUR",
+				"MVR",
+				"MWK",
+				"MXN",
+				"MXV",
+				"MYR",
+				"MZN",
+				"NAD",
+				"NGN",
+				"NIO",
+				"NOK",
+				"NPR",
+				"NZD",
+				"OMR",
+				"PAB",
+				"PEN",
+				"PGK",
+				"PHP",
+				"PKR",
+				"PLN",
+				"PYG",
+				"QAR",
+				"RON",
+				"RSD",
+				"RUB",
+				"RWF",
+				"SAR",
+				"SBD",
+				"SCR",
+				"SDG",
+				"SEK",
+				"SGD",
+				"SHP",
+				"SLL",
+				"SOS",
+				"SRD",
+				"STD",
+				"SVC",
+				"SYP",
+				"SZL",
+				"THB",
+				"TJS",
+				"TMT",
+				"TND",
+				"TOP",
+				"TRY",
+				"TTD",
+				"TWD",
+				"TZS",
+				"UAH",
+				"UGX",
+				"USD",
+				"USN",
+				"USS",
+				"UYI",
+				"UYU",
+				"UZS",
+				"VEF",
+				"VND",
+				"VUV",
+				"WST",
+				"XAF",
+				"XAG",
+				"XAU",
+				"XBA",
+				"XBB",
+				"XBC",
+				"XBD",
+				"XCD",
+				"XDR",
+				"XFU",
+				"XOF",
+				"XPD",
+				"XPF",
+				"XPT",
+				"XTS",
+				"XXX",
+				"YER",
+				"ZAR",
+				"ZMK",
+				"ZWL"
+			],
+			"type": "string"
+		},
+		"ei:ArrayofResponseTermsViolated": {
+			"additionalProperties": false,
+			"description": "Collection of Detailed response on Terms that cause rejection of Request",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:responseTermViolated": {
+					"items": {
+						"$ref": "#/definitions/.ei:responseTermViolated"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"ei:EiDeliveryType": {
+			"additionalProperties": false,
+			"description": "eiDelivery is a minimal report that assume that all esential parameters (type, etc) come form an existing market context or transaction.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@ei:schemaVersion": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"ei:createdDateTime": {
+					"$ref": "#/definitions/.ei:createdDateTime"
+				},
+				"ei:eiDeliveryID": {
+					"$ref": "#/definitions/.ei:eiDeliveryID"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:injection": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:boolean"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				}
+			},
+			"required": [
+				"ei:createdDateTime",
+				"ei:eiDeliveryID",
+				"emix:injection",
+				"emix:uid"
+			],
+			"type": "object"
+		},
+		"ei:EiExtensionTokenType": {
+			"description": "Pattern used for extending string enumeration, where allowed",
+			"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+			"type": "string"
+		},
+		"ei:EiMarketContextType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@ei:schemaVersion": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"ei:createdDateTime": {
+					"$ref": "#/definitions/.ei:createdDateTime"
+				},
+				"ei:marketName": {
+					"$ref": "#/definitions/.ei:marketName"
+				},
+				"ei:simpleLevelContext": {
+					"$ref": "#/definitions/.ei:simpleLevelContext"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:standardTerms": {
+					"$ref": "#/definitions/.emix:standardTerms"
+				}
+			},
+			"required": [
+				"emix:marketContext"
+			],
+			"type": "object"
+		},
+		"ei:EiMarketExpectationsType": {
+			"additionalProperties": false,
+			"description": "Market Expectations inform the VEN what the expectations and rules are for a given Market Context",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiMarketRuleSet": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiMarketRuleSet"
+					},
+					"type": "array"
+				},
+				"emix:nonStandardTermsHandling": {
+					"$ref": "#/definitions/.emix:nonStandardTermsHandling"
+				},
+				"xcal:granularity": {
+					"$ref": "#/definitions/.xcal:granularity"
+				}
+			},
+			"required": [
+				"emix:nonStandardTermsHandling"
+			],
+			"type": "object"
+		},
+		"ei:EiMarketRuleSetType": {
+			"additionalProperties": false,
+			"description": "A collection of Requirements (Constraints) and how they are processed within this market",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:ruleSetPurpose": {
+					"$ref": "#/definitions/.ei:ruleSetPurpose"
+				},
+				"emix:standardTermsSet": {
+					"$ref": "#/definitions/.emix:standardTermsSet"
+				}
+			},
+			"required": [
+				"ei:ruleSetPurpose",
+				"emix:standardTermsSet"
+			],
+			"type": "object"
+		},
+		"ei:EiQuoteType": {
+			"additionalProperties": false,
+			"description": "An Indication of the price of a possible Tender such as the transacted price of a previous Tender or a published forecast of a price of a possible Tender. A Quote can be for one EmixBase derived type.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:quoteID": {
+					"$ref": "#/definitions/.ei:quoteID"
+				},
+				"emix:emixBase": {
+					"items": {
+						"$ref": "#/definitions/.emix:emixBase"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:quoteID",
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"ei:EiRegistrationInfoType": {
+			"additionalProperties": false,
+			"description": "RegistrationInfo is an an abstract class to which additional market-relevant registration information might be added. This specification does not define registration. Markets that use registration should extend this abstract class for use in Registration payloads.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"ei:EiRegistrationType": {
+			"additionalProperties": false,
+			"description": "Registration varies from Market to Market so cannot be defined here. Perties wishing to exchange Registration should extend this abstract type to meet their particular needs.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiRegistrationInfo": {
+					"$ref": "#/definitions/.ei:eiRegistrationInfo"
+				},
+				"ei:registrarPartyID": {
+					"$ref": "#/definitions/.ei:registrarPartyID"
+				},
+				"ei:registreePartyID": {
+					"items": {
+						"$ref": "#/definitions/.ei:registreePartyID"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:eiRegistrationInfo",
+				"ei:registrarPartyID"
+			],
+			"type": "object"
+		},
+		"ei:EiResponseType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:createdDateTime": {
+					"$ref": "#/definitions/.ei:createdDateTime"
+				},
+				"ei:refID": {
+					"$ref": "#/definitions/.ei:refID"
+				},
+				"ei:responseCode": {
+					"$ref": "#/definitions/.ei:responseCode"
+				},
+				"ei:responseDescription": {
+					"$ref": "#/definitions/.ei:responseDescription"
+				},
+				"ei:responseTermsViolated": {
+					"$ref": "#/definitions/.ei:responseTermsViolated"
+				}
+			},
+			"required": [
+				"ei:refID",
+				"ei:responseCode"
+			],
+			"type": "object"
+		},
+		"ei:EiTenderType": {
+			"additionalProperties": false,
+			"description": "Tender is an offer to buy or sell. A Tender can be for one EmixBase derived type.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:tenderID": {
+					"$ref": "#/definitions/.ei:tenderID"
+				},
+				"emix:emixBase": {
+					"$ref": "#/definitions/.emix:emixBase"
+				}
+			},
+			"required": [
+				"ei:tenderID",
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"ei:EiTransactionType": {
+			"additionalProperties": false,
+			"description": "A Transaction is a specific agreement to accept a specific Tender.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:tenderID": {
+					"$ref": "#/definitions/.ei:tenderID"
+				},
+				"ei:transactionID": {
+					"$ref": "#/definitions/.ei:transactionID"
+				},
+				"emix:emixBase": {
+					"$ref": "#/definitions/.emix:emixBase"
+				}
+			},
+			"required": [
+				"ei:transactionID",
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"ei:OptTypeType": {
+			"enum": [
+				"optIn",
+				"optOut"
+			],
+			"type": "string"
+		},
+		"ei:ReadingTypeEnumeratedType": {
+			"enum": [
+				"Direct Read",
+				"Net",
+				"Allocated",
+				"Estimated",
+				"Summed",
+				"Derived",
+				"Mean",
+				"Peak",
+				"Hybrid",
+				"Contract",
+				"Projected"
+			],
+			"type": "string"
+		},
+		"ei:ReadingTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Direct Read",
+						"Net",
+						"Allocated",
+						"Estimated",
+						"Summed",
+						"Derived",
+						"Mean",
+						"Peak",
+						"Hybrid",
+						"Contract",
+						"Projected"
+					],
+					"type": "string"
+				},
+				{
+					"description": "Pattern used for extending string enumeration, where allowed",
+					"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+					"type": "string"
+				}
+			],
+			"description": "Type of Reading."
+		},
+		"ei:ResponseCodeType": {
+			"description": "Similar to HTTP 1.1 Error Pattern, 1st digit sufficient for most error processing\n      - 1xx: Informational - Request received, continuing process\n      - 2xx: Success - The action was successfully received, understood, and accepted\n      - 3xx: Pending - Further action must be taken in order to complete the request\n      - 4xx: Requester Error - The request contains bad syntax or cannot be fulfilled\n      - 5xx: Responder Error - The responder failed to fulfill an apparently valid request\n      xx is used for defining more fine grained errors\n\t",
+			"pattern": "^([0-9][0-9][0-9])$",
+			"type": "string"
+		},
+		"ei:ResponseDescriptionType": {
+			"description": "Human Readable Response description. Should be standardized and language-specific.",
+			"type": "string"
+		},
+		"ei:ResponseTermViolatedType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:responseDescription": {
+					"$ref": "#/definitions/.ei:responseDescription"
+				},
+				"emix:baseTerm": {
+					"$ref": "#/definitions/.emix:baseTerm"
+				}
+			},
+			"required": [
+				"ei:responseDescription",
+				"emix:baseTerm"
+			],
+			"type": "object"
+		},
+		"ei:RuleSetPurposeType": {
+			"description": "Defines the purpose of a market rule set.",
+			"enum": [
+				"minimum",
+				"maximum",
+				"force",
+				"mustUnderstand",
+				"ignore"
+			],
+			"type": "string"
+		},
+		"ei:SimpleLevelContextType": {
+			"additionalProperties": false,
+			"description": "Simple Levels are a set of simple indicators about scarcity and value, in which an ordered set of values indicate energy scarcity is above normal, normal, or below normal. Presumably, at higher levels, the VEN will use less.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:levelNormalValue": {
+					"additionalProperties": false,
+					"description": "The \"normal\" level indicating normal energy avaiability. Levels below normal indicate surplus, levels above normal indicate increasing scarcity. If levelUpperLimit is 7, the levels are 1-7, and the levelNormalValue might be 3.",
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:unsignedInt"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"ei:levelUpperLimit": {
+					"additionalProperties": false,
+					"description": "The upper level for this context. If levelUpperLimit is 5, the levels are 1-5, where 5 indicates the greatest scarcity.",
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:unsignedInt"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
+			"type": "object"
+		},
+		"ei:UidType": {
+			"description": "Unique Identifier",
+			"type": "string"
+		},
+		"emix:ArrayOfTerms": {
+			"additionalProperties": false,
+			"description": "Collection of Emix Terms",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:baseTerm": {
+					"items": {
+						"$ref": "#/definitions/.emix:baseTerm"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"emix:ArrayOfWarrants": {
+			"additionalProperties": false,
+			"description": "Collection of Emix Warrants",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:baseWarrant": {
+					"items": {
+						"$ref": "#/definitions/.emix:baseWarrant"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"emix:AutonomousType": {
+			"description": "An autonomous resource or service (true) is able to respond or maintain service independently. A non autonomous service (false) must await dispatch.",
+			"type": "boolean"
+		},
+		"emix:AvailabilityScheduleType": {
+			"additionalProperties": false,
+			"description": "A Schedule of time windows during which a response may be scheduled. A scheduled Duration must be entirely within a single instance of an availability window.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:vAvailability": {
+					"items": {
+						"$ref": "#/definitions/.xcal:vAvailability"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:vAvailability"
+			],
+			"type": "object"
+		},
+		"emix:BaseTermType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract extension object for Emix Terms",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:BaseWarrantType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract extension object for Emix Warrants",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:DeliveryType": {
+			"additionalProperties": false,
+			"description": "Receipt / Report of Product Delivery. Injection flag is true for adding product to market supply, false for taking from market.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:injection": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:boolean"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				}
+			},
+			"required": [
+				"emix:injection",
+				"emix:uid"
+			],
+			"type": "object"
+		},
+		"emix:EmixBaseType": {
+			"additionalProperties": false,
+			"description": "WS-Calendar Streams-derived object to host EMIX elements",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				}
+			},
+			"required": [
+				"emix:uid"
+			],
+			"type": "object"
+		},
+		"emix:EmixExtensionType": {
+			"description": "Pattern used for extending string enumeration, where allowed",
+			"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+			"type": "string"
+		},
+		"emix:EmixGranularityType": {
+			"additionalProperties": false,
+			"description": "Abstract base class used for granularity of market indications of interest and tenders",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:itemBase": {
+					"$ref": "#/definitions/.emix:itemBase"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				}
+			},
+			"required": [
+				"emix:itemBase",
+				"emix:quantity"
+			],
+			"type": "object"
+		},
+		"emix:EmixInterfaceType": {
+			"additionalProperties": false,
+			"description": "Abstract base class for the interfaces for EMIX Product delivery, measurement, and/or pricing",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:EmixOptionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:currency": {
+					"$ref": "#/definitions/.emix:currency"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:expirationDate": {
+					"$ref": "#/definitions/.emix:expirationDate"
+				},
+				"emix:integralOnly": {
+					"$ref": "#/definitions/.emix:integralOnly"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:optionHolderSide": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/emix:SideType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"emix:optionPremium": {
+					"$ref": "#/definitions/emix:PriceType"
+				},
+				"emix:optionStrikePrice": {
+					"$ref": "#/definitions/emix:PriceType"
+				},
+				"emix:optionType": {
+					"$ref": "#/definitions/.emix:optionType"
+				},
+				"emix:side": {
+					"$ref": "#/definitions/.emix:side"
+				},
+				"emix:terms": {
+					"$ref": "#/definitions/.emix:terms"
+				},
+				"emix:transactiveState": {
+					"$ref": "#/definitions/.emix:transactiveState"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				}
+			},
+			"required": [
+				"emix:marketContext",
+				"emix:optionHolderSide",
+				"emix:optionPremium",
+				"emix:optionStrikePrice",
+				"emix:optionType",
+				"emix:side",
+				"emix:transactiveState",
+				"emix:uid"
+			],
+			"type": "object"
+		},
+		"emix:EnvelopeContentsType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:warrants": {
+					"$ref": "#/definitions/.emix:warrants"
+				}
+			},
+			"type": "object"
+		},
+		"emix:EnvironmentalWarrantType": {
+			"additionalProperties": false,
+			"description": "An Environmental Warrant is used to assert what environmental effects of the product. These may include emission of a chemical, or use of a scarce resource. No environmental warrants are defined in the EMIX 1.0 Schema. Parties wishing to exchange Environmental warrants should extend this type to create the environmental assertions that they require.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixBase": {
+					"items": {
+						"$ref": "#/definitions/.emix:emixBase"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"emix:IntegralOnlyType": {
+			"description": "Integral Only is an indication that the element described is [tendered] as an all or nothing product. It may apply to an (amount, response, ramp) that is all (true) or nothing (false)",
+			"type": "boolean"
+		},
+		"emix:ItemBaseType": {
+			"additionalProperties": false,
+			"description": "Abstract base type for units for EMIX Product delivery, measurement, and warrants. Item as in PO Item, Requisition Item, Invoice Item, Lading Item. Item does not include Quantity or Price, because a single product description or transaction may have multiple quantities or prices associated with a single item.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:MarketContextNameType": {
+			"description": "A descriptive name than can be applied to any market context through the associated Standard Terms.",
+			"type": "string"
+		},
+		"emix:MarketContextType": {
+			"type": "string"
+		},
+		"emix:MarketGranularityType": {
+			"additionalProperties": false,
+			"description": "Granularity defines the size of a market “bundle”. For example, a Market with a granularity of 10 MW, will only accept tenders, process transactions, and pay for delivery of Power in multiples of 10MW.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:itemBase": {
+					"$ref": "#/definitions/.emix:itemBase"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				}
+			},
+			"required": [
+				"emix:itemBase",
+				"emix:quantity"
+			],
+			"type": "object"
+		},
+		"emix:MaximumConsecutiveDurationsType": {
+			"additionalProperties": false,
+			"description": "Maximum consecutive Durations in which a notification will be accepted, e.g., it will not accept requests on more than 3 consecutive days.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:durations": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:int"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:durations",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MaximumInvocationsPerDurationType": {
+			"additionalProperties": false,
+			"description": "Maximum number of requests for response that will be accepted during a Duration.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:starts": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:int"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:starts",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MaximumNotificationDurationType": {
+			"additionalProperties": false,
+			"description": "The maximum Duration in advance of a proposed response that a notification will be accepted. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MaximumResponseDurationType": {
+			"additionalProperties": false,
+			"description": "The longest Duration for which a request will be accepted.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MaximumRunDurationType": {
+			"additionalProperties": false,
+			"description": "Maximum acceptable Duration for a proposed response",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MeasurementType": {
+			"additionalProperties": false,
+			"description": "Type of Measurement",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:itemBase": {
+					"$ref": "#/definitions/.emix:itemBase"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				}
+			},
+			"required": [
+				"emix:itemBase",
+				"emix:quantity"
+			],
+			"type": "object"
+		},
+		"emix:MinimumDurationBetweenInvocationsType": {
+			"additionalProperties": false,
+			"description": "The minimum Duration between successive responses that will be accepted.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumEconomicRequirementType": {
+			"additionalProperties": false,
+			"description": "Minimum net remuneration for any single response.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				}
+			},
+			"required": [
+				"emix:price"
+			],
+			"type": "object"
+		},
+		"emix:MinimumNotificationDurationType": {
+			"additionalProperties": false,
+			"description": "The minimum Duration in advance of a proposed response that a notification will be accepted.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumRecoveryDurationType": {
+			"additionalProperties": false,
+			"description": "The minimum Duration after completion of a response before a new response can be begun.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumRemunerationRateType": {
+			"additionalProperties": false,
+			"description": "Minimum remuneration acceptable per stated Duration of response, e.g., a minimum remuneration of $100 / hour.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:price",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumResponseDurationType": {
+			"additionalProperties": false,
+			"description": "The shortest Duration for which a request will be accepted.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumRunDurationType": {
+			"additionalProperties": false,
+			"description": "Minimum acceptable Duration for a proposed response.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:MinimumStartsPerDurationType": {
+			"additionalProperties": false,
+			"description": "The fewest requests that the resource will accept during any Duration.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:starts": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:int"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:starts",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:NonStandardTermsHandlingType": {
+			"description": "Defines how participants should handle terms not listed in the RuleSet",
+			"enum": [
+				"mustAccept",
+				"ignore",
+				"mustUnderstand",
+				"reject"
+			],
+			"type": "string"
+		},
+		"emix:NotificationScheduleType": {
+			"additionalProperties": false,
+			"description": "A schedule of time windows during which requests can be made.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:vAvailability": {
+					"items": {
+						"$ref": "#/definitions/.xcal:vAvailability"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:vAvailability"
+			],
+			"type": "object"
+		},
+		"emix:OptionTypeEnumeratedType": {
+			"description": "Enumerated Option Types",
+			"type": "string"
+		},
+		"emix:OptionTypeType": {
+			"anyOf": [
+				{
+					"description": "Enumerated Option Types",
+					"type": "string"
+				},
+				{
+					"description": "Pattern used for extending string enumeration, where allowed",
+					"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+					"type": "string"
+				}
+			]
+		},
+		"emix:PriceBaseType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract base for EMIX Prices",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:PriceMultiplierType": {
+			"additionalProperties": false,
+			"description": "Multiplier times market price, 1 for same as market",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:multiplier": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:float"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
+			"required": [
+				"emix:multiplier"
+			],
+			"type": "object"
+		},
+		"emix:PriceRelativeType": {
+			"additionalProperties": false,
+			"description": "Price Relative is a fixed charge (positive or negative) apllied to base price",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:value": {
+					"$ref": "#/definitions/.emix:value"
+				}
+			},
+			"required": [
+				"emix:value"
+			],
+			"type": "object"
+		},
+		"emix:PriceType": {
+			"additionalProperties": false,
+			"description": "Simple Price",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:value": {
+					"$ref": "#/definitions/.emix:value"
+				}
+			},
+			"required": [
+				"emix:value"
+			],
+			"type": "object"
+		},
+		"emix:ProductDescriptionType": {
+			"additionalProperties": false,
+			"description": "In EMIX, the Product Description is placed in the Interval or Gluon attachment. The respective product schemas extend this abstract class.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:ProductType": {
+			"additionalProperties": false,
+			"description": "EMIX Product Type, i.e. a Product Description applied to a Schedule",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:currency": {
+					"$ref": "#/definitions/.emix:currency"
+				},
+				"emix:envelopeContents": {
+					"$ref": "#/definitions/.emix:envelopeContents"
+				},
+				"emix:expirationDate": {
+					"$ref": "#/definitions/.emix:expirationDate"
+				},
+				"emix:integralOnly": {
+					"$ref": "#/definitions/.emix:integralOnly"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:side": {
+					"$ref": "#/definitions/.emix:side"
+				},
+				"emix:terms": {
+					"$ref": "#/definitions/.emix:terms"
+				},
+				"emix:transactiveState": {
+					"$ref": "#/definitions/.emix:transactiveState"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				}
+			},
+			"required": [
+				"emix:marketContext",
+				"emix:side",
+				"emix:transactiveState",
+				"emix:uid"
+			],
+			"type": "object"
+		},
+		"emix:QualityWarrantType": {
+			"additionalProperties": false,
+			"description": "A Quality Warrant asserts or requires that the product be of a certain quality or better. A quality warrant includes an array of Quality Measures. The Quality Measure type is extensible to support the definition of additional quality measures. Numerous quality measures are defined as part of the POWER schema of EMIX; parties wishing to specify EMIX extensions for other commodities and resources will want to define their Quality Measures. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixBase": {
+					"items": {
+						"$ref": "#/definitions/.emix:emixBase"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"emix:QuantityType": {
+			"description": "Base type for all quanties in EMIX.",
+			"type": "number"
+		},
+		"emix:RequiredStartupRemunerationType": {
+			"additionalProperties": false,
+			"description": "Minimum remuneration required for initiating a response.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				}
+			},
+			"required": [
+				"emix:price"
+			],
+			"type": "object"
+		},
+		"emix:ResponseTimeType": {
+			"additionalProperties": false,
+			"description": "Duration required from receipt of a request to supplying the full requested level of response, i.e., notification time plus response time.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"emix:ServiceAreaType": {
+			"additionalProperties": false,
+			"description": "The Service Area is the geographic region that is affected by the EMIX market condition",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:SideType": {
+			"enum": [
+				"buy",
+				"sell"
+			],
+			"type": "string"
+		},
+		"emix:SourceWarrantType": {
+			"additionalProperties": false,
+			"description": "A Source Warrant consists of assertions about the sources (often meaning the technologies) of the commodity included in this product. Source often has specific regulated meaning in different jurisdictions, so no definition of Source is included in this specification. Parties that require source information should extend this type to create the source assertions that they require.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixBase": {
+					"items": {
+						"$ref": "#/definitions/.emix:emixBase"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"emix:emixBase"
+			],
+			"type": "object"
+		},
+		"emix:StandardTermsSetType": {
+			"additionalProperties": false,
+			"description": "A collection of Standard Terms for this market",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:nonStandardTermsHandling": {
+					"$ref": "#/definitions/.emix:nonStandardTermsHandling"
+				},
+				"emix:side": {
+					"$ref": "#/definitions/.emix:side"
+				},
+				"emix:terms": {
+					"$ref": "#/definitions/.emix:terms"
+				},
+				"xcal:vAvailability": {
+					"$ref": "#/definitions/.xcal:vAvailability"
+				}
+			},
+			"required": [
+				"emix:nonStandardTermsHandling",
+				"emix:terms"
+			],
+			"type": "object"
+		},
+		"emix:StandardTermsType": {
+			"additionalProperties": false,
+			"description": "Standard Terms express overarching terms for a market context",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:currency": {
+					"$ref": "#/definitions/.emix:currency"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:marketContextName": {
+					"$ref": "#/definitions/.emix:marketContextName"
+				},
+				"emix:nonStandardTermsHandling": {
+					"$ref": "#/definitions/.emix:nonStandardTermsHandling"
+				},
+				"emix:productDescription": {
+					"$ref": "#/definitions/.emix:productDescription"
+				},
+				"emix:standardTermsSet": {
+					"items": {
+						"$ref": "#/definitions/.emix:standardTermsSet"
+					},
+					"type": "array"
+				},
+				"xcal:granularity": {
+					"$ref": "#/definitions/.xcal:granularity"
+				},
+				"xcal:timeZone": {
+					"$ref": "#/definitions/.xcal:timeZone"
+				}
+			},
+			"required": [
+				"emix:marketContext"
+			],
+			"type": "object"
+		},
+		"emix:SupportForPriceType": {
+			"additionalProperties": false,
+			"description": "Support for Price conveys information that supports the prices on the outside of the envelope. It was originally conceived that there might be an array of products with associated prices. An example is the wholesale purchase of a product, along with transport products to establish a base cost to support a contracted retail price. Without further defintion, support for price is not restricted in this way as of v1.0, and Parties that wish to exchange price support should extend this type to meet their needs.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:TransactiveStateType": {
+			"enum": [
+				"indicationOfInterest",
+				"tender",
+				"transaction",
+				"exercise",
+				"delivery",
+				"transportCommitment",
+				"publication"
+			],
+			"type": "string"
+		},
+		"emix:UidType": {
+			"description": "A unique identifier for an EMIX Type. Different markets and specifications that use EMIX may have their own rules for specifying an UID.",
+			"type": "string"
+		},
+		"emix:UnavailabilityScheduleType": {
+			"additionalProperties": false,
+			"description": "A schedule of time windows for which no request for response will be accepted. No part of a requested Duration must coincide with an unavailability window.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:vAvailability": {
+					"items": {
+						"$ref": "#/definitions/.xcal:vAvailability"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:vAvailability"
+			],
+			"type": "object"
+		},
+		"emix:ValueType": {
+			"type": "number"
+		},
+		"pyld:EiCancelPartyRegistrationType": {
+			"additionalProperties": false,
+			"description": "Used to cancel one or more Party Registrations.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:registrarPartyID": {
+					"$ref": "#/definitions/.ei:registrarPartyID"
+				},
+				"ei:registrationID": {
+					"items": {
+						"$ref": "#/definitions/.ei:registrationID"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:registrarPartyID",
+				"ei:registrationID",
+				"ei:registreePartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCancelQuoteType": {
+			"additionalProperties": false,
+			"description": "Used to cancel a Quote or Quotes.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:publisherPartyID": {
+					"$ref": "#/definitions/.ei:publisherPartyID"
+				},
+				"ei:quoteID": {
+					"items": {
+						"$ref": "#/definitions/.ei:quoteID"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:subscriberPartyID": {
+					"$ref": "#/definitions/.ei:subscriberPartyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:publisherPartyID",
+				"ei:quoteID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCancelTenderType": {
+			"additionalProperties": false,
+			"description": "Used to Cancel one or more Tenders.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"ei:tenderID": {
+					"items": {
+						"$ref": "#/definitions/.ei:tenderID"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:partyID",
+				"ei:tenderID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCanceledPartyRegistrationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiResponse"
+					},
+					"type": "array"
+				},
+				"ei:registrarPartyID": {
+					"$ref": "#/definitions/.ei:registrarPartyID"
+				},
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
+				},
+				"ei:respondingPartyID": {
+					"$ref": "#/definitions/.ei:respondingPartyID"
+				}
+			},
+			"required": [
+				"ei:registrarPartyID",
+				"ei:registreePartyID",
+				"ei:respondingPartyID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCanceledQuoteType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:publisherPartyID": {
+					"$ref": "#/definitions/.ei:publisherPartyID"
+				},
+				"ei:subscriberPartyID": {
+					"$ref": "#/definitions/.ei:subscriberPartyID"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiCanceledTenderType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				}
+			},
+			"required": [
+				"ei:eiResponse",
+				"ei:partyID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreateDeliveryType": {
+			"additionalProperties": false,
+			"description": "Create Delivery passes 1 or more \"empty\" emix deliveries as a request to receive each back with quantities filled in as eiDeliveries.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:requestorPartyID": {
+					"$ref": "#/definitions/.ei:requestorPartyID"
+				},
+				"emix:delivery": {
+					"items": {
+						"$ref": "#/definitions/.emix:delivery"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:requestorPartyID",
+				"emix:delivery",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatePartyRegistrationType": {
+			"additionalProperties": false,
+			"description": "Used to create and send a Party Registration request.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiRegistrationInfo": {
+					"$ref": "#/definitions/.ei:eiRegistrationInfo"
+				},
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:eiRegistrationInfo",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreateQuoteType": {
+			"additionalProperties": false,
+			"description": "Used to create and send a Quote.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiQuote": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiQuote"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:publisherPartyID": {
+					"$ref": "#/definitions/.ei:publisherPartyID"
+				},
+				"ei:subscriberPartyID": {
+					"$ref": "#/definitions/.ei:subscriberPartyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:eiQuote",
+				"ei:publisherPartyID",
+				"ei:subscriberPartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreateTenderType": {
+			"additionalProperties": false,
+			"description": "Used to create and send a Tender.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:eiTender": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiTender"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:counterPartyID",
+				"ei:eiTender",
+				"ei:partyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreateTransactionType": {
+			"additionalProperties": false,
+			"description": "Used to create and send a Transaction.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:eiTransaction": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiTransaction"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:counterPartyID",
+				"ei:eiTransaction",
+				"ei:partyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatedDeliveryType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiDelivery": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiDelivery"
+					},
+					"type": "array"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatedPartyRegistrationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:registrarPartyID": {
+					"$ref": "#/definitions/.ei:registrarPartyID"
+				},
+				"ei:registrationID": {
+					"$ref": "#/definitions/.ei:registrationID"
+				},
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatedQuoteType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:publisherPartyID": {
+					"$ref": "#/definitions/.ei:publisherPartyID"
+				},
+				"ei:quoteID": {
+					"items": {
+						"$ref": "#/definitions/.ei:quoteID"
+					},
+					"type": "array"
+				},
+				"ei:subscriberPartyID": {
+					"$ref": "#/definitions/.ei:subscriberPartyID"
+				}
+			},
+			"required": [
+				"ei:eiResponse",
+				"ei:subscriberPartyID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatedTenderType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"ei:tenderID": {
+					"items": {
+						"$ref": "#/definitions/.ei:tenderID"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:eiResponse",
+				"ei:partyID"
+			],
+			"type": "object"
+		},
+		"pyld:EiCreatedTransactionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"$ref": "#/definitions/.ei:counterPartyID"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"ei:transactionID": {
+					"items": {
+						"$ref": "#/definitions/.ei:transactionID"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:counterPartyID",
+				"ei:eiResponse",
+				"ei:partyID"
+			],
+			"type": "object"
+		},
+		"pyld:EiDistributeTenderType": {
+			"additionalProperties": false,
+			"description": "Used for Broadcast of Tenders.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiTender": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiTender"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"ei:eiTender",
+				"ei:partyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiReplyEiMarketContextType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiReplyPartyRegistrationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiRegistration": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiRegistration"
+					},
+					"type": "array"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiReplyQuoteType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiQuote": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiQuote"
+					},
+					"type": "array"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiReplyTenderType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:eiTender": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiTender"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiReplyTransactionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:eiResponse": {
+					"$ref": "#/definitions/.ei:eiResponse"
+				},
+				"ei:eiTransaction": {
+					"items": {
+						"$ref": "#/definitions/.ei:eiTransaction"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"ei:eiResponse"
+			],
+			"type": "object"
+		},
+		"pyld:EiRequestEiMarketContextType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"emix:marketContext": {
+					"items": {
+						"$ref": "#/definitions/.emix:marketContext"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				}
+			},
+			"required": [
+				"emix:marketContext",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiRequestPartyRegistrationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:registrarPartyID": {
+					"$ref": "#/definitions/.ei:registrarPartyID"
+				},
+				"ei:registrationID": {
+					"items": {
+						"$ref": "#/definitions/.ei:registrationID"
+					},
+					"type": "array"
+				},
+				"ei:registreePartyID": {
+					"$ref": "#/definitions/.ei:registreePartyID"
+				},
+				"ei:requestorPartyID": {
+					"$ref": "#/definitions/.ei:requestorPartyID"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				}
+			},
+			"required": [
+				"ei:registreePartyID",
+				"ei:requestorPartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiRequestQuoteType": {
+			"additionalProperties": false,
+			"description": "Used to request outstanding Quotes.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:publisherPartyID": {
+					"$ref": "#/definitions/.ei:publisherPartyID"
+				},
+				"ei:quoteID": {
+					"items": {
+						"$ref": "#/definitions/.ei:quoteID"
+					},
+					"type": "array"
+				},
+				"ei:requestorPartyID": {
+					"$ref": "#/definitions/.ei:requestorPartyID"
+				},
+				"emix:marketContext": {
+					"items": {
+						"$ref": "#/definitions/.emix:marketContext"
+					},
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				}
+			},
+			"required": [
+				"ei:publisherPartyID",
+				"ei:requestorPartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiRequestTenderType": {
+			"additionalProperties": false,
+			"description": "Used to Request outstanding Tenders.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"items": {
+						"$ref": "#/definitions/.ei:counterPartyID"
+					},
+					"type": "array"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"ei:requestorPartyID": {
+					"$ref": "#/definitions/.ei:requestorPartyID"
+				},
+				"ei:tenderID": {
+					"items": {
+						"$ref": "#/definitions/.ei:tenderID"
+					},
+					"type": "array"
+				},
+				"emix:marketContext": {
+					"items": {
+						"$ref": "#/definitions/.emix:marketContext"
+					},
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				}
+			},
+			"required": [
+				"ei:partyID",
+				"ei:requestorPartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"pyld:EiRequestTransactionType": {
+			"additionalProperties": false,
+			"description": "Request extant Transactions.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"ei:counterPartyID": {
+					"items": {
+						"$ref": "#/definitions/.ei:counterPartyID"
+					},
+					"type": "array"
+				},
+				"ei:partyID": {
+					"$ref": "#/definitions/.ei:partyID"
+				},
+				"ei:requestorPartyID": {
+					"$ref": "#/definitions/.ei:requestorPartyID"
+				},
+				"ei:transactionID": {
+					"items": {
+						"$ref": "#/definitions/.ei:transactionID"
+					},
+					"type": "array"
+				},
+				"emix:marketContext": {
+					"items": {
+						"$ref": "#/definitions/.emix:marketContext"
+					},
+					"type": "array"
+				},
+				"pyld:requestID": {
+					"$ref": "#/definitions/.pyld:requestID"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				}
+			},
+			"required": [
+				"ei:partyID",
+				"ei:requestorPartyID",
+				"pyld:requestID"
+			],
+			"type": "object"
+		},
+		"strm:ArrayofStreamIntervals": {
+			"additionalProperties": false,
+			"description": "Collection of Stream Interval derived elements that comprise a signal partition.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:streamInterval": {
+					"items": {
+						"$ref": "#/definitions/.strm:streamInterval"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"strm:StreamIntervalType": {
+			"additionalProperties": false,
+			"description": "Restricted variant of ws-calendar interval for streams. Stream Intervals are restricted expressions of the WS-Calendar Interval that are transformable to but not identical to WS-Calendar Intervals.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"strm:uid": {
+					"$ref": "#/definitions/.strm:uid"
+				}
+			},
+			"required": [
+				"strm:streamPayloadBase",
+				"strm:uid"
+			],
+			"type": "object"
+		},
+		"strm:StreamPayloadBaseType": {
+			"additionalProperties": false,
+			"description": "Abstract class to convey a payload for a stream. When a Stream is transformed to or from a WS-Calendar Interval, the contents of the Stream Payload defined element are transformed into the contents of a WS-Calendar artifactBase.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"strm:UidType": {
+			"description": "Unique Identifier",
+			"type": "string"
+		},
+		"xcal:AvailabilityIntervalType": {
+			"additionalProperties": false,
+			"description": "This class is fully bound, and therefore includes explicit times for both dtStart and duration.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				},
+				"xcal:timeZone": {
+					"$ref": "#/definitions/.xcal:timeZone"
+				}
+			},
+			"required": [
+				"xcal:dateTime",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"xcal:AvailabilityType": {
+			"additionalProperties": false,
+			"description": "A pattern of recurring intervals",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:availabilityInterval": {
+					"$ref": "#/definitions/.xcal:availabilityInterval"
+				},
+				"xcal:recurrence": {
+					"$ref": "#/definitions/.xcal:recurrence"
+				}
+			},
+			"required": [
+				"xcal:availabilityInterval",
+				"xcal:recurrence"
+			],
+			"type": "object"
+		},
+		"xcal:BusyTypeType": {
+			"description": "To express Busy, BusyTentative, and Free.\n\nReference:\nRFC 5545     3.2.9\nRFC 6321     3.2.9",
+			"enum": [
+				"busy",
+				"busyUnavailable",
+				"busyTentative"
+			],
+			"type": "string"
+		},
+		"xcal:CommentType": {
+			"type": "string"
+		},
+		"xcal:DateTimeDateType": {
+			"additionalProperties": false,
+			"description": "A Conformed String Using which expressing a DateTime OR a Date OR a Time",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:date": {
+					"$ref": "#/definitions/.xcal:date"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:time": {
+					"$ref": "#/definitions/.xcal:time"
+				}
+			},
+			"type": "object"
+		},
+		"xcal:DateTimeType": {
+			"type": "string"
+		},
+		"xcal:DateType": {
+			"type": "string"
+		},
+		"xcal:DurationType": {
+			"description": "An ISO 8601  Conformed String Using Basic Format or Extended Format (8601 4.4.3) with the optional sign as required in RFC 5545 and RFC 6321 Section 3.3.6. When used for Tolerance, the sign MUST be absent. DurationType includes all 8601 conformed string values (of which xCal and XSD contain restricted but differing sets).",
+			"type": "string"
+		},
+		"xcal:InstanceUidType": {
+			"description": "UID of this object instance. The entire context may need to be expressed for a truly universal ID.",
+			"type": "string"
+		},
+		"xcal:RecurRulePartType": {
+			"enum": [
+				"FREQ",
+				"UNTIL",
+				"COUNT",
+				"INTERVAL",
+				"BYSECOND",
+				"BYMINUTE",
+				"BYHOUR",
+				"BYDAY",
+				"BYMONTHDAY",
+				"BYYEARDAY",
+				"BYWEEKNO",
+				"BYMONTH",
+				"BYSETPOS",
+				"WKST"
+			],
+			"type": "string"
+		},
+		"xcal:RecurRuleValuesType": {
+			"description": "Either a single value or set of values for the recurRulePart. The range of legal values varies with the value of the recurRulePart as defined in RFC 5545",
+			"type": "string"
+		},
+		"xcal:RecurrenceRuleType": {
+			"additionalProperties": false,
+			"description": "The Recurrence Rule Type is a name value pair consisting of Rule Part and Rule Values. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:recurRulePart": {
+					"$ref": "#/definitions/.xcal:recurRulePart"
+				},
+				"xcal:recurRuleValues": {
+					"items": {
+						"$ref": "#/definitions/.xcal:recurRuleValues"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:recurRulePart",
+				"xcal:recurRuleValues"
+			],
+			"type": "object"
+		},
+		"xcal:RecurrenceType": {
+			"additionalProperties": false,
+			"description": "The Recurrence Type consists of a seed date or date-time, rules to compute compute off-sets of that seed date, an optional end or final boundary to the series, optional inclusions for specifc datesand optional exclusions, i.e., dates to be skipped. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dtEnd": {
+					"$ref": "#/definitions/.xcal:dtEnd"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:exDate": {
+					"items": {
+						"$ref": "#/definitions/.xcal:exDate"
+					},
+					"type": "array"
+				},
+				"xcal:rDate": {
+					"items": {
+						"$ref": "#/definitions/.xcal:rDate"
+					},
+					"type": "array"
+				},
+				"xcal:recurrenceRule": {
+					"items": {
+						"$ref": "#/definitions/.xcal:recurrenceRule"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:dtStart"
+			],
+			"type": "object"
+		},
+		"xcal:TimeRangeType": {
+			"additionalProperties": false,
+			"description": "Used in: Availability::Vavailability for the time interval addressed, which may have dtStart defined (optional), and duration (optional, present only if dtStart is present). This allows expression for \"all time\", \"all time from this start DateTime\", and \"a specified interval\". See [Vavailability]  C. Daboo, M. Douglass, Calendar Availability, http://tools.ietf.org/search/draft-daboo-calendar-availability-05, IETF Internet Draft Version 05, January 30, \n",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				},
+				"xcal:timeZone": {
+					"$ref": "#/definitions/.xcal:timeZone"
+				}
+			},
+			"type": "object"
+		},
+		"xcal:TimeType": {
+			"type": "string"
+		},
+		"xcal:VAvailabilityType": {
+			"additionalProperties": false,
+			"description": "Advertises when a seriSee [Vavailability]  C. Daboo, M. Douglass, Calendar Availability, http://tools.ietf.org/search/draft-daboo-calendar-availability-05, IETF Internet Draft Version 05, January 30, 2014",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:availability": {
+					"items": {
+						"$ref": "#/definitions/.xcal:availability"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"xcal:busyType": {
+					"$ref": "#/definitions/.xcal:busyType"
+				},
+				"xcal:comment": {
+					"$ref": "#/definitions/.xcal:comment"
+				},
+				"xcal:granularity": {
+					"$ref": "#/definitions/.xcal:granularity"
+				},
+				"xcal:timeRange": {
+					"$ref": "#/definitions/.xcal:timeRange"
+				}
+			},
+			"required": [
+				"xcal:availability",
+				"xcal:busyType",
+				"xcal:timeRange"
+			],
+			"type": "object"
+		},
+		"xs:boolean": {
+			"type": "boolean"
+		},
+		"xs:float": {
+			"type": "number"
+		},
+		"xs:int": {
+			"maximum": 2147483647,
+			"minimum": -2147483648,
+			"type": "integer"
+		},
+		"xs:string": {
+			"type": "string"
+		},
+		"xs:unsignedInt": {
+			"maximum": 4294967295,
+			"minimum": 0,
+			"type": "integer"
+		}
+	},
+	"description": "JSON Schema generated by XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com)",
+	"patternProperties": {
+		"^\\?\\w+$": {
+			"type": "string"
+		}
+	},
+	"properties": {
+		"#": {
+			"type": "string"
+		},
+		"@xmlns:clm5ISO42173A": {
+			"default": "urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07"
+		},
+		"@xmlns:ei": {
+			"default": "http://docs.oasis-open.org/ns/energyinterop/201110/cts.03"
+		},
+		"@xmlns:emix": {
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/cts.03"
+		},
+		"@xmlns:pyld": {
+			"default": "http://docs.oasis-open.org/ns/energyinterop/201110/payloads/cts.03"
+		},
+		"@xmlns:strm": {
+			"default": "http://docs.oasis-open.org/ws-calendar/ns/streams/201606"
+		},
+		"@xmlns:xcal": {
+			"default": "http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12"
+		},
+		"@xmlns:xs": {
+			"default": "http://www.w3.org/2001/XMLSchema"
+		},
+		"ei:actorID": {
+			"$ref": "#/definitions/.ei:actorID"
+		},
+		"ei:availID": {
+			"$ref": "#/definitions/.ei:availID"
+		},
+		"ei:counterPartyID": {
+			"$ref": "#/definitions/.ei:counterPartyID"
+		},
+		"ei:createdDateTime": {
+			"$ref": "#/definitions/.ei:createdDateTime"
+		},
+		"ei:eiDelivery": {
+			"$ref": "#/definitions/.ei:eiDelivery"
+		},
+		"ei:eiDeliveryID": {
+			"$ref": "#/definitions/.ei:eiDeliveryID"
+		},
+		"ei:eiMarketContext": {
+			"$ref": "#/definitions/.ei:eiMarketContext"
+		},
+		"ei:eiMarketExpectations": {
+			"$ref": "#/definitions/.ei:eiMarketExpectations"
+		},
+		"ei:eiMarketRuleSet": {
+			"$ref": "#/definitions/.ei:eiMarketRuleSet"
+		},
+		"ei:eiQuote": {
+			"$ref": "#/definitions/.ei:eiQuote"
+		},
+		"ei:eiRegistration": {
+			"$ref": "#/definitions/.ei:eiRegistration"
+		},
+		"ei:eiRegistrationInfo": {
+			"$ref": "#/definitions/.ei:eiRegistrationInfo"
+		},
+		"ei:eiResponse": {
+			"$ref": "#/definitions/.ei:eiResponse"
+		},
+		"ei:eiTender": {
+			"$ref": "#/definitions/.ei:eiTender"
+		},
+		"ei:eiTransaction": {
+			"$ref": "#/definitions/.ei:eiTransaction"
+		},
+		"ei:marketName": {
+			"$ref": "#/definitions/.ei:marketName"
+		},
+		"ei:modificationDateTime": {
+			"$ref": "#/definitions/.ei:modificationDateTime"
+		},
+		"ei:modificationNumber": {
+			"$ref": "#/definitions/.ei:modificationNumber"
+		},
+		"ei:offline": {
+			"$ref": "#/definitions/.ei:offline"
+		},
+		"ei:optType": {
+			"$ref": "#/definitions/.ei:optType"
+		},
+		"ei:originalReferenceID": {
+			"$ref": "#/definitions/.ei:originalReferenceID"
+		},
+		"ei:partyID": {
+			"$ref": "#/definitions/.ei:partyID"
+		},
+		"ei:partyRole": {
+			"$ref": "#/definitions/.ei:partyRole"
+		},
+		"ei:publisherPartyID": {
+			"$ref": "#/definitions/.ei:publisherPartyID"
+		},
+		"ei:quoteID": {
+			"$ref": "#/definitions/.ei:quoteID"
+		},
+		"ei:readingType": {
+			"$ref": "#/definitions/.ei:readingType"
+		},
+		"ei:refID": {
+			"$ref": "#/definitions/.ei:refID"
+		},
+		"ei:registrarPartyID": {
+			"$ref": "#/definitions/.ei:registrarPartyID"
+		},
+		"ei:registrationID": {
+			"$ref": "#/definitions/.ei:registrationID"
+		},
+		"ei:registreePartyID": {
+			"$ref": "#/definitions/.ei:registreePartyID"
+		},
+		"ei:reportSpecifierID": {
+			"$ref": "#/definitions/.ei:reportSpecifierID"
+		},
+		"ei:requestorPartyID": {
+			"$ref": "#/definitions/.ei:requestorPartyID"
+		},
+		"ei:respondingPartyID": {
+			"$ref": "#/definitions/.ei:respondingPartyID"
+		},
+		"ei:responseCode": {
+			"$ref": "#/definitions/.ei:responseCode"
+		},
+		"ei:responseDescription": {
+			"$ref": "#/definitions/.ei:responseDescription"
+		},
+		"ei:responseTermViolated": {
+			"$ref": "#/definitions/.ei:responseTermViolated"
+		},
+		"ei:responseTermsViolated": {
+			"$ref": "#/definitions/.ei:responseTermsViolated"
+		},
+		"ei:ruleSetPurpose": {
+			"$ref": "#/definitions/.ei:ruleSetPurpose"
+		},
+		"ei:simpleLevelContext": {
+			"$ref": "#/definitions/.ei:simpleLevelContext"
+		},
+		"ei:subscriberPartyID": {
+			"$ref": "#/definitions/.ei:subscriberPartyID"
+		},
+		"ei:tenderID": {
+			"$ref": "#/definitions/.ei:tenderID"
+		},
+		"ei:transactionID": {
+			"$ref": "#/definitions/.ei:transactionID"
+		},
+		"ei:uid": {
+			"$ref": "#/definitions/.ei:uid"
+		},
+		"emix:autonomous": {
+			"$ref": "#/definitions/.emix:autonomous"
+		},
+		"emix:availabilitySchedule": {
+			"$ref": "#/definitions/.emix:availabilitySchedule"
+		},
+		"emix:baseTerm": {
+			"$ref": "#/definitions/.emix:baseTerm"
+		},
+		"emix:baseWarrant": {
+			"$ref": "#/definitions/.emix:baseWarrant"
+		},
+		"emix:currency": {
+			"$ref": "#/definitions/.emix:currency"
+		},
+		"emix:delivery": {
+			"$ref": "#/definitions/.emix:delivery"
+		},
+		"emix:emixBase": {
+			"$ref": "#/definitions/.emix:emixBase"
+		},
+		"emix:emixGranularity": {
+			"$ref": "#/definitions/.emix:emixGranularity"
+		},
+		"emix:emixInterface": {
+			"$ref": "#/definitions/.emix:emixInterface"
+		},
+		"emix:emixOption": {
+			"$ref": "#/definitions/.emix:emixOption"
+		},
+		"emix:envelopeContents": {
+			"$ref": "#/definitions/.emix:envelopeContents"
+		},
+		"emix:environmentalWarrant": {
+			"$ref": "#/definitions/.emix:environmentalWarrant"
+		},
+		"emix:expirationDate": {
+			"$ref": "#/definitions/.emix:expirationDate"
+		},
+		"emix:integralOnly": {
+			"$ref": "#/definitions/.emix:integralOnly"
+		},
+		"emix:itemBase": {
+			"$ref": "#/definitions/.emix:itemBase"
+		},
+		"emix:marketContext": {
+			"$ref": "#/definitions/.emix:marketContext"
+		},
+		"emix:marketContextName": {
+			"$ref": "#/definitions/.emix:marketContextName"
+		},
+		"emix:marketGranularity": {
+			"$ref": "#/definitions/.emix:marketGranularity"
+		},
+		"emix:maximumConsecutiveDurations": {
+			"$ref": "#/definitions/.emix:maximumConsecutiveDurations"
+		},
+		"emix:maximumInvocationsPerDuration": {
+			"$ref": "#/definitions/.emix:maximumInvocationsPerDuration"
+		},
+		"emix:maximumNotificationDuration": {
+			"$ref": "#/definitions/.emix:maximumNotificationDuration"
+		},
+		"emix:maximumResponseDuration": {
+			"$ref": "#/definitions/.emix:maximumResponseDuration"
+		},
+		"emix:maximumRunDuration": {
+			"$ref": "#/definitions/.emix:maximumRunDuration"
+		},
+		"emix:measurement": {
+			"$ref": "#/definitions/.emix:measurement"
+		},
+		"emix:minimumDurationBetweenInvocations": {
+			"$ref": "#/definitions/.emix:minimumDurationBetweenInvocations"
+		},
+		"emix:minimumEconomicRequirement": {
+			"$ref": "#/definitions/.emix:minimumEconomicRequirement"
+		},
+		"emix:minimumNotificationDuration": {
+			"$ref": "#/definitions/.emix:minimumNotificationDuration"
+		},
+		"emix:minimumRecoveryDuration": {
+			"$ref": "#/definitions/.emix:minimumRecoveryDuration"
+		},
+		"emix:minimumRemunerationRate": {
+			"$ref": "#/definitions/.emix:minimumRemunerationRate"
+		},
+		"emix:minimumResponseDuration": {
+			"$ref": "#/definitions/.emix:minimumResponseDuration"
+		},
+		"emix:minimumRunDuration": {
+			"$ref": "#/definitions/.emix:minimumRunDuration"
+		},
+		"emix:minimumStartsPerDuration": {
+			"$ref": "#/definitions/.emix:minimumStartsPerDuration"
+		},
+		"emix:nonStandardTermsHandling": {
+			"$ref": "#/definitions/.emix:nonStandardTermsHandling"
+		},
+		"emix:notificationSchedule": {
+			"$ref": "#/definitions/.emix:notificationSchedule"
+		},
+		"emix:optionType": {
+			"$ref": "#/definitions/.emix:optionType"
+		},
+		"emix:price": {
+			"$ref": "#/definitions/.emix:price"
+		},
+		"emix:priceBase": {
+			"$ref": "#/definitions/.emix:priceBase"
+		},
+		"emix:priceMultiplier": {
+			"$ref": "#/definitions/.emix:priceMultiplier"
+		},
+		"emix:priceRelative": {
+			"$ref": "#/definitions/.emix:priceRelative"
+		},
+		"emix:product": {
+			"$ref": "#/definitions/.emix:product"
+		},
+		"emix:productDescription": {
+			"$ref": "#/definitions/.emix:productDescription"
+		},
+		"emix:qualityWarrant": {
+			"$ref": "#/definitions/.emix:qualityWarrant"
+		},
+		"emix:quantity": {
+			"$ref": "#/definitions/.emix:quantity"
+		},
+		"emix:requiredStartupRemuneration": {
+			"$ref": "#/definitions/.emix:requiredStartupRemuneration"
+		},
+		"emix:responseTime": {
+			"$ref": "#/definitions/.emix:responseTime"
+		},
+		"emix:serviceArea": {
+			"$ref": "#/definitions/.emix:serviceArea"
+		},
+		"emix:side": {
+			"$ref": "#/definitions/.emix:side"
+		},
+		"emix:sourceWarrant": {
+			"$ref": "#/definitions/.emix:sourceWarrant"
+		},
+		"emix:standardTerms": {
+			"$ref": "#/definitions/.emix:standardTerms"
+		},
+		"emix:standardTermsSet": {
+			"$ref": "#/definitions/.emix:standardTermsSet"
+		},
+		"emix:supportForPrice": {
+			"$ref": "#/definitions/.emix:supportForPrice"
+		},
+		"emix:terms": {
+			"$ref": "#/definitions/.emix:terms"
+		},
+		"emix:transactiveState": {
+			"$ref": "#/definitions/.emix:transactiveState"
+		},
+		"emix:uid": {
+			"$ref": "#/definitions/.emix:uid"
+		},
+		"emix:unavailabilitySchedule": {
+			"$ref": "#/definitions/.emix:unavailabilitySchedule"
+		},
+		"emix:value": {
+			"$ref": "#/definitions/.emix:value"
+		},
+		"emix:warrants": {
+			"$ref": "#/definitions/.emix:warrants"
+		},
+		"pyld:eiCancelPartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiCancelPartyRegistration"
+		},
+		"pyld:eiCancelQuote": {
+			"$ref": "#/definitions/.pyld:eiCancelQuote"
+		},
+		"pyld:eiCancelTender": {
+			"$ref": "#/definitions/.pyld:eiCancelTender"
+		},
+		"pyld:eiCanceledPartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiCanceledPartyRegistration"
+		},
+		"pyld:eiCanceledQuote": {
+			"$ref": "#/definitions/.pyld:eiCanceledQuote"
+		},
+		"pyld:eiCanceledTender": {
+			"$ref": "#/definitions/.pyld:eiCanceledTender"
+		},
+		"pyld:eiCreateDelivery": {
+			"$ref": "#/definitions/.pyld:eiCreateDelivery"
+		},
+		"pyld:eiCreatePartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiCreatePartyRegistration"
+		},
+		"pyld:eiCreateQuote": {
+			"$ref": "#/definitions/.pyld:eiCreateQuote"
+		},
+		"pyld:eiCreateTender": {
+			"$ref": "#/definitions/.pyld:eiCreateTender"
+		},
+		"pyld:eiCreateTransaction": {
+			"$ref": "#/definitions/.pyld:eiCreateTransaction"
+		},
+		"pyld:eiCreatedDelivery": {
+			"$ref": "#/definitions/.pyld:eiCreatedDelivery"
+		},
+		"pyld:eiCreatedPartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiCreatedPartyRegistration"
+		},
+		"pyld:eiCreatedQuote": {
+			"$ref": "#/definitions/.pyld:eiCreatedQuote"
+		},
+		"pyld:eiCreatedTender": {
+			"$ref": "#/definitions/.pyld:eiCreatedTender"
+		},
+		"pyld:eiCreatedTransaction": {
+			"$ref": "#/definitions/.pyld:eiCreatedTransaction"
+		},
+		"pyld:eiDistributeTender": {
+			"$ref": "#/definitions/.pyld:eiDistributeTender"
+		},
+		"pyld:eiReplyEiMarketContext": {
+			"$ref": "#/definitions/.pyld:eiReplyEiMarketContext"
+		},
+		"pyld:eiReplyPartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiReplyPartyRegistration"
+		},
+		"pyld:eiReplyQuote": {
+			"$ref": "#/definitions/.pyld:eiReplyQuote"
+		},
+		"pyld:eiReplyTender": {
+			"$ref": "#/definitions/.pyld:eiReplyTender"
+		},
+		"pyld:eiReplyTransaction": {
+			"$ref": "#/definitions/.pyld:eiReplyTransaction"
+		},
+		"pyld:eiRequestEiMarketContext": {
+			"$ref": "#/definitions/.pyld:eiRequestEiMarketContext"
+		},
+		"pyld:eiRequestPartyRegistration": {
+			"$ref": "#/definitions/.pyld:eiRequestPartyRegistration"
+		},
+		"pyld:eiRequestQuote": {
+			"$ref": "#/definitions/.pyld:eiRequestQuote"
+		},
+		"pyld:eiRequestTender": {
+			"$ref": "#/definitions/.pyld:eiRequestTender"
+		},
+		"pyld:eiRequestTransaction": {
+			"$ref": "#/definitions/.pyld:eiRequestTransaction"
+		},
+		"pyld:requestID": {
+			"$ref": "#/definitions/.pyld:requestID"
+		},
+		"strm:intervals": {
+			"$ref": "#/definitions/.strm:intervals"
+		},
+		"strm:streamInterval": {
+			"$ref": "#/definitions/.strm:streamInterval"
+		},
+		"strm:streamPayloadBase": {
+			"$ref": "#/definitions/.strm:streamPayloadBase"
+		},
+		"strm:uid": {
+			"$ref": "#/definitions/.strm:uid"
+		},
+		"xcal:availability": {
+			"$ref": "#/definitions/.xcal:availability"
+		},
+		"xcal:availabilityInterval": {
+			"$ref": "#/definitions/.xcal:availabilityInterval"
+		},
+		"xcal:busyType": {
+			"$ref": "#/definitions/.xcal:busyType"
+		},
+		"xcal:comment": {
+			"$ref": "#/definitions/.xcal:comment"
+		},
+		"xcal:date": {
+			"$ref": "#/definitions/.xcal:date"
+		},
+		"xcal:dateTime": {
+			"$ref": "#/definitions/.xcal:dateTime"
+		},
+		"xcal:dtEnd": {
+			"$ref": "#/definitions/.xcal:dtEnd"
+		},
+		"xcal:dtStart": {
+			"$ref": "#/definitions/.xcal:dtStart"
+		},
+		"xcal:duration": {
+			"$ref": "#/definitions/.xcal:duration"
+		},
+		"xcal:exDate": {
+			"$ref": "#/definitions/.xcal:exDate"
+		},
+		"xcal:granularity": {
+			"$ref": "#/definitions/.xcal:granularity"
+		},
+		"xcal:rDate": {
+			"$ref": "#/definitions/.xcal:rDate"
+		},
+		"xcal:recurRulePart": {
+			"$ref": "#/definitions/.xcal:recurRulePart"
+		},
+		"xcal:recurRuleValues": {
+			"$ref": "#/definitions/.xcal:recurRuleValues"
+		},
+		"xcal:recurrence": {
+			"$ref": "#/definitions/.xcal:recurrence"
+		},
+		"xcal:recurrenceRule": {
+			"$ref": "#/definitions/.xcal:recurrenceRule"
+		},
+		"xcal:time": {
+			"$ref": "#/definitions/.xcal:time"
+		},
+		"xcal:timeRange": {
+			"$ref": "#/definitions/.xcal:timeRange"
+		},
+		"xcal:timeZone": {
+			"$ref": "#/definitions/.xcal:timeZone"
+		},
+		"xcal:vAvailability": {
+			"$ref": "#/definitions/.xcal:vAvailability"
+		}
+	},
+	"type": "object"
+}

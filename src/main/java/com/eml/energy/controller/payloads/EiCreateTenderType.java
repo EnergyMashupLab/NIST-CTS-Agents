@@ -47,9 +47,9 @@ public class EiCreateTenderType {
 	@Autowired
 	EiTenderType tenderDao;
 	
-	/*
-	 * @RequestMapping("/") public String home(){ return "Hello World!"; }
-	 */
+	
+	  @RequestMapping("/") public String home(){ return "Hello World!"; }
+	 
 	
 	/*1) To Save an tender*/
 	@PostMapping("/add")

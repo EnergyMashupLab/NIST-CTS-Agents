@@ -11,4 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EiTenderRepository extends JpaRepository<EiTenderModel, Long> {
 
+	EiTenderModel findOne(Long tenderID);
+
 }
