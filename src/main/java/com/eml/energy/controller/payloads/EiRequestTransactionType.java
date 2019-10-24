@@ -54,7 +54,7 @@ public class EiRequestTransactionType {
 	public String homes(){ return "Hello World! In request Transaction"; }
 
 	@PostMapping("/add")
-	public EiRequestTransactionModel createTender(@Valid @RequestBody EiRequestTransactionModel bks) {
+	public EiRequestTransactionModel createRTransaction(@Valid @RequestBody EiRequestTransactionModel bks) {
 		return reqTransDao.save(bks);
 	}
 }

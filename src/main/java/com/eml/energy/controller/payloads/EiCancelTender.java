@@ -33,7 +33,7 @@ import XSD-01.EIClasses.refID;
 */
 
 @RestController
-@RequestMapping("/transaction")
+@RequestMapping("/canTen")
 //public class EiCreateTenderType {
 public class EiCancelTender {
 	private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);

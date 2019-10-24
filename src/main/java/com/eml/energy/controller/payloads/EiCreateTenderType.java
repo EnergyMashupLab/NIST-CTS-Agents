@@ -91,16 +91,4 @@ public class EiCreateTenderType {
 		logger.info("All Tenders");
 		return tenderDao.findAll();
 	}
-
-	/* Default methods */
-	int test;
-
-	public EiCreateTenderType() {
-		this.test = 11;
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
 }
