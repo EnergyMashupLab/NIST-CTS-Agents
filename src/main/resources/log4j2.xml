@@ -8,7 +8,7 @@
  
         <RollingFile name="RollingFile"
             fileName="./logs/spring-boot-logger-log4j2.log"
-            filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
@@ -32,6 +32,8 @@
  
         <!-- LOG "com.baeldung*" at TRACE level -->
         <Logger name="com.baeldung" level="trace"></Logger>
+        <!-- Log all SQL DML statements as they are executed -->
+		<Logger name="org.hibernate.SQL" level="debug" />
     </Loggers>
  
 </Configuration>

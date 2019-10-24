@@ -24,6 +24,8 @@ import com.eml.energy.dao.EiTenderType;
 import com.eml.energy.model.EiTenderModel;
 
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 //package XSD-01.EiPayloads;
 
@@ -36,7 +38,7 @@ import XSD-01.EIClasses.refID;
 @RequestMapping("/tenders")
 //public class EiCreateTenderType {
 public class EiCreateTenderType {
-
+	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -44,18 +46,17 @@ public class EiCreateTenderType {
 
 	@Autowired
 	EiTenderType tenderDao;
-
-	/*
-	 * @RequestMapping("/") public String home(){ return "Hello World!"; }
-	 */
 	@RequestMapping("/")
-	public String home() {
-		return "Hello World!";
+	public String home(){ 
+		return "Hello World!"; 
 	}
+	
+	 	
+	/*1) To Save an tender*/
 
-	/* 1) To Save an tender */
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
+		logger.info(bks.toString());
 		return tenderDao.save(bks);
 	}
 
@@ -66,6 +67,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
+		logger.info(String.valueOf(tenderID));
 		return ResponseEntity.ok().body(bks);
 	}
 
@@ -77,6 +79,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
+		logger.info(String.valueOf(tenderID));
 		tenderDao.delete(bks);
 
 		return ResponseEntity.ok().build();
@@ -84,7 +87,8 @@ public class EiCreateTenderType {
 
 	/* 4) get all Tenders */
 	@GetMapping("/allTenders")
-	public List<EiTenderModel> getAllTenders() {
+	public List<EiTenderModel> getAllTenders(){
+		logger.info("All Tenders");
 		return tenderDao.findAll();
 	}
 
