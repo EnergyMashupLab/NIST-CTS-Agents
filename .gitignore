@@ -33,3 +33,5 @@ build/
 
 # Added Extra
 .idea/
+logs/
+src/main/resources/application.properties
