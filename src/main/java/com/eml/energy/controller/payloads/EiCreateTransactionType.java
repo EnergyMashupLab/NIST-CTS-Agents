@@ -57,7 +57,7 @@ public class EiCreateTransactionType {
 	
 
 	/*2) Get created transaction */
-	@GetMapping("/search/{id}")
+	/*@GetMapping("/search/{id}")
 	public ResponseEntity <EiResponseModel>  getCreatedTransaction(@PathVariable(value="id") Long refID){
 		logger.info("Search: "+refID);
 		EiResponseModel bks = res.findOne(refID);
@@ -67,11 +67,11 @@ public class EiCreateTransactionType {
 		}
 		logger.info("Response: "+bks.toString());
 		return ResponseEntity.ok().body(bks);
-	}
+	}*/
 	
 	
 	/*3) delete a transaction by refID*/
-	@DeleteMapping("/delete/{id}")
+	/*@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EiResponseModel> deleteTransaction(@PathVariable(value = "id") Long refID) {
 		logger.info("Delete: "+refID);
 		EiResponseModel bks = res.findOne(refID);
@@ -82,7 +82,7 @@ public class EiCreateTransactionType {
 		logger.info("Delete: "+bks.toString());
 		res.delete(bks);
 		return ResponseEntity.ok().build();		
-	}
+	}*/
 	
 	/*4) get all Transactions*/
 	@GetMapping("/allTransactions")

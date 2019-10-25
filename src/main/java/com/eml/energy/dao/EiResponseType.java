@@ -29,25 +29,14 @@ public class EiResponseType { /*Service class used to process the requests */
 		responseRepo.delete(eiTen);
 	}
 	
-	
-	
-	
 	/*get a transaction by refid */
-	public EiResponseModel findOne(Long refID) {
+	/*public EiResponseModel findOne(Long refID) {
 		
 		return (EiResponseModel) responseRepo.findOne(refID);
-	}
+	}*/
 	
 	/*Search all transactions */
 	public List<EiResponseModel> findAll(){
 		return responseRepo.findAll();
 	}
-
-	public EiResponseModel findByresponseCode(Long refID) {
-		// TODO Auto-generated method stub
-		return (EiResponseModel) responseRepo.findOne(refID);
-	}
-
-	
-	
 }

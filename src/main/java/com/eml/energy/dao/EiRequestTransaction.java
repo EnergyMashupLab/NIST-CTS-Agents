@@ -25,10 +25,10 @@ public class EiRequestTransaction {
 	}
 
 	/* get a tender by id */
-	public EiRequestTransactionModel findOne(Long tenderID) {
+	/*public EiRequestTransactionModel findOne(Long tenderID) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		return (EiRequestTransactionModel) transactionRepo.findOne(tenderID);
-	}
+	}*/
 
 	/* Search all books */
 	public List<EiRequestTransactionModel> findAll() {

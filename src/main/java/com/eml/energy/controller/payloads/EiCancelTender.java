@@ -59,7 +59,7 @@ public class EiCancelTender {
 	
 
 	/*2) Get cancelled tender */
-	@GetMapping("/search/{id}")
+	/*@GetMapping("/search/{id}")
 	@Where (clause= "responsecode = 'canceled'")
 	public ResponseEntity <EiResponseModel>  getCancelledTender(@PathVariable(value="id") Long refID)
 	{	
@@ -72,7 +72,7 @@ public class EiCancelTender {
 		}
 		logger.info("Reponse: "+bks.toString());
 		return ResponseEntity.ok().body(bks);
-	}
+	}*/
 	
 
 	public void finalize() throws Throwable {
