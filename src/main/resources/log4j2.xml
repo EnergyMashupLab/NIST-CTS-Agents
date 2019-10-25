@@ -30,17 +30,18 @@
     <Loggers>
        
         <Logger name="com.eml">
-        	<AppenderRef ref="RollingLog" />
+        	<AppenderRef ref="RollingLog" level="trace"/>
         	<AppenderRef ref="Console" />
         </Logger>
         
 		<Logger name="org.hibernate.SQL">
-			<AppenderRef ref="RollingLedger" />
+			<AppenderRef ref="RollingLedger" level="trace"/>
 			<AppenderRef ref="Console" />
 		</Logger>
-		
+				
 		 <Root level="all">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingLog" />
         </Root>
 		
     </Loggers>

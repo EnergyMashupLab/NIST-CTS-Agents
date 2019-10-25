@@ -35,7 +35,7 @@ import XSD-01.EIClasses.refID;
 //public class EiCreateTenderType {
 public class EiCreateTransactionType {
 	private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);
-	
+	private static final Logger ledger = LogManager.getLogger("RollingLedger");
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -51,7 +51,7 @@ public class EiCreateTransactionType {
 	/*1) To Save a transaction*/
 	@PostMapping("/add")
 	public EiResponseModel createTransaction(@Valid @RequestBody EiResponseModel bks) {
-		logger.info("Add: "+bks.toString());
+		ledger.info("Add: "+bks.toString());
 		return res.save(bks);
 	}
 	
@@ -87,7 +87,7 @@ public class EiCreateTransactionType {
 	/*4) get all Transactions*/
 	@GetMapping("/allTransactions")
 	public List<EiResponseModel> getAllTenders(){
-		logger.info("FindAll");
+		ledger.info("FindAll");
 		return res.findAll();
 	}
 	

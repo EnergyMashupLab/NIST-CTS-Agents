@@ -1,0 +1,32 @@
+2019-10-24 23:36:07,456 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EnergyApplication on DESKTOP-FR6ULLH with PID 5884 (C:\Users\ThinkPad\git\NIST-CTS-Agents\target\classes started by ThinkPad in C:\Users\ThinkPad\git\NIST-CTS-Agents)
+2019-10-24 23:36:07,465 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-10-24 23:36:07,530 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-24 23:36:07,539 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-24 23:36:08,297 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-24 23:36:08,378 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 73ms. Found 4 repository interfaces.
+2019-10-24 23:36:08,743 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9121a627] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-24 23:36:09,062 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2019-10-24 23:36:09,077 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2019-10-24 23:36:09,087 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2019-10-24 23:36:09,087 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-24 23:36:09,192 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2019-10-24 23:36:09,193 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1654 ms
+2019-10-24 23:36:09,346 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2019-10-24 23:36:09,610 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2019-10-24 23:36:09,657 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-10-24 23:36:09,720 INFO o.h.Version [restartedMain] HHH000412: Hibernate Core {5.3.12.Final}
+2019-10-24 23:36:09,723 INFO o.h.c.Environment [restartedMain] HHH000206: hibernate.properties not found
+2019-10-24 23:36:09,845 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-10-24 23:36:09,968 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-10-24 23:36:10,700 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_response add constraint FKcfelvt3ltbjvr3k1892rrckns foreign key (fk_tenderid) references ei_tender (tenderid)
+2019-10-24 23:36:10,735 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_tender add constraint FKe6qer8ku8nl2wrf5kw9um82n6 foreign key (fk_refid) references ei_response (refid)
+2019-10-24 23:36:10,766 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-24 23:36:10,810 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-10-24 23:36:11,269 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-24 23:36:11,303 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-24 23:36:11,340 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [restartedMain] Adding welcome page: class path resource [static/index.html]
+2019-10-24 23:36:11,475 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2019-10-24 23:36:11,497 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-24 23:36:11,500 INFO o.s.b.StartupInfoLogger [restartedMain] Started EnergyApplication in 4.378 seconds (JVM running for 5.606)
