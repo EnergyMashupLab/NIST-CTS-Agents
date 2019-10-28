@@ -3,7 +3,7 @@ NIST-CTS
 
 We invite participation in an open source project to develop Actors for
 edge-based self-optimization of power distribution systems. This project is named
-NIST-CTS because it is an implimentation of an agent based transactive energy 
+NIST-CTS-Agents because it is an implementation of an agent-based transactive energy 
 market using the Common Transactive Services defined during the NIST Transactive 
 Energy Challenge. 
 
@@ -40,10 +40,10 @@ encapsulates market behavior. While the project uses a Bilateral Market model,
 the Market Agent will incorporate a Market Modular Interface to support other
 market models.
 
-With respect to markets, Bilateral Market is classification; Double Auction and Order Book are two subclassifications within bilateral markets.
+Bilateral Market is a classification; examples of bilateral markets include Double Auction and Order Book.
 
 To see a description of the components that make up this project, look under the 
-link to src, above.
+subfolders of [../src](../sr ), above.
 
 Results
 -------
@@ -80,21 +80,26 @@ Technical Description
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
 respective repositories' README files for a closer view.
+The ![Architecture Drawing](Architecture.png) shows terminology and relationships.
+
+PENDING: These changes will flow through the various README files under src
 
 The project has four repositories in addition to this top-level repository:
 
 -   **Markets** including
 
-    -   The Market Modular Interface
+    -   The Market Modular Interface, an extension of the CTS
+    
+    -   The Local Market Engine (LME), the matching engine that coordinates buy and sell tenders
     
     -   A bilateral market
     
     -   (future) Additional plug-in markets and documentation
 
--   **Market Agent** (MA) which interacts with the markets and with Transactive
-    Energy Agents using the CTS including
+-   **Local Market Agent** (LMA) which interacts with the local market and with Transactive
+    Energy Agents and External Market Adapters using the CTS including
     
-    -   The Market Modular Interface
+    -   The Market Modular Interface, an extension of the CTS
     
     -   Market Position Management (see note)
     
@@ -102,37 +107,37 @@ The project has four repositories in addition to this top-level repository:
     
     -   Uses ei2j capabilities for CTS connections
     
-    -   (Optional and future) links to wholesale markets
+    -   Links to external markets via the External Market Adapter (EMA) which is an extension of the TEUA
     
 -   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
     integration capabilities for device and facility management
     
     -   Uses ei2j capabilities for CTS connections
     
-    -   Integrates with Supervisory Controller (SC)
+    -   Integrates with the Supervisory Controller (SC)
     
-    -   Provides information on committed market positions to the SC (see note below)
+    -   Maintains the Ledger, the record of cleared (not pending) transactions (see note)
+    
+    -   Provides information on committed market positions to the SC (see note)
 
 -   **Utilities**
 
     -   Common Transactive Services (CTS) implementation
 
-    -   ei2j--Energy Interoperation to and from Java, includes CTS implementation
+    -   ei2j-Energy Interoperation to and from Java, includes CTS implementation
 
     -   Logging (traces) and input for live and simulation meter and other data
     
-    -   Ledgers keep records of tenders and transactions; they can be saved to a file or possibly sent over a network connection as the design matures.
+    -   Ledgers keep records of tenders and transactions; 
     
 Note: 
-A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared.
+A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared. Ledgers are saved to a file or possibly sent over a network connection as the design matures.
 
-The Market Position Manager is a function that tracks completed (cleared) transactions in a ledger to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the MA as transactions are created and cleared.
+The Market Position Manager is a function that tracks completed (cleared) transactions contained in a ledger to determine committed market positions. Market position information is needed by the TEUA (on behalf of the SC), and is maintained by the LMA as transactions are created and cleared.
 
-The TEUA consumes information on existing market positions to the SC which can use the information to determine the difference between committed position and projected needs, thus transacting only for what is needed to align currcommitted position with projected needs, tendering to buy or sell as appropriate.
+The TEUA makes information on existing market positions available to the SC, which in turn can use the information to determine the difference between committed position and projected needs. The SC can then transact only for what is needed to align current committed position with projected needs, tendering to buy or sell as appropriate.
 
-All transactions and clearing flow through the MA, which through the MPM function will update the Market Position for use by the TEUA.
-    
-See the Architecture Drawing below. ![Architecture Drawing](Architecture.png)
+All transactions and clearing flow through the LMA, which through the MPM function will update the Market Position for use by the TEUA.
 
 Built With
 ----------
@@ -141,30 +146,7 @@ Agile programming and architecture are used.
 
 The project uses Github, Maven, and Java 8.
 
-It also includes the following tools:
-
-**Backend Framework** - Spring Boot with Maven (2.2.0).  You can download it from https://start.spring.io/
-With the following dependencies.  
-- Project: Maven ProjectGradle Project
-- Language: Java
-- Spring Boot: 2.2.0
-- Project Metadata: 
-- Group: com.eml
-- Artifact: energy
-- Options
-- Name: energy
-            Description: EML CTC Project  
-            Package Name: com.eml.energy  
-            Packaging: Jar  
-            Java: 8  
-- Dependencies: Spring Web including RESTful, Spring Session  
-
- **Front End**          - React JS (We will update you the version when we integrate React JS in our project  
- **IDE**                - Spring tool 4 (or Eclipse the latest version)  
- **Version control**    - GitHub  
- **Database**           - MySQL (version 5.1 or later) You can download it from https://dev.mysql.com/downloads/installer/  
-
-**NOTE: If you are cloning the code from GitHub, you need only Spring Tool IDE, Apache Server and MySQL server.**  
+See [HowToDevelop](HowToDevelop) for tooling and development environment.
 
 Authors
 -------
