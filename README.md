@@ -43,7 +43,7 @@ market models.
 Bilateral Market is a classification; examples of bilateral markets include Double Auction and Order Book.
 
 To see a description of the components that make up this project, look under the 
-subfolders of [../src](../sr ), above.
+subfolders of [../src](../src ), above.
 
 Results
 -------
@@ -80,17 +80,17 @@ Technical Description
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
 respective repositories' README files for a closer view.
-The ![Architecture Drawing](Architecture.png) shows terminology and relationships.
+The Architecture Drawing shows terminology and relationships.![Architecture Drawing](Architecture.png) 
 
-PENDING: These changes will flow through the various README files under src
+PENDING: These evolutionary changes will flow through the other project README files.
 
-The project has four repositories in addition to this top-level repository:
+The project has a number of components and information in a number of subfolders under [../src](../src ). 
 
 -   **Markets** including
 
-    -   The Market Modular Interface, an extension of the CTS
-    
     -   The Local Market Engine (LME), the matching engine that coordinates buy and sell tenders
+    
+    -   The Market Modular Interface, shown as ei2j+, an extension of the CTS and ei2j
     
     -   A bilateral market
     
@@ -99,15 +99,27 @@ The project has four repositories in addition to this top-level repository:
 -   **Local Market Agent** (LMA) which interacts with the local market and with Transactive
     Energy Agents and External Market Adapters using the CTS including
     
-    -   The Market Modular Interface, an extension of the CTS
+    -   The Market Modular Interface, shown as ei2j+, an extension of the CTS and ei2j
     
     -   Market Position Management (see note)
     
-    -   Maintains the Ledger, the record of cleared (not pending) transactions (see note)
+    -   The Ledger, the record of cleared (not pending) transactions (see note)
+    
+    -   Price Adjustment hooks, enabling market economics experiments
     
     -   Uses ei2j capabilities for CTS connections
     
     -   Links to external markets via the External Market Adapter (EMA) which is an extension of the TEUA
+    
+-   **External Market Adapter** (EMA), an extension of the TEUA, interacts with the Local Market Agent and a single external market. Functions include
+    
+    -   Market Position Management (see note)
+    
+    -   The Ledger, the record of cleared (not pending) transactions (see note)
+    
+    -   Price Adjustment hooks, enabling market economics experiments and presentation of markup on wholesale prices
+    
+    -   Uses ei2j capabilities for CTS connections
     
 -   **Transactive Energy [User] Agent** (TEUA) which interacts with the MA and provides
     integration capabilities for device and facility management
