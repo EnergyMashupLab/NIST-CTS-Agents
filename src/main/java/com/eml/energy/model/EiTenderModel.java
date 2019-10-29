@@ -37,7 +37,7 @@ public class EiTenderModel {
 	private Date CreationDate;
 	@NotNull
 	private long transactionID;
-	@JoinColumn(name ="FK_refID")
+ @JoinColumn(name ="FK_refID")
 	@ManyToOne
 	private  EiResponseModel refID;
 
@@ -69,7 +69,7 @@ public class EiTenderModel {
 	        return CreationDate;
 	    }
 		
-		public EiResponseModel getRefID() {
+	public EiResponseModel getRefID() {
 			return refID;
 		}
 		public void setRefID(EiResponseModel refID) {
