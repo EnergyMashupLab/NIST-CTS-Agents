@@ -1,8 +1,9 @@
 Development Environment Notes 20191015
 ======================================
+# Summary of Frameworks and Tooling
+See **Download and Set Up** section below on download and setup.
+### Backend Framework
 
-Backend Framework
------------------
 
 Spring Boot with Maven (2.2.0)         
 
@@ -13,23 +14,20 @@ With the following dependencies.
 
 ![Spring Boot Setup](SpringBootSetup20191015.png)
 
-Front End 
-----------
+### Front End 
 
 React JS (not yet used)
 
-IDE 
-----
+### IDE 
+
 
 Spring tool 4 (or the latest version of Eclipse)
 
-Version control  
------------------
+### Version control  
 
 GitHub
 
-Database
---------
+### Database
 
 MySQL (version 5.1 or later)
 
