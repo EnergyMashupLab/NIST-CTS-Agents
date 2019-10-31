@@ -1,9 +1,32 @@
-Development Environment Notes 20191015
+Development Environment Notes 20191031
 ======================================
+
+## Project Build Steps
+Most work is in the **development** branch of the repository.
+
+1. Download prequisites and tooling as needed. **NOTE: If you are cloning the code from GitHub, you need only the Java SDKs, Spring Tool IDE, Apache Tomcat Server and MySQL server.**
+
+2. Install the MySQL Server on your machine
+
+3. Clone the current project into your local machine. Checkout may require the **-f** flag.
+```
+git clone <https://github.com/EnergyMashupLab/NIST-CTS-Agents>
+git checkout development
+git pull origin development
+```
+4. Import the project into your SpringTool IDE
+
+5. Click on *Built* to build the project
+
+**PENDING ITEMS**
+- Full roundtrip description
+- Run description
+- Test description
+
 
 ## Download and Set Up Prequisites
 
-Prerequisites for your development environment include JDK for JEE 8, Spring Tool Suite, Eclipse IDE for JEE, MySQL and optionally MySQL Workbench.
+Prerequisites for your development environment include JDK for JEE 8, Spring Tool Suite, Eclipse IDE for JEE, MySQL and optionally MySQL Workbench. **NOTE: If you are cloning the code from GitHub, you need only the Java SDKs, Spring Tool IDE, Apache Tomcat Server and MySQL server.**
 
 Package | Mac Download | Windows Download | Notes
 ------- | ------- | ---------- | --------
@@ -29,24 +52,3 @@ Version Management | Github.com | [Project Home Page](https://github.com/EnergyM
 Run Spring Boot Setup with the following dependencies, and save the result:
 ![Spring Boot Setup](SpringBootSetup20191015.png) 
 
-## Project Build Steps
-Most work is in the **development** branch of the repository.
-
-1. Download prequisites and tooling as needed. **NOTE: If you are cloning the code from GitHub, you need only Spring Tool IDE, Apache Server and MySQL server.**
-
-2. Install the MySQL Server on your machine
-
-3. Clone the current project into your local machine
-```
-git clone <https://github.com/EnergyMashupLab/NIST-CTS-Agents>
-git checkout development
-git pull origin development
-```
-4. Import the project into your SpringTool IDE
-
-5. Click on *Built* to build the project
-
-**PENDING ITEMS: **
-- Full roundtrip description
-- Run description
-- Test description
