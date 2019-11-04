@@ -13,6 +13,7 @@ import com.eml.energy.model.EiTenderModel;
 import com.eml.energy.repository.EiTenderRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EiTenderType { /*Service class used to process the reqquests */
@@ -26,17 +27,25 @@ public class EiTenderType { /*Service class used to process the reqquests */
 	}
 	
 	/*To delete the tender */
-	public void delete( EiTenderModel eiTen ) {
-		tenderRepo.delete(eiTen);
+	public void delete( Object bks ) {
+		tenderRepo.delete((EiTenderModel) bks);
 	}
 	
 	/*get a tender by id */
-	public EiTenderModel findOne(Long tenderID) {
+	public Object findOne(Long tenderId) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
-		//return (EiTenderModel) tenderRepo.findOne(tenderID);
-		return null;
+		
+		return  tenderRepo.findById(tenderId);
+		//return null;
 	}
 	
+	/*get a tender by id */
+	public EiTenderModel getOne(Long tenderId) {
+		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
+		
+		return  tenderRepo.getOne(tenderId);
+		//return null;
+	}
 	/*Search all books */
 	public List<EiTenderModel> findAll(){
 		return tenderRepo.findAll();

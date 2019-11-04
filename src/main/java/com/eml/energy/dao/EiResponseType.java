@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.eml.energy.model.EiResponseModel;
-
+import com.eml.energy.model.EiTenderModel;
 import com.eml.energy.repository.EiResponseRepository;
 
 import java.util.List;
@@ -24,16 +24,20 @@ public class EiResponseType { /*Service class used to process the requests */
 		return responseRepo.save(eiRes);
 	}
 	
-	/*To delete the transaction */
-	public void delete( EiResponseModel eiTen ) {
-		responseRepo.delete(eiTen);
-	}
 	
-	/*get a transaction by refid */
-	/*public EiResponseModel findOne(Long refID) {
+	public Object findOne(Long refID) {
+		// @Query("SELECT * FROM EiResponse ET WHERE ET.refID = ?")
 		
-		return (EiResponseModel) responseRepo.findOne(refID);
-	}*/
+		return  responseRepo.findById(refID);
+		
+	}
+	/*get a transaction by id */
+	public EiResponseModel getOne(Long tenderId) {
+		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
+		
+		return  responseRepo.getOne(tenderId);
+		//return null;
+	}
 	
 	/*Search all transactions */
 	public List<EiResponseModel> findAll(){
