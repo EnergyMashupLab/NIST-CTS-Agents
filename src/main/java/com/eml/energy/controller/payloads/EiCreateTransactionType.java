@@ -69,7 +69,7 @@ public class EiCreateTransactionType {
 	}
 	
 	
-	/*3) delete a transaction by refID*/
+	/*3) delete a transaction by refID */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EiResponseModel> deleteTransaction(@PathVariable(value = "id") Long refID) {
 		logger.info("Delete: "+refID);

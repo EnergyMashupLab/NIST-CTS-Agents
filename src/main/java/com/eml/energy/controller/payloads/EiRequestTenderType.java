@@ -9,6 +9,8 @@ package com.eml.energy.controller.payloads;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,7 +38,7 @@ import XSD-01.EIClasses.refID;
 @RestController
 @RequestMapping("/reqtend")
 public class EiRequestTenderType {
-	
+	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -54,5 +56,40 @@ public class EiRequestTenderType {
 	@PostMapping("/add")
 	public EiRequestTenderModel createTender(@Valid @RequestBody EiRequestTenderModel bks) {
 		return reqTendDao.save(bks);
+	}
+	
+	/* 2) Get created tender */
+	@GetMapping("/search/{id}")
+	
+	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long requestID) {
+		Object bks =  reqTendDao.findOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+      logger.info(String.valueOf(requestID));
+		return ResponseEntity.ok().body(bks);
+	}
+
+	/* 3) delete a tender by tenderid */
+    @DeleteMapping("/delete/{id}")
+	
+	public ResponseEntity <EiTenderModel> deleteBook(@PathVariable(value = "id") Long requestID) {
+
+    	EiRequestTenderModel bks = (EiRequestTenderModel) reqTendDao.getOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+		logger.info(String.valueOf(requestID));
+		//EiTenderModel bks1 = bks;
+		reqTendDao.delete( bks);
+
+		return ResponseEntity.ok().build();
+	}
+
+	/* 4) get all Tenders */
+	@GetMapping("/allTenders")
+	public List<EiRequestTenderModel> getAllTenders(){
+		logger.info("All Tenders");
+		return reqTendDao.findAll();
 	}
 }

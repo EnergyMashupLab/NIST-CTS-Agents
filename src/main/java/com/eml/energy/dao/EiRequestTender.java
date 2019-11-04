@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eml.energy.model.EiRequestTenderModel;
+import com.eml.energy.model.EiTenderModel;
 import com.eml.energy.repository.EiRequestTenderRepository;
 
 import java.util.List;
@@ -25,6 +26,18 @@ public class EiRequestTender {
 		tenderRepo.delete(eiTen);
 	}
 	
+	public Object findOne(Long tenderId) {
+		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
+		
+		return  tenderRepo.findById(tenderId);
+		//return null;
+	}
+	public EiRequestTenderModel getOne(Long tenderId) {
+		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
+		
+		return  tenderRepo.getOne(tenderId);
+		//return null;
+	}
 	/*Search all books */
 	public List<EiRequestTenderModel> findAll(){
 		return tenderRepo.findAll();
