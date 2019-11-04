@@ -37,7 +37,7 @@ public class EiTenderModel {
 	private Date CreationDate;
 	@NotNull
 	private long transactionID;
- @JoinColumn(name ="FK_refID")
+	@JoinColumn(name ="FK_refID")
 	@ManyToOne
 	private  EiResponseModel refID;
 
@@ -51,28 +51,28 @@ public class EiTenderModel {
 	public String getEmixBase() {
 		return emixBase;
 	}
-	
+
 	public void setEmixBase(String emixBase) {
 		this.emixBase = emixBase;
 	}
 	public long getTransactionID() {
 		return transactionID;
 	}
-	
+
 	public void setTransactionID(long transactionID) {
 		this.transactionID = transactionID;
 	}
 	//To save date
-		@Temporal(TemporalType.DATE)
-	    @Column(name = "CreationDate")
-	    public Date getCreationDate() {
-	        return CreationDate;
-	    }
-		
+	@Temporal(TemporalType.DATE)
+	@Column(name = "CreationDate")
+	public Date getCreationDate() {
+		return CreationDate;
+	}
+
 	public EiResponseModel getRefID() {
-			return refID;
-		}
-		public void setRefID(EiResponseModel refID) {
-			this.refID = refID;
-		}
+		return refID;
+	}
+	public void setRefID(EiResponseModel refID) {
+		this.refID = refID;
+	}
 }
