@@ -35,4 +35,5 @@ build/
 .idea/
 logs/
 ledger/
+spring-boot-ledger.log
 src/main/resources/application.properties

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+table,td,th {
+ border:solid 1px;
+ border-collapse:collapse;
+}
+body{
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div >
+<h1>All Tenders</h1>
+<form id="form">
+  <p><output id="out"></output>
+  </form>
+ </div>
+
+<script>
+$(document).ready(function(){
+	$.ajax({
+		url: '/tenders/allTenders',
+		method: 'GET',
+		dataType: 'json',
+		contentType: 'application/json',
+		success: function(jsonobj){
+			var allData = JSON.stringify(jsonobj);
+			//let form=document.querySelector("form")
+			
+			    let out=document.getElementById("out");
+			    if(!jsonobj.length)
+			      return
+			    let tblstr="<table>"
+			    tblstr+="<tr>"
+			    for(let prop in jsonobj[0]) {
+			      tblstr+=`<th>${prop}`
+			    }
+			    tblstr+=jsonobj.reduce((s, x) => {
+			      s+="<tr>"
+			      for(let prop in x) {
+			        s+=`<td>${x[prop]}`
+			      }
+			      return s
+			    }, "")
+			    tblstr+="</table>"
+			    out.insertAdjacentHTML("beforeend", "<p>" + tblstr)
+			  
+			//document.getElementById("demo").innerHTML = allData;
+			}
+	});
+})
+</script>
+</body>
+</html>
