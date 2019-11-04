@@ -13,7 +13,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @ComponentScan("com.eml")
 @SpringBootApplication
-@EnableJpaAuditing
+//@EnableJpaAuditing
+//@Import({ApplicationConfig.class })
 public class EnergyApplication {
 
 	public static void main(String[] args) {
