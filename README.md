@@ -1,7 +1,7 @@
 NIST-CTS
 ========
 
-We invite participation in an open source project to develop Actors for
+We invite participation in an open source project to    Actors for
 edge-based self-optimization of power distribution systems. This project is named
 NIST-CTS-Agents because it is an implementation of an agent-based transactive energy 
 market using the Common Transactive Services defined during the NIST Transactive 
@@ -158,7 +158,7 @@ Agile programming and architecture are used.
 
 The project uses Github, Maven, and Java 8.
 
-See [HowToDevelop](HowToDevelop) for tooling and development environment.
+See [HowToDevelop](HowToDevelop) for the tooling and development environment.
 
 Authors
 -------
