@@ -21,12 +21,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name="EiTender")
 @EntityListeners(AuditingEntityListener.class)
+@DynamicUpdate
 public class EiTenderModel {
 
 	@Id
@@ -34,6 +37,10 @@ public class EiTenderModel {
 	private long tenderID;	/*Primary key, we can have only one tender with same ID */
 	@NotBlank
 	private String emixBase;
+	
+	
+	public String status = "Created";
+	
 	private Date CreationDate;
 	@NotNull
 	private long transactionID;
@@ -48,6 +55,7 @@ public class EiTenderModel {
 	public void setTenderID(long tenderID) {
 		this.tenderID = tenderID;
 	}
+	
 	public String getEmixBase() {
 		return emixBase;
 	}
@@ -55,6 +63,14 @@ public class EiTenderModel {
 	public void setEmixBase(String emixBase) {
 		this.emixBase = emixBase;
 	}
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	public long getTransactionID() {
 		return transactionID;
 	}

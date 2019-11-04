@@ -15,6 +15,8 @@ import com.eml.energy.repository.EiTenderRepository;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 @Service
 public class EiTenderType { /*Service class used to process the reqquests */
 
@@ -32,12 +34,14 @@ public class EiTenderType { /*Service class used to process the reqquests */
 	}
 	
 	/*get a tender by id */
-	public Object findOne(Long tenderId) {
+	public Optional<EiTenderModel> findOne(Long tenderId) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		
 		return  tenderRepo.findById(tenderId);
 		//return null;
 	}
+	
+	
 	
 	/*get a tender by id */
 	public EiTenderModel getOne(Long tenderId) {
@@ -49,5 +53,10 @@ public class EiTenderType { /*Service class used to process the reqquests */
 	/*Search all books */
 	public List<EiTenderModel> findAll(){
 		return tenderRepo.findAll();
+	}
+
+	public EiTenderModel update(@Valid EiTenderModel bks) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

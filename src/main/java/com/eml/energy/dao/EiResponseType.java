@@ -42,9 +42,6 @@ public class EiResponseType { /*Service class used to process the requests */
 		//return null;
 	}
 
-	public void delete (Object bks) {
-		responseRepo.delete((EiResponseModel) bks);
-	}
 	
 	/*Search all transactions */
 	public List<EiResponseModel> findAll(){

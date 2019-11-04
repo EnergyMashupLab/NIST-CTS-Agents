@@ -26,16 +26,16 @@ public class EiRequestTender {
 		tenderRepo.delete(eiTen);
 	}
 	
-	public Object findOne(Long tenderId) {
+	public Object findOne(Long requestID) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		
-		return  tenderRepo.findById(tenderId);
+		return  tenderRepo.findById(requestID);
 		//return null;
 	}
-	public EiRequestTenderModel getOne(Long tenderId) {
+	public EiRequestTenderModel getOne(Long requestID) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		
-		return  tenderRepo.getOne(tenderId);
+		return  tenderRepo.getOne(requestID);
 		//return null;
 	}
 	/*Search all books */

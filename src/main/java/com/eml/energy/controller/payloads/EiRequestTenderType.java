@@ -1,9 +1,3 @@
-/**
- * Used to create and send a Tender.
- * @author Karan Shah
- * @version 1.0
- * @created 10-Oct-2019 05:52:52 PM
- */
 
 package com.eml.energy.controller.payloads;
 
@@ -38,7 +32,7 @@ import XSD-01.EIClasses.refID;
 @RestController
 @RequestMapping("/reqtend")
 public class EiRequestTenderType {
-	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);
+	
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -58,7 +52,7 @@ public class EiRequestTenderType {
 		return reqTendDao.save(bks);
 	}
 	
-	/* 2) Get created tender */
+	/* 2) Get requested tender */
 	@GetMapping("/search/{id}")
 	
 	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long requestID) {
@@ -66,30 +60,30 @@ public class EiRequestTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-      logger.info(String.valueOf(requestID));
+     
 		return ResponseEntity.ok().body(bks);
 	}
 
-	/* 3) delete a tender by tenderid */
+	/* 3) delete a tender by requestID */
     @DeleteMapping("/delete/{id}")
 	
-	public ResponseEntity <EiTenderModel> deleteBook(@PathVariable(value = "id") Long requestID) {
+	public ResponseEntity <EiRequestTenderModel> deleteBook(@PathVariable(value = "id") Long requestID) {
 
     	EiRequestTenderModel bks = (EiRequestTenderModel) reqTendDao.getOne(requestID);
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.info(String.valueOf(requestID));
-		//EiTenderModel bks1 = bks;
+		
+		
 		reqTendDao.delete( bks);
 
 		return ResponseEntity.ok().build();
 	}
 
-	/* 4) get all Tenders */
+	/* 4) get all requested tenders */
 	@GetMapping("/allTenders")
 	public List<EiRequestTenderModel> getAllTenders(){
-		logger.info("All Tenders");
+		
 		return reqTendDao.findAll();
 	}
 }

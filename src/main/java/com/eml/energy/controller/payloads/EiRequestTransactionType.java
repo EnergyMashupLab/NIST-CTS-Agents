@@ -57,4 +57,38 @@ public class EiRequestTransactionType {
 	public EiRequestTransactionModel createRTransaction(@Valid @RequestBody EiRequestTransactionModel bks) {
 		return reqTransDao.save(bks);
 	}
+	/* 2) Get requested tender */
+	@GetMapping("/search/{id}")
+	
+	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long requestID) {
+		Object bks =  reqTransDao.findOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+     
+		return ResponseEntity.ok().body(bks);
+	}
+
+	/* 3) delete a tender by requestID */
+    @DeleteMapping("/delete/{id}")
+	
+	public ResponseEntity <EiRequestTransactionModel> deleteBook(@PathVariable(value = "id") Long requestID) {
+
+    	EiRequestTransactionModel bks = (EiRequestTransactionModel) reqTransDao.getOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		
+		reqTransDao.delete( bks);
+
+		return ResponseEntity.ok().build();
+	}
+
+	/* 4) get all requested tenders */
+	@GetMapping("/allTenders")
+	public List<EiRequestTransactionModel> getAllTenders(){
+		
+		return reqTransDao.findAll();
+	}
 }
