@@ -16,11 +16,44 @@ git pull origin development
 ```
 4. Import the project into your SpringTool IDE
 
-5. Click on *Built* to build the project
+5. Click on *Build* to build the project
 
-**PENDING ITEMS**
-- Full roundtrip description
-- Run description
+**Additional Information**
+Useful git commands
+- Pull updates to our local bbranch
+```
+git origin pull development
+```
+To determine which branch you're on
+```
+git branch
+```
+To determine whether you've updated code on your local machine'
+```
+git status
+```
+To add your files back
+```
+git add
+```
+To commit your changes
+```
+git commit -am "your message"
+```
+To push your code back to the origin banch
+```
+git push origin yourbranchname
+```
+
+- To run your code in the IDE
+You should have a working MySQL database locally with a database named *njit_cts_eml* 
+Run your code
+```
+(right click on project -> run as -> Spring boot app
+```
+This will start your tomcat server automatically.
+
+**PENDING**
 - Test description
 
 
