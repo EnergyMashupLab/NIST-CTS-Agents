@@ -1,0 +1,3 @@
+2019-11-03 19:29:39,987 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_response add constraint FKcfelvt3ltbjvr3k1892rrckns foreign key (fk_tenderid) references ei_tender (tenderid)
+2019-11-03 19:29:41,652 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_tender add constraint FKe6qer8ku8nl2wrf5kw9um82n6 foreign key (fk_refid) references ei_response (refid)
+2019-11-03 19:29:59,254 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8080-exec-5] select eitendermo0_.tenderid as tenderid1_4_, eitendermo0_.creation_date as creation2_4_, eitendermo0_.emix_base as emix_bas3_4_, eitendermo0_.fk_refid as fk_refid5_4_, eitendermo0_.transactionid as transact4_4_ from ei_tender eitendermo0_
