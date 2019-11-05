@@ -61,31 +61,19 @@ public class EiCancelTender {
 		return res.save(bks);
 	}
 
-	/* 2) Get cancelled tender by tender */
+	/* /* 2) Get cancelled tender by tender 
 	@GetMapping("/search/{id}")
-	public ResponseEntity<EiTenderModel> getCreatedTender(@PathVariable(value = "id") Long tenderID) {
-		EiTenderModel bks = res.getOne(tenderID);
-		//@Query q = em.createNativeQuery("select * from EiTenderModel a where a.status="cancelled" and a.tenderID = tenderID");
-		//q.getResultList();
+	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long tenderID) {
+		Object bks =  tenderDao.findOne(tenderID);
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		//EiTenderModel sts = null;
-		
-		if( bks.getStatus() == "cancelled")
-		{
-		logger.info(String.valueOf(tenderID));
-		//EiTenderModel bks1 = bks;
+logger.info(String.valueOf(tenderID));
 		return ResponseEntity.ok().body(bks);
-		
-		}
-        
-		return ResponseEntity.notFound().build();
 	}
 
 
-
-	/* 3) delete a tender by tenderid */
+	/* 3) delete a tender by tenderid 
     @DeleteMapping("/delete/{id}")
 	//@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET  )
 	public ResponseEntity <EiTenderModel> deleteBook(@PathVariable(value = "id") Long tenderID) {
@@ -106,7 +94,7 @@ public class EiCancelTender {
 		return ResponseEntity.notFound().build();
 	}
 
-	/* 4) get all cancelledTenders */
+	/* 4) get all cancelledTenders 
     
 	@GetMapping("/allTenders")
 	public List<EiTenderModel> getAllTenders(){
@@ -117,5 +105,6 @@ public class EiCancelTender {
 	public void finalize() throws Throwable {
 
 	}
+	*/
 
 }

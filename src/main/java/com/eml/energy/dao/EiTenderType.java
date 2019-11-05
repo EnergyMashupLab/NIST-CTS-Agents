@@ -34,7 +34,7 @@ public class EiTenderType { /*Service class used to process the reqquests */
 	}
 	
 	/*get a tender by id */
-	public Optional<EiTenderModel> findOne(Long tenderId) {
+	public Optional findOne(Long tenderId) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
 		
 		return  tenderRepo.findById(tenderId);

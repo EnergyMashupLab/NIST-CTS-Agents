@@ -7,6 +7,7 @@
 package com.eml.energy.model;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +26,14 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 @Entity
 @Table(name="EiTender")
 @EntityListeners(AuditingEntityListener.class)
-@DynamicUpdate
+
 public class EiTenderModel {
 
 	@Id
@@ -41,7 +45,9 @@ public class EiTenderModel {
 	
 	public String status = "Created";
 	
-	private Date CreationDate;
+ 
+    private Date creationdate;
+
 	@NotNull
 	private long transactionID;
 	@JoinColumn(name ="FK_refID")
@@ -79,11 +85,18 @@ public class EiTenderModel {
 		this.transactionID = transactionID;
 	}
 	//To save date
-	@Temporal(TemporalType.DATE)
-	@Column(name = "CreationDate")
-	public Date getCreationDate() {
-		return CreationDate;
-	}
+	
+	//public Date getCreationDate() {
+		//return CreationDate;
+	//}
+	
+	//private DateTimeFormat CreationDate;
+
+	public void setCreationdate(Date  creationdate) 
+	{this.creationdate = creationdate;}
+	public Date getCreationdate() 
+	{return creationdate;}
+	
 
 	public EiResponseModel getRefID() {
 		return refID;
