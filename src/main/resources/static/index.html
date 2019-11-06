@@ -1,19 +1,21 @@
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$("#header").load("header.html");
+		});
+	</script>
 </head>
-<body>
-
+<body style="background-color:#F0F4F4">
 	<div class="container">
-	<form>
-	<input type="submit" onclick="javascript: form.action='create.html';">
-  <input type="submit" onclick="javascript: form.action='tenders.html';">
-	
-	</form>
+		<div id="header"></div><br><br>
+		<form>
+			<input type="submit" value="Add Tender" onclick="javascript: form.action='create.html';">
+  			<input type="submit" value="All Tenders" onclick="javascript: form.action='tenders.html';">
+		</form>
 	</div>
 </body>
 </html>
