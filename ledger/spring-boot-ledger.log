@@ -1,2 +1,0 @@
-2019-11-04 00:18:57,856 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_response add constraint FKcfelvt3ltbjvr3k1892rrckns foreign key (fk_tenderid) references ei_tender (tenderid)
-2019-11-04 00:18:57,887 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] alter table ei_tender add constraint FKe6qer8ku8nl2wrf5kw9um82n6 foreign key (fk_refid) references ei_response (refid)
