@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eml.energy.model.EiRequestTransactionModel;
+import com.eml.energy.model.EiResponseModel;
 import com.eml.energy.repository.EiRequestTransactionRepository;
 
 import java.util.List;
@@ -24,11 +25,20 @@ public class EiRequestTransaction {
 		transactionRepo.delete(eiTen);
 	}
 
-	/* get a tender by id */
-	/*public EiRequestTransactionModel findOne(Long tenderID) {
+	public Object findOne(Long requestID) {
+		// @Query("SELECT * FROM EiResponse ET WHERE ET.refID = ?")
+		
+		return  transactionRepo.findById(requestID);
+		
+	}
+	/*get a transaction by id */
+	public EiRequestTransactionModel getOne(Long requestID) {
 		// @Query("SELECT * FROM EiTender ET WHERE ET.tendId = ?")
-		return (EiRequestTransactionModel) transactionRepo.findOne(tenderID);
-	}*/
+		
+		return  transactionRepo.getOne(requestID);
+		//return null;
+	}
+
 
 	/* Search all books */
 	public List<EiRequestTransactionModel> findAll() {

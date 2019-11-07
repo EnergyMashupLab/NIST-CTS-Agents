@@ -1,14 +1,10 @@
-/**
- * Used to create and send a Tender.
- * @author Karan Shah
- * @version 1.0
- * @created 10-Oct-2019 05:52:52 PM
- */
 
 package com.eml.energy.controller.payloads;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -54,5 +50,40 @@ public class EiRequestTenderType {
 	@PostMapping("/add")
 	public EiRequestTenderModel createTender(@Valid @RequestBody EiRequestTenderModel bks) {
 		return reqTendDao.save(bks);
+	}
+	
+	/* 2) Get requested tender */
+	@GetMapping("/search/{id}")
+	
+	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long requestID) {
+		Object bks =  reqTendDao.findOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+     
+		return ResponseEntity.ok().body(bks);
+	}
+
+	/* 3) delete a tender by requestID */
+    @DeleteMapping("/delete/{id}")
+	
+	public ResponseEntity <EiRequestTenderModel> deleteBook(@PathVariable(value = "id") Long requestID) {
+
+    	EiRequestTenderModel bks = (EiRequestTenderModel) reqTendDao.getOne(requestID);
+		if (bks == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		
+		reqTendDao.delete( bks);
+
+		return ResponseEntity.ok().build();
+	}
+
+	/* 4) get all requested tenders */
+	@GetMapping("/allTenders")
+	public List<EiRequestTenderModel> getAllTenders(){
+		
+		return reqTendDao.findAll();
 	}
 }

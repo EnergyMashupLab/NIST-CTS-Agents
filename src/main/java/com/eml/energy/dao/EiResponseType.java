@@ -23,6 +23,9 @@ public class EiResponseType { /*Service class used to process the requests */
 	public EiResponseModel save( EiResponseModel eiRes ) {
 		return responseRepo.save(eiRes);
 	}
+	public void delete( Object bks ) {
+		responseRepo.delete((EiResponseModel) bks);
+	}
 	
 	
 	public Object findOne(Long refID) {
@@ -39,9 +42,6 @@ public class EiResponseType { /*Service class used to process the requests */
 		//return null;
 	}
 
-	public void delete (Object bks) {
-		responseRepo.delete((EiResponseModel) bks);
-	}
 	
 	/*Search all transactions */
 	public List<EiResponseModel> findAll(){

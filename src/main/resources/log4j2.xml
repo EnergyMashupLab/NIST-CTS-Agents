@@ -34,14 +34,19 @@
         	<AppenderRef ref="Console" />
         </Logger>
         
+          <Logger name="com.eml.energy.controller.payloads.EiCreateTransactionType">
+        	<AppenderRef ref="RollingLedger" level="trace"/>
+        </Logger>
+        
 		<Logger name="org.hibernate.SQL">
-			<AppenderRef ref="RollingLedger" level="trace"/>
+			<!-- <AppenderRef ref="RollingLedger" level="trace"/> -->
 			<AppenderRef ref="Console" />
 		</Logger>
 				
 		 <Root level="all">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingLog" />
+
         </Root>
 		
     </Loggers>
