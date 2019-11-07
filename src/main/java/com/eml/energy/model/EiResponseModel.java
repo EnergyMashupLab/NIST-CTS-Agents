@@ -2,6 +2,7 @@
 package com.eml.energy.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,8 +41,19 @@ public class EiResponseModel  {
 	private String responseDescription;
 	@NotBlank
 	private String responseTermsVoilated;
-	private Date TransactionDate;
+	private LocalDate TransactionDate = gdate();
 	
+	
+	
+	    public LocalDate gdate() {
+	    	LocalDate localDate = LocalDate.now();
+	    	
+	        return (localDate);
+
+	        
+	       
+
+	    }
 	@JoinColumn(name ="FK_tenderID")
 	@ManyToOne
 	private  EiTenderModel tenderID;
@@ -50,6 +62,7 @@ public class EiResponseModel  {
 	public long getRefID() {
 		return refID;
 	}
+	
 	public void setRefID(long refID) {
 		this.refID = refID;
 	}
@@ -80,12 +93,15 @@ public class EiResponseModel  {
 		this.tenderID = tenderID;
 	}
 	//To save date
-	@Temporal(TemporalType.DATE)
-    @Column(name = "TransactionDate")
-    public Date getTransactionDate() {
+	//@Temporal(TemporalType.DATE)
+   // @Column(name = "TransactionDate")
+    public LocalDate getTransactionDate() {
         return TransactionDate;
     }
 	
+	public void setTransactionDate(LocalDate transactionDate) {
+		TransactionDate = transactionDate;
+	}
 	@Override
 	public String toString() {
 		return "RefId: "+ this.getRefID() +" ResponseCode: "+this.getResponseCode()+" ResponseDescription: "+this.getResponseDescription()+
