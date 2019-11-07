@@ -7,7 +7,12 @@
 package com.eml.energy.model;
 
 import java.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.xml.crypto.Data;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,12 +33,15 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Synchronize;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.auditing.CurrentDateTimeProvider;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+//import com.eml.energy.model.GetCurrentDateTime;
 
 @Entity
 @Table(name="EiTender")
@@ -40,6 +49,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 public class EiTenderModel {
 
+	//private static final java.sql.Date CurrentDateTimeProvider = null;
 	@Id
 	@NotNull
 	private long tenderID;	/*Primary key, we can have only one tender with same ID */
@@ -48,9 +58,28 @@ public class EiTenderModel {
 	
 	
 	public String status = "Created";
+	// GetCurrentDateTime get;
+	//private java.sql.Date Current_Time;
+	//private static final DateFormat a = new SimpleDateFormat("yyyy/MM/dd");
 	//@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	//private Date Date ;
+	//@DateTimeFormat(pattern = ")
+	private LocalDate Date =gdate();
+	
+	
+	
+	    public LocalDate gdate() {
+	    	LocalDate localDate = LocalDate.now();
+	    	//LocalDate a = (DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate));
+	        //Date date = new Date();
+	       // Date  a ;
+	        
+	        return (localDate);
+
+	        
+	       
+
+	    }
+
 	
 	/* @Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
@@ -62,13 +91,12 @@ public class EiTenderModel {
 	} */
 	@NotNull
 	private long transactionID;
-	/* public Date getDate() {
+	public LocalDate getDate() {
 		return Date;
 	}
-	public void setDate(Date DATE) {
+	public void setDate(LocalDate DATE) {
 		Date = DATE;
 	}
-	*/
 	@JoinColumn(name ="FK_refID")
 	@ManyToOne
 	private  EiResponseModel refID;

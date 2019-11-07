@@ -7,6 +7,7 @@
 
 package com.eml.energy.controller.payloads;
 
+import javax.persistence.metamodel.SetAttribute;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,7 @@ public class EiCreateTenderType {
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
 	logger.info(bks.toString());
+	
 		return tenderDao.save(bks);
 	}
 
