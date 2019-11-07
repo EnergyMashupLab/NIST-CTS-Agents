@@ -6,9 +6,10 @@
 
 package com.eml.energy.model;
 
-import java.sql.Date;
+import java.*;
 import java.time.LocalDateTime;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -23,11 +24,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Synchronize;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 @Entity
@@ -44,12 +48,27 @@ public class EiTenderModel {
 	
 	
 	public String status = "Created";
+	//@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	//private Date Date ;
 	
- 
-    private Date creationdate;
-
+	/* @Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	public Date getStartDate() {
+	    return startDate;
+	}
+	public void setStartDate(Date startDate) {
+	    this.startDate = startDate;
+	} */
 	@NotNull
 	private long transactionID;
+	/* public Date getDate() {
+		return Date;
+	}
+	public void setDate(Date DATE) {
+		Date = DATE;
+	}
+	*/
 	@JoinColumn(name ="FK_refID")
 	@ManyToOne
 	private  EiResponseModel refID;
@@ -84,20 +103,7 @@ public class EiTenderModel {
 	public void setTransactionID(long transactionID) {
 		this.transactionID = transactionID;
 	}
-	//To save date
 	
-	//public Date getCreationDate() {
-		//return CreationDate;
-	//}
-	
-	//private DateTimeFormat CreationDate;
-
-	public void setCreationdate(Date  creationdate) 
-	{this.creationdate = creationdate;}
-	public Date getCreationdate() 
-	{return creationdate;}
-	
-
 	public EiResponseModel getRefID() {
 		return refID;
 	}
