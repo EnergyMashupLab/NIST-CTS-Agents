@@ -6,6 +6,11 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$("#header").load("header.html");
+		});
+	</script>
 <style>
 table,td,th {
  border:solid 1px;
@@ -18,7 +23,8 @@ text-align:center;
 </head>
 <body>
 
-<div >
+<div class="container">
+<div id="header"></div><br><br>
 <h1>All Tenders</h1>
 <form id="form">
   <p><output id="out"></output>
@@ -39,7 +45,7 @@ $(document).ready(function(){
 			    let out=document.getElementById("out");
 			    if(!jsonobj.length)
 			      return
-			    let tblstr="<table>"
+			    let tblstr="<table class='table'>"
 			    tblstr+="<tr>"
 			    for(let prop in jsonobj[0]) {
 			      tblstr+=`<th>${prop}`
