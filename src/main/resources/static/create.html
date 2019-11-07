@@ -45,7 +45,7 @@
 		</form>
 	</div>
 	<div>
-		<h1 id="result" align="center"></h1>
+		<!-- <h1 id="result" align="center"></h1>  -->
 	</div>
 </body>
 <script type="text/javascript">
@@ -60,8 +60,10 @@ $('#create').submit(function(event){
 		dataType: 'json',
 		contentType: 'application/json',
 		success: function(data){
-			document.getElementById("result").innerHTML = "Tender Added";
-			}
+			//document.getElementById("result").innerHTML = "Tender Added";
+			alert("Tender Added");
+			location.reload();
+		}
 	});
 })
 </script>
