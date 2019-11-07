@@ -5,17 +5,12 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script>
-		$(function(){
-			$("#header").load("header.html");
-		});
-	</script>
 </head>
 <body>
 
 	<div class="container">
-	<div id="header"></div><br><br>
-		<h3 align="center">Add New Tender</h3>
+	<br><br>
+		<h3>Add New Tender</h3><br><br>
 		<form class="form-horizontal" id="create">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="tenderID">Tender
@@ -50,7 +45,7 @@
 		</form>
 	</div>
 	<div>
-		<h1 id="result" align="center"></h1>
+		<!-- <h1 id="result" align="center"></h1>  -->
 	</div>
 </body>
 <script type="text/javascript">
@@ -65,8 +60,10 @@ $('#create').submit(function(event){
 		dataType: 'json',
 		contentType: 'application/json',
 		success: function(data){
-			document.getElementById("result").innerHTML = "Tender Added";
-			}
+			//document.getElementById("result").innerHTML = "Tender Added";
+			alert("Tender Added");
+			location.reload();
+		}
 	});
 })
 </script>
