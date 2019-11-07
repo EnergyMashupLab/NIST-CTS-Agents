@@ -3,30 +3,38 @@
 <head>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+</head>
+
 <style>
-table,td,th {
- border:solid 1px;
- border-collapse:collapse;
+output{
+	width:100% !important;
 }
-body{
-text-align:center;
+table tbody tr {
+	background-color: #F0F4F4 !important;
 }
 </style>
-</head>
+
 <body>
 
 <div class="container">
 <br><br>
 <h3>All Tenders</h3><br><br>
 <form id="form">
-  <p><output id="out"></output>
+  <p><output id="out"></output></p>
   </form>
  </div>
 
 <script>
+function capitalize_Words(str){
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+console.log(capitalize_Words('js string exercises'));
 $(document).ready(function(){
 	$.ajax({
 		url: '/tenders/allTenders',
@@ -40,24 +48,24 @@ $(document).ready(function(){
 			    let out=document.getElementById("out");
 			    if(!jsonobj.length)
 			      return
-			    let tblstr="<table class='table'>"
-			    tblstr+="<tr>"
+			    let tblstr="<table class='table' id='dataTable'>"
+			    tblstr+="<thead>"
 			    for(let prop in jsonobj[0]) {
-			      tblstr+=`<th>${prop}`
+			      tblstr+=`<th>`+ capitalize_Words(prop)
 			    }
+			    tblstr+="</thead>"
 			    tblstr+=jsonobj.reduce((s, x) => {
 			      s+="<tr>"
-			      for(let prop in x) {
+			      for(let prop in x) {  
 			        s+=`<td>${x[prop]}`
 			      }
 			      return s
 			    }, "")
 			    tblstr+="</table>"
 			    out.insertAdjacentHTML("beforeend", "<p>" + tblstr)
-			  
-			//document.getElementById("demo").innerHTML = allData;
-			}
-	});
+			  	$('#dataTable').DataTable();
+		}
+	}); 
 })
 </script>
 </body>
