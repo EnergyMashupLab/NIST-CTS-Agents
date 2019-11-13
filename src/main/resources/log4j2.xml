@@ -34,7 +34,7 @@
         	<AppenderRef ref="Console" />
         </Logger>
         
-          <Logger name="com.eml.energy.controller.payloads.EiCreateTransactionType">
+          <Logger name="org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType">
         	<AppenderRef ref="RollingLedger" level="trace"/>
         </Logger>
         

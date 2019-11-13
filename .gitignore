@@ -33,7 +33,6 @@ build/
 
 # Added Extra
 .idea/
-logs/
-ledger/
-spring-boot-ledger.log
+logs
+ledger
 src/main/resources/application.properties

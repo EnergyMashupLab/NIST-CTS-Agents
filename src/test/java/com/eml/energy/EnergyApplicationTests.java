@@ -1,6 +1,6 @@
 package com.eml.energy;
 
-import com.eml.energy.controller.payloads.EiCreateTenderType;
+import org.theenergymashuplab.cts.controller.payloads.EiCreateTenderType;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
