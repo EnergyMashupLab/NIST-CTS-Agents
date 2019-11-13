@@ -158,6 +158,19 @@ Agile programming and architecture are used.
 
 The project uses Github, Maven, and Java 8.
 
+
+Build Steps
+-------
+
+1. Download the Spring tool IDE(Or any eclipse will also work)
+2. Install the MySql Server on your machine.
+3. Clone the current project into your local machine
+    3.1 git clone <project_url>
+    3.2 git checkout development
+    3.3 git pull origin development
+4. Import the project into your Spring tool IDE
+5. Click on Build to build the project
+
 See [HowToDevelop](HowToDevelop) for the tooling and development environment.
 
 Authors
