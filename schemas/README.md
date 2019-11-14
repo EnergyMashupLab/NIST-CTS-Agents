@@ -8,7 +8,6 @@ See the project [README](../../README.md)
 
 Technical Description Schemas Hierarchy
 --------------------------------------
-
 This directory contains the following subdirectories, each with its own README, that contain schemas and models:
 
 -   xsd – XML schemas for the Common Transactive Services (CTS)
