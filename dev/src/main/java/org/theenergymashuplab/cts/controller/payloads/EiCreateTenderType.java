@@ -33,13 +33,13 @@ import org.apache.logging.log4j.Logger;
 /*import XSD-01.EIClasses.actorID;
 import XSD-01.EIClasses.EiTenderType;
 import XSD-01.EIClasses.refID;
-*/
+ */
 
 @RestController
 @RequestMapping("/tenders")
 //public class EiCreateTenderType {
 public class EiCreateTenderType {
-	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);
+	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);//get logger for this class
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -51,42 +51,41 @@ public class EiCreateTenderType {
 	public String home(){ 
 		return "Hell World!"; 
 	}
-	
-	 	
+
+
 	/*1) To Save an tender*/
 	//@RequestMapping(value = "/add", method = RequestMethod.POST  )
-	
+
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
-	logger.info(bks.toString());
-	
+		logger.trace(bks.toString());
 		return tenderDao.save(bks);
 	}
 
 	/* 2) Get created tender */
 	@GetMapping("/search/{id}")
-	
+
 	public ResponseEntity<Object> getCreatedTender(@PathVariable(value = "id") Long tenderID) {
 		Object bks =  tenderDao.findOne(tenderID);
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-logger.info(String.valueOf(tenderID));
+		logger.trace(String.valueOf(tenderID));
 		return ResponseEntity.ok().body(bks);
 	}
 
 	/* 3) delete a tender by tenderid */
-    @DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	//@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET  )
 	public ResponseEntity <EiTenderModel> deleteBook(@PathVariable(value = "id") Long tenderID) {
 
-    	EiTenderModel bks = (EiTenderModel) tenderDao.getOne(tenderID);
+		EiTenderModel bks = (EiTenderModel) tenderDao.getOne(tenderID);
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.info(String.valueOf(tenderID));
+		logger.trace(String.valueOf(tenderID));
 		//EiTenderModel bks1 = bks;
-		 tenderDao.delete( bks);
+		tenderDao.delete( bks);
 
 		return ResponseEntity.ok().build();
 	}
@@ -94,7 +93,7 @@ logger.info(String.valueOf(tenderID));
 	/* 4) get all Tenders */
 	@GetMapping("/allTenders")
 	public List<EiTenderModel> getAllTenders(){
-		logger.info("All Tenders");
+		logger.trace("All Tenders");
 		return tenderDao.findAll();
 	}
 }

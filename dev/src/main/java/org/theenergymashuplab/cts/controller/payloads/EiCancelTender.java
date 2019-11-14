@@ -24,7 +24,7 @@ import XSD-01.EIClasses.refID;
 @RequestMapping("/canTen")
 //public class EiCreateTenderType {
 public class EiCancelTender {
-	private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);
+	private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);//get logger for this class
 	
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
@@ -42,7 +42,7 @@ public class EiCancelTender {
 	@PostMapping("/add")
 	
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
-	logger.info(bks.toString());
+	logger.trace(bks.toString());
 		return res.save(bks);
 	}
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
  <Appenders>
+ <!--  Display pattern on console-->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
                 pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
         </Console>
-        
+        <!-- For Logs -->
         <RollingFile name="RollingLog"	fileName="./logs/spring-boot-logger.log"	filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-%d{-dd-MMMM-yyyy}-%i.log">
             <PatternLayout><pattern>%d %p %C{1.} [%t] %m%n</pattern></PatternLayout>
             <Policies>
@@ -14,7 +15,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
- 
+ <!-- For Ledgers -->
         <RollingFile name="RollingLedger" fileName="./ledger/spring-boot-ledger.log" filePattern="./ledger/$${date:yyyy-MM}/spring-boot-ledger-%d{-dd-MMMM-yyyy}-%i.log">
             <PatternLayout> <pattern>%d %p %C{1.} [%t] %m%n</pattern> </PatternLayout>
             <Policies>
@@ -28,16 +29,16 @@
     </Appenders>
  
     <Loggers>
-       
+       <!-- All logs of com.eml will go to these appenders -->
         <Logger name="com.eml">
         	<AppenderRef ref="RollingLog" level="trace"/>
         	<AppenderRef ref="Console" />
         </Logger>
-        
+        <!-- All logs of org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType will go to these appenders -->
           <Logger name="org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType">
         	<AppenderRef ref="RollingLedger" level="trace"/>
         </Logger>
-        
+        <!-- All logs of org.hibernate.SQL will go to these appenders -->
 		<Logger name="org.hibernate.SQL">
 			<!-- <AppenderRef ref="RollingLedger" level="trace"/> -->
 			<AppenderRef ref="Console" />
