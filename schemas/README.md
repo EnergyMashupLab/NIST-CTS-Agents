@@ -13,10 +13,10 @@ This directory contains the following subdirectories, each with its own README, 
 
 -   xsd – XML schemas for the Common Transactive Services (CTS)
 
--   json—JSON schemas to serialize the Common Transactive Services (CTS)
+-   json – JSON schemas to serialize the Common Transactive Services (CTS)
     payloads
 
--   UML - PDF files of UML models used from Energy Interoperation, EMIX, and the XML schemas in this folder
+-   UML – PDF files of UML models used from Energy Interoperation, EMIX, and the XML schemas in this folder
 
 Built With
 ----------
