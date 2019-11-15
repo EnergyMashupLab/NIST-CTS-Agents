@@ -1,0 +1,4606 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"definitions": {
+		".emix:autonomous": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:AutonomousType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:currency": {
+			"additionalProperties": false,
+			"description": "Currency codes coming from UN CEFACT schemas",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/clm5ISO42173A:ISO3AlphaCurrencyCodeContentType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:delivery": {
+			"$ref": "#/definitions/emix:DeliveryType"
+		},
+		".emix:emixBase": {
+			"$ref": "#/definitions/emix:EmixBaseType"
+		},
+		".emix:emixGranularity": {
+			"$ref": "#/definitions/emix:EmixGranularityType"
+		},
+		".emix:emixInterface": {
+			"$ref": "#/definitions/emix:EmixInterfaceType"
+		},
+		".emix:emixOption": {
+			"$ref": "#/definitions/emix:EmixOptionType",
+			"description": "Option to buy an Emix Product"
+		},
+		".emix:expirationDate": {
+			"additionalProperties": false,
+			"description": "Expiration date for tenders and similar related information.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:integralOnly": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:IntegralOnlyType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:itemBase": {
+			"$ref": "#/definitions/emix:ItemBaseType"
+		},
+		".emix:marketContext": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:MarketContextType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:measurement": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".emix:optionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:OptionTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:price": {
+			"$ref": "#/definitions/emix:PriceType"
+		},
+		".emix:priceBase": {
+			"$ref": "#/definitions/emix:PriceBaseType",
+			"description": "Abstract base for EMIX Prices"
+		},
+		".emix:priceMultiplier": {
+			"$ref": "#/definitions/emix:PriceMultiplierType"
+		},
+		".emix:priceRelative": {
+			"$ref": "#/definitions/emix:PriceRelativeType"
+		},
+		".emix:product": {
+			"$ref": "#/definitions/emix:ProductType",
+			"description": "Emix Product, .i.e., a Product Description applied to a schedule."
+		},
+		".emix:productDescription": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".emix:quantity": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:QuantityType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:serviceArea": {
+			"$ref": "#/definitions/emix:ServiceAreaType"
+		},
+		".emix:side": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:SideType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:transactiveState": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:TransactiveStateType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:uid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".emix:value": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/emix:ValueType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:aggregatedPnode": {
+			"$ref": "#/definitions/power:AggregatedPnodeType"
+		},
+		".power:baseCharge": {
+			"$ref": "#/definitions/power:BaseChargeType",
+			"description": "Abstract extension object for Emix Power Product Charges"
+		},
+		".power:baseTransportCharge": {
+			"$ref": "#/definitions/power:BaseTransportChargeType",
+			"description": "Abstract extension object for Emix Power Product Charges"
+		},
+		".power:charges": {
+			"$ref": "#/definitions/power:ArrayOfCharges"
+		},
+		".power:congestionCharge": {
+			"$ref": "#/definitions/power:CongestionChargeType"
+		},
+		".power:congestionRevenueRights": {
+			"$ref": "#/definitions/power:CongestionRevenueRightsType"
+		},
+		".power:conversionLoss": {
+			"$ref": "#/definitions/power:ConversionLossType"
+		},
+		".power:endDeviceAsset": {
+			"$ref": "#/definitions/power:EndDeviceAssetType",
+			"description": "One type of EndDeviceAsset is a MeterAsset which can perform metering, load management, connect/disconnect, accounting functions, etc. Some EndDeviceAssets may be connected to a MeterAsset."
+		},
+		".power:energyApparent": {
+			"$ref": "#/definitions/power:EnergyApparentType"
+		},
+		".power:energyItem": {
+			"$ref": "#/definitions/power:EnergyItemType"
+		},
+		".power:energyQuantity": {
+			"$ref": "#/definitions/power:EnergyQuantityType"
+		},
+		".power:energyReactive": {
+			"$ref": "#/definitions/power:EnergyReactiveType"
+		},
+		".power:energyReal": {
+			"$ref": "#/definitions/power:EnergyRealType"
+		},
+		".power:fullRequirementsPower": {
+			"$ref": "#/definitions/power:FullRequirementsPowerType"
+		},
+		".power:lossFactor": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:LossFactorType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:marginalLoss": {
+			"$ref": "#/definitions/power:MarginalLossType"
+		},
+		".power:marginalLossCharge": {
+			"$ref": "#/definitions/power:MarginalLossChargeType"
+		},
+		".power:marginalLossFee": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:MarginalLossFeeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:meterAsset": {
+			"$ref": "#/definitions/power:MeterAssetType"
+		},
+		".power:mrid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:MridType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:node": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:NodeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:pnode": {
+			"$ref": "#/definitions/power:PnodeType"
+		},
+		".power:powerApparent": {
+			"$ref": "#/definitions/power:PowerApparentType"
+		},
+		".power:powerAttributes": {
+			"$ref": "#/definitions/power:PowerAttributesType"
+		},
+		".power:powerItem": {
+			"$ref": "#/definitions/power:PowerItemType"
+		},
+		".power:powerOptionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:PowerOptionTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:powerProductDescription": {
+			"$ref": "#/definitions/power:PowerProductDescriptionType"
+		},
+		".power:powerQuantity": {
+			"$ref": "#/definitions/power:PowerQuantityType"
+		},
+		".power:powerReactive": {
+			"$ref": "#/definitions/power:PowerReactiveType"
+		},
+		".power:powerReal": {
+			"$ref": "#/definitions/power:PowerRealType"
+		},
+		".power:productType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:ProductTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:serviceDeliveryPoint": {
+			"$ref": "#/definitions/power:ServiceDeliveryPointType"
+		},
+		".power:serviceLocation": {
+			"$ref": "#/definitions/power:ServiceLocationType"
+		},
+		".power:temixPower": {
+			"$ref": "#/definitions/power:TemixPowerType"
+		},
+		".power:transportAccessFee": {
+			"$ref": "#/definitions/power:TransportAccessFeeType"
+		},
+		".power:transportCongestionFee": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/power:TransportCongestionFeeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".power:transportInterface": {
+			"$ref": "#/definitions/power:TransportInterfaceType"
+		},
+		".power:transportProductDescription": {
+			"$ref": "#/definitions/power:TransportProductDescriptionType"
+		},
+		".power:unitEnergyPrice": {
+			"$ref": "#/definitions/power:UnitEnergyPriceType"
+		},
+		".power:varQuantity": {
+			"$ref": "#/definitions/power:VarQuantityType"
+		},
+		".power:voltage": {
+			"$ref": "#/definitions/power:VoltageType"
+		},
+		".scale:siScaleCode": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/scale:SiScaleCodeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".strm:intervals": {
+			"$ref": "#/definitions/strm:ArrayofStreamIntervals"
+		},
+		".strm:lagDuration": {
+			"additionalProperties": false,
+			"description": "In telemetry, it is often useful to begin recording after an event. The Lead Duration specified a time before an which the Stream should include.If the dtStart used to compute the Designated Interval, the leadDuration is used to compute the intervals before the Designated Interval.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".strm:leadDuration": {
+			"additionalProperties": false,
+			"description": "In telemetry, it is often useful to begin recording before an event. The Lead Duration specified a time before an which the Stream should include.If the dtStart used to compute the Designated Interval, the leadDuration is used to compute the intervals before the Designated Interval.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".strm:streamBase": {
+			"$ref": "#/definitions/strm:StreamBaseType"
+		},
+		".strm:streamDuration": {
+			"additionalProperties": false,
+			"description": "If a stream specifier is describing telemetery about an event, then the even can be computed as the sequence of Intervals begining at the dtStart and extending for the streamDuration. For example, an event may begin at 1:00 and extend for two hours.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".strm:streamInterval": {
+			"$ref": "#/definitions/strm:StreamIntervalType"
+		},
+		".strm:streamPayloadBase": {
+			"$ref": "#/definitions/strm:StreamPayloadBaseType"
+		},
+		".strm:streamSpecifier": {
+			"$ref": "#/definitions/strm:StreamSpecifierType"
+		},
+		".strm:uid": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/strm:UidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:availability": {
+			"$ref": "#/definitions/xcal:AvailabilityType"
+		},
+		".xcal:availabilityInterval": {
+			"$ref": "#/definitions/xcal:AvailabilityIntervalType"
+		},
+		".xcal:busyType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:BusyTypeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:comment": {
+			"additionalProperties": false,
+			"description": "Freeform comment annotating this artifact.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:CommentType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:date": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:dateTime": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DateTimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:dtEnd": {
+			"$ref": "#/definitions/xcal:DateTimeDateType"
+		},
+		".xcal:dtStart": {
+			"$ref": "#/definitions/xcal:DateTimeDateType"
+		},
+		".xcal:duration": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:exDate": {
+			"$ref": "#/definitions/xcal:DateTimeDateType",
+			"description": "Exception or Excluded date in a series"
+		},
+		".xcal:granularity": {
+			"additionalProperties": false,
+			"description": "The uniform size or granularity of the a set of [intervals].",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:DurationType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:rDate": {
+			"$ref": "#/definitions/xcal:DateTimeDateType",
+			"description": "Recurrence Date. As well as generating recurrences by rule, one can name a set of recurrences. A Recurrence object may contain both RRules and RDates"
+		},
+		".xcal:recurRulePart": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:RecurRulePartType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:recurRuleValues": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:RecurRuleValuesType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:recurrence": {
+			"$ref": "#/definitions/xcal:RecurrenceType"
+		},
+		".xcal:recurrenceRule": {
+			"$ref": "#/definitions/xcal:RecurrenceRuleType"
+		},
+		".xcal:time": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:TimeType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:timeRange": {
+			"$ref": "#/definitions/xcal:TimeRangeType"
+		},
+		".xcal:timeZone": {
+			"additionalProperties": false,
+			"description": "A set of constrained strings that identify local time rules.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xcal:InstanceUidType"
+				}
+			},
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		".xcal:vAvailability": {
+			"$ref": "#/definitions/xcal:VAvailabilityType"
+		},
+		"clm5ISO42173A:ISO3AlphaCurrencyCodeContentType": {
+			"enum": [
+				"AED",
+				"AFN",
+				"ALL",
+				"AMD",
+				"ANG",
+				"AOA",
+				"ARS",
+				"AUD",
+				"AWG",
+				"AZN",
+				"BAM",
+				"BBD",
+				"BDT",
+				"BGN",
+				"BHD",
+				"BIF",
+				"BMD",
+				"BND",
+				"BOB",
+				"BOV",
+				"BRL",
+				"BSD",
+				"BTN",
+				"BWP",
+				"BYR",
+				"BZD",
+				"CAD",
+				"CDF",
+				"CHE",
+				"CHF",
+				"CHW",
+				"CLF",
+				"CLP",
+				"CNY",
+				"COP",
+				"COU",
+				"CRC",
+				"CUC",
+				"CUP",
+				"CVE",
+				"CZK",
+				"DJF",
+				"DKK",
+				"DOP",
+				"DZD",
+				"EEK",
+				"EGP",
+				"ERN",
+				"ETB",
+				"EUR",
+				"FJD",
+				"FKP",
+				"GBP",
+				"GEL",
+				"GHS",
+				"GIP",
+				"GMD",
+				"GNF",
+				"GTQ",
+				"GWP",
+				"GYD",
+				"HKD",
+				"HNL",
+				"HRK",
+				"HTG",
+				"HUF",
+				"IDR",
+				"ILS",
+				"INR",
+				"IQD",
+				"IRR",
+				"ISK",
+				"JMD",
+				"JOD",
+				"JPY",
+				"KES",
+				"KGS",
+				"KHR",
+				"KMF",
+				"KPW",
+				"KRW",
+				"KWD",
+				"KYD",
+				"KZT",
+				"LAK",
+				"LBP",
+				"LKR",
+				"LRD",
+				"LSL",
+				"LTL",
+				"LVL",
+				"LYD",
+				"MAD",
+				"MDL",
+				"MGA",
+				"MKD",
+				"MMK",
+				"MNT",
+				"MOP",
+				"MRO",
+				"MUR",
+				"MVR",
+				"MWK",
+				"MXN",
+				"MXV",
+				"MYR",
+				"MZN",
+				"NAD",
+				"NGN",
+				"NIO",
+				"NOK",
+				"NPR",
+				"NZD",
+				"OMR",
+				"PAB",
+				"PEN",
+				"PGK",
+				"PHP",
+				"PKR",
+				"PLN",
+				"PYG",
+				"QAR",
+				"RON",
+				"RSD",
+				"RUB",
+				"RWF",
+				"SAR",
+				"SBD",
+				"SCR",
+				"SDG",
+				"SEK",
+				"SGD",
+				"SHP",
+				"SLL",
+				"SOS",
+				"SRD",
+				"STD",
+				"SVC",
+				"SYP",
+				"SZL",
+				"THB",
+				"TJS",
+				"TMT",
+				"TND",
+				"TOP",
+				"TRY",
+				"TTD",
+				"TWD",
+				"TZS",
+				"UAH",
+				"UGX",
+				"USD",
+				"USN",
+				"USS",
+				"UYI",
+				"UYU",
+				"UZS",
+				"VEF",
+				"VND",
+				"VUV",
+				"WST",
+				"XAF",
+				"XAG",
+				"XAU",
+				"XBA",
+				"XBB",
+				"XBC",
+				"XBD",
+				"XCD",
+				"XDR",
+				"XFU",
+				"XOF",
+				"XPD",
+				"XPF",
+				"XPT",
+				"XTS",
+				"XXX",
+				"YER",
+				"ZAR",
+				"ZMK",
+				"ZWL"
+			],
+			"type": "string"
+		},
+		"emix:AutonomousType": {
+			"description": "An autonomous resource or service (true) is able to respond or maintain service independently. A non autonomous service (false) must await dispatch.",
+			"type": "boolean"
+		},
+		"emix:DeliveryType": {
+			"additionalProperties": false,
+			"description": "Receipt / Report of Product Delivery. Injection flag is true for adding product to market supply, false for taking from market.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:injection": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:boolean"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:injection",
+				"emix:uid",
+				"strm:streamPayloadBase"
+			],
+			"type": "object"
+		},
+		"emix:EmixBaseType": {
+			"additionalProperties": false,
+			"description": "WS-Calendar Streams-derived object to host EMIX elements",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:uid",
+				"strm:streamPayloadBase"
+			],
+			"type": "object"
+		},
+		"emix:EmixExtensionType": {
+			"description": "Pattern used for extending string enumeration, where allowed",
+			"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+			"type": "string"
+		},
+		"emix:EmixGranularityType": {
+			"additionalProperties": false,
+			"description": "Abstract base class used for granularity of market indications of interest and tenders",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:itemBase": {
+					"$ref": "#/definitions/.emix:itemBase"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				}
+			},
+			"required": [
+				"emix:itemBase",
+				"emix:quantity"
+			],
+			"type": "object"
+		},
+		"emix:EmixInterfaceType": {
+			"additionalProperties": false,
+			"description": "Abstract base class for the interfaces for EMIX Product delivery, measurement, and/or pricing",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:EmixOptionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:currency": {
+					"$ref": "#/definitions/.emix:currency"
+				},
+				"emix:expirationDate": {
+					"$ref": "#/definitions/.emix:expirationDate"
+				},
+				"emix:integralOnly": {
+					"$ref": "#/definitions/.emix:integralOnly"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:optionHolderSide": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/emix:SideType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"emix:optionPremium": {
+					"$ref": "#/definitions/emix:PriceType"
+				},
+				"emix:optionStrikePrice": {
+					"$ref": "#/definitions/emix:PriceType"
+				},
+				"emix:optionType": {
+					"$ref": "#/definitions/.emix:optionType"
+				},
+				"emix:side": {
+					"$ref": "#/definitions/.emix:side"
+				},
+				"emix:transactiveState": {
+					"$ref": "#/definitions/.emix:transactiveState"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:marketContext",
+				"emix:optionHolderSide",
+				"emix:optionPremium",
+				"emix:optionStrikePrice",
+				"emix:optionType",
+				"emix:side",
+				"emix:transactiveState",
+				"emix:uid",
+				"strm:streamPayloadBase"
+			],
+			"type": "object"
+		},
+		"emix:IntegralOnlyType": {
+			"description": "Integral Only is an indication that the element described is [tendered] as an all or nothing product. It may apply to an (amount, response, ramp) that is all (true) or nothing (false)",
+			"type": "boolean"
+		},
+		"emix:ItemBaseType": {
+			"additionalProperties": false,
+			"description": "Abstract base type for units for EMIX Product delivery, measurement, and warrants. Item as in PO Item, Requisition Item, Invoice Item, Lading Item. Item does not include Quantity or Price, because a single product description or transaction may have multiple quantities or prices associated with a single item.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:MarketContextType": {
+			"type": "string"
+		},
+		"emix:MeasurementType": {
+			"additionalProperties": false,
+			"description": "Type of Measurement",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:itemBase": {
+					"$ref": "#/definitions/.emix:itemBase"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				}
+			},
+			"required": [
+				"emix:itemBase",
+				"emix:quantity"
+			],
+			"type": "object"
+		},
+		"emix:OptionTypeEnumeratedType": {
+			"description": "Enumerated Option Types",
+			"type": "string"
+		},
+		"emix:OptionTypeType": {
+			"anyOf": [
+				{
+					"description": "Enumerated Option Types",
+					"type": "string"
+				},
+				{
+					"description": "Pattern used for extending string enumeration, where allowed",
+					"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+					"type": "string"
+				}
+			]
+		},
+		"emix:PriceBaseType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract base for EMIX Prices",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:PriceMultiplierType": {
+			"additionalProperties": false,
+			"description": "Multiplier times market price, 1 for same as market",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:multiplier": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:float"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
+			"required": [
+				"emix:multiplier"
+			],
+			"type": "object"
+		},
+		"emix:PriceRelativeType": {
+			"additionalProperties": false,
+			"description": "Price Relative is a fixed charge (positive or negative) apllied to base price",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:value": {
+					"$ref": "#/definitions/.emix:value"
+				}
+			},
+			"required": [
+				"emix:value"
+			],
+			"type": "object"
+		},
+		"emix:PriceType": {
+			"additionalProperties": false,
+			"description": "Simple Price",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:value": {
+					"$ref": "#/definitions/.emix:value"
+				}
+			},
+			"required": [
+				"emix:value"
+			],
+			"type": "object"
+		},
+		"emix:ProductDescriptionType": {
+			"additionalProperties": false,
+			"description": "In EMIX, the Product Description is placed in the Interval or Gluon attachment. The respective product schemas extend this abstract class.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:ProductType": {
+			"additionalProperties": false,
+			"description": "EMIX Product Type, i.e. a Product Description applied to a Schedule",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:currency": {
+					"$ref": "#/definitions/.emix:currency"
+				},
+				"emix:expirationDate": {
+					"$ref": "#/definitions/.emix:expirationDate"
+				},
+				"emix:integralOnly": {
+					"$ref": "#/definitions/.emix:integralOnly"
+				},
+				"emix:marketContext": {
+					"$ref": "#/definitions/.emix:marketContext"
+				},
+				"emix:side": {
+					"$ref": "#/definitions/.emix:side"
+				},
+				"emix:transactiveState": {
+					"$ref": "#/definitions/.emix:transactiveState"
+				},
+				"emix:uid": {
+					"$ref": "#/definitions/.emix:uid"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"emix:marketContext",
+				"emix:side",
+				"emix:transactiveState",
+				"emix:uid",
+				"strm:streamPayloadBase"
+			],
+			"type": "object"
+		},
+		"emix:QuantityType": {
+			"description": "Base type for all quanties in EMIX.",
+			"type": "number"
+		},
+		"emix:ServiceAreaType": {
+			"additionalProperties": false,
+			"description": "The Service Area is the geographic region that is affected by the EMIX market condition",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"emix:SideType": {
+			"enum": [
+				"buy",
+				"sell"
+			],
+			"type": "string"
+		},
+		"emix:TransactiveStateType": {
+			"enum": [
+				"indicationOfInterest",
+				"tender",
+				"transaction",
+				"exercise",
+				"delivery",
+				"transportCommitment",
+				"publication"
+			],
+			"type": "string"
+		},
+		"emix:UidType": {
+			"description": "A unique identifier for an EMIX Type. Different markets and specifications that use EMIX may have their own rules for specifying an UID.",
+			"type": "string"
+		},
+		"emix:ValueType": {
+			"type": "number"
+		},
+		"power:AggregatedPnodeType": {
+			"additionalProperties": false,
+			"description": "An aggregated pricing node is a specialized type of pricing node used to model items such as System Zone, Default Price Zone, Custom Price Zone, Control Area, Aggregated Generation, Aggregated Particpating Load, Aggregated Non-Participating Load, Trading Hub, DCA Zone",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:node": {
+					"$ref": "#/definitions/.power:node"
+				}
+			},
+			"required": [
+				"power:node"
+			],
+			"type": "object"
+		},
+		"power:ArrayOfCharges": {
+			"additionalProperties": false,
+			"description": "Collection of Emix Power Product Charges",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:baseCharge": {
+					"items": {
+						"$ref": "#/definitions/.power:baseCharge"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"power:ArrayOfTransportCharges": {
+			"additionalProperties": false,
+			"description": "Collection of Emix Power Transport Product Charges",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:baseTransportCharge": {
+					"items": {
+						"$ref": "#/definitions/.power:baseTransportCharge"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"power:BaseChargeType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract extension object for  Emix Power Product Charges",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"power:BaseTransportChargeType": {
+			"additionalProperties": false,
+			"description": "Type of Abstract extension object for  Emix Transport Charges",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"power:CongestionChargeType": {
+			"additionalProperties": false,
+			"description": "Congestion Charge is the cost of purchasing the right to transfer power over a given segment of the grid.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:transportCongestionFee": {
+					"$ref": "#/definitions/.power:transportCongestionFee"
+				},
+				"power:transportInterface": {
+					"$ref": "#/definitions/.power:transportInterface"
+				}
+			},
+			"required": [
+				"power:transportCongestionFee",
+				"power:transportInterface"
+			],
+			"type": "object"
+		},
+		"power:CongestionRevenueRightsType": {
+			"additionalProperties": false,
+			"description": "Financial Hedge for Congestion, a forward contract for congestion revenues to potentially offset congestion charges. Also known as Financial Transmission Rights or Congestion Revenue Rights",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:transportCongestionFee": {
+					"$ref": "#/definitions/.power:transportCongestionFee"
+				},
+				"power:transportInterface": {
+					"$ref": "#/definitions/.power:transportInterface"
+				}
+			},
+			"required": [
+				"power:transportCongestionFee",
+				"power:transportInterface"
+			],
+			"type": "object"
+		},
+		"power:ConversionLossType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:lossFactor": {
+					"$ref": "#/definitions/.power:lossFactor"
+				},
+				"power:pnode": {
+					"$ref": "#/definitions/.power:pnode"
+				}
+			},
+			"required": [
+				"power:lossFactor",
+				"power:pnode"
+			],
+			"type": "object"
+		},
+		"power:EndDeviceAssetType": {
+			"additionalProperties": false,
+			"description": "The EndDeviceAssets are the physical device or devices which could be meters or other types of devices that may be of interest",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:mrid": {
+					"$ref": "#/definitions/.power:mrid"
+				}
+			},
+			"required": [
+				"power:mrid"
+			],
+			"type": "object"
+		},
+		"power:EnergyApparentType": {
+			"additionalProperties": false,
+			"description": "Apparent Energy, measured in volt-ampere hours (VAh)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:EnergyItemType": {
+			"additionalProperties": false,
+			"description": "Base for the measurement of Energy",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:EnergyQuantityType": {
+			"additionalProperties": false,
+			"description": "Level of Energy",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				},
+				"power:energyItem": {
+					"$ref": "#/definitions/.power:energyItem"
+				}
+			},
+			"required": [
+				"emix:quantity",
+				"power:energyItem"
+			],
+			"type": "object"
+		},
+		"power:EnergyReactiveType": {
+			"additionalProperties": false,
+			"description": "Reactive Energy, volt-amperes reactive hours (VARh)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:EnergyRealType": {
+			"additionalProperties": false,
+			"description": "Real Energy, Watt Hours (Wh)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:FullRequirementsPowerType": {
+			"additionalProperties": false,
+			"description": "Product Description for Supplier to provide for full requirements of buyer. Simple price, will supply all used. Demand Charges Optional. Often used in retail residential rates.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixInterface": {
+					"$ref": "#/definitions/.emix:emixInterface"
+				},
+				"emix:priceBase": {
+					"$ref": "#/definitions/.emix:priceBase"
+				},
+				"power:charges": {
+					"$ref": "#/definitions/.power:charges"
+				},
+				"power:maximumPower": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/emix:QuantityType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:minimumPower": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/emix:QuantityType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:powerItem": {
+					"$ref": "#/definitions/.power:powerItem"
+				},
+				"power:productType": {
+					"$ref": "#/definitions/.power:productType"
+				},
+				"power:unitEnergyPrice": {
+					"$ref": "#/definitions/.power:unitEnergyPrice"
+				}
+			},
+			"required": [
+				"emix:emixInterface",
+				"power:productType"
+			],
+			"type": "object"
+		},
+		"power:LossFactorType": {
+			"description": "Reduction in amount delivered as product travels. (lossFactor * purchase amount) = delivered amount",
+			"maximum": 1,
+			"type": "number"
+		},
+		"power:MarginalLossChargeType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:marginalLossFee": {
+					"$ref": "#/definitions/.power:marginalLossFee"
+				}
+			},
+			"required": [
+				"power:marginalLossFee"
+			],
+			"type": "object"
+		},
+		"power:MarginalLossFeeType": {
+			"description": "Marginal Loss Fee",
+			"type": "number"
+		},
+		"power:MarginalLossType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:lossFactor": {
+					"$ref": "#/definitions/.power:lossFactor"
+				}
+			},
+			"required": [
+				"power:lossFactor"
+			],
+			"type": "object"
+		},
+		"power:MeterAssetType": {
+			"additionalProperties": false,
+			"description": "The MeterAsset is the physical device or devices that performs the role of the meter",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:mrid": {
+					"$ref": "#/definitions/.power:mrid"
+				}
+			},
+			"required": [
+				"power:mrid"
+			],
+			"type": "object"
+		},
+		"power:MridType": {
+			"description": "The mRID identifies the physical device that may be a CustomerMeter or other types of EndDevices.",
+			"type": "string"
+		},
+		"power:NodeType": {
+			"description": "The Node is a place where something changes (often ownership) or connects on the grid. Many nodes are associated with meters, but not all are.",
+			"type": "string"
+		},
+		"power:PnodeType": {
+			"additionalProperties": false,
+			"description": "A pricing node is directly associated with a connectivity node.  It is a pricing location for which market participants submit their bids, offers, buy/sell CRRs, and settle.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:node": {
+					"$ref": "#/definitions/.power:node"
+				}
+			},
+			"required": [
+				"power:node"
+			],
+			"type": "object"
+		},
+		"power:PowerApparentType": {
+			"additionalProperties": false,
+			"description": "Apparent Power measured in volt-amperes (VA)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:powerAttributes": {
+					"$ref": "#/definitions/.power:powerAttributes"
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"power:powerAttributes",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:PowerAttributesType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:ac": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:boolean"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:hertz": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:decimal"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:voltage": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:decimal"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
+			"required": [
+				"power:ac",
+				"power:hertz",
+				"power:voltage"
+			],
+			"type": "object"
+		},
+		"power:PowerItemType": {
+			"additionalProperties": false,
+			"description": "Base for the measurement of Power",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:powerAttributes": {
+					"$ref": "#/definitions/.power:powerAttributes"
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"power:powerAttributes",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:PowerOptionTypeEnumeratedType": {
+			"description": "Power Reserve Options",
+			"enum": [
+				"SpinningReserve",
+				"NonSpinningReserve",
+				"OperatingReserve",
+				"DemandResponse"
+			],
+			"type": "string"
+		},
+		"power:PowerOptionTypeType": {
+			"anyOf": [
+				{
+					"description": "Power Reserve Options",
+					"enum": [
+						"SpinningReserve",
+						"NonSpinningReserve",
+						"OperatingReserve",
+						"DemandResponse"
+					],
+					"type": "string"
+				},
+				{
+					"description": "Pattern used for extending string enumeration, where allowed",
+					"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+					"type": "string"
+				}
+			]
+		},
+		"power:PowerProductDescriptionType": {
+			"additionalProperties": false,
+			"description": "Product Description for simple power transactions, also used as template for other Power Product Description Types. The product is constant power, which dictates the rate of delivery. After a specified duration, energy has been delivered, price per unit of energy.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixInterface": {
+					"$ref": "#/definitions/.emix:emixInterface"
+				},
+				"power:charges": {
+					"$ref": "#/definitions/.power:charges"
+				},
+				"power:powerItem": {
+					"$ref": "#/definitions/.power:powerItem"
+				},
+				"power:productType": {
+					"$ref": "#/definitions/.power:productType"
+				},
+				"power:unitEnergyPrice": {
+					"$ref": "#/definitions/.power:unitEnergyPrice"
+				}
+			},
+			"required": [
+				"emix:emixInterface",
+				"power:productType"
+			],
+			"type": "object"
+		},
+		"power:PowerQuantityType": {
+			"additionalProperties": false,
+			"description": "Quantity of Power",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				},
+				"power:powerItem": {
+					"$ref": "#/definitions/.power:powerItem"
+				}
+			},
+			"required": [
+				"emix:quantity",
+				"power:powerItem"
+			],
+			"type": "object"
+		},
+		"power:PowerReactiveType": {
+			"additionalProperties": false,
+			"description": "Reactive power, measured in volt-amperes reactive (VAR)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:powerAttributes": {
+					"$ref": "#/definitions/.power:powerAttributes"
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"power:powerAttributes",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:PowerRealType": {
+			"additionalProperties": false,
+			"description": "Real power measured in Watts (W) or Joules/second (J/s)",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"enum": [
+								"W",
+								"J/s"
+							],
+							"type": "string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:powerAttributes": {
+					"$ref": "#/definitions/.power:powerAttributes"
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"power:powerAttributes",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"power:ProductTypeEnumeratedType": {
+			"enum": [
+				"energy",
+				"transport",
+				"energyOption",
+				"transportOption",
+				"fullRequirementsPower",
+				"fullRequirementsPowerBlockPricing",
+				"fullRequirementsPowerWithDemandCharge",
+				"fullRequirementsPowerWithMaximumAndMinimum",
+				"hourlyDayAhead",
+				"exAnteRealTimePrice",
+				"timeOfUsePricing",
+				"congestionRevenueRights"
+			],
+			"type": "string"
+		},
+		"power:ProductTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"energy",
+						"transport",
+						"energyOption",
+						"transportOption",
+						"fullRequirementsPower",
+						"fullRequirementsPowerBlockPricing",
+						"fullRequirementsPowerWithDemandCharge",
+						"fullRequirementsPowerWithMaximumAndMinimum",
+						"hourlyDayAhead",
+						"exAnteRealTimePrice",
+						"timeOfUsePricing",
+						"congestionRevenueRights"
+					],
+					"type": "string"
+				},
+				{
+					"description": "Pattern used for extending string enumeration, where allowed",
+					"pattern": "^(x\\-[\\w\\D][\\w\\D]*)$",
+					"type": "string"
+				},
+				{
+					"description": "Power Reserve Options",
+					"enum": [
+						"SpinningReserve",
+						"NonSpinningReserve",
+						"OperatingReserve",
+						"DemandResponse"
+					],
+					"type": "string"
+				}
+			]
+		},
+		"power:ServiceDeliveryPointType": {
+			"additionalProperties": false,
+			"description": "Logical point on the network where the ownership of the service changes hands. It is one of potentially many service points within a ServiceLocation, delivering service in accordance with a CustomerAgreement. Used at the place where a meter may be installed.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:node": {
+					"$ref": "#/definitions/.power:node"
+				}
+			},
+			"required": [
+				"power:node"
+			],
+			"type": "object"
+		},
+		"power:ServiceLocationType": {
+			"additionalProperties": false,
+			"description": "A customer ServiceLocation has one or more ServiceDeliveryPoint(s), which in turn relate to Meters. The location may be a point or a polygon, depending on the specific circumstances. For distribution, the ServiceLocation is typically the location of the utility customer's premise. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"power:TemixPowerType": {
+			"additionalProperties": false,
+			"description": "Product Description for contract for supplier to deliver a specific sized block of power to buyer. Simple prices, commits a a fixed block. Derived directly from EMIX Product Description rather than Power Product Description because optionality is stripped out.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixInterface": {
+					"$ref": "#/definitions/.emix:emixInterface"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				},
+				"power:energyItem": {
+					"$ref": "#/definitions/.power:energyItem"
+				},
+				"power:powerItem": {
+					"$ref": "#/definitions/.power:powerItem"
+				}
+			},
+			"type": "object"
+		},
+		"power:TransportAccessFeeType": {
+			"additionalProperties": false,
+			"description": "Transport Access Fee is a Fixed Charge (not dependent on congestion or quantity) to access a transport system.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				},
+				"power:transportInterface": {
+					"$ref": "#/definitions/.power:transportInterface"
+				}
+			},
+			"required": [
+				"emix:price",
+				"power:transportInterface"
+			],
+			"type": "object"
+		},
+		"power:TransportCongestionFeeType": {
+			"description": "Financial Transmission Rights (FTR) regarding transmission capacity.",
+			"type": "number"
+		},
+		"power:TransportInterfaceType": {
+			"additionalProperties": false,
+			"description": "The Transport Interface delineates the edges at either end of a transport segment.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:pointOfDelivery": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/power:NodeType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:pointOfReceipt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/power:NodeType"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
+			"required": [
+				"power:pointOfDelivery",
+				"power:pointOfReceipt"
+			],
+			"type": "object"
+		},
+		"power:TransportProductDescriptionType": {
+			"additionalProperties": false,
+			"description": "Product Description for charges and revenue related to Transport Services for a Power Product, i.e., the movement of Power through Transmission and Distribution. The Interface used matches a segment of the transport infrastructure, usually identified by an injection node and a delivery node.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:emixInterface": {
+					"$ref": "#/definitions/.emix:emixInterface"
+				},
+				"emix:price": {
+					"$ref": "#/definitions/.emix:price"
+				},
+				"power:charges": {
+					"$ref": "#/definitions/.power:charges"
+				},
+				"power:powerItem": {
+					"$ref": "#/definitions/.power:powerItem"
+				},
+				"power:productType": {
+					"$ref": "#/definitions/.power:productType"
+				},
+				"power:transportCharges": {
+					"$ref": "#/definitions/power:ArrayOfTransportCharges"
+				},
+				"power:unitEnergyPrice": {
+					"$ref": "#/definitions/.power:unitEnergyPrice"
+				}
+			},
+			"required": [
+				"emix:emixInterface",
+				"emix:price",
+				"power:productType",
+				"power:transportCharges"
+			],
+			"type": "object"
+		},
+		"power:UnitEnergyPriceType": {
+			"additionalProperties": false,
+			"description": "Price per Unit of Energy, i.e., Power times Duration",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:priceBase": {
+					"$ref": "#/definitions/.emix:priceBase"
+				},
+				"power:energyItem": {
+					"$ref": "#/definitions/.power:energyItem"
+				}
+			},
+			"required": [
+				"emix:priceBase",
+				"power:energyItem"
+			],
+			"type": "object"
+		},
+		"power:VarQuantityType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"emix:quantity": {
+					"$ref": "#/definitions/.emix:quantity"
+				},
+				"power:powerReactive": {
+					"$ref": "#/definitions/.power:powerReactive"
+				}
+			},
+			"required": [
+				"emix:quantity",
+				"power:powerReactive"
+			],
+			"type": "object"
+		},
+		"power:VoltageType": {
+			"additionalProperties": false,
+			"description": "Voltage",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"power:itemDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"power:itemUnits": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/xs:string"
+						}
+					},
+					"type": [
+						"object",
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"scale:siScaleCode": {
+					"$ref": "#/definitions/.scale:siScaleCode"
+				}
+			},
+			"required": [
+				"power:itemDescription",
+				"power:itemUnits",
+				"scale:siScaleCode"
+			],
+			"type": "object"
+		},
+		"scale:SiScaleCodeType": {
+			"description": "Scale based on representations of SI scale as expressed in the unit multipliers\nenumeration",
+			"enum": [
+				"p",
+				"n",
+				"micro",
+				"m",
+				"c",
+				"d",
+				"k",
+				"M",
+				"G",
+				"T",
+				"none"
+			],
+			"type": "string"
+		},
+		"strm:ArrayofStreamIntervals": {
+			"additionalProperties": false,
+			"description": "Collection of Stream Interval derived elements that comprise a signal partition.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:streamInterval": {
+					"items": {
+						"$ref": "#/definitions/.strm:streamInterval"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"strm:streamInterval"
+			],
+			"type": "object"
+		},
+		"strm:StreamBaseType": {
+			"additionalProperties": false,
+			"description": "abstract base for communication of schedules for signals and observations",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:intervals": {
+					"$ref": "#/definitions/.strm:intervals"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				}
+			},
+			"required": [
+				"strm:streamPayloadBase"
+			],
+			"type": "object"
+		},
+		"strm:StreamIntervalType": {
+			"additionalProperties": false,
+			"description": "Restricted variant of ws-calendar interval for streams. Stream Intervals are restricted expressions of the WS-Calendar Interval that are transformable to but not identical to WS-Calendar Intervals.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"strm:uid": {
+					"$ref": "#/definitions/.strm:uid"
+				}
+			},
+			"required": [
+				"strm:streamPayloadBase",
+				"strm:uid"
+			],
+			"type": "object"
+		},
+		"strm:StreamPayloadBaseType": {
+			"additionalProperties": false,
+			"description": "Abstract class to convey a payload for a stream. When a Stream is transformed to or from a WS-Calendar Interval, the contents of the Stream Payload defined element are transformed into the contents of a WS-Calendar artifactBase.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"strm:StreamSpecifierType": {
+			"additionalProperties": false,
+			"description": "Abstract base for specifying Stream schedules for signals and observations. While streams communicate time-sequences of data, StreamSpecifiers describe the Time Sequence. A specifier can be used by a Requester to define a Stream which may be avilable at a later time. If a Stream impliments the pattern of Gluon and Sequence, the Stream SPecifier is a Gluon from which the Sequence can be computed.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"strm:lagDuration": {
+					"$ref": "#/definitions/.strm:lagDuration"
+				},
+				"strm:leadDuration": {
+					"$ref": "#/definitions/.strm:leadDuration"
+				},
+				"strm:streamDuration": {
+					"$ref": "#/definitions/.strm:streamDuration"
+				},
+				"strm:streamPayloadBase": {
+					"$ref": "#/definitions/.strm:streamPayloadBase"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:granularity": {
+					"$ref": "#/definitions/.xcal:granularity"
+				}
+			},
+			"required": [
+				"strm:streamPayloadBase",
+				"xcal:granularity"
+			],
+			"type": "object"
+		},
+		"strm:UidType": {
+			"description": "Unique Identifier",
+			"type": "string"
+		},
+		"xcal:AvailabilityIntervalType": {
+			"additionalProperties": false,
+			"description": "This class is fully bound, and therefore includes explicit times for both dtStart and duration.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				},
+				"xcal:timeZone": {
+					"$ref": "#/definitions/.xcal:timeZone"
+				}
+			},
+			"required": [
+				"xcal:dateTime",
+				"xcal:duration"
+			],
+			"type": "object"
+		},
+		"xcal:AvailabilityType": {
+			"additionalProperties": false,
+			"description": "A pattern of recurring intervals",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:availabilityInterval": {
+					"$ref": "#/definitions/.xcal:availabilityInterval"
+				},
+				"xcal:recurrence": {
+					"$ref": "#/definitions/.xcal:recurrence"
+				}
+			},
+			"required": [
+				"xcal:availabilityInterval",
+				"xcal:recurrence"
+			],
+			"type": "object"
+		},
+		"xcal:BusyTypeType": {
+			"description": "To express Busy, BusyTentative, and Free.\n\nReference:\nRFC 5545     3.2.9\nRFC 6321     3.2.9",
+			"enum": [
+				"busy",
+				"busyUnavailable",
+				"busyTentative"
+			],
+			"type": "string"
+		},
+		"xcal:CommentType": {
+			"type": "string"
+		},
+		"xcal:DateTimeDateType": {
+			"additionalProperties": false,
+			"description": "A Conformed String Using which expressing a DateTime OR a Date OR a Time",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:date": {
+					"$ref": "#/definitions/.xcal:date"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:time": {
+					"$ref": "#/definitions/.xcal:time"
+				}
+			},
+			"type": "object"
+		},
+		"xcal:DateTimeType": {
+			"type": "string"
+		},
+		"xcal:DateType": {
+			"type": "string"
+		},
+		"xcal:DurationType": {
+			"description": "An ISO 8601  Conformed String Using Basic Format or Extended Format (8601 4.4.3) with the optional sign as required in RFC 5545 and RFC 6321 Section 3.3.6. When used for Tolerance, the sign MUST be absent. DurationType includes all 8601 conformed string values (of which xCal and XSD contain restricted but differing sets).",
+			"type": "string"
+		},
+		"xcal:InstanceUidType": {
+			"description": "UID of this object instance. The entire context may need to be expressed for a truly universal ID.",
+			"type": "string"
+		},
+		"xcal:RecurRulePartType": {
+			"enum": [
+				"FREQ",
+				"UNTIL",
+				"COUNT",
+				"INTERVAL",
+				"BYSECOND",
+				"BYMINUTE",
+				"BYHOUR",
+				"BYDAY",
+				"BYMONTHDAY",
+				"BYYEARDAY",
+				"BYWEEKNO",
+				"BYMONTH",
+				"BYSETPOS",
+				"WKST"
+			],
+			"type": "string"
+		},
+		"xcal:RecurRuleValuesType": {
+			"description": "Either a single value or set of values for the recurRulePart. The range of legal values varies with the value of the recurRulePart as defined in RFC 5545",
+			"type": "string"
+		},
+		"xcal:RecurrenceRuleType": {
+			"additionalProperties": false,
+			"description": "The Recurrence Rule Type is a name value pair consisting of Rule Part and Rule Values. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:recurRulePart": {
+					"$ref": "#/definitions/.xcal:recurRulePart"
+				},
+				"xcal:recurRuleValues": {
+					"items": {
+						"$ref": "#/definitions/.xcal:recurRuleValues"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:recurRulePart",
+				"xcal:recurRuleValues"
+			],
+			"type": "object"
+		},
+		"xcal:RecurrenceType": {
+			"additionalProperties": false,
+			"description": "The Recurrence Type consists of a seed date or date-time, rules to compute compute off-sets of that seed date, an optional end or final boundary to the series, optional inclusions for specifc datesand optional exclusions, i.e., dates to be skipped. ",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dtEnd": {
+					"$ref": "#/definitions/.xcal:dtEnd"
+				},
+				"xcal:dtStart": {
+					"$ref": "#/definitions/.xcal:dtStart"
+				},
+				"xcal:exDate": {
+					"items": {
+						"$ref": "#/definitions/.xcal:exDate"
+					},
+					"type": "array"
+				},
+				"xcal:rDate": {
+					"items": {
+						"$ref": "#/definitions/.xcal:rDate"
+					},
+					"type": "array"
+				},
+				"xcal:recurrenceRule": {
+					"items": {
+						"$ref": "#/definitions/.xcal:recurrenceRule"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"xcal:dtStart"
+			],
+			"type": "object"
+		},
+		"xcal:TimeRangeType": {
+			"additionalProperties": false,
+			"description": "Used in: Availability::Vavailability for the time interval addressed, which may have dtStart defined (optional), and duration (optional, present only if dtStart is present). This allows expression for \"all time\", \"all time from this start DateTime\", and \"a specified interval\". See [Vavailability]  C. Daboo, M. Douglass, Calendar Availability, http://tools.ietf.org/search/draft-daboo-calendar-availability-05, IETF Internet Draft Version 05, January 30, \n",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:dateTime": {
+					"$ref": "#/definitions/.xcal:dateTime"
+				},
+				"xcal:duration": {
+					"$ref": "#/definitions/.xcal:duration"
+				},
+				"xcal:timeZone": {
+					"$ref": "#/definitions/.xcal:timeZone"
+				}
+			},
+			"type": "object"
+		},
+		"xcal:TimeType": {
+			"type": "string"
+		},
+		"xcal:VAvailabilityType": {
+			"additionalProperties": false,
+			"description": "Advertises when a seriSee [Vavailability]  C. Daboo, M. Douglass, Calendar Availability, http://tools.ietf.org/search/draft-daboo-calendar-availability-05, IETF Internet Draft Version 05, January 30, 2014",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"xcal:availability": {
+					"items": {
+						"$ref": "#/definitions/.xcal:availability"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"xcal:busyType": {
+					"$ref": "#/definitions/.xcal:busyType"
+				},
+				"xcal:comment": {
+					"$ref": "#/definitions/.xcal:comment"
+				},
+				"xcal:granularity": {
+					"$ref": "#/definitions/.xcal:granularity"
+				},
+				"xcal:timeRange": {
+					"$ref": "#/definitions/.xcal:timeRange"
+				}
+			},
+			"required": [
+				"xcal:availability",
+				"xcal:busyType",
+				"xcal:timeRange"
+			],
+			"type": "object"
+		},
+		"xs:boolean": {
+			"type": "boolean"
+		},
+		"xs:decimal": {
+			"type": "number"
+		},
+		"xs:float": {
+			"type": "number"
+		},
+		"xs:string": {
+			"type": "string"
+		}
+	},
+	"description": "JSON Schema generated by XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com)",
+	"patternProperties": {
+		"^\\?\\w+$": {
+			"type": "string"
+		}
+	},
+	"properties": {
+		"#": {
+			"type": "string"
+		},
+		"@xmlns:clm5ISO42173A": {
+			"default": "urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07"
+		},
+		"@xmlns:emix": {
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/cts.04"
+		},
+		"@xmlns:power": {
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/power/cts.04"
+		},
+		"@xmlns:scale": {
+			"default": "http://docs.oasis-open.org/ns/emix/2011/06/siscale"
+		},
+		"@xmlns:strm": {
+			"default": "http://docs.oasis-open.org/ws-calendar/ns/streams/201606"
+		},
+		"@xmlns:xcal": {
+			"default": "http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12"
+		},
+		"@xmlns:xs": {
+			"default": "http://www.w3.org/2001/XMLSchema"
+		},
+		"emix:autonomous": {
+			"$ref": "#/definitions/.emix:autonomous"
+		},
+		"emix:currency": {
+			"$ref": "#/definitions/.emix:currency"
+		},
+		"emix:delivery": {
+			"$ref": "#/definitions/.emix:delivery"
+		},
+		"emix:emixBase": {
+			"$ref": "#/definitions/.emix:emixBase"
+		},
+		"emix:emixGranularity": {
+			"$ref": "#/definitions/.emix:emixGranularity"
+		},
+		"emix:emixInterface": {
+			"$ref": "#/definitions/.emix:emixInterface"
+		},
+		"emix:emixOption": {
+			"$ref": "#/definitions/.emix:emixOption"
+		},
+		"emix:expirationDate": {
+			"$ref": "#/definitions/.emix:expirationDate"
+		},
+		"emix:integralOnly": {
+			"$ref": "#/definitions/.emix:integralOnly"
+		},
+		"emix:itemBase": {
+			"$ref": "#/definitions/.emix:itemBase"
+		},
+		"emix:marketContext": {
+			"$ref": "#/definitions/.emix:marketContext"
+		},
+		"emix:measurement": {
+			"$ref": "#/definitions/.emix:measurement"
+		},
+		"emix:optionType": {
+			"$ref": "#/definitions/.emix:optionType"
+		},
+		"emix:price": {
+			"$ref": "#/definitions/.emix:price"
+		},
+		"emix:priceBase": {
+			"$ref": "#/definitions/.emix:priceBase"
+		},
+		"emix:priceMultiplier": {
+			"$ref": "#/definitions/.emix:priceMultiplier"
+		},
+		"emix:priceRelative": {
+			"$ref": "#/definitions/.emix:priceRelative"
+		},
+		"emix:product": {
+			"$ref": "#/definitions/.emix:product"
+		},
+		"emix:productDescription": {
+			"$ref": "#/definitions/.emix:productDescription"
+		},
+		"emix:quantity": {
+			"$ref": "#/definitions/.emix:quantity"
+		},
+		"emix:serviceArea": {
+			"$ref": "#/definitions/.emix:serviceArea"
+		},
+		"emix:side": {
+			"$ref": "#/definitions/.emix:side"
+		},
+		"emix:transactiveState": {
+			"$ref": "#/definitions/.emix:transactiveState"
+		},
+		"emix:uid": {
+			"$ref": "#/definitions/.emix:uid"
+		},
+		"emix:value": {
+			"$ref": "#/definitions/.emix:value"
+		},
+		"power:aggregatedPnode": {
+			"$ref": "#/definitions/.power:aggregatedPnode"
+		},
+		"power:baseCharge": {
+			"$ref": "#/definitions/.power:baseCharge"
+		},
+		"power:baseTransportCharge": {
+			"$ref": "#/definitions/.power:baseTransportCharge"
+		},
+		"power:charges": {
+			"$ref": "#/definitions/.power:charges"
+		},
+		"power:congestionCharge": {
+			"$ref": "#/definitions/.power:congestionCharge"
+		},
+		"power:congestionRevenueRights": {
+			"$ref": "#/definitions/.power:congestionRevenueRights"
+		},
+		"power:conversionLoss": {
+			"$ref": "#/definitions/.power:conversionLoss"
+		},
+		"power:endDeviceAsset": {
+			"$ref": "#/definitions/.power:endDeviceAsset"
+		},
+		"power:energyApparent": {
+			"$ref": "#/definitions/.power:energyApparent"
+		},
+		"power:energyItem": {
+			"$ref": "#/definitions/.power:energyItem"
+		},
+		"power:energyQuantity": {
+			"$ref": "#/definitions/.power:energyQuantity"
+		},
+		"power:energyReactive": {
+			"$ref": "#/definitions/.power:energyReactive"
+		},
+		"power:energyReal": {
+			"$ref": "#/definitions/.power:energyReal"
+		},
+		"power:fullRequirementsPower": {
+			"$ref": "#/definitions/.power:fullRequirementsPower"
+		},
+		"power:lossFactor": {
+			"$ref": "#/definitions/.power:lossFactor"
+		},
+		"power:marginalLoss": {
+			"$ref": "#/definitions/.power:marginalLoss"
+		},
+		"power:marginalLossCharge": {
+			"$ref": "#/definitions/.power:marginalLossCharge"
+		},
+		"power:marginalLossFee": {
+			"$ref": "#/definitions/.power:marginalLossFee"
+		},
+		"power:meterAsset": {
+			"$ref": "#/definitions/.power:meterAsset"
+		},
+		"power:mrid": {
+			"$ref": "#/definitions/.power:mrid"
+		},
+		"power:node": {
+			"$ref": "#/definitions/.power:node"
+		},
+		"power:pnode": {
+			"$ref": "#/definitions/.power:pnode"
+		},
+		"power:powerApparent": {
+			"$ref": "#/definitions/.power:powerApparent"
+		},
+		"power:powerAttributes": {
+			"$ref": "#/definitions/.power:powerAttributes"
+		},
+		"power:powerItem": {
+			"$ref": "#/definitions/.power:powerItem"
+		},
+		"power:powerOptionType": {
+			"$ref": "#/definitions/.power:powerOptionType"
+		},
+		"power:powerProductDescription": {
+			"$ref": "#/definitions/.power:powerProductDescription"
+		},
+		"power:powerQuantity": {
+			"$ref": "#/definitions/.power:powerQuantity"
+		},
+		"power:powerReactive": {
+			"$ref": "#/definitions/.power:powerReactive"
+		},
+		"power:powerReal": {
+			"$ref": "#/definitions/.power:powerReal"
+		},
+		"power:productType": {
+			"$ref": "#/definitions/.power:productType"
+		},
+		"power:serviceDeliveryPoint": {
+			"$ref": "#/definitions/.power:serviceDeliveryPoint"
+		},
+		"power:serviceLocation": {
+			"$ref": "#/definitions/.power:serviceLocation"
+		},
+		"power:temixPower": {
+			"$ref": "#/definitions/.power:temixPower"
+		},
+		"power:transportAccessFee": {
+			"$ref": "#/definitions/.power:transportAccessFee"
+		},
+		"power:transportCongestionFee": {
+			"$ref": "#/definitions/.power:transportCongestionFee"
+		},
+		"power:transportInterface": {
+			"$ref": "#/definitions/.power:transportInterface"
+		},
+		"power:transportProductDescription": {
+			"$ref": "#/definitions/.power:transportProductDescription"
+		},
+		"power:unitEnergyPrice": {
+			"$ref": "#/definitions/.power:unitEnergyPrice"
+		},
+		"power:varQuantity": {
+			"$ref": "#/definitions/.power:varQuantity"
+		},
+		"power:voltage": {
+			"$ref": "#/definitions/.power:voltage"
+		},
+		"scale:siScaleCode": {
+			"$ref": "#/definitions/.scale:siScaleCode"
+		},
+		"strm:intervals": {
+			"$ref": "#/definitions/.strm:intervals"
+		},
+		"strm:lagDuration": {
+			"$ref": "#/definitions/.strm:lagDuration"
+		},
+		"strm:leadDuration": {
+			"$ref": "#/definitions/.strm:leadDuration"
+		},
+		"strm:streamBase": {
+			"$ref": "#/definitions/.strm:streamBase"
+		},
+		"strm:streamDuration": {
+			"$ref": "#/definitions/.strm:streamDuration"
+		},
+		"strm:streamInterval": {
+			"$ref": "#/definitions/.strm:streamInterval"
+		},
+		"strm:streamPayloadBase": {
+			"$ref": "#/definitions/.strm:streamPayloadBase"
+		},
+		"strm:streamSpecifier": {
+			"$ref": "#/definitions/.strm:streamSpecifier"
+		},
+		"strm:uid": {
+			"$ref": "#/definitions/.strm:uid"
+		},
+		"xcal:availability": {
+			"$ref": "#/definitions/.xcal:availability"
+		},
+		"xcal:availabilityInterval": {
+			"$ref": "#/definitions/.xcal:availabilityInterval"
+		},
+		"xcal:busyType": {
+			"$ref": "#/definitions/.xcal:busyType"
+		},
+		"xcal:comment": {
+			"$ref": "#/definitions/.xcal:comment"
+		},
+		"xcal:date": {
+			"$ref": "#/definitions/.xcal:date"
+		},
+		"xcal:dateTime": {
+			"$ref": "#/definitions/.xcal:dateTime"
+		},
+		"xcal:dtEnd": {
+			"$ref": "#/definitions/.xcal:dtEnd"
+		},
+		"xcal:dtStart": {
+			"$ref": "#/definitions/.xcal:dtStart"
+		},
+		"xcal:duration": {
+			"$ref": "#/definitions/.xcal:duration"
+		},
+		"xcal:exDate": {
+			"$ref": "#/definitions/.xcal:exDate"
+		},
+		"xcal:granularity": {
+			"$ref": "#/definitions/.xcal:granularity"
+		},
+		"xcal:rDate": {
+			"$ref": "#/definitions/.xcal:rDate"
+		},
+		"xcal:recurRulePart": {
+			"$ref": "#/definitions/.xcal:recurRulePart"
+		},
+		"xcal:recurRuleValues": {
+			"$ref": "#/definitions/.xcal:recurRuleValues"
+		},
+		"xcal:recurrence": {
+			"$ref": "#/definitions/.xcal:recurrence"
+		},
+		"xcal:recurrenceRule": {
+			"$ref": "#/definitions/.xcal:recurrenceRule"
+		},
+		"xcal:time": {
+			"$ref": "#/definitions/.xcal:time"
+		},
+		"xcal:timeRange": {
+			"$ref": "#/definitions/.xcal:timeRange"
+		},
+		"xcal:timeZone": {
+			"$ref": "#/definitions/.xcal:timeZone"
+		},
+		"xcal:vAvailability": {
+			"$ref": "#/definitions/.xcal:vAvailability"
+		}
+	},
+	"type": "object"
+}
