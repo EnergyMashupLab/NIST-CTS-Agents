@@ -1,4 +1,4 @@
-# XML Schema Definitions (XSD) for the CTS
+# XML Schema Definitions (XSD) for the CTS rev 0.4
 These are restricted schemas based on those in the OASIS specifications for 
 
 + WS-Calendar
