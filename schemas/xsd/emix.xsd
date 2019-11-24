@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Schemas for the Common Transactive Services
+	 
+	 Profiled to use Minimal PIM Conformant WS-Calendar, WS-Calendar Streams, Strip GML
+	 Removed references to VENs, VTNs to leave Common Transactive Services only 
+     as part of the NIST Open Source Software using CTS Project
+	 
+	 2019 for The Energy Mashup Lab
+	 - Toby Considine, TC9, Inc
+	 - William T Cox, Cox Software Architects, 
+	 
+     Based on OASIS Energy Market Information Exchange (EMIX) Version 1.0
+	 Committee Specification 02 
+     11 January 2012
+     Copyright (c) OASIS Open 2012.  All Rights Reserved.
+     Source: http://docs.oasis-open.org/emix/emix/v1.0/cs02/xsd/
+-->
+<!-- emix.xsd 
+Schema agency:     NIST EMIX for CTS
+Schema version:    0.4
+Schema date:       4 October 2019
+
+Set includes:
+    EMIX, EMIX-Terms, EMIX-Warrants (emix)
+    Power, Power-Contracts, Power-Quality (power)
+    Resource (resource)
+	SIScale (siscale) 
+-->
+<!-- 1.0 EMIX: Energy Market Information Exchange for CTS-->
+<xs:schema xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06/cts.04" xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale" xmlns:xcal="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" xmlns:strm="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" xmlns:clm5ISO42173A="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/ns/emix/2011/06/cts.04" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07" schemaLocation="clm5ISO42173A.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/min-xcal/2015/12" schemaLocation="ws-calendar-min-v1.0.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/ws-calendar/ns/streams/201606" schemaLocation="ws-calendar-streams-v1.0.xsd"/>
+	<!-- 1.0 Core EMIX objects-->
+	<xs:annotation/>
+	<!-- 1.1 EMIX Product -->
+	<xs:element name="product" type="emix:ProductType">
+		<xs:annotation>
+			<xs:documentation>Emix Product, .i.e., a Product Description applied to a schedule.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ProductType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>EMIX Product Type, i.e. a Product Description applied to a Schedule</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:EmixBaseType">
+				<xs:sequence>
+					<xs:element ref="emix:transactiveState"/>
+					<xs:element ref="emix:expirationDate" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="emix:integralOnly" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>As part of a Tender, indicates element must be accepted in full or rejected</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="emix:currency" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="emix:marketContext"/>
+					<xs:element ref="emix:side"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 1.2 EMIX Option -->
+	<xs:element name="emixOption" type="emix:EmixOptionType">
+		<xs:annotation>
+			<xs:documentation>Option to buy an Emix Product</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="EmixOptionType" mixed="false">
+		<xs:complexContent>
+			<xs:extension base="emix:EmixBaseType">
+				<xs:sequence>
+					<xs:element ref="emix:transactiveState"/>
+					<xs:element ref="emix:expirationDate" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="emix:integralOnly" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>If true, each Option Call must be for the full amount specified</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="optionHolderSide" type="emix:SideType"/>
+					<xs:element name="optionPremium" type="emix:PriceType"/>
+					<xs:element name="optionStrikePrice" type="emix:PriceType"/>
+					<xs:element ref="emix:optionType"/>
+					<xs:element ref="emix:side"/>
+					<xs:element ref="emix:marketContext"/>
+					<xs:element ref="emix:currency" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 1.4 Delivery -->
+	<xs:element name="delivery" type="emix:DeliveryType"/>
+	<xs:complexType name="DeliveryType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Receipt / Report of Product Delivery. Injection flag is true for adding product to market supply, false for taking from market.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:EmixBaseType">
+				<xs:sequence>
+					<xs:element name="injection" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 2.0 EMIX Components-->
+	<!-- 8.0 Supporting Information Structures-->
+	<!-- 8.2 Market defintions -->
+	<!-- 8.2.1 Market Context -->
+	<xs:element name="marketContext" type="emix:MarketContextType"/>
+	<xs:simpleType name="MarketContextType">
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<!-- 8.2.2 Transactive State -->
+	<xs:element name="transactiveState" type="emix:TransactiveStateType"/>
+	<xs:simpleType name="TransactiveStateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="indicationOfInterest"/>
+			<xs:enumeration value="tender"/>
+			<xs:enumeration value="transaction"/>
+			<xs:enumeration value="exercise"/>
+			<xs:enumeration value="delivery"/>
+			<xs:enumeration value="transportCommitment"/>
+			<xs:enumeration value="publication"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8.2.3 Currency -->
+	<xs:element name="currency" type="clm5ISO42173A:ISO3AlphaCurrencyCodeContentType">
+		<xs:annotation>
+			<xs:documentation>Currency codes coming from UN CEFACT schemas</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- 8.2.4 Enumeration for Side -->
+	<xs:element name="side" type="emix:SideType"/>
+	<xs:simpleType name="SideType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="buy"/>
+			<xs:enumeration value="sell"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8.3 Price -->
+	<xs:element name="priceBase" type="emix:PriceBaseType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract base for EMIX Prices</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PriceBaseType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Type of Abstract base for EMIX Prices</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<!-- 8.3.1 Absolute Price  -->
+	<xs:element name="price" type="emix:PriceType" substitutionGroup="emix:priceBase"/>
+	<xs:complexType name="PriceType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Simple Price</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:PriceBaseType">
+				<xs:sequence>
+					<xs:element ref="emix:value" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.3.2 Multiplier Price - multiplier on base amount  -->
+	<xs:element name="priceMultiplier" type="emix:PriceMultiplierType" substitutionGroup="emix:priceBase"/>
+	<xs:complexType name="PriceMultiplierType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Multiplier times market price, 1 for same as market</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:PriceBaseType">
+				<xs:sequence>
+					<xs:element name="multiplier" type="xs:float" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="emix:marketContext" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Market Context for  base price. If blank, Market Context from hosting artifact.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.3.4 Price Offset (additive or subtractive) over base amount  -->
+	<xs:element name="priceRelative" type="emix:PriceRelativeType" substitutionGroup="emix:priceBase"/>
+	<xs:complexType name="PriceRelativeType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Price Relative is a fixed charge (positive or negative) apllied to base price</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:PriceBaseType">
+				<xs:sequence>
+					<xs:element ref="emix:value" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="emix:marketContext" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Market Context for base price. If blank, Market Context from hosting artifact.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 8.3.6 Simple Price  -->
+	<xs:element name="value" type="emix:ValueType"/>
+	<xs:simpleType name="ValueType">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- 8.5 Quantity -->
+	<xs:element name="integralOnly" type="emix:IntegralOnlyType"/>
+	<xs:simpleType name="IntegralOnlyType">
+		<xs:annotation>
+			<xs:documentation>Integral Only is an indication that the element described is [tendered] as an all or nothing product. It may apply to an (amount, response, ramp) that is all (true) or nothing (false)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:element name="autonomous" type="emix:AutonomousType"/>
+	<xs:simpleType name="AutonomousType">
+		<xs:annotation>
+			<xs:documentation>An autonomous resource or service (true) is able to respond or maintain service independently. A non autonomous service (false) must await dispatch.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<!-- 8.7 Enumeration for Option Types -->
+	<xs:element name="optionType" type="emix:OptionTypeType"/>
+	<xs:simpleType name="OptionTypeType">
+		<xs:union memberTypes="emix:OptionTypeEnumeratedType emix:EmixExtensionType"/>
+	</xs:simpleType>
+	<xs:simpleType name="OptionTypeEnumeratedType">
+		<xs:annotation>
+			<xs:documentation>Enumerated Option Types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<!-- 8.8 Performance Constraints -->
+	<!-- 9.1 Abstract EMIX Base(product applied to a schedule) -->
+	<xs:element name="emixBase" type="emix:EmixBaseType" abstract="true"/>
+	<xs:complexType name="EmixBaseType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>WS-Calendar Streams-derived object to host EMIX elements</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="strm:StreamBaseType">
+				<xs:sequence>
+					<xs:element ref="emix:uid" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 9.2 Abstract Product  Description -->
+	<xs:element name="productDescription" type="strm:StreamPayloadBaseType" abstract="true" substitutionGroup="strm:streamPayloadBase"/>
+	<xs:complexType name="ProductDescriptionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>In EMIX, the Product Description is placed in the Interval or Gluon attachment. The respective product schemas extend this abstract class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="strm:StreamPayloadBaseType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 9.3 Interfaces  -->
+	<xs:element name="serviceArea" type="emix:ServiceAreaType" substitutionGroup="emix:emixInterface"/>
+	<xs:complexType name="ServiceAreaType">
+		<xs:annotation>
+			<xs:documentation>The Service Area is the geographic region that is affected by the EMIX market condition</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:EmixInterfaceType">
+				<xs:sequence>
+					<!-- <xs:element ref="gml:AbstractFeature" minOccurs="1" maxOccurs="unbounded"/> -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="emixInterface" type="emix:EmixInterfaceType"/>
+	<xs:complexType name="EmixInterfaceType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Abstract base class for the interfaces for EMIX Product delivery, measurement, and/or pricing</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<!-- 9.4 emix Measurement -->
+	<xs:element name="measurement" type="strm:StreamPayloadBaseType" substitutionGroup="emix:productDescription"/>
+	<xs:complexType name="MeasurementType">
+		<xs:annotation>
+			<xs:documentation>Type of Measurement</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="emix:ProductDescriptionType">
+				<xs:sequence>
+					<xs:element ref="emix:quantity"/>
+					<xs:element ref="emix:itemBase"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 9.5 Granularity -->
+	<xs:element name="emixGranularity" type="emix:EmixGranularityType"/>
+	<xs:complexType name="EmixGranularityType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Abstract base class used for granularity of market indications of interest and tenders</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="emix:quantity"/>
+			<xs:element ref="emix:itemBase"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 9.5 Item Base -->
+	<xs:element name="itemBase" type="emix:ItemBaseType" abstract="true"/>
+	<xs:complexType name="ItemBaseType" abstract="true" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Abstract base type for units for EMIX Product delivery, measurement, and warrants. Item as in PO Item, Requisition Item, Invoice Item, Lading Item. Item does not include Quantity or Price, because a single product description or transaction may have multiple quantities or prices associated with a single item.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<!-- 9.8 Simple Types  -->
+	<xs:element name="uid" type="emix:UidType"/>
+	<xs:simpleType name="UidType">
+		<xs:annotation>
+			<xs:documentation>A unique identifier for an EMIX Type. Different markets and specifications that use EMIX may have their own rules for specifying an UID.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="quantity" type="emix:QuantityType"/>
+	<xs:simpleType name="QuantityType">
+		<xs:annotation>
+			<xs:documentation>Base type for all quanties in EMIX.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:element name="expirationDate" type="xcal:DateTimeType">
+		<xs:annotation>
+			<xs:documentation>Expiration date for tenders and similar related information.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- 9.9 Extension Type  -->
+	<xs:simpleType name="EmixExtensionType">
+		<xs:annotation>
+			<xs:documentation>Pattern used for extending string enumeration, where allowed</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="x-\S.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
