@@ -1,3 +1,7 @@
+/**
+ * @author Dhrumil Shah
+ * @version 1.0
+ */
 package org.theenergymashuplab.interceptor;
 
 import java.util.Enumeration;
@@ -15,16 +19,16 @@ public class LogInterceptor  implements HandlerInterceptor{
 	
    @Override
    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-	  Enumeration<String> params = request.getParameterNames(); 
-	  while(params.hasMoreElements()){
+	  Enumeration<String> params = request.getParameterNames(); //get all the request parameters
+	  while(params.hasMoreElements()){ // iterate over it
 		  String paramName = params.nextElement();
-		  logger.info("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));
+		  logger.trace("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));// log them 
 	  } 
       return true;
    }
    @Override
    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-	   logger.info(response);
+	   logger.trace(response); // trace the response
    }
    
    @Override

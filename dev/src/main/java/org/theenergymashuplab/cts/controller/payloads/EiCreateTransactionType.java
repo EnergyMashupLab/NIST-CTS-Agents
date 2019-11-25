@@ -21,28 +21,28 @@ import java.util.List;
 /*import XSD-01.EIClasses.actorID;
 import XSD-01.EIClasses.EiTenderType;
 import XSD-01.EIClasses.refID;
-*/
+ */
 
 @RestController
 @RequestMapping("/transaction")
 //public class EiCreateTenderType {
 public class EiCreateTransactionType {
 	//private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);
-	private static final Logger ledger = LogManager.getLogger(EiCreateTransactionType.class);
+	private static final Logger ledger = LogManager.getLogger(EiCreateTransactionType.class);//get ledger for this class
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
 	 */
-		
+
 	@Autowired
 	EiResponseType responseDao;
-	
+
 	@Autowired
 	LedgerService ledgerDao;
-	
-	 @RequestMapping("/") public String home(){ return "Hello World!"; }
-	 
-	
+
+	@RequestMapping("/") public String home(){ return "Hello World!"; }
+
+
 	/*1) To Save a transaction*/
 	@PostMapping("/add")
 	public EiResponseModel createTransaction(@Valid @RequestBody EiResponseModel bks) {
@@ -68,8 +68,8 @@ public class EiCreateTransactionType {
 		ledger.trace("Response: "+bks.toString());
 		return ResponseEntity.ok().body(bks);
 	}
-	
-	
+
+
 	/*3) delete a transaction by refID */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EiResponseModel> deleteTransaction(@PathVariable(value = "id") Long refID) {
@@ -86,7 +86,7 @@ public class EiCreateTransactionType {
 		responseDao.delete(bks);
 		return ResponseEntity.ok().build();		
 	}
-	
+
 	/*4) get all Transactions*/
 	@GetMapping("/allTransactions")
 	public List<EiResponseModel> getAllTenders(){
@@ -96,7 +96,7 @@ public class EiCreateTransactionType {
 		ledgerDao.save(led);
 		return responseDao.findAll();
 	}
-	
+
 	public void finalize() throws Throwable {
 
 	}
