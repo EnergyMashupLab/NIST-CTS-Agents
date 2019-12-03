@@ -1,4 +1,4 @@
-# JUnit testing :
+# JUnit Testing :
 
 JUnit is an open source Unit Testing Framework for JAVA. It is useful for Java Developers to write and run repeatable tests. Erich Gamma and Kent Beck initially develop it. It is an instance of xUnit architecture. As the name implies, it is used for Unit Testing of a small chunk of code.
 But, When using JUnit in Spring there are several features added that many developers are not aware of.
