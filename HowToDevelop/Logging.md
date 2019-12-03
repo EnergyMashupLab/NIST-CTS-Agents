@@ -1,4 +1,5 @@
-Logging:
+Logging
+====================
 
 Apache Log4j2 2.11.2 library is used for logging.
 One can download it from https://logging.apache.org/log4j/2.0/download.html
@@ -8,7 +9,7 @@ NIST-CTS-Agents\dev\src\main\resources\log4j2.xml has all the configurations nee
 Logs are stored in NIST-CTS-Agents\dev\logs folder.
 Ledger are stored in NIST-CTS-Agents\dev\ledger folder.
 
-Log4j2.xml:
+## Log4j2.xml:
 
 Two types of rolling logs one is for logs and other is for ledger.
 All the loggs of com.eml will go in logs folder and print on console, which has trace level.
