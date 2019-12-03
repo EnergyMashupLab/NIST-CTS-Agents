@@ -6,17 +6,17 @@
 
 **Step 2:** Use the command &#39;git clone&#39; to create a clone of the repository.
 
-![](step2.png)
+![](step2.PNG)
 
 Change the directory using &#39;cd&#39; command and go to NIST-CTS-Agents.
 
 **Step 3:** In Eclipse select the File menu and then select Import.
 
-![](step3.png)
+![](step3.PNG)
 
 **Step 4:** Select Existing Maven Projects and click on next.
 
-![](step4.png)
+![](step4.PNG)
 
 **Step 5:** Browse to the local NIST-CTS-Agents folder and click finish. The project is now imported in Eclipse.
 
@@ -28,15 +28,15 @@ You will get a Build success message in the console.
 
 **Step 7:**** Configure Tomcat server**
 
-![](step7.png)
+![](step7.PNG)
 
 **Step 8:** Select tomcat server and click next.
 
-![](step8.png)
+![](step8.PNG)
 
 **Step 9:** Move the project to configure it to the server
 
-![](step9.png)
+![](step9.PNG)
 
 Now the server is configured.
 
