@@ -5,6 +5,7 @@ First, if you are including the Spring Context in your tests, it becomes an Inte
 To integrate Spring with JUnit, you need spring-test.jar
 Specifying dependencies in pom.xml.
 ![](pictures/1.png)
+
 Creating a Unit Test Class:
 In order for the unit test to run a batch job, the framework must load the job’s ApplicationContext. Two annotations are used to trigger this behavior:
 @RunWith(SpringRunner.class): Indicates that the class should use Spring’s JUnit facilities
