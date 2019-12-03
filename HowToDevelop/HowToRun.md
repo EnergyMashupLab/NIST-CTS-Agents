@@ -26,7 +26,7 @@ You will get a Build success message in the console.
 
 ![](pictures/step5.png)
 
-**Step 7:**** Configure Tomcat server**
+**Step 7: Configure Tomcat server**
 
 ![](pictures/step7.PNG)
 
