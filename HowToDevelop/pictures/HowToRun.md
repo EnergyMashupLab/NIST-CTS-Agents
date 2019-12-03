@@ -1,4 +1,4 @@
-**Importing Maven Projects from Git into Eclipse**
+# **Importing Maven Projects from Git into Eclipse**
 
 **Step 1:** Select the folder where you want to create the local storage, right click and select &#39;Git Bash Here&#39;.
 
