@@ -1,7 +1,8 @@
 Position Manager:
 
 Position Manager Payload is stored in org.theenergymashuplab.cts.controller.payloads package, in this class all the rest call to access 
-position manager is stored. Following describes all its api.
+position manager is stored. 
+Following describes all its api.
 createPosition : Will add position into the table.
 getPositionHistoryToId : Fetch position from table with respect to the sellerId.
 getPositionHistoryFromId : Fetch position from table with respect to the buyerId.
