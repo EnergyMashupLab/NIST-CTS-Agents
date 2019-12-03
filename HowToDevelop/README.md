@@ -16,7 +16,7 @@ git pull origin development
 ```
 4. Import the project into your SpringTool IDE
 
-5. Click on *Build* to build the project
+5. Select options from the popup menu from right-clicking the project to build the project
 
 **Additional Information**
 Useful git commands
