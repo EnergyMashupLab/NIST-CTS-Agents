@@ -2,7 +2,7 @@
 
 **Step 1:** Select the folder where you want to create the local storage, right click and select &#39;Git Bash Here&#39;.
 
-![](/https://github.com/EnergyMashupLab/NIST-CTS-Agents/tree/sprint4/HowToDevelop/pictures/step1.png)
+![](pictures/step1.png)
 
 **Step 2:** Use the command &#39;git clone&#39; to create a clone of the repository.
 
