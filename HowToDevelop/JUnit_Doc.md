@@ -12,7 +12,8 @@ In order for the unit test to run a batch job, the framework must load the job�
 @ContextConfiguration(…?): In general this indicates which resources to configure the ApplicationContext with. But in this application, we used Autoconfigure with WebMvcTest (import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest), which will disable full auto-configuration and instead apply only configuration relevant to MVC tests (i.e. @Controller, @ControllerAdvice, @JsonComponent, Converter/GenericConverter, Filter, WebMvcConfigurer and HandlerMethodArgumentResolver beans but not @Component, @Service or @Repository beans).
 By default, tests annotated with @WebMvcTest will also auto-configure Spring Security and MockMvc (include support for HtmlUnit WebClient and Selenium WebDriver). For more fine-grained control of MockMVC the @AutoConfigureMockMvc annotation can be used.
 Typically @WebMvcTest is used in combination with @MockBean or @Import to create any collaborators required by your @Controller beans.
-For example src/test/java/org/theenergymashuplab/cts/controller/payloads/EiCreateTenderTypeTest.java
+
+For example: src/test/java/org/theenergymashuplab/cts/controller/payloads/EiCreateTenderTypeTest.java
 
 ![](pictures/2.png)
 
@@ -29,6 +30,7 @@ A test fixture is a context where a Test Case runs. Typically, test fixtures i
 2. de-allocation (teardown).
 
 Now ,If you are looking to load your full application configuration, you should consider @SpringBootTest 
+
 For example in our application : /src/test/java/com/eml/energy/ EnergyApplicationTests.java
 
 ![](pictures/3.png)
