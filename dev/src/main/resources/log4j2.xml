@@ -4,11 +4,11 @@
  <!--  Display pattern on console-->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
-                pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+                pattern="%style{%d{ISO8601}}{black}\t%highlight{%-5level }[%style{%t}{bright,blue}]\t%style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
         </Console>
         <!-- For Logs -->
-        <RollingFile name="RollingLog"	fileName="./logs/spring-boot-logger.log"	filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-%d{-dd-MMMM-yyyy}-%i.log">
-            <PatternLayout><pattern>%d %p %C{1.} [%t] %m%n</pattern></PatternLayout>
+        <RollingFile name="RollingLog"	fileName="./logs/spring-boot-logger.tsv"	filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-%d{-dd-MMMM-yyyy}-%i.tsv">
+            <PatternLayout><pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern></PatternLayout>
             <Policies>
                 <OnStartupTriggeringPolicy />
                 <SizeBasedTriggeringPolicy	size="10 MB" />
@@ -16,8 +16,8 @@
             </Policies>
         </RollingFile>
  <!-- For Ledgers -->
-        <RollingFile name="RollingLedger" fileName="./ledger/spring-boot-ledger.log" filePattern="./ledger/$${date:yyyy-MM}/spring-boot-ledger-%d{-dd-MMMM-yyyy}-%i.log">
-            <PatternLayout> <pattern>%d %p %C{1.} [%t] %m%n</pattern> </PatternLayout>
+        <RollingFile name="RollingLedger" fileName="./ledger/spring-boot-ledger.tsv" filePattern="./ledger/$${date:yyyy-MM}/spring-boot-ledger-%d{-dd-MMMM-yyyy}-%i.tsv">
+            <PatternLayout> <pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern> </PatternLayout>
             <Policies>
                 <OnStartupTriggeringPolicy />
                 <SizeBasedTriggeringPolicy	size="10 MB" />
@@ -30,7 +30,7 @@
  
     <Loggers>
        <!-- All logs of com.eml will go to these appenders -->
-        <Logger name="com.eml">
+        <Logger name="org.theenergymashuplab">
         	<AppenderRef ref="RollingLog" level="trace"/>
         	<AppenderRef ref="Console" />
         </Logger>
@@ -40,7 +40,7 @@
         </Logger>
         <!-- All logs of org.hibernate.SQL will go to these appenders -->
 		<Logger name="org.hibernate.SQL">
-			<!-- <AppenderRef ref="RollingLedger" level="trace"/> -->
+			<AppenderRef ref="RollingLedger" level="trace" />
 			<AppenderRef ref="Console" />
 		</Logger>
 				
