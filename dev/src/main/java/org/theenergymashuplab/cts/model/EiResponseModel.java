@@ -94,8 +94,8 @@ public class EiResponseModel  {
 	}
 	@Override
 	public String toString() {
-		return "RefId: "+ this.getRefID() +" ResponseCode: "+this.getResponseCode()+" ResponseDescription: "+this.getResponseDescription()+
-				" RespnseTermsViolated: "+getResponseTermsVoilated();
+		return "{RefId: "+ this.getRefID() +",ResponseCode: "+this.getResponseCode()+",ResponseDescription: "+this.getResponseDescription()+
+				",RespnseTermsViolated: "+getResponseTermsVoilated()+"}";
 		
 	}
 }

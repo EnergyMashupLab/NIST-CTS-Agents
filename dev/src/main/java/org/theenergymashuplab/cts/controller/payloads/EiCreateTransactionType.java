@@ -46,7 +46,7 @@ public class EiCreateTransactionType {
 	/*1) To Save a transaction*/
 	@PostMapping("/add")
 	public EiResponseModel createTransaction(@Valid @RequestBody EiResponseModel bks) {
-		ledger.trace("Inside Add: "+bks.toString());
+		ledger.info("Inside Add: "+bks.toString());
 		Ledger led = new Ledger();
 		led.setParameters("Inside Add: "+bks.toString());
 		ledgerDao.save(led);
@@ -56,7 +56,7 @@ public class EiCreateTransactionType {
 	/*2) Get created transaction by ID */
 	@GetMapping("/search/{id}")
 	public ResponseEntity<Object>  getCreatedTransaction(@PathVariable(value="id") Long refID){
-		ledger.trace("Inside Search with  id: "+refID);
+		ledger.info("Inside Search with  id: "+refID);
 		Ledger led = new Ledger();
 		led.setParameters("Inside Search with  id: "+refID);
 		ledgerDao.save(led);

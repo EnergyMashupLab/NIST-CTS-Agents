@@ -58,7 +58,7 @@ public class EiCreateTenderType {
 
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
-		logger.trace(bks.toString());
+		logger.info(bks.toString());
 		return tenderDao.save(bks);
 	}
 
@@ -70,7 +70,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.trace(String.valueOf(tenderID));
+		logger.info(String.valueOf(tenderID));
 		return ResponseEntity.ok().body(bks);
 	}
 
@@ -83,7 +83,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.trace(String.valueOf(tenderID));
+		logger.info(String.valueOf(tenderID));
 		//EiTenderModel bks1 = bks;
 		tenderDao.delete( bks);
 
@@ -93,7 +93,7 @@ public class EiCreateTenderType {
 	/* 4) get all Tenders */
 	@GetMapping("/allTenders")
 	public List<EiTenderModel> getAllTenders(){
-		logger.trace("All Tenders");
+		logger.info("All Tenders");
 		return tenderDao.findAll();
 	}
 }

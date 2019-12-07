@@ -115,4 +115,11 @@ public class EiTenderModel {
 	public void setRefID(EiResponseModel refID) {
 		this.refID = refID;
 	}
+	
+	@Override
+	public String toString() {
+		String str = "{TenderId: "+this.getTenderID()+",RefId: "+this.getRefID()+",EmixBase: "+this.getEmixBase()+
+				",Status: "+this.getStatus()+",TransactionId: "+this.getTransactionID();
+		return str;
+	}
 }

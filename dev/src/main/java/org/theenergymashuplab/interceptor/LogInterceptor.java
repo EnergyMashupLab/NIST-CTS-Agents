@@ -4,9 +4,9 @@
  */
 package org.theenergymashuplab.interceptor;
 
-import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -19,16 +19,12 @@ public class LogInterceptor  implements HandlerInterceptor{
 	
    @Override
    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-	  Enumeration<String> params = request.getParameterNames(); //get all the request parameters
-	  while(params.hasMoreElements()){ // iterate over it
-		  String paramName = params.nextElement();
-		  logger.trace("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));// log them 
-	  } 
+	  logger.info("URL Requested: "+request.getRequestURL());
       return true;
    }
    @Override
    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-	   logger.trace(response); // trace the response
+	   logger.info(response); // trace the response
    }
    
    @Override
