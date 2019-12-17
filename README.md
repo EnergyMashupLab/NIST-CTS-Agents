@@ -1,7 +1,7 @@
 NIST-CTS
 ========
 
-We invite participation in an open source project to    Actors for
+We invite participation in an open source project to create Actors[<sup>1</sup>](#fn1) for
 edge-based self-optimization of power distribution systems. This project is named
 NIST-CTS-Agents because it is an implementation of an agent-based transactive energy 
 market using the Common Transactive Services defined during the NIST Transactive 
@@ -192,3 +192,8 @@ For incoming (contributed) licenses see https://github.com/EnergyMashupLab/EML_L
 
 Acknowledgments
 ---------------
+
+Footnotes
+---------------
+
+<a class="anchor" id="fn1">1</a> foo
