@@ -24,5 +24,5 @@ Database | MySQL Version 5.1 or later | See Prerequisites for Workbench and veri
 Version Management | Github.com | [Project Home Page](https://github.com/EnergyMashupLab/NIST-CTS-Agents)
 
 Run Spring Boot Setup with the following dependencies, and save the result:
-![Spring Boot Setup](SpringBootSetup20191015.png) 
+![Spring Boot Setup](pictures/SpringBootSetup20191210.png) 
 
