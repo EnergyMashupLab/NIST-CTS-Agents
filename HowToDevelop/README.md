@@ -54,4 +54,4 @@ Run your code
 This will start your tomcat server automatically.
 
 **Test**
-See ![separate testing desciption](JUnit_Doc.md)
+See ![JUnit_Doc in this directory](JUnit_Doc.md) for testing details.
