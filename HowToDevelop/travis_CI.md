@@ -24,3 +24,5 @@ To get started with Travis CI #
       Travis only runs builds on the commits you push after you’ve added a .travis.yml file.
     ```
 1. Check the build status page to see if your build passes or fails according to the return status of the build command by visiting Travis CI and selecting your repository.
+
+Note 20191223: Deleted .github/workflows/maven.yml to clean up Jenkins/Travis false negative on pull.
