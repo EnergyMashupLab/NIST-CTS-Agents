@@ -8,9 +8,9 @@ Most work is in the **development** branch of the repository.
 
 2. Install the MySQL Server on your machine
 
-3. Clone the current project into your local machine. Checkout may require the **-f** flag.
+3. Clone the current project into your local machine. Checkout may require the **-f** flag. (Substitute the repository you're working with as necessary)
 ```
-git clone <https://github.com/EnergyMashupLab/NIST-CTS-Agents>
+git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents
 git checkout development
 git pull origin development
 ```
