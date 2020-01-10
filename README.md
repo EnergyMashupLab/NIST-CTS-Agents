@@ -43,7 +43,7 @@ market models.
 Bilateral Market is a classification; examples of bilateral markets include Double Auction and Order Book.
 
 To see a description of the components that make up this project, look under the 
-subfolders of [../src](../src ), above.
+subfolders of the [dev directory](../dev ).
 
 Results
 -------
@@ -82,9 +82,7 @@ Transactive Services and a Market Agent and a Transactive Energy Agent. See the
 respective repositories' README files for a closer view.
 The Architecture Drawing shows terminology and relationships.![Architecture Drawing](Architecture.png) 
 
-PENDING: These evolutionary changes will flow through the other project README files.
-
-The project has a number of components and information in a number of subfolders under [../src](../src ). 
+The project has a number of components and information in a number of subfolders under [../dev](../dev ). 
 
 -   **Markets** including
 
@@ -156,22 +154,12 @@ Built With
 
 Agile programming and architecture are used.
 
-The project uses Github, Maven, and Java 8.
+The project uses Github, Maven, Java 8, JUnit, Apache Log4j2, Spring and Spring Boot.
 
-
-Build Steps
+Building and Running
 -------
 
-1. Download the Spring tool IDE(Or any eclipse will also work)
-2. Install the MySql Server on your machine.
-3. Clone the current project into your local machine
-    3.1 git clone <project_url>
-    3.2 git checkout development
-    3.3 git pull origin development
-4. Import the project into your Spring tool IDE
-5. Click on Build to build the project
-
-See [HowToDevelop](HowToDevelop) for the tooling and development environment.
+See the [HowToDevelop](HowToDevelop) directory for the tooling and development environment.
 
 Authors
 -------
@@ -186,7 +174,7 @@ See also the list of [contributors] who participated in this project.
 License
 -------
 
-This project is licensed under the Apache 2.0 License.
+This project is licensed under the Apache 2.0 License, and is Copyright 2019-2020 The Energy Mashup Lab.
 
 For incoming (contributed) licenses see https://github.com/EnergyMashupLab/EML_Licenses
 
