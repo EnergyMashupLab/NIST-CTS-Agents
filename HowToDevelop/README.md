@@ -46,7 +46,7 @@ git push origin yourbranchname
 ```
 
 - To run your code in the IDE
-You should have a working MySQL database locally with a database named *njit_cts_eml* See ![HowToRun.md](HowToRun.md) for more detail on creating the MySQL database. Login user (root@localhost) and password are in src/main/resources/applicaiton.properties.
+You should have a working MySQL database locally with a database named *njit_cts_eml* See ![HowToRun.md](HowToRun.md) for more detail on creating the MySQL database. Login user (root@localhost) and password are in src/main/resources/application.properties.
 Run your code
 ```
 (right click on project -> run as -> Spring boot app
