@@ -43,7 +43,8 @@ Spring Tool Suite 4.5 does not have this wizard selector; instead for Step 8 and
 Now the server is configured.
 
 **Step 10:** Open MySQL Workbench and create the database &#39;nist\_cts\_eml&#39;. *Note that the MVC models are schemas in a package org.theenergymashuplab.cts.models*
-Instructions for the creation using shell commands in the mysql/bin directory are as follows. Note that semicolon is the end for mysql commands, not a separator.
+Instructions for the creation using shell commands in the mysql/bin directory are as follows. Remember that semicolon is the terminator for mysql commands, not a separator.
+The user name (root@localhost) and password are configured in src/main/resources/application.properties.
 
 * mysql --user=user_name --password db_name
 * create database person_example;
