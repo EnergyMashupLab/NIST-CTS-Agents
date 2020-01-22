@@ -1,7 +1,7 @@
 NIST-CTS
 ========
 
-We invite participation in an open source project to    Actors for
+We invite participation in an open source project to create Actors[<sup>1</sup>](#fn1) for
 edge-based self-optimization of power distribution systems. This project is named
 NIST-CTS-Agents because it is an implementation of an agent-based transactive energy 
 market using the Common Transactive Services defined during the NIST Transactive 
@@ -180,3 +180,9 @@ For incoming (contributed) licenses see https://github.com/EnergyMashupLab/EML_L
 
 Acknowledgments
 ---------------
+
+Footnotes
+---------------
+
+<a class="anchor" id="fn1">1)</a> The difference between Actors and Agents can be a fine one. The actor model of concurrent computation  treats "actor" as the universal primitive of concurrent computation. An actor is an intelligent resource that has the capacity to initiate, manage, and/or control activities of given types. In response to a message it receives, an actor can: make local decisions, create more actors, send more messages, and determine how to respond to the next message received. An Agent *may* be a particular instantiation of an Actor. Some distinguish the two by whether systems can share direct access to external data--to them, an Agent can and an Actor cannot. Perhaps the Market Matching Engine is an Actor and a component of the the Local Market which is an Agent. Similary, the TEUA may be an Actor which with the SC comprises the User Agent. 
+This project does not wish to delve into these semantics, and generally uses the terms interchangeably.
