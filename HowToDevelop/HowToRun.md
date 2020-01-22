@@ -27,10 +27,12 @@ You will get a Build success message in the console. *Note that the Build button
 ![](pictures/step5.png)
 
 **Step 7: Configure Tomcat server**
+Detailed notes at [this site](https://professionalhacker.in/how-to-install-tomcat-on-mac/)
 
 ![](pictures/step7.PNG)
 
 **Step 8:** Select tomcat server from the list of those installed on your local machine and click next.
+Spring Tool Suite 4.5 does not have this wizard selector; instead for Step 8 and Step 9 right click on the project and select a server.
 
 ![](pictures/step8.PNG)
 
@@ -41,6 +43,13 @@ You will get a Build success message in the console. *Note that the Build button
 Now the server is configured.
 
 **Step 10:** Open MySQL Workbench and create the database &#39;nist\_cts\_eml&#39;. *Note that the MVC models are schemas in a package org.theenergymashuplab.cts.models*
+Instructions for the creation using shell commands in the mysql/bin directory are as follows. Remember that semicolon is the terminator for mysql commands, not a separator.
+The user name (root@localhost) and password are configured in src/main/resources/application.properties.
+
+* mysql --user=user_name --password db_name
+* create database person_example;
+* create user 'personuser'@'localhost' identified by 'YOUR_PASSWORD';
+* grant all on person_example.* to 'personuser'@'localhost';
 
 **Step 11:** Right click on the project, go to Run As, and click on Spring Boot App.
 
