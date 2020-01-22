@@ -40,7 +40,7 @@ To commit your changes
 ```
 git commit -am "your message"
 ```
-To push your code back to the origin banch
+To push your code back to the origin banch (you may need your github login name and password)
 ```
 git push origin yourbranchname
 ```
