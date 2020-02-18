@@ -14,10 +14,11 @@ Most work is in the **development** branch of the repository.
 
 3.  Clone the current project into your local machine. Checkout may require the
     **-f** flag. (Substitute the repository you're working with as necessary)
-
--   git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents  
-    git checkout development  
-    git pull origin development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents  
+git checkout development  
+git pull origin development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Import the project into your SpringTool IDE
 
@@ -67,7 +68,7 @@ git push origin yourbranchname
 
 -   HowToRun.md
 
-    HowToRun.md
+-   HowToRun.md
 
     for more detail on creating the MySQL database. Login user (root\@localhost)
     and password are in src/main/resources/application.properties. Run your code
@@ -79,8 +80,6 @@ git push origin yourbranchname
     This will start your tomcat server automatically.
 
 **Test** See
-
-JUnit_Doc in this directory
 
 JUnit_Doc in this directory
 
