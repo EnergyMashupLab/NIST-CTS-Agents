@@ -15,9 +15,9 @@ Most work is in the **development** branch of the repository.
 3.  Clone the current project into your local machine. Checkout may require the
     **-f** flag. (Substitute the repository you're working with as necessary)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents  
-git checkout development  
-git pull origin development
+    git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents  
+    git checkout development  
+    git pull origin development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Import the project into your SpringTool IDE
@@ -25,7 +25,9 @@ git pull origin development
 2.  Select options from the popup menu from right-clicking the project to build
     the project
 
-**Additional Information** Useful git commands - Pull updates to our local
+**Additional Information** 
+
+Useful git commands - Pull updates to our local
 branch
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,24 +65,23 @@ and password)
 git push origin yourbranchname
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--   To run your code in the IDE You should have a working MySQL database locally
-    with a database named *njit_cts_eml* See
+To run your code in the IDE You should have a working MySQL database locally
+with a database named *njit_cts_eml* see HowToRun.md
 
--   HowToRun.md
 
--   HowToRun.md
+For more detail on creating the MySQL database. Login user (root\@localhost)
+and password are in src/main/resources/application.properties. 
 
-    for more detail on creating the MySQL database. Login user (root\@localhost)
-    and password are in src/main/resources/application.properties. Run your code
+**Run your code**
 
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    (right click on project -> run as -> Spring boot app
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In Eclipse
 
-    This will start your tomcat server automatically.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(right click on project -> run as -> Spring boot app
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Test** See
+This will start your tomcat server automatically.
 
-JUnit_Doc in this directory
+**Testing** 
 
-for testing details.
+See JUnit_Doc in this directory for testing details.
