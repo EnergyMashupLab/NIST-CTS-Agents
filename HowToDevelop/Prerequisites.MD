@@ -1,35 +1,91 @@
-Download and Set Up Prequisites
--------------------------------
+Dependancies and Prerequisites
+================================
 
-Prerequisites for your development environment include JDK for JEE 8, Spring
-Tool Suite, Eclipse IDE for JEE, MySQL and optionally MySQL Workbench. **NOTE:
-If you are cloning the code from GitHub, you need only the Java SDKs, Spring
-Tool IDE, Apache Tomcat Server and MySQL server.**
+#### Summary of Prerequisites: 
+* [Java SE 13 SDK](#java-se)
+* [Java EE 8 SDK](#java-ee)
+* [Spring Tools 4](#spring-tools-4)
+* [Oracle Enterprise Pack for Eclipse](#oracle-enterpise)
+* [MySQL Server 5.1 or later](#mysql)
+* [MySQL Workbench](#mysql)
+* [Apache Tomcat 9](#apache-tomcat)
 
-| Package                | Mac Download                                                                                                                                                         | Windows Download                                                                                                                         | Notes                                                                                           |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| Spring Tools 4         | Download from <https://spring.io/tools>                                                                                                                              | Download from <https://spring.io/tools>                                                                                                  | Get the version integrated with Eclipse or follow instructions if you already are using Eclipse |
-| Eclipse 2019-9         | [Mac Download](http://ftp.osuosl.org/pub/eclipse/oomph/epp/2019-09/R/eclipse-inst-mac64.dmg)                                                                         | [Windows Download](https://www.eclipse.org/downloads/)                                                                                   | Eclipse Download link. Download only if not using the integrated Spring Tools 4 download        |
-| Java EE                | [Java Enterprise Edition 8 SDK](https://www.oracle.com/java/technologies/java-ee-sdk-download.html)                                                                  | [Java Enterprise Edition 8 SDK](https://www.oracle.com/java/technologies/java-ee-sdk-download.html)                                      | Log into Oracle site                                                                            |
-| JDK Java 8 SE          | [Download jdk-13.0.1_osx-x64.bin.dmg](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)                                 | [Download jdk-13.0.1_windows-x64_bin.exe](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox) | Log into Oracle site                                                                            |
-| Oracle JEE for Eclipse | [oepe-12.2.1.9-photon-distro-macosx-cocoa-x86_64](https://download.oracle.com/otn_software/oepe/12.2.1.9/photon/oepe-12.2.1.9-photon-distro-macosx-cocoa-x86_64.zip) |                                                                                                                                          | Install after Eclipse                                                                           |
-| Apache Tomcat AS       | [https://tomcat.apache.org/download-90.cgi](apache-tomcat-9.0.27.zip)                                                                                                | [https://tomcat.apache.org/download-90.cgi](file:///C:\NIST-CTS-Agents\HowToDevelop\apache-tomcat-9.0.27.zip)                            | Refer to the RUNNING.txt file in the apache-tomcat-9.0.30 folder for installation instructions. |
-| MySQL 5.1 or later     | Download from <https://dev.mysql.com/downloads/installer/>                                                                                                           | Download from <https://dev.mysql.com/downloads/installer/>                                                                               | Workbench may require MacOS System Update; database server more accepting                       |
-| MySQL Workbench        | Download from <https://dev.mysql.com/downloads/workbench/>                                                                                                           | Download from <https://dev.mysql.com/downloads/workbench/>                                                                               | Workbench must loosely align with database version                                              |
 
-Summary of Setup
-----------------
+<a id="java-se"></a>Java SE 13 SDK  
+--------------------
+Download the appropriate installer for your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
 
-| Purpose            | Framework                    | Notes                                                                                                                                                                                                |
-|--------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Backend Generation | Spring Boot 2.2.0 with Maven | Download from <https://start.spring.io/>. Follow dependencies below.                                                                                                                                 |
-| Front End          | React JS                     | Not yet used - placeholder                                                                                                                                                                           |
-| IDE                | Spring Tool 4                | Download version with Eclipse unless you already use Eclipse                                                                                                                                         |
-| Database           | MySQL Version 5.1 or later   | See Prerequisites for Workbench and verion information. Download from <https://dev.mysql.com/downloads/installer/> or use online services or any cloud server in which you have MySQL already setup. |
-| Version Management | Github.com                   | [Project Home Page](https://github.com/EnergyMashupLab/NIST-CTS-Agents)                                                                                                                              |
+#### Windows Installation 
 
-Run Spring Boot Setup with the following dependencies, and save the result:
+The preferred Windows installer is **jdk-13.0.1_windows-x64_bin.exe**.
+Run the JDK installer which will create a folder at:
+```
+    C:\Program Files\Java\jdk-13.0.1
+```
 
-![Spring Boot Setup](media/425065e8c5b4c5b25e69f43b917f6057.png)
+##### Creating PATH Enviroment Variable 
 
-Spring Boot Setup
+1. Go to the **Control Panel** and then **System**.
+
+2. Enter **Advanced** and then **Enviroment Variables**.
+
+3. Add the location of the bin folder to the **PATH** variable in **System Variables**. This location will typically look like this:
+```
+    C:\Program Files\Java\jdk-13.0.1\bin
+
+```
+
+<a id="java-ee"></a>Java Enterprise Edition 8 SDK
+--------------------
+You download the universal installer from [Java EE 8 SDK download page](https://www.oracle.com/java/technologies/java-ee-sdk-download.html). You must login to an Oracle account or create a new Oracle account to begin the download.
+
+<a id="spring-tools-4"></a>Spring Tools 4
+--------------------
+We recommend using the Spring Tools 4 Suite with Eclipse integration.
+
+You can download the appropriate installer for your operating system from [spring.io/tools](https://spring.io/tools).
+
+Once installed, go to [start.spring.io](https://start.spring.io/) and generate a Spring Boot Setup with the following configuration:
+
+![Spring Boot Setup Configuration](pictures/SpringBootSetup20191210.png)
+
+Importing the generated folder into Spring Tools 4 will give you the proper configuration for this project.
+
+<a id="oracle-enterpise"></a>Oracle Enterprise Pack for Eclipse (12.2.1.9)
+---------------------------------------
+Download the appropriate Packaged Distribution for your operating system from [oracle.com/tools/downloads](https://www.oracle.com/tools/downloads/oepe-v12219-downloads.html)
+
+Eclipse must already be installed to install the Oracle Enterprise Pack.
+
+
+<a id="mysql"></a>MySQL Server and MySQL Workbench
+---------------------
+This project requires **MySQL 5.1 or later**. 
+
+You can download the appropriate installer for your operating system from [mysql.com/downloads](https://dev.mysql.com/downloads/installer/). There are two installlers on the download page. For this project it is recommended you download **mysql-installer-community-8.0.19.0**.
+
+You will need to login to an Oracle account or create a new Oracle account to begin the download. 
+
+#### Windows Installation 
+After running the installer you will be prompted to select which MySQL products to install. Select MySQL Server and MySQL Workbench. 
+
+![MySQL Installation Product Selection](pictures/mysql_installation.png)
+
+Once MySQL Server and MySQL Workbench have been installed, you will be prompted to configure the products. It is recommended to use the default configuration settings. 
+
+When creating the MySQL database, the user is **root@localhost** and the password can found in **src/main/resources/application.properties**.
+
+#### McOS Installation
+
+MySQL Workbench may require a MacOS system update. 
+
+<a id="apache-tomcat"></a>Apache Tomcat 9
+----------------------
+You can download Apache Tomcat 9 at [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi).
+
+It is recommended to download one of the Core packages under the Binary Distributions section. 
+
+#### Windows Installation 
+Download the **64-bit-Windows.zip** Binary Distribution and extract the contents to your preferred destination. 
+
+See **RUNNING.txt** within the extracted **apache-tomcat-9.0.30** folder for instructions on how to setup Apache Tomcat 9. 
