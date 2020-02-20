@@ -20,9 +20,9 @@ git checkout development
 git pull origin development
 ```
 
-1.  Import the project into your SpringTool IDE
+4.  Import the project into your SpringTool IDE
 
-2.  Select options from the popup menu from right-clicking the project to build
+5.  Select options from the popup menu from right-clicking the project to build
     the project
 
 ## Additional Information
