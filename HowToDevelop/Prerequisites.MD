@@ -69,7 +69,7 @@ You will need to login to an Oracle account or create a new Oracle account to be
 #### Windows Installation 
 After running the installer you will be prompted to select which MySQL products to install. Select MySQL Server and MySQL Workbench. 
 
-![MySQL Installation Product Selection](pictures/mysql_installation.png)
+![MySQL Installation Product Selection](pictures/mysql_installation.PNG)
 
 Once MySQL Server and MySQL Workbench have been installed, you will be prompted to configure the products. It is recommended to use the default configuration settings. 
 
