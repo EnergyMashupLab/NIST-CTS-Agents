@@ -1,7 +1,7 @@
 Dependancies and Prerequisites
 ================================
 
-#### Summary of Prerequisites: 
+### Summary of Prerequisites: 
 * [Java SE 13 SDK](#java-se)
 * [Java EE 8 SDK](#java-ee)
 * [Spring Tools 4](#spring-tools-4)
@@ -15,7 +15,7 @@ Dependancies and Prerequisites
 --------------------
 Download the appropriate installer for your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
 
-#### Windows Installation 
+### Windows Installation 
 
 The preferred Windows installer is **jdk-13.0.1_windows-x64_bin.exe**.
 Run the JDK installer which will create a folder at:
@@ -23,7 +23,7 @@ Run the JDK installer which will create a folder at:
     C:\Program Files\Java\jdk-13.0.1
 ```
 
-##### Creating PATH Enviroment Variable 
+#### Creating PATH Enviroment Variable 
 
 1. Go to the **Control Panel** and then **System**.
 
@@ -66,7 +66,7 @@ You can download the appropriate installer for your operating system from [mysql
 
 You will need to login to an Oracle account or create a new Oracle account to begin the download. 
 
-#### Windows Installation 
+### Windows Installation 
 After running the installer you will be prompted to select which MySQL products to install. Select MySQL Server and MySQL Workbench. 
 
 ![MySQL Installation Product Selection](pictures/mysql_installation.PNG)
@@ -75,7 +75,7 @@ Once MySQL Server and MySQL Workbench have been installed, you will be prompted 
 
 When creating the MySQL database, the user is **root@localhost** and the password can found in **src/main/resources/application.properties**.
 
-#### McOS Installation
+### McOS Installation
 
 MySQL Workbench may require a MacOS system update. 
 
@@ -85,7 +85,7 @@ You can download Apache Tomcat 9 at [https://tomcat.apache.org/download-90.cgi](
 
 It is recommended to download one of the Core packages under the Binary Distributions section. 
 
-#### Windows Installation 
+### Windows Installation 
 Download the **64-bit-Windows.zip** Binary Distribution and extract the contents to your preferred destination. 
 
 See **RUNNING.txt** within the extracted **apache-tomcat-9.0.30** folder for instructions on how to setup Apache Tomcat 9. 
