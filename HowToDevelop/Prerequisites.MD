@@ -75,7 +75,7 @@ Once MySQL Server and MySQL Workbench have been installed, you will be prompted 
 
 When creating the MySQL database, the user is **root@localhost** and the password can found in **src/main/resources/application.properties**.
 
-### McOS Installation
+### MacOS Installation
 
 MySQL Workbench may require a MacOS system update. 
 
