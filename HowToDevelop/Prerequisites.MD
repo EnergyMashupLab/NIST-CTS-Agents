@@ -6,12 +6,12 @@ Dependencies and Prerequisites
 * [Spring Tools 4](#spring-tools-4)
 * [MySQL Server 5.1 or later](#mysql)
 * [MySQL Workbench](#mysql)
-* [Apache Tomcat 9](#apache-tomcat)
+* [Apache Tomcat 9 \(optional\)](#apache-tomcat)
 
 
 <a id="java-se"></a>Java SE 13 SDK  
 --------------------
-Download the appropriate installer for your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
+Download the appropriate insta\ller for \your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
 
 ### Windows Installation 
 
@@ -68,6 +68,9 @@ MySQL Workbench may require a MacOS system update.
 
 <a id="apache-tomcat"></a>Apache Tomcat 9
 ----------------------
+**If you are using Spring Tools 4 with Maven you do not need to download Apache Tomcat 9.** 
+Only download Apache Tomcat 9 if your are using the regular Eclipse IDE for development.
+
 You can download Apache Tomcat 9 at [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi).
 
 It is recommended to download one of the Core packages under the Binary Distributions section. 
