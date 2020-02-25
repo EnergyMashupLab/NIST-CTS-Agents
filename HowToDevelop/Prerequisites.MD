@@ -1,11 +1,9 @@
-Dependancies and Prerequisites
+Dependencies and Prerequisites
 ================================
 
 ### Summary of Prerequisites: 
 * [Java SE 13 SDK](#java-se)
-* [Java EE 8 SDK](#java-ee)
 * [Spring Tools 4](#spring-tools-4)
-* [Oracle Enterprise Pack for Eclipse](#oracle-enterpise)
 * [MySQL Server 5.1 or later](#mysql)
 * [MySQL Workbench](#mysql)
 * [Apache Tomcat 9](#apache-tomcat)
@@ -35,10 +33,6 @@ Run the JDK installer which will create a folder at:
 
 ```
 
-<a id="java-ee"></a>Java Enterprise Edition 8 SDK
---------------------
-You download the universal installer from [Java EE 8 SDK download page](https://www.oracle.com/java/technologies/java-ee-sdk-download.html). You must login to an Oracle account or create a new Oracle account to begin the download.
-
 <a id="spring-tools-4"></a>Spring Tools 4
 --------------------
 We recommend using the Spring Tools 4 Suite with Eclipse integration.
@@ -50,13 +44,6 @@ Once installed, go to [start.spring.io](https://start.spring.io/) and generate a
 ![Spring Boot Setup Configuration](pictures/SpringBootSetup20191210.png)
 
 Importing the generated folder into Spring Tools 4 will give you the proper configuration for this project.
-
-<a id="oracle-enterpise"></a>Oracle Enterprise Pack for Eclipse (12.2.1.9)
----------------------------------------
-Download the appropriate Packaged Distribution for your operating system from [oracle.com/tools/downloads](https://www.oracle.com/tools/downloads/oepe-v12219-downloads.html)
-
-Eclipse must already be installed to install the Oracle Enterprise Pack.
-
 
 <a id="mysql"></a>MySQL Server and MySQL Workbench
 ---------------------
