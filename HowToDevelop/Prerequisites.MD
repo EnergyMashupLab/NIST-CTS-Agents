@@ -84,6 +84,6 @@ You can download Apache Tomcat 9 at [https://tomcat.apache.org/download-90.cgi](
 It is recommended to download one of the Core packages under the Binary Distributions section. 
 
 ### Windows Installation 
-Download the **64-bit-Windows.zip** Binary Distribution and extract the contents to your preferred destination. 
+Download the Tomcat 64-bit-Windows.zip Binary Distribution and extract the contents to your preferred destination. 
 
 See **RUNNING.txt** within the extracted **apache-tomcat-9.0.30** folder for instructions on how to setup Apache Tomcat 9. 
