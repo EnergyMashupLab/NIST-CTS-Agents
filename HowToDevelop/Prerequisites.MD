@@ -12,7 +12,7 @@ Dependencies and Prerequisites
 
 <a id="java-se"></a>Java SE 13 SDK  
 --------------------
-Download the appropriate installer for \your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
+Download the appropriate installer for your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
 
 ### Windows Installation 
 
