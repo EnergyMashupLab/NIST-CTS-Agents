@@ -3,6 +3,7 @@ Dependencies and Prerequisites
 
 ### Summary of Prerequisites: 
 * [Java SE 13 SDK](#java-se)
+* [Java JRE 1.8](#java-jre)
 * [Spring Tools 4](#spring-tools-4)
 * [MySQL Server 5.1 or later](#mysql)
 * [MySQL Workbench](#mysql)
@@ -11,7 +12,7 @@ Dependencies and Prerequisites
 
 <a id="java-se"></a>Java SE 13 SDK  
 --------------------
-Download the appropriate insta\ller for \your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
+Download the appropriate installer for \your operating system from the [Java SE 13 download page.](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html#license-lightbox)
 
 ### Windows Installation 
 
@@ -29,9 +30,16 @@ Run the JDK installer which will create a folder at:
 
 3. Add the location of the bin folder to the **PATH** variable in **System Variables**. This location will typically look like this:
 ```
-    C:\Program Files\Java\jdk-13.0.1\bin
+C:\Program Files\Java\jdk-13.0.1\bin
 
 ```
+
+<a id="java-jre"></a>Java JRE 1.8
+---------------------------
+
+Download the appropriate installer for your operating system from the Java SE Runtime Enviroment 8 [download page.](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
+
+Running this installer will install the Java JRE on to your system.
 
 <a id="spring-tools-4"></a>Spring Tools 4
 --------------------
