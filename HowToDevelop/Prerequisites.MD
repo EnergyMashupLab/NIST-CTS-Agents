@@ -19,7 +19,7 @@ Download the appropriate installer for your operating system from the [Java SE 1
 The preferred Windows installer is **jdk-13.0.1_windows-x64_bin.exe**.
 Run the JDK installer which will create a folder at:
 ```
-    C:\Program Files\Java\jdk-13.0.1
+C:\Program Files\Java\jdk-13.0.1
 ```
 
 #### Creating PATH Enviroment Variable 
