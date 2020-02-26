@@ -27,9 +27,9 @@ git pull origin development
 
 ## Additional Information
 
-This project uses Spring Tools 4 and Maven for enterprise tools. The [Maven Users Centre](https://maven.apache.org/users/index.html) provides documentation and tutorials on how to use Maven in a development setting.
+NIST-CTS-Agents uses Spring Tools 4 and Maven for enterprise tools. The [Maven Users Centre](https://maven.apache.org/users/index.html) provides documentation and tutorials on how to use Maven in a development setting.
 
-This project uses git and Github for its version control needs. If you are unfamiliar with git, tutorials and a cheat sheet can be found at [https://www.atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+This project also uses git and Github for its version control needs. If you are unfamiliar with git, tutorials and a cheat sheet can be found at [https://www.atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
 ### Running your code
 To run your code in the IDE You should have a working MySQL database locally
