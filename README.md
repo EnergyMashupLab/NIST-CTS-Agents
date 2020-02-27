@@ -79,25 +79,23 @@ Technical Description
 
 The NIST-CTS Project is a standards-based implementation of the Common
 Transactive Services and a Market Agent and a Transactive Energy Agent. See the
-respective repositories' README files for a closer view.
+project's README files for a closer view.
 The Architecture Drawing shows terminology and relationships.![Architecture Drawing](Architecture.png) 
 
-The project has a number of components and information in a number of subfolders under [../dev](../dev ). 
+The project has a number of components and information in a number of subfolders under [../dev](../dev ). We use *ei2j* (Energy Interoperation to Java) as shorthand for the integration function.
 
 -   **Markets** including
 
     -   The Local Market Engine (LME), the matching engine that coordinates buy and sell tenders
     
-    -   The Market Modular Interface, shown as ei2j+, an extension of the CTS and ei2j
+    -   Markets are connected using the CTS
     
     -   A bilateral market
     
     -   (future) Additional plug-in markets and documentation
 
 -   **Local Market Agent** (LMA) which interacts with the local market and with Transactive
-    Energy Agents and External Market Adapters using the CTS including
-    
-    -   The Market Modular Interface, shown as ei2j+, an extension of the CTS and ei2j
+    Energy User Agents and External Market Adapters using the CTS including
     
     -   Market Position Management (see note)
     
@@ -169,7 +167,7 @@ Authors
 
 -   **Toby Considine –** *Architecture* – [TC9 Inc](http://www.tc9.com/)
 
-See also the list of [contributors] who participated in this project.
+See also the list of [contributors] who have contributed to this project.
 
 License
 -------

@@ -1,57 +1,50 @@
-Development Environment Notes 20191031
+Development Environment Notes
 ======================================
 
-## Project Build Steps
-Most work is in the **development** branch of the repository.
+Project Build Steps
+-------------------
 
-1. Download prequisites and tooling as needed. **NOTE: If you are cloning the code from GitHub, you need only the Java SDKs, Spring Tool IDE, Apache Tomcat Server and MySQL server.**
+Most work is in the **development** branch of the repository. Any documentation work is done in the **documentation** branch. 
 
-2. Install the MySQL Server on your machine
+1.  Download prequisites and tooling as needed. See [Prerequisites.MD](Prerequisites.MD) for more information. **NOTE: If you are cloning the
+    code from GitHub, you need only the Java SDKs, Spring Tool IDE, Apache
+    Tomcat Server and MySQL server.** 
 
-3. Clone the current project into your local machine. Checkout may require the **-f** flag. (Substitute the repository you're working with as necessary)
+2.  Install the MySQL Server on your machine
+
+3.  Clone the current project into your local machine. Checkout may require the
+    **-f** flag. (Substitute the repository you're working with as necessary)
 ```
-git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents
-git checkout development
+git clone https://github.com/EnergyMashupLab/NIST-CTS-Agents  
+git checkout development  
 git pull origin development
 ```
-4. Import the project into your SpringTool IDE
 
-5. Select options from the popup menu from right-clicking the project to build the project
+4.  Import the project into your SpringTool IDE
 
-**Additional Information**
-Useful git commands
-- Pull updates to our local branch
-```
-git origin pull development
-```
-To determine which branch you're on
-```
-git branch
-```
-To determine whether you've updated code on your local machine'
-```
-git status
-```
-To add your files back
-```
-git add
-```
-To commit your changes
-```
-git commit -am "your message"
-```
-To push your code back to the origin banch (you may need your github login name and password)
-```
-git push origin yourbranchname
-```
+5.  Select options from the popup menu from right-clicking the project to build
+    the project
 
-- To run your code in the IDE
-You should have a working MySQL database locally with a database named *njit_cts_eml* See ![HowToRun.md](HowToRun.md) for more detail on creating the MySQL database. Login user (root@localhost) and password are in src/main/resources/application.properties.
-Run your code
+## Additional Information
+
+NIST-CTS-Agents uses Spring Tools 4 and Maven for enterprise tools. The [Maven Users Centre](https://maven.apache.org/users/index.html) provides documentation and tutorials on how to use Maven in a development setting.
+
+This project also uses git and Github for its version control needs. If you are unfamiliar with git, tutorials and a cheat sheet can be found at [https://www.atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+
+### Running your code
+To run your code in the IDE You should have a working MySQL database locally
+with a database named **njit_cts_eml**. See [HowToRun.md](HowToRun.md) for more information.
+
+For more detail on creating the MySQL database. Login user (root\@localhost)
+and password are in src/main/resources/application.properties. 
+
+In Eclipse
 ```
 (right click on project -> run as -> Spring boot app
 ```
 This will start your tomcat server automatically.
 
-**Test**
-See ![JUnit_Doc in this directory](JUnit_Doc.md) for testing details.
+### Testing
+
+See [JUnit_Doc](JUnit_Doc.md) for testing details.
+
