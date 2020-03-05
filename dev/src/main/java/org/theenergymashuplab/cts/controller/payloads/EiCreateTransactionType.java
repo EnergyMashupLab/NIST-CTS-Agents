@@ -29,6 +29,10 @@ import XSD-01.EIClasses.refID;
 public class EiCreateTransactionType {
 	//private static final Logger logger = LogManager.getLogger(EiCreateTransactionType.class);
 	private static final Logger ledger = LogManager.getLogger(EiCreateTransactionType.class);//get ledger for this class
+	
+	// Application general logger for logging general logs.
+	private static final Logger logger2 = LogManager.getLogger("application_general_logger");
+	
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -46,26 +50,31 @@ public class EiCreateTransactionType {
 	/*1) To Save a transaction*/
 	@PostMapping("/add")
 	public EiResponseModel createTransaction(@Valid @RequestBody EiResponseModel bks) {
-		ledger.info("Inside Add: "+bks.toString());
+		//ledger.info("Inside Add: "+bks.toString());
+		String ledger_entry;		
 		Ledger led = new Ledger();
 		led.setParameters("Inside Add: "+bks.toString());
+		
+		// Generating ledger data file formatted entry.
+		ledger_entry = led.getTransactionID() + "\t" + led.getTimestamp().toString() + "\t" + led.getTenderID() + "\t" + led.getPartyID() + "\t" + led.getCounterPartyID();
 		ledgerDao.save(led);
+		ledger.info(ledger_entry);
 		return responseDao.save(bks);
 	}	
 
 	/*2) Get created transaction by ID */
 	@GetMapping("/search/{id}")
 	public ResponseEntity<Object>  getCreatedTransaction(@PathVariable(value="id") Long refID){
-		ledger.info("Inside Search with  id: "+refID);
+		logger2.info("Searching transaction with refID: "+refID);
 		Ledger led = new Ledger();
 		led.setParameters("Inside Search with  id: "+refID);
 		ledgerDao.save(led);
 		Object bks = responseDao.findOne(refID);
 		if(bks == null) {
-			ledger.trace("Response: NULL");
+			logger2.trace("Response: NULL");
 			return ResponseEntity.notFound().build();
 		}
-		ledger.trace("Response: "+bks.toString());
+		logger2.trace("Response: "+bks.toString());
 		return ResponseEntity.ok().body(bks);
 	}
 
@@ -73,16 +82,16 @@ public class EiCreateTransactionType {
 	/*3) delete a transaction by refID */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EiResponseModel> deleteTransaction(@PathVariable(value = "id") Long refID) {
-		ledger.trace("Inside  Delete: "+refID);
+		logger2.trace("Deleting transaction with refID: "+refID);
 		Ledger led = new Ledger();
 		led.setParameters("Inside  Delete: "+refID);
 		ledgerDao.save(led);
 		EiResponseModel bks = responseDao.getOne(refID);
 		if(bks == null) {
-			ledger.trace("Delete Response: NULL");
+			logger2.trace("Delete Response: NULL");
 			return ResponseEntity.notFound().build();
 		}
-		ledger.trace("Delete Response: "+bks.toString());
+		logger2.trace("Delete Response: "+bks.toString());
 		responseDao.delete(bks);
 		return ResponseEntity.ok().build();		
 	}
@@ -90,7 +99,7 @@ public class EiCreateTransactionType {
 	/*4) get all Transactions*/
 	@GetMapping("/allTransactions")
 	public List<EiResponseModel> getAllTenders(){
-		ledger.trace("Inside FindAll Transactions");
+		logger2.trace("All Transactions Requested.");
 		Ledger led = new Ledger();
 		led.setParameters("Inside FindAll Transactions");
 		ledgerDao.save(led);

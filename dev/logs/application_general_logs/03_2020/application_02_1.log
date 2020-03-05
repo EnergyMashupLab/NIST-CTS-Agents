@@ -1,0 +1,3 @@
+2020-03-02 23:30:06,433	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-7]	--Message ---> All Tenders Requested.
+2020-03-02 23:30:32,693	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-8]	--Message ---> Tender created with TenderId: 1
+2020-03-02 23:30:34,665	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-6]	--Message ---> All Tenders Requested.

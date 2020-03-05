@@ -40,6 +40,9 @@ import XSD-01.EIClasses.refID;
 //public class EiCreateTenderType {
 public class EiCreateTenderType {
 	private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);//get logger for this class
+	
+	// Application general logger for logging general logs.
+	private static final Logger logger2 = LogManager.getLogger("application_general_logger");
 	/*
 	 * public actorID counterPartyID; public EiTenderType eiTender; public actorID
 	 * partyID; public refID requestID;
@@ -58,7 +61,11 @@ public class EiCreateTenderType {
 
 	@PostMapping("/add")
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
-		logger.info(bks.toString());
+		//logger.info(bks.toString());
+		//logger.info("Dhruvin: Testing ledger log working.");
+		String log_message = bks.getTenderID() + "\t\"" + bks.getEmixBase() + "\"\t" + bks.getTransactionID();
+		logger.info(log_message);
+		logger2.info("Tender created with TenderId: " + String.valueOf(bks.getTenderID()));
 		return tenderDao.save(bks);
 	}
 
@@ -70,7 +77,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.info(String.valueOf(tenderID));
+		logger2.info("Searching TenderId: " + String.valueOf(tenderID));
 		return ResponseEntity.ok().body(bks);
 	}
 
@@ -83,7 +90,7 @@ public class EiCreateTenderType {
 		if (bks == null) {
 			return ResponseEntity.notFound().build();
 		}
-		logger.info(String.valueOf(tenderID));
+		logger2.info("Deleting tender with TenderId: " + String.valueOf(tenderID));
 		//EiTenderModel bks1 = bks;
 		tenderDao.delete( bks);
 
@@ -93,7 +100,7 @@ public class EiCreateTenderType {
 	/* 4) get all Tenders */
 	@GetMapping("/allTenders")
 	public List<EiTenderModel> getAllTenders(){
-		logger.info("All Tenders");
+		logger2.info("All Tenders Requested.");
 		return tenderDao.findAll();
 	}
 }

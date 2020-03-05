@@ -78,7 +78,7 @@ public class EiTenderModel {
 	@ManyToOne
 	private  EiResponseModel refID;
 
-	/*Below are getter and setter methods to set and get the required information fron Entity Model */
+	/*Below are getter and setter methods to set and get the required information from Entity Model */
 	public long getTenderID() {
 		return tenderID;
 	}

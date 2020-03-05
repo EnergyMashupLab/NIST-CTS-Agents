@@ -34,6 +34,5 @@ build/
 
 # Added Extra
 dev/.idea/
-dev/logs
-dev/ledger
+
 src/main/resources/application.properties
