@@ -1,7 +1,5 @@
 HELP.md
-target/
-bin/
-dev/bin/
+dev/target/
 !dev/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
@@ -34,5 +32,5 @@ build/
 
 # Added Extra
 dev/.idea/
-
-src/main/resources/application.properties
+dev/logs
+dev/src/main/resources/application.properties
