@@ -157,7 +157,7 @@ The project uses Github, Maven, Java 8, JUnit, Apache Log4j2, Spring and Spring 
 Building and Running
 -------
 
-See the [HowToDevelop](HowToDevelop) directory for the tooling and development environment.
+See the [documentation](https://github.com/EnergyMashupLab/NIST-CTS-Agents/blob/documentation/docs/README.md) directory for the tooling and development environment.
 
 Authors
 -------
