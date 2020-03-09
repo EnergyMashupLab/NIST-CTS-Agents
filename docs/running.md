@@ -1,6 +1,6 @@
-Importing Maven Projects from Git into Eclipse
+Running NIST CTS Agents
 ------------------------------
-
+### Importing Maven Projects from Git into Eclipse
 #### Step 1: 
 
 Select the folder where you want to create the local storage (on your local machine), right click and select &#39;Git Bash Here&#39;.
