@@ -29,4 +29,4 @@ LME - Local Market Engine
 
 TEUA - TE User Agent 
 
-Refer to the [Architecture Diagram](https://github.com/EnergyMashupLab/NIST-CTS-Agents/blob/documentation/Architecture.png) for more detail on the RESTcontrollers.
+Refer to the [Architecture Diagram](https://github.com/EnergyMashupLab/NIST-CTS-Agents/blob/master/Architecture.png) for more detail on the RESTcontrollers.
