@@ -1,58 +1,98 @@
-# **Importing Maven Projects from Git into Eclipse**
+Importing Maven Projects from Git into Eclipse
+------------------------------
 
-**Step 1:** Select the folder where you want to create the local storage (on your local machine), right click and select &#39;Git Bash Here&#39;.
+#### Step 1: 
+
+Select the folder where you want to create the local storage (on your local machine), right click and select &#39;Git Bash Here&#39;.
 
 ![](pictures/step1.png)
 
-**Step 2:** Use the command &#39;git clone&#39; to create a clone of the repository.
+#### Step 2: 
+
+Use the command &#39;git clone&#39; to create a clone of the repository.
 
 ![](pictures/step2.PNG)
 
 Change the directory using &#39;cd&#39; command and go to NIST-CTS-Agents.
 
-**Step 3:** In Eclipse select the File menu and then select Import.
+#### Step 3:
+
+In Eclipse select the File menu and then select Import.
 
 ![](pictures/step3.PNG)
 
-**Step 4:** Select Existing Maven Projects and click on next. (*Note that Eclipse from the Spring Boot download and direct download work the same)*
+#### Step 4:
+
+Select Existing Maven Projects and click on next. (*Note that Eclipse from the Spring Boot download and direct download work the same)*
 
 ![](pictures/step4.PNG)
 
-**Step 5:** Browse to the local NIST-CTS-Agents folder (cloned from Github) and click finish. The project is now imported in Eclipse.
+#### Step 5:
 
-**Step 6:** Right click on project, go to Run As and select Maven Build.
+Browse to the local NIST-CTS-Agents folder (cloned from Github) and click finish. The project is now imported in Eclipse.
+
+#### Step 6:
+
+Right click on project, go to Run As and select Maven Build.
 
 You will get a Build success message in the console. *Note that the Build button will use the most recent detailed build instructions during the current execution of the Eclipse environment*
 
 ![](pictures/step5.png)
 
-**Step 7: Configure Tomcat server**
+#### Step 7: Configuring Tomcat Server 
+
 Detailed notes at [this site](https://professionalhacker.in/how-to-install-tomcat-on-mac/)
 
 ![](pictures/step7.PNG)
 
-**Step 8:** Select tomcat server from the list of those installed on your local machine and click next.
+#### Step 8: 
+
+Select tomcat server from the list of those installed on your local machine and click next.
+
 Spring Tool Suite 4.5 does not have this wizard selector; instead for Step 8 and Step 9 right click on the project and select a server.
 
 ![](pictures/step8.PNG)
 
-**Step 9:** Move the project to configure it to the server *Picture shows after selecting the project and clicking Add*
+#### Step 9: 
+
+Move the project to configure it to the server *Picture shows after selecting the project and clicking Add*
 
 ![](pictures/step9.PNG)
 
 Now the server is configured.
 
-**Step 10:** Open MySQL Workbench and create the database &#39;nist\_cts\_eml&#39;. *Note that the MVC models are schemas in a package org.theenergymashuplab.cts.models*
-Instructions for the creation using shell commands in the mysql/bin directory are as follows. Remember that semicolon is the terminator for mysql commands, not a separator.
-The user name (root@localhost) and password are configured in src/main/resources/application.properties.
+#### Step 10: Creating the Database 
 
-* mysql --user=user_name --password db_name
-* create database person_example;
-* create user 'personuser'@'localhost' identified by 'YOUR_PASSWORD';
-* grant all on person_example.* to 'personuser'@'localhost';
+Database initialization was done using MySql Community Edition and Workbench 8.0.18 on Mac OS X 10.15.2. SpringTool Suit 4 and JDBC will initialize the database and schemas with no manual intervention when using the developement enviroment mentioned before. 
 
-**Step 11:** Right click on the project, go to Run As, and click on Spring Boot App.
+If you are not using this enviroment, you may have to create the database and schemas manually.
+
+**Manual Database Initialization:**
+
+1. In MySql Workbench, create a new user "capstone" with no password.
+2. Create a new "Schema" (database show with the disk icon) called *nist_cts_eml*
+3. Give user *capstone* permission to access *nist_cts_eml* from localhost
+4. Remember to apply all changes and refresh the *nist_cts_eml* schema.
+5. Run the project application in SpringToolSuite
+6. In MySql Workbench, refresh all for the schema *nist_cts_eml*.
+
+Instructions for the creation using the command line are as follows. Remember that semicolon is the terminator for mysql commands, not a separator.
+
+ *NOTE: user name is set as capstone@localhost and the password is set as null.*
+
+```
+    mysql --user=user_name --password db_name 
+    create database nist_cts_eml;
+    create user capstone@localhost identified by "";
+    grant all on nts_cts_eml.* to capstone@localhost;
+```
+
+#### Step 11:
+
+Right click on the project, go to Run As, and click on Spring Boot App. You can also use Run As &rightarrow; Run on Server.
 
  ![](pictures/step10.png)
 
-**Step 12:** The project is now running. Open the browser and go to localhost:8080 to view the project.
+#### Step 12: 
+
+The project is now running. Open the browser and go to localhost:8080 to view the project
