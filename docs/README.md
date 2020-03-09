@@ -50,7 +50,7 @@ This project also uses git and Github for its version control needs. If you are 
 
 ### Running your code
 To run your code in the IDE You should have a working MySQL database locally
-with a database named **njit_cts_eml**. See [HowToRun.md](running.md) for more information.
+with a database named **njit_cts_eml**. See the [Running documentation](running.md) for more information.
 
 For more detail on creating the MySQL database. Login user (root\@localhost)
 and password are in src/main/resources/application.properties. 
@@ -63,5 +63,5 @@ This will start your tomcat server automatically.
 
 ### Testing
 
-See [JUnit_Doc](testing.md) for testing details.
+See [Testing documentation](testing.md) for details.
 
