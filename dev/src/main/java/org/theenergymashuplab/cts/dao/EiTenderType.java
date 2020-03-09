@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 @Service
-public class EiTenderType { /*Service class used to process the reqquests */
+public class EiTenderType { /*Service class used to process the requests */
 
 	@Autowired
 	EiTenderRepository tenderRepo;
