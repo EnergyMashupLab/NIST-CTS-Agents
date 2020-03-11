@@ -1,9 +1,0 @@
-2020-03-03 10:08:24,592	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-7]	--Message ---> All Tenders Requested.
-2020-03-03 10:16:05,270	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-2]	--Message ---> Tender created with TenderId: 975
-2020-03-03 10:16:08,110	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-10]	--Message ---> All Tenders Requested.
-2020-03-07 21:04:31,982	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-3]	--Message ---> All Tenders Requested.
-2020-03-07 21:30:30,712	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-10]	--Message ---> Tender created with TenderId: 112233
-2020-03-07 21:30:32,567	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-2]	--Message ---> Tender created with TenderId: 112233
-2020-03-07 21:30:39,349	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-7]	--Message ---> All Tenders Requested.
-2020-03-07 21:31:40,802	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-9]	--Message ---> Tender created with TenderId: 45544224
-2020-03-07 21:31:43,994	INFO	o.t.c.c.p.EiCreateTenderType	[http-nio-8080-exec-7]	--Message ---> All Tenders Requested.
