@@ -1,14 +1,15 @@
 /**
- * 
+ * @author Dhruvin
+ *
  */
 package org.theenergymashuplab.cts.model;
 
 public enum TransactiveStateType {
-	indicationOfInterest,
-	tender,
-	transaction,
-	exercise,
-	delivery,
-	transportCommitment,
-	publication;
+	INDICATIONOFINTEREST,
+	TENDER,
+	TRANSACTION,
+	EXERCISE,
+	DELIVERY,
+	TRANSPORTCOMMITMENT,
+	PUBLICATION;
 }
