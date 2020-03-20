@@ -29,7 +29,7 @@ Most of these standards were built and defined using UML models. In some cases t
 For the development of this project we have been informed by the standards' UML models, and simplified them for easier use, while ensuring that a conformance statement would accurately describe the standards aspects of this project.
 
 ### Simplifying the UML Model
-For the EiTender and EiTransaction classes, we flatten the model inheritance hierarchy as shown in the diagram [EiTender and EiTransaction Types 20191107](../pictures/EiTender and EiTransaction Types 20191107.png).
+For the EiTender and EiTransaction classes, we flatten the model inheritance hierarchy as shown in the diagram ![EiTender and EiTransaction Types 20191107](EiTender+EiTransactionTypes20191107).
 
 The price and time interval are not shown in that diagram, as they are high in the inheritance hierarchy, so we explicitly include them in the EiTender and EiTransaction Java classes.
 
