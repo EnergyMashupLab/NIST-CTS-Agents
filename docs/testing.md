@@ -5,7 +5,30 @@ But, When using JUnit in Spring there are several features added that many devel
 First, if you are including the Spring Context in your tests, it becomes an Integration Test, no longer a Unit Test.
 To integrate Spring with JUnit, you need spring-test.jar
 Specifying dependencies in pom.xml.
-![](pictures/1.png)
+
+```xml
+<!--Spring boot starter web-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <scope>test</scope>
+</dependency>
+```
 
 # Creating a Unit Test Class:
 In order for the unit test to run a batch job, the framework must load the job’s ApplicationContext. Two annotations are used to trigger this behavior:
@@ -16,11 +39,45 @@ Typically @WebMvcTest is used in combination with @MockBean or @Import to 
 
 For example: src/test/java/org/theenergymashuplab/cts/controller/payloads/EiCreateTenderTypeTest.java
 
-![](pictures/2.png)
+```java 
+@RunWith(SpringRunner.class)
+@WebAppConfiguration
+@WebMvcTest(EiCreateTenderType.class)
+public class EiCreateTenderTypeTest {
+/*@Autowired
+private EiTenderType tenderDao;*/
+@Autowired
+private MockMvc mvc;
 
+@MockBean
+private EiCreateTenderType eCTT;
 
-	
+@Test
+public void home() throws Exception {
+    //EiCreateTenderType eCTT = new EiCreateTenderType();
+    mvc.perform(get("http://localhost:8080/tenders/"))
+            .andExpect(status().isOk());
+}
 
+@Test
+public void add() throws Exception {
+    EiTenderModel bks = new EiTenderModel();
+    bks.setTenderID(12334);
+    bks.setEmixBase("434fsdfssdq2mn3123mnxcvxc");
+    bks.setTransactionID(4234234);
+    //bks.setRefID(3421);
+
+    Map<String, String> map = new HashMap<>();
+
+    map.put("tenderID", "12334");
+    map.put("emixBase", "434fsdfssdq2mn3123mnxcvxc");
+    map.put("transactionID", "4234234");
+    mvc.perform(post("http://localhost:8080/tenders/add"))
+            .andExpect(status().isOk());
+            /*.andExpect(status().isOk());
+            .contentType(APPLICATION_JSON);*/
+}
+```
 
 The above code structure is a Text fixture.
 A test fixture is a context where a Test Case runs. Typically, test fixtures include:
@@ -34,4 +91,11 @@ Now ,If you are looking to load your full application configuration, you should 
 
 For example in our application : /src/test/java/com/eml/energy/ EnergyApplicationTests.java
 
-![](pictures/3.png)
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class EnergyApplicationTests {
+
+    @Autowired
+    private EiCreateTenderType ctt;
+```
