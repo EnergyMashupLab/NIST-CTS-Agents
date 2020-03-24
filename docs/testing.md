@@ -31,6 +31,7 @@ Specifying dependencies in pom.xml.
 ```
 
 # Creating a Unit Test Class:
+
 In order for the unit test to run a batch job, the framework must load the job’s ApplicationContext. Two annotations are used to trigger this behavior:
 @RunWith(SpringRunner.class): Indicates that the class should use Spring’s JUnit facilities
 @ContextConfiguration(…?): In general this indicates which resources to configure the ApplicationContext with. But in this application, we used Autoconfigure with WebMvcTest (import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest), which will disable full auto-configuration and instead apply only configuration relevant to MVC tests (i.e. @Controller, @ControllerAdvice, @JsonComponent, Converter/GenericConverter, Filter, WebMvcConfigurer and HandlerMethodArgumentResolver beans but not @Component, @Service or @Repository beans).
@@ -39,7 +40,7 @@ Typically @WebMvcTest is used in combination with @MockBean or @Import to 
 
 For example: src/test/java/org/theenergymashuplab/cts/controller/payloads/EiCreateTenderTypeTest.java
 
-```java 
+```java
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @WebMvcTest(EiCreateTenderType.class)
@@ -81,13 +82,15 @@ public void add() throws Exception {
 
 The above code structure is a Text fixture.
 A test fixture is a context where a Test Case runs. Typically, test fixtures include:
-* Objects or resources that are available for any test case.
-* Activities required that makes these objects/resources available.
-* These activities are
+
+- Objects or resources that are available for any test case.
+- Activities required that makes these objects/resources available.
+- These activities are
+
 1. allocation (setup)
 2. de-allocation (teardown).
 
-Now ,If you are looking to load your full application configuration, you should consider @SpringBootTest 
+Now ,If you are looking to load your full application configuration, you should consider @SpringBootTest
 
 For example in our application : /src/test/java/com/eml/energy/ EnergyApplicationTests.java
 
