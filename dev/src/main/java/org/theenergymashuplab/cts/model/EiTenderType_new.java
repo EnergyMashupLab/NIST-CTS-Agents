@@ -12,9 +12,9 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-@Entity
-@Table(name="EiTender")
-@EntityListeners(AuditingEntityListener.class)
+//@Entity
+//@Table(name="EiTender")
+//@EntityListeners(AuditingEntityListener.class)
 
 public class EiTenderType_new{
 	
