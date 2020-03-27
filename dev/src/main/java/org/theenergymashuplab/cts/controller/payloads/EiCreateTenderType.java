@@ -63,7 +63,7 @@ public class EiCreateTenderType {
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
 		//logger.info(bks.toString());
 		//logger.info("Dhruvin: Testing ledger log working.");
-		String log_message = bks.getTenderID() + "\t\"" + bks.getEmixBase() + "\"\t" + bks.getTransactionID();
+		String log_message = bks.toString();
 		logger.info(log_message);
 		logger2.info("Tender created with TenderId: " + String.valueOf(bks.getTenderID()));
 		return tenderDao.save(bks);

@@ -17,11 +17,11 @@ public class TransactionId {
 	private long transId = 0;
 	private static final AtomicLong transactionIdCounter = new AtomicLong();
 
-	TransactionId(long transId){
+	public TransactionId(long transId){
 		this.transId = transactionIdCounter.addAndGet(transId);
 	    }
 
-	TransactionId(){
+	public TransactionId(){
 		transId = transactionIdCounter.incrementAndGet();
 	    }
 

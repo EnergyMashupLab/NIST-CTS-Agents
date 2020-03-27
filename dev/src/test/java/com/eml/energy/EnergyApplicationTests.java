@@ -21,6 +21,7 @@ public class EnergyApplicationTests {
 	@DisplayName("Integration test which will get the actual output of text service")
 	public void contextLoads() {
 		assertEquals(ctt.home(), "In test. Working!");
+		
 	}
 
 }

@@ -6,11 +6,11 @@ public class TenderId {
     private long myTenderId = 0;
     private static final AtomicLong tenderIdCounter = new AtomicLong();
     
-    TenderId(long tenderId){
+    public TenderId(long tenderId){
         myTenderId = tenderIdCounter.addAndGet(tenderId);
     }
     
-    TenderId(){
+    public TenderId(){
         myTenderId = tenderIdCounter.incrementAndGet();
     }
     

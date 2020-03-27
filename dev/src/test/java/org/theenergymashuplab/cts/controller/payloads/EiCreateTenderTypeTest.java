@@ -1,6 +1,8 @@
 package org.theenergymashuplab.cts.controller.payloads;
 
 import org.theenergymashuplab.cts.model.EiTenderModel;
+import org.theenergymashuplab.cts.model.TenderId;
+import org.theenergymashuplab.cts.model.TransactiveStateType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,9 +72,19 @@ public class EiCreateTenderTypeTest {
     @Test
     public void add() throws Exception {
         EiTenderModel bks = new EiTenderModel();
-        bks.setTenderID(12334);
-        bks.setEmixBase("434fsdfssdq2mn3123mnxcvxc");
-        bks.setTransactionID(4234234);
+        TenderId tid = new TenderId();
+        bks.setTenderID(tid.value());
+        bks.setDuration(90000);
+        bks.setExpireTime(null);
+        bks.setQuantity(10);
+        
+        Calendar c1 = Calendar.getInstance();
+        Date dateOne = c1.getTime();
+        Instant inst = dateOne.toInstant(); 
+        
+        bks.setStartTime(inst);
+        bks.setTransactiveState(TransactiveStateType.TRANSACTION);
+        
         //bks.setRefID(3421);
 
         Map<String, String> map = new HashMap<>();
