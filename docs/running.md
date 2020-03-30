@@ -78,7 +78,7 @@ If you are not using this enviroment, you may have to create the database and sc
 
 Instructions for the creation using the command line are as follows. Remember that semicolon is the terminator for mysql commands, not a separator.
 
- *NOTE: user name is set as capstone@localhost and the password is set as null.*
+ *NOTE: user name is set as eml@localhost and the password is set as capstone123.*
 
 ```
     mysql --user=user_name --password db_name 
