@@ -69,7 +69,7 @@ If you are not using this enviroment, you may have to create the database and sc
 
 **Manual Database Initialization:**
 
-1. In MySql Workbench, create a new user "capstone" with no password.
+1. In MySql Workbench, create a new user "eml" with the password "capstone123".
 2. Create a new "Schema" (database show with the disk icon) called *nist_cts_eml*
 3. Give user *capstone* permission to access *nist_cts_eml* from localhost
 4. Remember to apply all changes and refresh the *nist_cts_eml* schema.
