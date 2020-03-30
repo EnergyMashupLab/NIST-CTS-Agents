@@ -81,7 +81,7 @@ Instructions for the creation using the command line are as follows. Remember th
  *NOTE: user name is set as eml@localhost and the password is set as capstone123.*
 
 ```
-    mysql --user=user_name --password db_name 
+    mysql --user=eml --capstone123 db_name 
     create database nist_cts_eml;
     create user capstone@localhost identified by "";
     grant all on nts_cts_eml.* to capstone@localhost;
