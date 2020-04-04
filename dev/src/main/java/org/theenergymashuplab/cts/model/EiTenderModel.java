@@ -29,18 +29,18 @@ public class EiTenderModel implements Serializable {
 	@NotNull
 	private long tenderID; /*Primary key, we can have only one tender with same ID */
 	
-	@NotBlank
+	@NotNull
 	private long quantity;
 	
-	@NotBlank
+	@NotNull
 	private Instant startTime;
 	
-	@NotBlank
+	@NotNull
 	private long duration;
 	
 	private Instant expireTime;
 	
-	@NotBlank
+	@NotNull
 	private TransactiveStateType transactiveState = TransactiveStateType.TENDER;
 
 	/**
