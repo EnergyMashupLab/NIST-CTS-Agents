@@ -1,54 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
- <Appenders>
- <!--  Display pattern on console-->
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout
-                pattern="%style{%d{ISO8601}}{black}\t%highlight{%-5level }[%style{%t}{bright,blue}]\t%style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
-        </Console>
-        <!-- For Logs -->
-        <RollingFile name="RollingLog"	fileName="./logs/spring-boot-logger.tsv"	filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-%d{-dd-MMMM-yyyy}-%i.tsv">
-            <PatternLayout><pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern></PatternLayout>
-            <Policies>
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy	size="10 MB" />
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-        </RollingFile>
- <!-- For Ledgers -->
-        <RollingFile name="RollingLedger" fileName="./ledger/spring-boot-ledger.tsv" filePattern="./ledger/$${date:yyyy-MM}/spring-boot-ledger-%d{-dd-MMMM-yyyy}-%i.tsv">
-            <PatternLayout> <pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern> </PatternLayout>
-            <Policies>
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy	size="10 MB" />
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-        </RollingFile>
- 
-        
-    </Appenders>
- 
-    <Loggers>
-       <!-- All logs of org.theenergymashuplab will go to these appenders 
-        <Logger name="org.theenergymashuplab">
-        	<AppenderRef ref="RollingLog" level="info"/>
-        	<AppenderRef ref="Console" level="info"/>
-        </Logger>-->
-        <!-- All logs of org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType will go to these appenders -->
-          <Logger name="org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType">
-        	<AppenderRef ref="RollingLedger" level="info"/>
-        </Logger>
-        <!-- All logs of org.hibernate.SQL will go to these appenders -->
+
+	<!-- Properties section. -->
+	<!-- Adding properties tag to add various log pattern which can be used at multiple places. -->
+	<Properties>
+		<!-- Tender logging pattern -->
+		<Property name = "Tender_log_pattern">
+			%d{yyyy-MM-dd HH:mm:ss:SSS} ---> %m%n
+		</Property>
+		
+		<!-- Ledger logging pattern -->
+		<Property name = "Ledger_log_pattern">
+			%d{yyyy-MM-dd HH:mm:ss:SSS} ---> %m%n
+		</Property>
+		
+		<!-- Tender specific console logging pattern -->
+		<Property name = "Console_Tender_log_pattern">
+			%d{yyyy-MM-dd HH:mm:ss:SSS} --"Tender Console Log:"--> %m%n
+		</Property>
+		
+		<!-- Application general logging pattern -->
+		<Property name = "Application_general_log_pattern">
+			%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;--Message ---> %m%n
+		</Property>
+	</Properties>
+	
+	<!-- Appenders section. -->
+	<Appenders>
+	 <!--  Display pattern on console-->
+	 	<Console name="Console" target="SYSTEM_OUT">
+	 		<PatternLayout pattern="%style{%d{ISO8601}}{black}\t%highlight{%-5level }[%style{%t}{bright,blue}]\t%style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+	 	</Console>
+	 	
+	 	<!-- For Logs -->
+	 	<RollingFile name="RollingLog"	fileName="./logs/spring-boot-logger.tsv"	filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-%d{-dd-MMMM-yyyy}-%i.tsv">
+	 		<PatternLayout><pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern></PatternLayout>
+	 			<Policies>
+	 				<OnStartupTriggeringPolicy />
+	 				<SizeBasedTriggeringPolicy	size="10 MB" />
+	 				<TimeBasedTriggeringPolicy />
+	 			</Policies>
+	 	</RollingFile>
+	 	
+	 	<!-- For Ledgers -->
+	 	<RollingFile name="RollingLedger" fileName="./ledger/spring-boot-ledger.tsv" filePattern="./ledger/$${date:yyyy-MM}/spring-boot-ledger-%d{-dd-MMMM-yyyy}-%i.tsv">
+	 		<PatternLayout> 
+	 			<pattern>%d&#9;%p&#9;%C{1.}&#9;[%t]&#9;%m%n</pattern>
+	 		</PatternLayout>
+	 		
+	 		<Policies>
+	 			<OnStartupTriggeringPolicy />
+	 			<SizeBasedTriggeringPolicy	size="10 MB" />
+	 			<TimeBasedTriggeringPolicy />
+	 		</Policies>
+	 	</RollingFile>
+	 	
+	 	<RollingFile name = "LedgerLog" filename = "./ledger/ledger_entry_log.tsv" filePattern = "./ledger/%d{MM_yyyy}/ledger_entry_log_%d{dd}_%i.tsv">
+	 		<PatternLayout pattern = "${Ledger_log_pattern}">
+	 		</PatternLayout>
+	 		
+	 		<Policies>
+	 			<TimeBasedTriggeringPolicy interval = "1"></TimeBasedTriggeringPolicy>
+	 		</Policies>
+	 		
+	 	</RollingFile>
+	 	
+	 	<!-- For Tenders -->
+	 	<RollingFile name = "TenderLog" filename = "./tender/tender_entry_log.tsv" filePattern = "./tender/%d{MM_yyyy}/tender_entry_log_%d{dd}_%i.tsv">
+	 		<PatternLayout pattern = "${Tender_log_pattern}">
+	 		</PatternLayout>
+	 		
+	 		<Policies>
+	 			<TimeBasedTriggeringPolicy interval = "1"></TimeBasedTriggeringPolicy>
+	 		</Policies>
+	 		
+	 	</RollingFile>
+	 	
+	 	<!-- For whole application general logs -->
+	 	<RollingFile name = "application_general_appender" fileName = "./logs/application_general_logs/application.log" filePattern = "./logs/application_general_logs/%d{MM_yyyy}/application_%d{dd}_%i.log">
+			<PatternLayout pattern = "${Application_general_log_pattern}"></PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval = "1"></TimeBasedTriggeringPolicy>
+			</Policies>	 	
+	 	</RollingFile>
+	 	
+	 	<Console name = "Console_log_for_tenders" target = "SYSTEM_OUT">
+	 		<PatternLayout pattern = "${Console_Tender_log_pattern}"></PatternLayout>
+	 	</Console>
+	</Appenders>
+	
+	<Loggers>
+		<!-- All logs of org.theenergymashuplab will go to these appenders 
+		<Logger name="org.theenergymashuplab">
+			<AppenderRef ref="RollingLog" level="info"/>
+			<AppenderRef ref="Console" level="info"/>
+		</Logger>-->
+		
+		<!-- All logs of org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType will go to these appenders -->
+		<Logger name="org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType">
+			<AppenderRef ref="LedgerLog" level="info"/>
+		</Logger>
+		
+		<!-- All logs of org.hibernate.SQL will go to these appenders -->
 		<Logger name="org.hibernate.SQL">
-			<AppenderRef ref="RollingLedger" level="info" />
+			<AppenderRef ref="application_general_appender" level="info" />
 			<!--  <AppenderRef ref="Console" />-->
 		</Logger>
-				
-		 <Root level="info">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="RollingLog" />
-        </Root>
 		
-    </Loggers>
-   
+		<!-- Logger for tender entry -->
+		<Logger name="org.theenergymashuplab.cts.controller.payloads.EiCreateTenderType">
+			<AppenderRef ref = "TenderLog" level = "info" />
+		</Logger>
+		
+		<!-- Application general logs. -->
+		<Logger name = "application_general_logger"  level = "all">
+			<AppenderRef ref = "application_general_appender"></AppenderRef>
+			<AppenderRef ref = "Console"></AppenderRef>
+		</Logger>
+		
+		<Root level="all">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="RollingLog" />
+		</Root>
+	</Loggers>
 </Configuration>
