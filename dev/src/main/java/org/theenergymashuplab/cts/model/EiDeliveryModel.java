@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity

@@ -1,5 +1,5 @@
 package org.theenergymashuplab.cts.model;
 
-public class RefIdType implements UidType{
+public class RefIdType extends UidType{
 
 }

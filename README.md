@@ -1,5 +1,18 @@
-NIST-CTS
-========
+<h1 align="center">
+  <br>
+  <a href="http://www.theenergymashuplab.org/"><img src="http://static1.squarespace.com/static/53dd102ae4b0474fbf8ce365/t/55da1f5de4b07faafab2518c/1440358237526/EML+Logo+20150816+No+Text.png?format=1500w" alt="Energy Mashup Lab" width="200"></a>
+  <br>
+  NIST CTS Agents
+  <br>
+</h1>
+
+<p align="center">
+  <a href="#background">Background</a> •
+  <a href="#tech-desc">Technical Description</a> •
+  <a href="docs/README.md">Documentation</a> •
+  <a href="#authors">Authors</a> •
+  <a href="#license">License</a>
+</p>
 
 We invite participation in an open source project to create Actors[<sup>1</sup>](#fn1) for
 edge-based self-optimization of power distribution systems. This project is named
@@ -7,7 +20,7 @@ NIST-CTS-Agents because it is an implementation of an agent-based transactive en
 market using the Common Transactive Services defined during the NIST Transactive 
 Energy Challenge. 
 
-Background
+<a id="background"></a>Background
 ----------
 
 Transactive Resource Management (TRM) enables Actors representing systems that
@@ -74,7 +87,7 @@ The project uses standards including
     Markets and other energy markets are based on [IEC 62746-10-3:2018]
     (<https://webstore.iec.ch/publication/59771>)
 
-Technical Description
+<a id="tech-desc"></a>Technical Description
 ---------------------
 
 The NIST-CTS Project is a standards-based implementation of the Common
@@ -157,9 +170,9 @@ The project uses Github, Maven, Java 8, JUnit, Apache Log4j2, Spring and Spring 
 Building and Running
 -------
 
-See the [HowToDevelop](HowToDevelop) directory for the tooling and development environment.
+See the [documentation](docs/README.md) directory for the tooling and development environment.
 
-Authors
+<a id="authors"></a>Authors
 -------
 
 -   **William Cox** - *Architecture* - [Cox Software Architects
@@ -169,7 +182,7 @@ Authors
 
 See also the list of [contributors] who have contributed to this project.
 
-License
+<a id="license"></a>License
 -------
 
 This project is licensed under the Apache 2.0 License, and is Copyright 2019-2020 The Energy Mashup Lab.
