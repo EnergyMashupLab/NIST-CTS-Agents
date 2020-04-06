@@ -1,6 +1,5 @@
-###
-# Controller and Model Class for Restful Web Services
-
+Controller and Model Class for Restful Web Services
+---------------------------------
 ### **REST API**
 
 An  **API**  is an application programming interface. It is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it.
@@ -36,7 +35,36 @@ Spring Boot [annotations ](http://www.java67.com/2019/01/top-5-spring-boot-annot
 
 Example:
 
-![](pictures/image001.png)
+```java 
+    @RestController
+    @RequestMapping("/tenders")
+
+    // public class EiCreateTenderType {
+    public class EiCreateTenderType {
+        private static final Logger logger = LogManager.getLogger(EiCreateTenderType.class);
+        /*
+        *   public actorID counterPartyID; public EiTenderType eiTender; public actorID 
+        *   partyID; public refID requestID
+        */
+
+        @Autowired
+        EiTenderType tenderDao;
+        @RequestMapping("/")
+        public String home() {
+            return "Hello World";
+        }
+
+        // 1) To Save an tender
+        // @RequestMapping(value = " /add", method = RequestMethod.POST)
+
+        @PostMapping("/add")
+        public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
+            logger.info(bks.toString());
+
+            return tenderDao.save(bks);
+        }
+    }
+```
 
 Path variables are variables in the request URL and annotated with &quot;[@PathVariable](https://javarevisited.blogspot.com/2017/10/differences-between-requestparam-and-pathvariable-annotations-spring-mvc.html#axzz5jtleVQXB)&quot;. The request mappings are straightforward **, the actual ** _value_ ** of the mapping as well as the HTTP method, determine the target method for the request.**  @_RequestBody_ will bind the parameters of the method to the body of the HTTP request, whereas _@ResponseBody_ does the same for the response and return type.
 
@@ -70,4 +98,35 @@ Getter and Setter methods are used to set and get the required information from 
 
 Example:
 
-![](pictures/image003.png)
+```java
+    @Entity
+    @Table(name="EiTender")
+    @EntityListeners(AuditingEntityListener.class)
+
+    public class EiTenderModel {
+
+        //private static final java.sql.Date CurrentDateTimeProvider = null;
+        @Id
+        @NotNull
+        private long tenderID; // Primary key, we can have only one tender with the same ID
+        @NotBlank
+        private String emixBase;
+
+        public String status = "Created";
+        //GetCurrentDateTime.get;
+        //private java.sql.Date Current_Time;
+        //private static final DateFormat a = new SimpleDateFormat("yyyy/MM/dd");
+        //@Temporal(TemporalType.DATE)
+        //@DateTimeFormat(pattern="")
+        private LocalDate Date = gdate();
+
+        public LocalDate gdate() {
+            LocalDate localDate = LocalDate.now();
+            //LocalDate a = (DateTimeFormatter.ofPattern("yyyy/MM/dd").format(localDate));
+            //Date date = new Date();
+            //Date a;
+
+            return (localDate);
+        }
+    }
+```
