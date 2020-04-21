@@ -1,19 +1,17 @@
 Logging
 ====================
 
-The Apache Log4j2 2.11.2 library is used for logging. This version was published February 2019, and is available in the [Maven Central Repository](https://search.maven.org/) in [log4j-core 2.11.2](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/2.11.2) and [log4j-api 2.11.2](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api/2.11.2). 
+Please note that Log4j 2 functions are included through the Spring Boot Starter for Log4j 2, *spring-boot-starter-log4j2*. This project will continue using that version until we need to update either Log4j 2 or Spring Boot.
 
-(The 2.11.2 version appears to no longer be available from [logging.apache.org](https://logging.apache.org/log4j/2.0/download.html).)
+The Apache Log4j 2 2.11.2 library is used for logging. This version was published February 2019, and is available in the [Maven Central Repository](https://search.maven.org/) in [log4j-core 2.11.2](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/2.11.2) and [log4j-api 2.11.2](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api/2.11.2). The base library is available at the [Apache Log4j 2 archives](https://archive.apache.org/dist/logging/log4j/2.11.2/)
 
-Please note that Log4j2 functions are included through the Spring Boot Starter for Log4j2, *spring-boot-starter-log4j2*. This project will continue using that version until we need to update either Log4j2 or Spring Boot.
+In the NIST-CTS-Agents repository, the configuration file is in */dev/src/main/resources/log4j2.xml*.
 
-In the NIST-CTS-Agents repository, the configuration file is in /dev/src/main/resources/log4j2.xml
-
-Logs are stored on your local system in the dev/logs folder.
-Ledgers are stored on your local system in the dev/ledger folder. Ledgers (see the [project README](../README.md)) contain committed transactions, and may be used to build an actor's position.
+Logs are stored on your local system in the *dev/logs* folder.
+Ledgers are stored on your local system in the *dev/ledger* folder. Ledgers (see the [project README](../README.md)) contain committed transactions, and may be used to build an actor's position.
 
 ## Logging Levels
-Log4j supports conventional and standard logging levels as well as custom levels. The standard levels are, from most specific to least specific (and lowest IntLevel to highest) is
+Log4j 2 supports conventional and standard logging levels as well as custom levels. The standard levels are, from most specific to least specific (and lowest IntLevel to highest) is
 
 *    OFF (most specific, no logging)
 *    FATAL (most specific, little data)
@@ -28,13 +26,13 @@ The next section describes the project setup for logging, and indicates where th
 
 ## Log4j2.xml
 
-There are two types of rolling logs, one is for normal logging, the other for ledgers. All logs desribed here are tab-separated text to simplify analysis with Excel and other spreadsheets (rather than for best human readability). 
+There are two types of rolling logs, one is for normal logging, the other for ledgers. All logs described here are tab-separated text to simplify analysis with Excel and other spreadsheets (rather than for best human readability). 
 
-All the logs of org.theenergymashuplab go in the logs folder **dev/logs** of your local system  and print on the console. The levels set are trace (used rarely) and info; see the source code and **log4j2.xml** 
+All the of logs from org.theenergymashuplab go in the logs folder *dev/logs* of your local system and print on the console. The levels set are TRACE (used rarely) and INFO; see the source code and **log4j2.xml** 
 
-The  level that is output can be changed in log4j2.xml.
+The  level that is outputted can be changed in log4j2.xml.
 
-Logs created by org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType  are set to level **info** and will
+Logs created by org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType  are set to level **INFO** and will
 go to the ledger folder. 
 
 The trace level to be logged can be changed in log4j2.xml. **DESCRIBE HOW - command line -D, other ways?**
