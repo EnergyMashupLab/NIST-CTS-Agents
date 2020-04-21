@@ -11,7 +11,7 @@ Logs are stored on your local system in the *dev/logs* folder.
 Ledgers are stored on your local system in the *dev/ledger* folder. Ledgers (see the [project README](../README.md)) contain committed transactions, and may be used to build an actor's position.
 
 ## Logging Levels
-Log4j 2 supports conventional and standard logging levels as well as custom levels. The standard levels are, from most specific to least specific (and lowest IntLevel to highest) is
+Log4j 2 supports conventional and standard logging levels as well as custom levels. The standard levels are, from most specific to least specific (and lowest IntLevel to highest) is:
 
 *    OFF (most specific, no logging)
 *    FATAL (most specific, little data)
@@ -22,17 +22,19 @@ Log4j 2 supports conventional and standard logging levels as well as custom leve
 *    TRACE (least specific, a lot of data)
 *    ALL (least specific, all data)
 
+More information on the logging levels is available from the [Apache Log4j 2 documentation.](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html)
+
 The next section describes the project setup for logging, and indicates where that setup is expressed so you can change if necessary.
 
 ## Log4j2.xml
 
-There are two types of rolling logs, one is for normal logging, the other for ledgers. All logs described here are tab-separated text to simplify analysis with Excel and other spreadsheets (rather than for best human readability). 
+There are two types of rolling logs, one is for normal logging and the other is for ledgers. All logs described here are tab-separated text to simplify analysis with Excel and other spreadsheets (rather than for best human readability). 
 
-All the of logs from org.theenergymashuplab go in the logs folder *dev/logs* of your local system and print on the console. The levels set are TRACE (used rarely) and INFO; see the source code and **log4j2.xml** 
+All the of logs from org.theenergymashuplab go in the logs folder *dev/logs* of your local system and print on the console. 
 
-The  level that is outputted can be changed in log4j2.xml.
+The levels set are TRACE (used rarely) and INFO; see the source code and **dev/src/main/resources/log4j2.xml**. The  level that is outputted can be changed in log4j2.xml.
 
-Logs created by org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType  are set to level **INFO** and will
+Logs created by org.theenergymashuplab.cts.controller.payloads.EiCreateTransactionType  are set to level INFO and will
 go to the ledger folder. 
 
 The trace level to be logged can be changed in log4j2.xml. **DESCRIBE HOW - command line -D, other ways?**
