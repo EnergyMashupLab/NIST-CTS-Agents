@@ -77,7 +77,7 @@ MySQL Workbench may require a MacOS system update.
 <a id="apache-tomcat"></a>Apache Tomcat 9
 ----------------------
 **If you are using Spring Tools 4 with Maven you do not need to download Apache Tomcat 9.** 
-Only download Apache Tomcat 9 if your are using the regular Eclipse IDE for development.
+Only download Apache Tomcat 9 if you're are using the regular Eclipse IDE for development.
 
 You can download Apache Tomcat 9 at [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi).
 
