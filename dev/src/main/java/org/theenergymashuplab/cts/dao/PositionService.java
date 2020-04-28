@@ -1,5 +1,12 @@
+/*
+ * 
+ * Updated by: Dhruvin Desai
+ * 
+ */
+
 package org.theenergymashuplab.cts.dao;
 
+import java.time.Instant;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -33,6 +40,10 @@ public class PositionService {
 	
 	public List<PositionManagerModel> getHistoryFromId(long fromId) {
 		return posRepo.getHistoryFromId(fromId);
+	}
+	
+	public List<PositionManagerModel> getPositionforDuration(long positionParty, Instant sTime, long duration) {
+		return posRepo.getPositionforDuration(positionParty, sTime, sTime.plusMillis(duration));
 	}
 	
 	

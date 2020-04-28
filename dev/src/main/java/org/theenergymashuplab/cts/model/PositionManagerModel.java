@@ -1,124 +1,132 @@
+/*
+ * 
+ * Updated by: Dhruvin Desai
+ * 
+ */
+
 package org.theenergymashuplab.cts.model;
 
-import java.sql.Date;
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Position")
 public class PositionManagerModel {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "Position_id")
-	private long positionId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "Counter_ID")
+	private long counterId;
 	
-	@Column(name = "Tender_id")
-	private long tenderID;
-	
+	@Column(name = "positionParty")
+	private long positionParty;
+
+	/**
+	 * @return the counterId
+	 */
+	public long getCounterId() {
+		return counterId;
+	}
+
+	/**
+	 * @param counterId the counterId to set
+	 */
+	public void setCounterId(long counterId) {
+		this.counterId = counterId;
+	}
+
 	@Column(name = "Transaction_id")
-	private long transactionID;
+	private long transactionId ;
 	
-	@Column(name = "Party_id")
-	private long partyID;
+	@Column(name = "Quantity")
+	private long quantity ;
 	
-	@Column(name = "CounterParty_id")
-	private long counterPartyID;
+	@Column(name = "Start_Time")
+	@NotNull
+	private Instant startTime;
 	
-	@Column(name = "Status")
-	private String status;
+	@Column(name = "End_Time")
+	@NotNull
+	private Instant expireTime;
 	
-	@Column(name = "Units")
-	private long units;
-	
-	@Column(name = "To_id")
-	private long toId;
-	
-	@Column(name = "From_id")
-	private long fromId;
-	
-	private Date timestamp;
 
-	public long getPositionId() {
-		return positionId;
+	/**
+	 * @return the startTime
+	 */
+	public Instant getStartTime() {
+		return startTime;
 	}
 
-	public void setPositionId(long positionId) {
-		this.positionId = positionId;
+	/**
+	 * @param startTime the startTime to set
+	 */
+	public void setStartTime(Instant startTime) {
+		this.startTime = startTime;
 	}
 
-	public long getTenderID() {
-		return tenderID;
+	/**
+	 * @return the expireTime
+	 */
+	public Instant getExpireTime() {
+		return expireTime;
 	}
 
-	public void setTenderID(long tenderID) {
-		this.tenderID = tenderID;
+	/**
+	 * @param expireTime the expireTime to set
+	 */
+	public void setExpireTime(Instant expireTime) {
+		this.expireTime = expireTime;
 	}
 
-	public long getTransactionID() {
-		return transactionID;
+	/**
+	 * @return the positionParty
+	 */
+	public long getPositionParty() {
+		return positionParty;
 	}
 
-	public void setTransactionID(long transactionID) {
-		this.transactionID = transactionID;
+	/**
+	 * @param positionParty the positionParty to set
+	 */
+	public void setPositionParty(long positionParty) {
+		this.positionParty = positionParty;
 	}
 
-	public long getPartyID() {
-		return partyID;
+	/**
+	 * @return the transactionId
+	 */
+	public long getTransactionId() {
+		return transactionId;
 	}
 
-	public void setPartyID(long partyID) {
-		this.partyID = partyID;
+	/**
+	 * @param transactionId the transactionId to set
+	 */
+	public void setTransactionId(long transactionId) {
+		this.transactionId = transactionId;
 	}
 
-	public long getCounterPartyID() {
-		return counterPartyID;
+	/**
+	 * @return the quantity
+	 */
+	public long getQuantity() {
+		return quantity;
 	}
 
-	public void setCounterPartyID(long counterPartyID) {
-		this.counterPartyID = counterPartyID;
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public long getUnits() {
-		return units;
-	}
-
-	public void setUnits(long units) {
-		this.units = units;
-	}
-
-	public long getToId() {
-		return toId;
-	}
-
-	public void setToId(long toId) {
-		this.toId = toId;
-	}
-
-	public long getFromId() {
-		return fromId;
-	}
-
-	public void setFromId(long fromId) {
-		this.fromId = fromId;
-	}
-
+	/*
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "Timestamp")
 	public Date getTimestamp() {
@@ -128,4 +136,5 @@ public class PositionManagerModel {
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}	
+	*/
 }
