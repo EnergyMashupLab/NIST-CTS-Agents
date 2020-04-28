@@ -21,7 +21,7 @@ Uses only generated libraries from Parity, specifically parity.libraries.book an
     * book.market.add(orderID, details) which adds to bid/ask data structures
       as relevant
     * RETURN/POST CreatedTender messaged to LMA.
-  2. Spontanous calls from internal MarketListener on match
+  2. Spontaneous calls from internal MarketListener on match
     * Accept callback
     * market.execute(orderID, quantity, price) which clears from bid/ask
       data structures as relevant
