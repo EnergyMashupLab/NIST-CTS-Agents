@@ -23,6 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.theenergymashuplab.cts.dao.EiTenderType;
 import org.theenergymashuplab.cts.model.EiTenderModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -63,6 +67,17 @@ public class EiCreateTenderType {
 	public EiTenderModel createTender(@Valid @RequestBody EiTenderModel bks) {
 		//logger.info(bks.toString());
 		//logger.info("Dhruvin: Testing ledger log working.");
+		Date tempd = null;
+		try {
+			tempd = new SimpleDateFormat("yyyy/MM/dd HH:mm").parse(bks.getStartTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Instant temp = tempd.toInstant();
+
+		temp.plusMillis(bks.getDuration());
+		bks.setExpireTime(temp.toString().replaceAll("[TZ]", " "));
 		String log_message = bks.toString();
 		logger.info(log_message);
 		logger2.info("Tender created with TenderId: " + String.valueOf(bks.getTenderID()));

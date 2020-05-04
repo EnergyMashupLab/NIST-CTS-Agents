@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.junit.Assert.*;
 //import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -68,6 +69,11 @@ public class EiCreateTenderTypeTest {
         mvc.perform(get("http://localhost:8080/tenders/"))
                 .andExpect(status().isOk());
     }
+    
+    @Test
+    public void passtest() throws Exception {
+        assertEquals('h', 'h');
+    }
 
     @Test
     public void add() throws Exception {
@@ -80,7 +86,7 @@ public class EiCreateTenderTypeTest {
         
         Calendar c1 = Calendar.getInstance();
         Date dateOne = c1.getTime();
-        Instant inst = dateOne.toInstant(); 
+        String inst = dateOne.toString(); 
         
         bks.setStartTime(inst);
         bks.setTransactiveState(TransactiveStateType.TRANSACTION);

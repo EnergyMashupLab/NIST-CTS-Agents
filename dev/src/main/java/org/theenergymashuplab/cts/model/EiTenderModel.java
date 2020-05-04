@@ -8,7 +8,7 @@
 package org.theenergymashuplab.cts.model;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -33,12 +33,12 @@ public class EiTenderModel implements Serializable {
 	private long quantity;
 	
 	@NotNull
-	private Instant startTime;
+	private String startTime;
 	
 	@NotNull
 	private long duration;
 	
-	private Instant expireTime;
+	private String expireTime;
 	
 	@NotNull
 	private TransactiveStateType transactiveState = TransactiveStateType.TENDER;
@@ -74,14 +74,14 @@ public class EiTenderModel implements Serializable {
 	/**
 	 * @return the startTime
 	 */
-	public Instant getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
 	/**
 	 * @param startTime the startTime to set
 	 */
-	public void setStartTime(Instant startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
@@ -102,14 +102,14 @@ public class EiTenderModel implements Serializable {
 	/**
 	 * @return the expireTime
 	 */
-	public Instant getExpireTime() {
+	public String getExpireTime() {
 		return expireTime;
 	}
 
 	/**
 	 * @param expireTime the expireTime to set
 	 */
-	public void setExpireTime(Instant expireTime) {
+	public void setExpireTime(String expireTime) {
 		this.expireTime = expireTime;
 	}
 
