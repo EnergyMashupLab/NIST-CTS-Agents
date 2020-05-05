@@ -30,7 +30,7 @@ The next section describes the project setup for logging, and indicates where th
 
 There are two types of rolling logs, one is for normal logging and the other is for ledgers. All logs described here are tab-separated text to simplify analysis with Excel and other spreadsheets (rather than for best human readability). 
 
-All the of logs from org.theenergymashuplab go in the logs folder *dev/logs* of your local system and print on the console. 
+All of the logs from org.theenergymashuplab go in the logs folder *dev/logs* of your local system and print on the console. 
 
 The levels set are TRACE (used rarely) and INFO; see the source code and **dev/src/main/resources/log4j2.xml**. The  level that is outputted can be changed in log4j2.xml.
 
