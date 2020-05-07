@@ -9,6 +9,7 @@ package org.theenergymashuplab.cts.controller.payloads;
 import java.time.Instant;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.logging.log4j.LogManager;
@@ -35,37 +36,41 @@ public class PositionManager {
 	
 	@PostMapping("/position/{positionParty}/add")
 	// add to a position
-	public PositionManagerModel createPosition(
+	public String createPosition(
 			@PathVariable(value = "positionParty") long positionParty,
-			// @RequestBody long quantity
-			//@RequestBody Interval interval
-			@RequestBody PositionAddPayload
-			
-			// need new type with Interval and quantity; posParty in PathVariable
-			// new class PositionAddPayload with attributes Interval Long
-			/*
-			 * class PositionAddPayload()
-			 * 	
-			 * 	long quantity
-			 * 	Interval interval
-			 * 	// long positionParty
-			 * }
-			 */
-			) {
+			@RequestBody PositionAddPayload posPayload,
+			HttpServletResponse response) {
 		
 		// Creating temporary position manager model instance.
-		PositionManagerModel posadd = new PositionManagerModel();
-		
-		// do in constrctor long, long, instant, long (in seconds duration)
-		
-		// Populating Data into the model object.
-		posadd.setPositionParty(positionParty);
-		posadd.setQuantity(quantity);
-		
-		// set Interval as start and end time
-		
+		PositionManagerModel posadd = new PositionManagerModel(
+				positionParty,
+				0,
+				posPayload.getQuantity(),
+				posPayload.getInterval().getDtStart(),
+				posPayload.getInterval().getDuration().getSeconds());
+
 		logger.info(posadd.toString());
-		return posDao.save(posadd);
+		
+		// Saving the position.
+		PositionManagerModel temp = null;
+		temp = posDao.save(posadd);
+		
+		//Return output decider.
+		if(temp != null) {
+			response.setStatus(HttpServletResponse.SC_OK);
+			return "OK";
+		}
+		else {
+			response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			return "ERROR: Not able to store the data.";
+		}
+	}
+	
+	@GetMapping("/position/{positionParty}/getPosition")
+	public String getPosition(
+			@PathVariable(value = "positionParty") long positionParty,
+			@RequestBody Interval interval) {
+		return null;
 	}
 	
 	/*		GET method
@@ -98,8 +103,8 @@ public class PositionManager {
 //	position/dumpPositions --print the whole database on the console (System.err)
 
 	 
-	 /*
-	@GetMapping("/test1")
+	
+	/*@GetMapping("/test1")
 	public ResponseEntity<Object> getPositionforDuration() {
 		long positionParty = 123;
 		Instant sTime = Instant.parse("2020-04-30T15:00:00.00Z");
@@ -126,7 +131,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(10);
 		break;
 		
@@ -137,7 +142,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(20);
 		break;
 		
@@ -148,7 +153,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(30);
 		break;
 		
@@ -159,7 +164,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(40);
 		break;
 		
@@ -170,7 +175,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(50);
 		break;
 		
@@ -181,7 +186,7 @@ public class PositionManager {
 			pos.setPositionParty(123);
 			pos.setTransactionId(456);
 			pos.setStartTime(sTime);
-			pos.setExpireTime(sTime.plusMillis(duration));
+			pos.setEndTime(sTime.plusMillis(duration));
 			pos.setQuantity(60);
 		break;
 		
@@ -192,5 +197,5 @@ public class PositionManager {
 		
 		
 		return posDao.save(pos);
-	}
+	}*/
 }

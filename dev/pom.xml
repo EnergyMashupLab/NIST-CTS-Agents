@@ -85,8 +85,7 @@
     </exclusions>
 </dependency>
 
-
-		Exclude Spring Boot's Default Logging -->
+Exclude Spring Boot's Default Logging -->
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter</artifactId>

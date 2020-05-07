@@ -21,31 +21,17 @@ import javax.validation.constraints.NotNull;
 public class PositionManagerModel {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "Counter_ID")
-	private long counterId;
+	@Column(name = "Sr_No.")
+	private long sr_no;
 	
 	@Column(name = "positionParty")
 	private long positionParty;
 
-	/**
-	 * @return the counterId
-	 */
-	public long getCounterId() {
-		return counterId;
-	}
-
-	/**
-	 * @param counterId the counterId to set
-	 */
-	public void setCounterId(long counterId) {
-		this.counterId = counterId;
-	}
-
 	@Column(name = "Transaction_id")
-	private long transactionId ;
+	private long transactionId;
 	
 	@Column(name = "Quantity")
-	private long quantity ;
+	private long quantity;
 	
 	@Column(name = "Start_Time")
 	@NotNull
@@ -53,13 +39,30 @@ public class PositionManagerModel {
 	
 	@Column(name = "End_Time")
 	@NotNull
-	private Instant expireTime;
-	
-	/*
-	 * CHANGE to End time
-	 */
-	
+	private Instant endTime;
 
+	// Class Constructor
+	public PositionManagerModel(
+			long positionParty,
+			long transaction_id,
+			long quantity,
+			Instant startTime,
+			long duration) {
+		this.positionParty = positionParty;
+		this.transactionId = transaction_id; // Always 0 at this point of time.(Future updated)
+		this.quantity = quantity;
+		this.startTime = startTime;
+		this.endTime = startTime.plusMillis(duration);
+	}
+	
+	//Default Constructor.
+	public PositionManagerModel() {
+		this.positionParty = 0;
+		this.transactionId = 0;
+		this.quantity = 0;
+		this.startTime = null;
+		this.endTime = null;
+	}
 	/**
 	 * @return the startTime
 	 */
@@ -68,24 +71,24 @@ public class PositionManagerModel {
 	}
 
 	/**
+	 * @return the sr_no
+	 */
+	public long getSr_no() {
+		return sr_no;
+	}
+
+	/**
+	 * @param sr_no the sr_no to set
+	 */
+	public void setSr_no(long sr_no) {
+		this.sr_no = sr_no;
+	}
+
+	/**
 	 * @param startTime the startTime to set
 	 */
 	public void setStartTime(Instant startTime) {
 		this.startTime = startTime;
-	}
-
-	/**
-	 * @return the expireTime
-	 */
-	public Instant getExpireTime() {
-		return expireTime;
-	}
-
-	/**
-	 * @param expireTime the expireTime to set
-	 */
-	public void setExpireTime(Instant expireTime) {
-		this.expireTime = expireTime;
 	}
 
 	/**
@@ -100,6 +103,20 @@ public class PositionManagerModel {
 	 */
 	public void setPositionParty(long positionParty) {
 		this.positionParty = positionParty;
+	}
+
+	/**
+	 * @return the endTime
+	 */
+	public Instant getEndTime() {
+		return endTime;
+	}
+
+	/**
+	 * @param endTime the endTime to set
+	 */
+	public void setEndTime(Instant endTime) {
+		this.endTime = endTime;
 	}
 
 	/**
@@ -129,16 +146,5 @@ public class PositionManagerModel {
 	public void setQuantity(long quantity) {
 		this.quantity = quantity;
 	}
-
-	/*
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "Timestamp")
-	public Date getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}	
-	*/
+	
 }
