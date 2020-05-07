@@ -6,7 +6,9 @@
 
 package org.theenergymashuplab.cts.controller.payloads;
 
+import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -67,10 +69,29 @@ public class PositionManager {
 	}
 	
 	@GetMapping("/position/{positionParty}/getPosition")
-	public String getPosition(
+	public ArrayList<PositionGetPayload> getPosition(
 			@PathVariable(value = "positionParty") long positionParty,
 			@RequestBody Interval interval) {
-		return null;
+		ArrayList<PositionGetPayload> dataList = new ArrayList<PositionGetPayload>();
+		
+		// Querying for data.
+		List<PositionManagerModel>  queryresult =  posDao.getPositionforDuration(
+				positionParty,
+				interval.getDtStart(),
+				interval.getDuration().getSeconds());
+		
+		// Generating response list.
+		PositionGetPayload tpayload = null;
+		Interval tinterval = null;
+
+		for(PositionManagerModel tposmod : queryresult) {
+			tinterval = new Interval(Duration.between(tposmod.getStartTime(), tposmod.getEndTime()).toMinutes(), tposmod.getStartTime());
+			tpayload = new PositionGetPayload(tinterval, tposmod.getQuantity());
+			
+			// Adding to the dataList.
+			dataList.add(tpayload);
+		}
+		return dataList;
 	}
 	
 	/*		GET method

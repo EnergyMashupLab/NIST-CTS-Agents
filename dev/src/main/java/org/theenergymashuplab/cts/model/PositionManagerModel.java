@@ -47,12 +47,12 @@ public class PositionManagerModel {
 			long transaction_id,
 			long quantity,
 			Instant startTime,
-			long duration) {
+			long durationinSeconds) {
 		this.positionParty = positionParty;
 		this.transactionId = transaction_id; // Always 0 at this point of time.(Future updated)
 		this.quantity = quantity;
 		this.startTime = startTime;
-		this.endTime = startTime.plusMillis(duration);
+		this.endTime = startTime.plusSeconds(durationinSeconds);
 	}
 	
 	//Default Constructor.
