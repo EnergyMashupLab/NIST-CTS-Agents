@@ -26,7 +26,7 @@ import org.theenergymashuplab.cts.model.PositionManagerModel;
 
 
 @RestController
-@RequestMapping("/position")
+//	@RequestMapping("/position")
 public class PositionManager {
 	private static final Logger logger = LogManager.getLogger(PositionManager.class);
 	
@@ -34,23 +34,71 @@ public class PositionManager {
 	PositionService posDao;
 	
 	@PostMapping("/position/{positionParty}/add")
+	// add to a position
 	public PositionManagerModel createPosition(
-			@PathVariable(value = "positionParty") int positionParty,
-			@RequestBody long quantity
+			@PathVariable(value = "positionParty") long positionParty,
+			// @RequestBody long quantity
 			//@RequestBody Interval interval
+			@RequestBody PositionAddPayload
+			
+			// need new type with Interval and quantity; posParty in PathVariable
+			// new class PositionAddPayload with attributes Interval Long
+			/*
+			 * class PositionAddPayload()
+			 * 	
+			 * 	long quantity
+			 * 	Interval interval
+			 * 	// long positionParty
+			 * }
+			 */
 			) {
 		
 		// Creating temporary position manager model instance.
 		PositionManagerModel posadd = new PositionManagerModel();
 		
+		// do in constrctor long, long, instant, long (in seconds duration)
+		
 		// Populating Data into the model object.
 		posadd.setPositionParty(positionParty);
 		posadd.setQuantity(quantity);
+		
+		// set Interval as start and end time
 		
 		logger.info(posadd.toString());
 		return posDao.save(posadd);
 	}
 	
+	/*		GET method
+	 *	/position/{positionParty}/getPosition
+	 *
+	 *	GET on this URI returns the position value for positionparty in the interval passed
+	 *
+	 *	@RequestBody has
+	 *		boundingInterval (in the granularity of the market - one hour market it's an interval starting on an hour
+	 *
+	 *	Turn the interval into start end time
+	 *
+	 * OK to have one interval and the return is a long
+	 * 
+	 * Future - boundingInterval
+	 */
+	
+	
+// position for that interval - if 3 or 4
+	/*
+	 * if UA asks for position bounding interval
+	 * 
+	 * RETURN A LIST <Interval, quantity> each of which fits in the boundingInterval 
+	 * 
+	 * What do you do if no positions are there? check for empty at the caller - UA does the test of what's back
+	 */
+	
+	
+	
+//	position/dumpPositions --print the whole database on the console (System.err)
+
+	 
+	 /*
 	@GetMapping("/test1")
 	public ResponseEntity<Object> getPositionforDuration() {
 		long positionParty = 123;

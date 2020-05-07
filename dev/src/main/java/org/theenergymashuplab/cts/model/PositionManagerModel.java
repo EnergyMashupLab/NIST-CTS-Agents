@@ -55,6 +55,10 @@ public class PositionManagerModel {
 	@NotNull
 	private Instant expireTime;
 	
+	/*
+	 * CHANGE to End time
+	 */
+	
 
 	/**
 	 * @return the startTime
