@@ -11,6 +11,7 @@ import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.theenergymashuplab.cts.model.PositionManagerModel;
@@ -21,9 +22,22 @@ public interface PositionRepository extends JpaRepository<PositionManagerModel, 
 	public PositionManagerModel getStatus(@Param("id") long id);
 	
 	// New updated queries.
-	@Query(nativeQuery = true, value = "select * from Position p where (p.position_party = :positionParty) AND ((p.start_time <= :sTime AND p.end_time > :sTime) OR (p.start_time < :sTime_plus_dur AND p.start_time > :sTime))")
+	@Query(nativeQuery = true, value = "select * from Position p where (p.positionParty = :positionParty) AND ((p.start_time <= :sTime AND p.end_time > :sTime) OR (p.start_time < :sTime_plus_dur AND p.start_time > :sTime))")
 	public List<PositionManagerModel> getPositionforDuration(@Param("positionParty") long positionParty,
 			@Param("sTime") Instant sTime,
 			@Param("sTime_plus_dur") Instant sTime_plus_dur);
 	
+	@Query(nativeQuery = true, value = "select * from Position p where p.positionParty = :positionParty AND start_time = : sTime AND end_time = :sTime_plus_dur")
+	public List<PositionManagerModel> getPositionforUpdate(
+			@Param("positionParty") long positionParty,
+			@Param("sTime") Instant sTime,
+			@Param("sTime_plus_dur") Instant sTime_plus_dur);
+	
+	@Modifying
+	@Query(nativeQuery = true, value = "update Position p set p.Quantity = p.Quantity + :newquantity where p.positionParty = :positionParty AND start_time = : sTime AND end_time = :sTime_plus_dur")
+	public int updatePositionforDuration(
+			@Param("positionParty") long positionParty,
+			@Param("sTime") Instant sTime,
+			@Param("sTime_plus_dur") Instant sTime_plus_dur,
+			@Param("newquantity") long newquantity);
 }

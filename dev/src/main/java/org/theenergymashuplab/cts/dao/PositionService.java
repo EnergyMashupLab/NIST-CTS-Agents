@@ -34,5 +34,11 @@ public class PositionService {
 		return posRepo.getPositionforDuration(positionParty, sTime, sTime.plusSeconds(durationinSeconds));
 	}
 	
+	public List<PositionManagerModel> getPositionforUpdate(long positionParty, Instant sTime, long durationinSeconds) {
+		return posRepo.getPositionforUpdate(positionParty, sTime, sTime.plusSeconds(durationinSeconds));
+	}
 	
+	public int updatePositionforDuration(long positionParty, Instant sTime, long durationinSeconds, long quantity) {
+		return posRepo.updatePositionforDuration(positionParty, sTime, sTime.plusSeconds(durationinSeconds), quantity);
+	}
 }
