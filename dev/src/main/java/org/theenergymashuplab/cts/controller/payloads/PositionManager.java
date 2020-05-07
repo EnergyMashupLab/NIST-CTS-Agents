@@ -33,48 +33,23 @@ public class PositionManager {
 	@Autowired
 	PositionService posDao;
 	
-	@PostMapping("/add")
-	public PositionManagerModel createPosition(@Valid @RequestBody PositionManagerModel pos) {
-		logger.info(pos.toString());
-		return posDao.save(pos);
+	@PostMapping("/position/{positionParty}/add")
+	public PositionManagerModel createPosition(
+			@PathVariable(value = "positionParty") int positionParty,
+			@RequestBody long quantity
+			//@RequestBody Interval interval
+			) {
+		
+		// Creating temporary position manager model instance.
+		PositionManagerModel posadd = new PositionManagerModel();
+		
+		// Populating Data into the model object.
+		posadd.setPositionParty(positionParty);
+		posadd.setQuantity(quantity);
+		
+		logger.info(posadd.toString());
+		return posDao.save(posadd);
 	}
-	
-	@GetMapping("/history/toId/{toId}")
-	public ResponseEntity<Object> getPositionHistoryToId(@PathVariable(value = "toId") long toId) {
-		List<PositionManagerModel>  list =  posDao.getHistoryToId(toId);
-		if (list == null) {
-			return ResponseEntity.notFound().build();
-		}
-		logger.info(String.valueOf(toId));
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@GetMapping("/history/fromId/{fromId}")
-	public ResponseEntity<Object> getPositionHistoryFromId(@PathVariable(value = "fromId") long fromId) {
-		List<PositionManagerModel>  list =  posDao.getHistoryToId(fromId);
-		if (list == null) {
-			return ResponseEntity.notFound().build();
-		}
-		logger.info(String.valueOf(fromId));
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@GetMapping("/history/count/{count}")
-	public ResponseEntity<Object> getPositionHistory(@PathVariable(value = "count") int count) {
-		List<PositionManagerModel>  list =  posDao.getHistory(count);
-		if (list == null) {
-			return ResponseEntity.notFound().build();
-		}
-		logger.info(String.valueOf(count));
-		return ResponseEntity.ok().body(list);
-	}
-	
-	/*@GetMapping("/getStatus/{id}")
-	public String getStatus(@PathVariable(value = "id") long id) {
-		PositionManagerModel p =  posDao.getStatus(id);
-		return p.getStatus();
-	}
-	*/
 	
 	@GetMapping("/test1")
 	public ResponseEntity<Object> getPositionforDuration() {

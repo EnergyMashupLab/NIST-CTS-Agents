@@ -26,20 +26,8 @@ public class PositionService {
 		return posRepo.save(pos);
 	}
 	
-	public List<PositionManagerModel> getHistory(int count){
-		return posRepo.getHistory(count);
-	}
-	
 	public PositionManagerModel getStatus(long id){
 		return posRepo.getStatus(id);
-	}
-
-	public List<PositionManagerModel> getHistoryToId(long toId) {
-		return posRepo.getHistoryToId(toId);
-	}
-	
-	public List<PositionManagerModel> getHistoryFromId(long fromId) {
-		return posRepo.getHistoryFromId(fromId);
 	}
 	
 	public List<PositionManagerModel> getPositionforDuration(long positionParty, Instant sTime, long duration) {
