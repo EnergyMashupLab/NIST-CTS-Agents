@@ -3,8 +3,8 @@ package org.theenergymashuplab.cts.controller.payloads;
 import java.time.*;
 
 public class Interval {
-	public static Duration duration = Duration.ZERO;
-	public static Instant dtStart;
+	public Duration duration = Duration.ZERO;
+	public Instant dtStart;
 	
 	/*
 	 *  Construct Interval from java.time.Duration and Instant
@@ -16,21 +16,12 @@ public class Interval {
 		this.dtStart = dtStart;
 	}
 	
-	@Override
-	public String toString()	{
-		Duration duration = this.getDuration();
-		
-		return ("Interval duration " + duration.toString() +
-				" dtStart " + 
-				this.dtStart.toString());
-	}
-
 	public Duration getDuration() {
 		return duration;
 	}
 
 	public void setDuration(Duration duration) {
-		Interval.duration = duration;
+		this.duration = duration;
 	}
 
 	public Instant getDtStart() {
@@ -38,6 +29,6 @@ public class Interval {
 	}
 
 	public void setDtStart(Instant dtStart) {
-		Interval.dtStart = dtStart;
+		this.dtStart = dtStart;
 	}
 }

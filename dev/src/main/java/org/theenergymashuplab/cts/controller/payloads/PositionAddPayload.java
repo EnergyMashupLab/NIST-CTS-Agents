@@ -9,7 +9,7 @@ package org.theenergymashuplab.cts.controller.payloads;
 
 
 public class PositionAddPayload {
-	
+
 	Interval interval;
 	long quantity;
 	
@@ -47,6 +47,12 @@ public class PositionAddPayload {
 	 */
 	public void setQuantity(long quantity) {
 		this.quantity = quantity;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "PositionAddPayload [interval=" + interval + ", quantity=" + quantity + "]";
 	}
 	
 }

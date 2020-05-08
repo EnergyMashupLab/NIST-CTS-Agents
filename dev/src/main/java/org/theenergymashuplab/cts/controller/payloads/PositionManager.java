@@ -38,8 +38,10 @@ public class PositionManager {
 	@PostMapping("/position/{positionParty}/add")
 	// add to a position
 	public String createPosition(@PathVariable(value = "positionParty") long positionParty,
-			@RequestBody PositionAddPayload posPayload, HttpServletResponse response) {
+			@RequestBody PositionAddPayload posPayload,
+			HttpServletResponse response) {
 
+		System.out.println("\n\n\n" + posPayload.toString() + "\n\n\n");
 		// Creating temporary position manager model instance.
 		PositionManagerModel posadd = new PositionManagerModel(
 				positionParty,
@@ -54,7 +56,7 @@ public class PositionManager {
 				posPayload.getInterval().getDuration().getSeconds());
 		
 		logger.info(posadd.toString());
-		
+		System.out.println("\n\n\n" + posPayload.toString() + "\n\n\n");
 		if (queryresult.isEmpty()) {
 			// New row to be added.
 			// Saving the position.

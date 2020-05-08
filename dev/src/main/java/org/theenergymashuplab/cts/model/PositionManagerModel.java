@@ -24,7 +24,7 @@ public class PositionManagerModel {
 	@Column(name = "Sr_No.")
 	private long sr_no;
 	
-	@Column(name = "positionParty")
+	@Column(name = "position_Party")
 	private long positionParty;
 
 	@Column(name = "Transaction_id")
