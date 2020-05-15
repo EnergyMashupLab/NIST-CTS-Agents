@@ -217,22 +217,16 @@ Similarly, you can delete the tender by going to the assigned URL
 
 ### **Controller Class**
 
-The Spring Controller Class is simply a class using REST controller annotation
+A Spring Restcontroller is annotated as follows.
 
-Spring
-Boot [annotations ](http://www.java67.com/2019/01/top-5-spring-boot-annotations-java-programmers-should-know.html)for
-handling different HTTP request types:
-
--   \@RequestMapping — For handling any request type
-
--   \@GetMapping — GET request
-
--   \@PostMapping — POST request
-
--   \@PutMapping — PUT request
-
--   \@DeleteMapping — DELETE request
-
+SpringBoot [annotations ](http://www.java67.com/2019/01/top-5-spring-boot-annotations-java-programmers-should-know.html) include the following for handling the various HTTP request types:
+```
+    \@RequestMapping — For handling any request type
+    \@GetMapping — GET request
+    \@PostMapping — POST request
+    \@PutMapping — PUT request
+    \@DeleteMapping — DELETE request
+```
 Example:
 
 Path variables are variables in the request URL and are annotated with
@@ -263,8 +257,7 @@ Entity Model.
 
 Example:
 
-# URI Structure for REST Service Operations
-
+## URI Structure for REST Service Operations
 
 POST operations have a RequestBody (the message that is POSTed to the listed
 URI) and a ResponseBody (the message body that is returned to the actor doing
@@ -282,41 +275,42 @@ approach maintains standards conformance and allows for
 
 -   A conformance statement at the end of the project
 
-NIST-CTS-Agents uses JSON rather than XML for message payloads. The project uses
-Jefferson serialization and deserialization between Java and JSON.
+NIST-CTS-Agents uses JSON for message payloads, rather than the base standards' use of XML. 
+The project uses Jackson serialization and deserialization between Java and JSON.
 
-LMA
+# Actor Pseudocode
 
-/createTender POST \@ResponseBody is an EiCreatedTender object
+## LMA URIs
+```
+/lma
+    /createTender POST \@ResponseBody is an EiCreatedTender object
+    /createTransaction POST \@ResponseBody is an EiCreatedTransaction object
+    /cancelTender POST \@ResponseBody is an EiCanceledTender object
 
-/createTransaction POST \@ResponseBody is an EiCreatedTransaction object
-
-/cancelTender POST \@ResponseBody is an EiCanceledTender object
-
-/party GET \@ResponseBody is an ActorId containing actor’s partyId
-
-LME
-
-/createTender POST \@ResponseBody is an EiCreatedTender object
-
-/cancelTender POST \@ResponseBody is an EiCanceledTender object
-
-/party GET \@ResponseBody is an ActorId containing actor’s partyId
-
-TEUA and EMA
-
-/teua — {id - sequential integer assigned on creation}
-
-/{id}/CreateTransaction POST \@ResponseBody is an EiCreatedTransaction object
-
-/{id}/CreateTender POST \@ResponseBody is an EiCreatedTender object. For user
-entity integration
-
-/{id}/party GET \@ResponseBody is an ActorId containing actor’s partyId
-
-Refer to the [Architecture
-Diagram](https://github.com/EnergyMashupLab/NIST-CTS-Agents/blob/master/Architecture.png) for
+    /party GET \@ResponseBody is an ActorId containing actor’s partyId
+```
+## LME URIs
+```
+/lme
+    /createTender POST \@ResponseBody is an EiCreatedTender object
+    /cancelTender POST \@ResponseBody is an EiCanceledTender object
+    
+    /party  GET \@ResponseBody is an ActorId containing actor’s partyId
+```
+## TEUA and EMA URIs
+The TEUA and EMA have dynamic URIs, with *id* being a sequential number. The TEUAs are associated by that number with a Client.
+```
+/teua//{id}
+    /CreateTransaction POST \@ResponseBody is an EiCreatedTransaction object
+    /CreateTender POST \@ResponseBody is an EiCreatedTender object.
+    /party GET \@ResponseBody is an ActorId containing actor’s partyId
+```
+Refer to the [Architecture Diagram](https://github.com/EnergyMashupLab/NIST-CTS-Agents/blob/master/Architecture.png) for
 more detail on the RESTcontrollers.
+
+# Actor Pseudocode
+
+**TODO update to as-implemented. Update terminology**
 
 ## LMA Pseudocode
 
@@ -344,15 +338,13 @@ Logical Description:
 
 POST methods:
 
-1.  POST action (request from SC, CreateTender for full requirements for a time
-    period)
+1.  POST action (ClientCreateTender request from Client/SC for full requirements for a time period)
 
-    1.  Query position
+    1.  Query position (from Position Manager)
 
-    2.  Compare, subtract and POST remaining requirements as CreateTender to
-        LMA. Log
+    2.  Compare, subtract and POST remaining requirements as CreateTender to LMA. Log.
 
-    3.  RETURN/POST CreatedTender message to SC
+    3.  REPLY CreatedTender message to Client/SC
 
 2.  POST action (request from LMA, CreatedTender)
 
