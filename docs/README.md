@@ -16,6 +16,7 @@ Table of Contents
    * [Position Manager](position_manager.md)
    * [Web Services](web_services.md)
    * [Continuous Integration](travis_CI.md)
+   * [Parity Terminal Client](ParityRest\README.md)
 <!--te-->
 
 Project Build Steps

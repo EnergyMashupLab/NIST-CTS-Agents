@@ -149,7 +149,7 @@ The project has a number of components and information in a number of subfolders
 
     -   Logging (traces) and input for live and simulation meter and other data
     
-    -   Ledgers keep records of tenders and transactions; 
+    -   Ledgers keep records of tenders and transactions 
     
 Note: 
 A ledger is a list in time order of committed transactions. A position is cumulative committed transactions. A trace of messages includes transactions proposed but never cleared. Ledgers are saved to a file or possibly sent over a network connection as the design matures.
