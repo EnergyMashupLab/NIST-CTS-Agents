@@ -6,6 +6,10 @@
   <br>
 </h1>
 
+
+**Please note that this repository contains early and transitional code.
+LIVE CODE AND ACTIVE WORK IS IN THE [eml-cts](https://github.com/EnergyMashupLab/eml-cts) REPOSITORY ON GITHUB** at https://github.com/EnergyMashupLab/eml-cts
+
 <p align="center">
   <a href="#background">Background</a> •
   <a href="#tech-desc">Technical Description</a> •
