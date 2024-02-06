@@ -22,6 +22,7 @@ Project Build Steps
 -------------------
 
 Most work is in the **development** branch of the repository. Any documentation work is done in the **documentation** branch. 
+See the Project Wiki for setup and other information.
 
 1.  Download prequisites and tooling as needed. See [Prerequisites.MD](prerequisites.md) for more information. **NOTE: If you are cloning the
     code from GitHub, you need only the Java SDKs, Spring Tool IDE, Apache
